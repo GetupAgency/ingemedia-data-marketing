@@ -3426,6 +3426,9 @@ export const unifiedLearningPath: LearningModule[] = [
   }
 ];
 
+// Export principal
+export const allLearningModules = unifiedLearningPath;
+
 // Fonction utilitaire pour encoder le mot de passe enseignant
 const teacherPassword = atob('R3Jvc2FjNEV2ZXIh'); // "Grosac4Ever!"
 

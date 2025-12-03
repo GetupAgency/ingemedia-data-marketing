@@ -1,6 +1,7 @@
 import React from 'react';
 import UnifiedLearningPlatform from '../components/UnifiedLearningPlatform';
 import '../styles/modules.css';
+import '../styles/premium.css';
 
 /**
  * Page Apprendre - Version Unifiée
