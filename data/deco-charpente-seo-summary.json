@@ -1,0 +1,164 @@
+{
+  "source": "Google Search Console",
+  "period": "2025-01-01 à 2025-10-09", 
+  "files": [
+    "Pages.csv",
+    "Requêtes.csv",
+    "Dates.csv"
+  ],
+  "key_metrics": {
+    "total_pages": 1000,
+    "total_queries": 1000,
+    "total_clicks": "~8000/mois",
+    "average_ctr": "1.5%",
+    "average_position": 19.5
+  },
+  "brand_performance": {
+    "deco_charpente": {
+      "clicks": 1442,
+      "impressions": 3195, 
+      "ctr": "45.13%",
+      "position": 1.1,
+      "note": "Excellente performance marque"
+    },
+    "déco_charpente": {
+      "clicks": 318,
+      "impressions": 777,
+      "ctr": "40.93%", 
+      "position": 1.0
+    },
+    "decocharpente": {
+      "clicks": 48,
+      "impressions": 135,
+      "ctr": "35.56%",
+      "position": 1.0
+    }
+  },
+  "top_product_keywords": [
+    {
+      "keyword": "auvent bois",
+      "clicks": 113,
+      "impressions": 14855,
+      "ctr": "0.76%",
+      "position": 9.32,
+      "potential": "Fort - améliorer position"
+    },
+    {
+      "keyword": "pergola bois sur mesure", 
+      "clicks": 98,
+      "impressions": 5497,
+      "ctr": "1.78%",
+      "position": 7.65,
+      "potential": "Moyen - optimiser contenu"
+    },
+    {
+      "keyword": "abri voiture",
+      "clicks": 64, 
+      "impressions": 28911,
+      "ctr": "0.22%",
+      "position": 20.11,
+      "potential": "Très fort - position à améliorer"
+    },
+    {
+      "keyword": "carport bois sur mesure",
+      "clicks": 59,
+      "impressions": 2711, 
+      "ctr": "2.18%",
+      "position": 12.32,
+      "potential": "Bon - maintenir efforts"
+    }
+  ],
+  "top_pages": [
+    {
+      "url": "https://www.deco-charpente.fr/",
+      "clicks": 2132,
+      "impressions": 51688,
+      "ctr": "4.12%",
+      "position": 26.59,
+      "type": "Homepage"
+    },
+    {
+      "url": "https://www.deco-charpente.fr/appentis-et-auvent/",
+      "clicks": 1121,
+      "impressions": 118021, 
+      "ctr": "0.95%",
+      "position": 14.56,
+      "type": "Catégorie produit"
+    },
+    {
+      "url": "https://www.deco-charpente.fr/abri-voiture-bois/",
+      "clicks": 866,
+      "impressions": 190212,
+      "ctr": "0.46%", 
+      "position": 32.75,
+      "type": "Catégorie produit"
+    }
+  ],
+  "concessionnaire_pages": {
+    "performance_overview": "Pages concessionnaires = 20% du trafic total",
+    "top_performers": [
+      {
+        "region": "Drôme-Ardèche",
+        "clicks": 663,
+        "ctr": "1.91%",
+        "position": 17.91
+      },
+      {
+        "region": "Vaucluse", 
+        "clicks": 634,
+        "ctr": "2.86%",
+        "position": 14.65
+      },
+      {
+        "region": "Var",
+        "clicks": 462,
+        "ctr": "1.86%",
+        "position": 17.49
+      }
+    ]
+  },
+  "local_seo": {
+    "city_pages": [
+      "Toulouse", "Bordeaux", "Périgueux", "Angoulême", "La Rochelle"
+    ],
+    "performance": "CTR élevé (2-6%) mais volume faible",
+    "opportunity": "Développer contenu local pour autres villes"
+  },
+  "content_opportunities": [
+    {
+      "theme": "Guides pratiques",
+      "keywords": ["construire pergola", "installer carport", "choisir bois"],
+      "potential_traffic": "Élevé"
+    },
+    {
+      "theme": "Comparatifs produits",
+      "keywords": ["pergola vs auvent", "carport vs garage"],
+      "potential_traffic": "Moyen"
+    },
+    {
+      "theme": "Inspiration projets",
+      "keywords": ["idées pergola", "aménagement extérieur"],
+      "potential_traffic": "Élevé"
+    }
+  ],
+  "technical_seo": {
+    "indexation": "Bonne - 1000+ pages indexées",
+    "positions_moyennes": "À améliorer - beaucoup en page 2-3",
+    "ctr_global": "Correct mais perfectible",
+    "mobile_performance": "À vérifier"
+  },
+  "optimization_priorities": [
+    "Améliorer positions mots-clés produits (page 1)",
+    "Optimiser pages catégories (CTR faible)", 
+    "Développer contenu longue traîne",
+    "Renforcer SEO local par région",
+    "Créer landing pages spécialisées"
+  ],
+  "analysis_questions": [
+    "Quels mots-clés ont le plus fort potentiel de croissance ?",
+    "Comment améliorer le CTR des pages produits ?", 
+    "Quelle stratégie de contenu pour la longue traîne ?",
+    "Comment optimiser le SEO local par concessionnaire ?",
+    "Quelles pages créer pour capturer plus de trafic ?"
+  ]
+}

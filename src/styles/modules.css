@@ -1,0 +1,128 @@
+/* Styles pour les modules de formation data marketing */
+
+.section-content {
+  @apply space-y-6;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-gray-900 mb-6 pb-4 border-b-2 border-indigo-200;
+}
+
+.section-subtitle {
+  @apply text-xl font-semibold text-gray-800 mb-4 mt-8;
+}
+
+.section-text {
+  @apply text-gray-700 leading-relaxed mb-6;
+}
+
+.project-type {
+  @apply bg-white border border-gray-200 rounded-lg p-6 mb-6 shadow-sm;
+}
+
+.project-type-title {
+  @apply text-lg font-bold text-indigo-900 mb-4 pb-2 border-b border-indigo-100;
+}
+
+.project-detail {
+  @apply mb-4;
+}
+
+.project-detail strong {
+  @apply font-semibold text-gray-900;
+}
+
+.feature-list {
+  @apply list-disc list-inside space-y-2 ml-4 mt-2;
+}
+
+.feature-list li {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.value-type {
+  @apply bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mb-6;
+}
+
+.value-title {
+  @apply text-lg font-bold text-blue-900 mb-3;
+}
+
+.example-box {
+  @apply bg-green-50 border border-green-200 rounded-lg p-4 mt-4 text-green-800;
+}
+
+.example-box strong {
+  @apply font-semibold text-green-900;
+}
+
+.deliverables-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6;
+}
+
+.deliverable-phase {
+  @apply bg-white border border-gray-200 rounded-lg p-4;
+}
+
+.phase-title {
+  @apply font-semibold text-gray-900 mb-3 text-sm;
+}
+
+.deliverable-list {
+  @apply list-disc list-inside space-y-1 text-sm text-gray-700;
+}
+
+.cas-pratique-content {
+  @apply space-y-4;
+}
+
+.cas-pratique-subtitle {
+  @apply text-lg font-semibold text-purple-900 mb-2;
+}
+
+.correction-content {
+  @apply space-y-6;
+}
+
+.correction-title {
+  @apply text-2xl font-bold text-gray-900 mb-4 pb-3 border-b-2 border-gray-200;
+}
+
+.correction-subtitle {
+  @apply text-lg font-semibold text-gray-800 mb-3;
+}
+
+.correction-list {
+  @apply list-disc list-inside space-y-2 ml-4 text-gray-700;
+}
+
+.correction-list-compact {
+  @apply list-disc list-inside space-y-1 ml-4 text-sm text-gray-600;
+}
+
+.correction-list strong {
+  @apply font-semibold text-gray-900;
+}
+
+.highlight {
+  @apply bg-yellow-100 text-yellow-900 px-2 py-1 rounded font-semibold;
+}
+
+.budget {
+  @apply bg-green-100 text-green-800 px-2 py-1 rounded font-semibold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .deliverables-grid {
+    @apply grid-cols-1;
+  }
+  
+  .section-title {
+    @apply text-2xl;
+  }
+  
+  .project-type {
+    @apply p-4;
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "source": "Google Ads",
+  "period": "2025-01-01 à 2025-10-09",
+  "files": [
+    "termes-recherche-gads.csv",
+    "Campagnes(2025.01.01-2025.10.09_par_rapport_à_2024.01.01-2024.10.09).csv",
+    "Mots_clés_pour_le_Réseau_de_Recherche(2025.01.01-2025.10.09_par_rapport_à_2024.01.01-2024.10.09).csv",
+    "Série_temporelle(2024.12.30-2025.10.09_par_rapport_à_2024.01.01-2024.10.09).csv"
+  ],
+  "key_metrics": {
+    "total_spend": "~40,000€",
+    "total_conversions": "~350",
+    "average_cpc": "1.20€",
+    "top_campaigns": [
+      {
+        "name": "Globale-réseau",
+        "spend": "11,925.86€",
+        "conversions": "89.72",
+        "cpc": "1.70€"
+      },
+      {
+        "name": "Réseau_Rock_autour31",
+        "spend": "3,634.70€", 
+        "conversions": "37.00",
+        "cpc": "0.96€"
+      },
+      {
+        "name": "AbriVoiture-Performance-2025-Alexia",
+        "spend": "3,021.31€",
+        "conversions": "77.11", 
+        "cpc": "0.24€"
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "carport",
+        "spend": "2,225.38€",
+        "clicks": 951,
+        "ctr": "5.66%"
+      },
+      {
+        "keyword": "carport bois", 
+        "spend": "1,520.94€",
+        "clicks": 823,
+        "ctr": "9.63%"
+      },
+      {
+        "keyword": "pergola bois",
+        "spend": "1,402.17€", 
+        "clicks": 822,
+        "ctr": "7.61%"
+      }
+    ],
+    "search_terms_insights": {
+      "total_terms": 63720,
+      "performance_max_dominance": true,
+      "top_performing_terms": [
+        "pergola bois adossée",
+        "construire un carport", 
+        "pergola bois 2x4",
+        "abris de jardin bois"
+      ],
+      "campaign_structure": {
+        "C9_Pelerin_PMax": "Performance Max principale",
+        "Globale-réseau Essai 672": "Recherche générale",
+        "C7_Sueur": "Concessionnaire spécifique"
+      }
+    }
+  },
+  "seasonality": {
+    "peak_period": "Avril-Mai 2025",
+    "low_period": "Juillet-Août 2025", 
+    "weekly_pattern": "Pics en milieu de semaine"
+  },
+  "campaign_structure": {
+    "concessionnaire_campaigns": [
+      "C1_Boyer", "C2_Richaud", "C5_Richaud", "C6_Lagache", 
+      "C7_Sueur", "C9_Pelerin", "C10_Georges"
+    ],
+    "product_campaigns": [
+      "AbriVoiture-Performance-2025-Alexia",
+      "Pergola-Performance-2025-Alexia"
+    ],
+    "general_campaigns": [
+      "Globale-réseau",
+      "Réseau_Rock_autour31"
+    ]
+  },
+  "optimization_opportunities": [
+    "Campagnes C2, C4, C8 à réactiver (0€ dépensé)",
+    "Mots-clés 'Expression exacte' supprimés à réévaluer",
+    "Performance Max à optimiser (faible CTR sur certains termes)",
+    "Budget à redistribuer vers campagnes rentables"
+  ],
+  "analysis_questions": [
+    "Quel est le ROI par concessionnaire ?",
+    "Quels mots-clés ont le meilleur potentiel de croissance ?",
+    "Comment optimiser les campagnes Performance Max ?",
+    "Quelle stratégie pour les périodes creuses ?",
+    "Quel budget optimal par région ?"
+  ]
+}

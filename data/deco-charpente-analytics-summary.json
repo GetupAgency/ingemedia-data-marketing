@@ -1,0 +1,122 @@
+{
+  "source": "Google Analytics 4",
+  "period": "2024-10-08 à 2025-10-08",
+  "files": [
+    "analytics-aquisition.csv"
+  ],
+  "key_metrics": {
+    "total_weeks_analyzed": 53,
+    "peak_users_week": 1936,
+    "low_users_week": 341, 
+    "average_weekly_users": 750,
+    "growth_trend": "Croissance forte Q1-Q2 2025, stabilisation Q3"
+  },
+  "traffic_patterns": {
+    "seasonal_analysis": {
+      "winter_2024": {
+        "weeks": "0-8",
+        "avg_users": 580,
+        "trend": "Croissance progressive"
+      },
+      "spring_2025": {
+        "weeks": "9-21", 
+        "avg_users": 1150,
+        "trend": "Forte croissance (+98%)",
+        "peak_week": "Semaine 17 (1936 utilisateurs)"
+      },
+      "summer_2025": {
+        "weeks": "22-35",
+        "avg_users": 850,
+        "trend": "Déclin saisonnier (-26%)"
+      },
+      "fall_2025": {
+        "weeks": "36-52",
+        "avg_users": 520,
+        "trend": "Stabilisation basse"
+      }
+    },
+    "weekly_patterns": {
+      "best_weeks": [17, 16, 15, 23, 14],
+      "worst_weeks": [0, 46, 45, 35, 36],
+      "volatility": "Forte variation saisonnière (x5.7 entre min/max)"
+    }
+  },
+  "business_insights": {
+    "peak_season": {
+      "period": "Mars-Mai 2025",
+      "characteristics": "Période de forte demande construction extérieure",
+      "marketing_impact": "Corrélation avec montée campagnes publicitaires"
+    },
+    "low_season": {
+      "period": "Octobre-Décembre",
+      "characteristics": "Baisse naturelle activité construction",
+      "opportunity": "Période de préparation/inspiration pour saison suivante"
+    },
+    "growth_drivers": {
+      "q1_2025": "Lancement nouvelles campagnes marketing",
+      "spring_boost": "Saisonnalité naturelle + optimisations SEO/SEM",
+      "stabilization": "Maturité campagnes + concurrence accrue"
+    }
+  },
+  "acquisition_analysis": {
+    "traffic_sources_hypothesis": {
+      "organic_search": "Base stable toute l'année",
+      "paid_search": "Boost printemps (corrélation Google Ads)",
+      "social_media": "Croissance progressive (Meta Ads)",
+      "direct_traffic": "Fidélisation et notoriété marque"
+    },
+    "conversion_opportunities": {
+      "high_traffic_periods": "Optimiser conversion pendant pics",
+      "low_traffic_periods": "Focus qualité trafic et nurturing",
+      "seasonal_content": "Adapter contenu aux cycles saisonniers"
+    }
+  },
+  "performance_benchmarks": {
+    "excellent_weeks": ">1500 utilisateurs (top 10%)",
+    "good_weeks": "1000-1500 utilisateurs (top 25%)", 
+    "average_weeks": "600-1000 utilisateurs (médiane)",
+    "low_weeks": "<600 utilisateurs (bottom 25%)"
+  },
+  "correlation_analysis": {
+    "with_google_ads": {
+      "hypothesis": "Forte corrélation pics trafic/dépenses publicitaires",
+      "evidence": "Semaines 14-18 = pic trafic + pic dépenses Ads"
+    },
+    "with_seo": {
+      "hypothesis": "Croissance organique progressive",
+      "evidence": "Base de trafic stable même en période creuse"
+    },
+    "with_seasonality": {
+      "hypothesis": "Business saisonnier construction extérieure",
+      "evidence": "Pic printemps, creux automne/hiver"
+    }
+  },
+  "optimization_opportunities": [
+    "Anticiper montée saisonnière (campagnes pré-saison)",
+    "Optimiser conversion pendant pics de trafic",
+    "Développer stratégie hors-saison (inspiration, devis)",
+    "Lisser la saisonnalité avec nouveaux produits/services",
+    "Améliorer rétention utilisateurs période creuse"
+  ],
+  "analysis_questions": [
+    "Quelle corrélation exacte entre trafic et dépenses publicitaires ?",
+    "Comment optimiser la conversion pendant les pics de trafic ?",
+    "Quelle stratégie pour lisser la saisonnalité ?",
+    "Quels canaux d'acquisition sont les plus stables ?",
+    "Comment améliorer la rétention hors saison ?",
+    "Quel impact des optimisations SEO sur la croissance ?"
+  ],
+  "forecasting": {
+    "next_peak_season": "Mars-Mai 2026",
+    "preparation_period": "Décembre 2025 - Février 2026",
+    "expected_growth": "+20% vs 2025 si optimisations appliquées",
+    "risk_factors": "Concurrence accrue, saturation marché"
+  },
+  "recommendations": [
+    "Préparer campagnes pré-saison (Janvier-Février)",
+    "Optimiser landing pages avant pics de trafic",
+    "Développer contenu evergreen pour périodes creuses",
+    "Mettre en place nurturing leads hors-saison",
+    "Analyser attribution multi-canal détaillée"
+  ]
+}

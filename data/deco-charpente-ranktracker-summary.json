@@ -1,0 +1,193 @@
+{
+  "source": "RankTracker SEO",
+  "period": "Suivi actuel des positions",
+  "files": [
+    "rank-tracker.csv"
+  ],
+  "data_overview": {
+    "total_keywords": 484,
+    "tracking_scope": "Mots-clés stratégiques Déco Charpente",
+    "position_range": "1 à >20",
+    "visibility_metrics": "Score de visibilité par mot-clé"
+  },
+  "top_performing_keywords": [
+    {
+      "keyword": "abri voitures",
+      "position": 1,
+      "previous": 3,
+      "improvement": "+2 positions",
+      "url": "https://www.deco-charpente.fr/abri-voiture-bois/",
+      "visibility": "0.42"
+    },
+    {
+      "keyword": "abri voiture bois 34",
+      "position": 1,
+      "url": "https://www.deco-charpente.fr/abri-voiture-bois/",
+      "visibility": "0%"
+    },
+    {
+      "keyword": "Abri voiture Bois Marseille", 
+      "position": 1,
+      "previous": 2,
+      "improvement": "+1 position",
+      "url": "https://www.deco-charpente.fr/",
+      "visibility": "0.03"
+    }
+  ],
+  "keyword_categories": {
+    "abri_voiture": {
+      "count": "~150 mots-clés",
+      "performance": "Excellente - positions 1-6 majoritaires",
+      "top_positions": ["abri voitures (1)", "abri voiture bois fermé (4)", "carport en bois (4)"],
+      "opportunity": "Domination du secteur"
+    },
+    "pergola": {
+      "count": "~100 mots-clés", 
+      "performance": "Bonne - positions moyennes 5-15",
+      "geographic_strength": "Forte sur requêtes locales (Cannes, Antibes, Carpentras)",
+      "opportunity": "Améliorer positions génériques"
+    },
+    "appentis_auvent": {
+      "count": "~80 mots-clés",
+      "performance": "Correcte - positions 8-15",
+      "keywords": ["appenti bois (11)", "appentis bois (9)", "auvent bois sur mesure (5)"],
+      "opportunity": "Potentiel d'amélioration"
+    },
+    "pool_house": {
+      "count": "~50 mots-clés",
+      "performance": "Émergente - nouvelles positions",
+      "trend": "Entrée récente sur 'pool house bois (14)'",
+      "opportunity": "Marché à développer"
+    }
+  },
+  "geographic_seo": {
+    "strong_regions": [
+      "Bouches-du-Rhône (Marseille, Aix)",
+      "Vaucluse (Carpentras, Avignon)", 
+      "Alpes-Maritimes (Cannes, Antibes, Nice)",
+      "Drôme-Ardèche (Valence, Montélimar)",
+      "Isère (Grenoble, Voiron)"
+    ],
+    "local_dominance": {
+      "position_1_cities": [
+        "Marseille", "Antibes", "La Seyne sur Mer", 
+        "Cannes", "Nice", "Uzès", "Aubenas"
+      ],
+      "position_2_cities": [
+        "Aix en Provence", "Carpentras", "Grenoble", 
+        "Montélimar", "Avignon"
+      ]
+    },
+    "coverage_analysis": "Excellent maillage territorial Sud de la France"
+  },
+  "position_distribution": {
+    "position_1": "~50 mots-clés (10%)",
+    "positions_1_3": "~120 mots-clés (25%)", 
+    "positions_4_10": "~150 mots-clés (31%)",
+    "positions_11_20": "~100 mots-clés (21%)",
+    "position_20+": "~64 mots-clés (13%)"
+  },
+  "visibility_insights": {
+    "high_visibility": "Mots-clés avec score > 0.5 (abri voiture, carport)",
+    "medium_visibility": "Score 0.1-0.5 (pergola, appentis)",
+    "low_visibility": "Score < 0.1 (longue traîne locale)",
+    "trend_analysis": "Améliorations récentes sur plusieurs mots-clés"
+  },
+  "content_mapping": {
+    "top_landing_pages": [
+      "https://www.deco-charpente.fr/abri-voiture-bois/ (champion)",
+      "https://www.deco-charpente.fr/ (homepage forte)",
+      "https://www.deco-charpente.fr/appentis-et-auvent/",
+      "https://www.deco-charpente.fr/pergola-bois-sur-mesure/",
+      "https://www.deco-charpente.fr/pool-house-kiosque/"
+    ],
+    "concessionnaire_pages": "Excellente performance locale",
+    "city_specific_pages": "Stratégie de contenu local efficace"
+  },
+  "competitive_analysis": {
+    "dominated_keywords": "Abri voiture, carport (positions 1-4)",
+    "competitive_keywords": "Pergola générique (concurrence forte)",
+    "opportunity_keywords": "Pool house, kiosque (marché émergent)",
+    "long_tail_strength": "Excellente sur requêtes géolocalisées"
+  },
+  "technical_seo_insights": {
+    "url_structure": "Optimisée pour SEO (/abri-voiture-bois/, /pergola-bois-sur-mesure/)",
+    "geographic_targeting": "Pages dédiées par région/ville",
+    "content_strategy": "Approche hub & spoke efficace",
+    "internal_linking": "Bonne distribution du jus SEO"
+  },
+  "trends_and_movements": {
+    "positive_trends": [
+      "abri voitures: +2 positions (3→1)",
+      "Abri voiture Bois Marseille: +1 position (2→1)",
+      "carport var: amélioration notable"
+    ],
+    "stable_positions": "Majorité des mots-clés stables",
+    "new_entries": "pool house bois: nouvelle entrée position 14",
+    "negative_trends": "Quelques mots-clés en baisse (-3% à -30%)"
+  },
+  "optimization_opportunities": [
+    {
+      "priority": "Haute",
+      "action": "Améliorer positions pergola générique (actuellement 7-15)",
+      "keywords": ["pergola bois", "pergola en bois", "pergola terrasse"],
+      "potential": "Fort trafic disponible"
+    },
+    {
+      "priority": "Haute", 
+      "action": "Développer contenu pool house (marché émergent)",
+      "keywords": ["pool house bois", "poolhouse", "pool house moderne"],
+      "potential": "Nouveau marché à capturer"
+    },
+    {
+      "priority": "Moyenne",
+      "action": "Renforcer appentis/auvent (positions 8-15)",
+      "keywords": ["appenti bois", "auvent bois", "appentis sur mesure"],
+      "potential": "Amélioration incrémentale"
+    },
+    {
+      "priority": "Faible",
+      "action": "Maintenir dominance abri voiture",
+      "keywords": ["carport", "abri voiture", "abri voitures"],
+      "potential": "Défense de positions acquises"
+    }
+  ],
+  "content_gaps": [
+    "Guides d'installation pergola",
+    "Comparatifs produits (pergola vs auvent)",
+    "Réglementation construction par région",
+    "Inspirations pool house moderne",
+    "Prix et devis en ligne"
+  ],
+  "correlation_with_search_console": {
+    "position_alignment": "Cohérence avec données Search Console",
+    "click_potential": "Mots-clés position 4-10 = opportunité CTR",
+    "impression_volume": "Positions 11-20 = volume impressions sans clics",
+    "optimization_priority": "Focus sur passage page 2 → page 1"
+  },
+  "business_impact": {
+    "revenue_keywords": "Abri voiture, carport = 70% du CA potentiel",
+    "growth_keywords": "Pergola, pool house = expansion marché",
+    "local_dominance": "SEO local = avantage concurrentiel fort",
+    "brand_protection": "Positions marque sécurisées"
+  },
+  "analysis_questions": [
+    "Quelle corrélation entre positions RankTracker et trafic Search Console ?",
+    "Quel impact des améliorations de positions sur les conversions ?",
+    "Comment optimiser les mots-clés en positions 4-10 pour atteindre le top 3 ?",
+    "Quelle stratégie de contenu pour capturer le marché pool house ?",
+    "Comment maintenir la dominance abri voiture face à la concurrence ?",
+    "Quel ROI des efforts SEO par catégorie de mots-clés ?",
+    "Comment exploiter la force du SEO local pour d'autres régions ?",
+    "Quelle priorisation des optimisations selon le potentiel business ?"
+  ],
+  "recommendations": [
+    "Créer du contenu premium sur pergola (guides, inspirations)",
+    "Développer la stratégie pool house (pages dédiées, contenu)",
+    "Optimiser les pages existantes pour mots-clés positions 4-10",
+    "Étendre le SEO local à de nouvelles villes/régions",
+    "Surveiller et défendre les positions dominantes abri voiture",
+    "Analyser les mots-clés concurrents non trackés",
+    "Corréler données RankTracker avec conversions réelles"
+  ]
+}

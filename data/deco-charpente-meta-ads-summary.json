@@ -1,0 +1,139 @@
+{
+  "source": "Meta Ads (Facebook/Instagram)",
+  "period": "2025-01-01 à 2025-10-08",
+  "files": [
+    "meta-ads-2025.csv"
+  ],
+  "key_metrics": {
+    "total_spend": "2,449.51€",
+    "total_results": "2,640 actions",
+    "average_cost_per_result": "0.93€",
+    "total_reach": "307,419 personnes",
+    "total_impressions": "691,176",
+    "total_clicks": "7,499"
+  },
+  "campaign_performance": [
+    {
+      "name": "Pub C10 BtoC - Générale carrousel",
+      "status": "inactive",
+      "spend": "1,034.02€",
+      "results": 123,
+      "result_type": "leads",
+      "cost_per_result": "8.41€",
+      "reach": 78290,
+      "impressions": 234137,
+      "clicks": 2795,
+      "landing_page_views": 107,
+      "note": "Meilleure campagne lead generation"
+    },
+    {
+      "name": "Campagne C6 Juillet 2025", 
+      "status": "inactive",
+      "spend": "637.91€",
+      "results": 46,
+      "result_type": "leads",
+      "cost_per_result": "13.87€",
+      "reach": 45679,
+      "impressions": 131903,
+      "clicks": 844,
+      "note": "Coût par lead élevé"
+    },
+    {
+      "name": "Campagne C10 Juillet 2025",
+      "status": "active", 
+      "spend": "738.99€",
+      "results": 74,
+      "result_type": "leads",
+      "cost_per_result": "9.99€",
+      "reach": 71458,
+      "impressions": 181958,
+      "clicks": 1200,
+      "note": "Campagne active performante"
+    },
+    {
+      "name": "Campagne produit C6",
+      "status": "inactive",
+      "spend": "162.11€", 
+      "results": 1669,
+      "result_type": "clicks",
+      "cost_per_result": "0.10€",
+      "reach": 50579,
+      "impressions": 114102,
+      "clicks": 1669,
+      "note": "Excellent pour le trafic"
+    }
+  ],
+  "campaign_types": {
+    "lead_generation": {
+      "campaigns": ["C10 BtoC", "C6 Juillet", "C10 Juillet"],
+      "total_leads": 243,
+      "average_cost_per_lead": "10.42€",
+      "performance": "Bon - coût acceptable"
+    },
+    "traffic_generation": {
+      "campaigns": ["Trafic site Avril", "Pub prospect abri voiture", "Pub Déco Charpente Mai"],
+      "total_clicks": 2215,
+      "average_cost_per_click": "0.10€", 
+      "performance": "Excellent - très économique"
+    },
+    "brand_awareness": {
+      "campaigns": ["(test) Pub C7 : Mai 2025"],
+      "total_reach": 5456,
+      "cost_per_1000_reach": "6.35€",
+      "performance": "Correct"
+    }
+  },
+  "audience_insights": {
+    "reach_analysis": "307k personnes touchées sur 10 mois",
+    "frequency": "2.25 impressions/personne en moyenne", 
+    "engagement": "CTR moyen 1.08%",
+    "conversion_funnel": {
+      "impressions": 691176,
+      "clicks": 7499,
+      "landing_page_views": 2383,
+      "leads": 243,
+      "ctr": "1.08%",
+      "landing_page_conversion": "31.8%",
+      "lead_conversion": "10.2%"
+    }
+  },
+  "creative_performance": {
+    "format_analysis": "Carrousels mentionnés = format privilégié",
+    "product_focus": "Abris voiture, pergolas, produits généraux",
+    "messaging": "Focus sur sur-mesure et qualité"
+  },
+  "seasonal_patterns": {
+    "q1_2025": "Démarrage campagnes (Janvier-Mars)",
+    "q2_2025": "Montée en puissance (Avril-Juin)",
+    "q3_2025": "Pic activité (Juillet-Septembre)",
+    "budget_distribution": "Concentration sur périodes clés"
+  },
+  "optimization_opportunities": [
+    "Réactiver campagnes lead gen performantes (C10 BtoC)",
+    "Tester nouveaux formats créatifs",
+    "Optimiser audiences lookalike",
+    "Améliorer landing pages (31.8% conversion)",
+    "Augmenter budget global (sous-exploité vs Google Ads)"
+  ],
+  "competitive_advantages": {
+    "cost_efficiency": "Coût par clic très bas (0.10€)",
+    "lead_quality": "Coût par lead acceptable (8-14€)",
+    "reach_potential": "Grande audience disponible",
+    "creative_flexibility": "Formats visuels adaptés aux produits"
+  },
+  "analysis_questions": [
+    "Quel est le ROI des leads Meta Ads vs Google Ads ?",
+    "Comment optimiser le taux de conversion landing page ?",
+    "Quels créatifs/formats performent le mieux ?",
+    "Quelle audience cible développer en priorité ?",
+    "Comment augmenter le budget de manière rentable ?",
+    "Quelle saisonnalité pour les campagnes Meta ?"
+  ],
+  "recommendations": [
+    "Augmenter budget Meta Ads (potentiel sous-exploité)",
+    "Développer campagnes vidéo produits",
+    "Tester audiences par région/concessionnaire", 
+    "Optimiser landing pages spécifiques Meta",
+    "Mettre en place retargeting avancé"
+  ]
+}

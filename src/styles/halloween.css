@@ -1,0 +1,185 @@
+/* Styles Halloween pour l'espace étudiant */
+
+/* Animation de scintillement pour les éléments magiques */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    text-shadow: 0 0 5px #ff6b35, 0 0 10px #ff6b35, 0 0 15px #ff6b35;
+  }
+  50% { 
+    text-shadow: 0 0 10px #ff6b35, 0 0 20px #ff6b35, 0 0 30px #ff6b35;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spooky-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+/* Classes utilitaires Halloween */
+.halloween-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.halloween-flicker {
+  animation: flicker 1.5s ease-in-out infinite;
+}
+
+.halloween-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.halloween-shake {
+  animation: spooky-shake 0.5s ease-in-out infinite;
+}
+
+/* Effet de brouillard */
+.fog-effect {
+  position: relative;
+}
+
+.fog-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(139, 69, 19, 0.1) 0%,
+    rgba(75, 0, 130, 0.1) 25%,
+    rgba(255, 140, 0, 0.1) 50%,
+    rgba(128, 0, 128, 0.1) 75%,
+    rgba(139, 69, 19, 0.1) 100%
+  );
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Bordures magiques */
+.magic-border {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #ff6b35, #8b5cf6, #10b981, #f59e0b) 1;
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Texte avec effet fantôme */
+.ghost-text {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 
+    0 0 5px rgba(255, 107, 53, 0.8),
+    0 0 10px rgba(255, 107, 53, 0.6),
+    0 0 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Effet de particules flottantes */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  font-size: 20px;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+
+/* Boutons Halloween */
+.halloween-button {
+  background: linear-gradient(45deg, #ff6b35, #8b5cf6);
+  border: 2px solid #ff6b35;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.halloween-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+  animation: glow 1s ease-in-out infinite;
+}
+
+/* Cartes avec effet mystique */
+.mystical-card {
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.2) 0%,
+    rgba(75, 0, 130, 0.2) 50%,
+    rgba(255, 140, 0, 0.2) 100%
+  );
+  border: 2px solid rgba(255, 107, 53, 0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.mystical-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Typographie Halloween */
+.halloween-title {
+  font-family: 'serif';
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b35, #8b5cf6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Scrollbar personnalisée Halloween */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #1a1a1a, #2d1b69);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff6b35, #8b5cf6);
+  border-radius: 6px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff8c42, #a855f7);
+}
+
+

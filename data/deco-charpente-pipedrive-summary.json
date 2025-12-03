@@ -1,0 +1,149 @@
+{
+  "source": "Pipedrive CRM",
+  "period": "2018-01-01 à 2025-10-09",
+  "files": [
+    "deals-pipedrive.csv"
+  ],
+  "data_overview": {
+    "total_deals": 7479,
+    "period_span": "7 ans et 9 mois",
+    "latest_entries": "2025-10-09",
+    "data_quality": "Excellente - données complètes avec cycle de vente"
+  },
+  "key_metrics": {
+    "deal_statuses": {
+      "gagnée": "Majorité des deals historiques",
+      "en_cours": "Deals actifs 2025",
+      "perdue": "Avec raisons de perte détaillées"
+    },
+    "value_range": {
+      "min_deal": "0€ (prospects)",
+      "max_deal": "~25,000€",
+      "average_deal": "~8,000-12,000€ (estimation)"
+    },
+    "sales_team": [
+      "Luc ROCK (principal)",
+      "Jimmy RICHAUD",
+      "Thierry LAGACHE", 
+      "Aristides Moutinho",
+      "Patrice GEORGES",
+      "Laure KHAIRIG"
+    ]
+  },
+  "product_categories": {
+    "abri_voiture": {
+      "frequency": "Très élevée",
+      "average_value": "7,000-18,000€",
+      "note": "Produit phare"
+    },
+    "pergola": {
+      "frequency": "Élevée", 
+      "average_value": "5,000-15,000€",
+      "note": "Croissance forte"
+    },
+    "appentis_auvent": {
+      "frequency": "Moyenne",
+      "average_value": "5,000-10,000€",
+      "note": "Produit stable"
+    },
+    "pool_house_kiosque": {
+      "frequency": "Faible",
+      "average_value": "10,000-20,000€",
+      "note": "Haut de gamme"
+    }
+  },
+  "sales_pipeline": {
+    "stages": [
+      "Prospect",
+      "RDV", 
+      "Devis effectué",
+      "Commande signée",
+      "PC / DPT (Permis de construire)",
+      "Facturé"
+    ],
+    "conversion_insights": {
+      "prospect_to_rdv": "Étape critique",
+      "devis_to_signature": "Taux de conversion clé à analyser",
+      "administrative_delays": "PC/DPT peut ralentir le cycle"
+    }
+  },
+  "lead_sources": {
+    "api": "Majorité (leads digitaux)",
+    "cree_manuellement": "Leads directs/showroom",
+    "foire_et_salon": "Salons de l'habitat",
+    "showroom_atelier": "Visite directe"
+  },
+  "geographic_insights": {
+    "concessionnaire_performance": {
+      "luc_rock": "Volume principal",
+      "jimmy_richaud": "Performance régulière",
+      "thierry_lagache": "Spécialisé région",
+      "aristides_moutinho": "Développement récent",
+      "patrice_georges": "Croissance 2025"
+    }
+  },
+  "seasonal_patterns": {
+    "historical_trend": "Croissance continue 2018-2025",
+    "recent_activity": "Forte activité Q4 2025",
+    "deal_velocity": "Cycle moyen 2-6 mois (estimation)"
+  },
+  "loss_reasons": {
+    "common_reasons": [
+      "Ne répond plus",
+      "No news", 
+      "Pas décidé cette année",
+      "Problème familial",
+      "Pas de permis",
+      "Fait son abri en pierre",
+      "Pas sérieux"
+    ],
+    "insights": "Suivi client et relance cruciaux"
+  },
+  "administrative_requirements": {
+    "permis_construire": "Deals > 20m² généralement",
+    "demande_prealable": "Deals 5-20m²",
+    "sans_autorisation": "Petits projets < 5m²"
+  },
+  "analysis_opportunities": [
+    "Calcul du taux de conversion par étape du pipeline",
+    "Analyse de la performance par concessionnaire",
+    "Corrélation valeur deal / produit / région",
+    "Saisonnalité des ventes vs leads digitaux",
+    "ROI par source de lead (API vs manuel vs salon)",
+    "Durée moyenne du cycle de vente",
+    "Analyse des raisons de perte pour optimisation",
+    "Performance des nouveaux concessionnaires 2025"
+  ],
+  "kpis_to_calculate": [
+    "Taux de conversion global (prospect → facturé)",
+    "Panier moyen par produit et concessionnaire", 
+    "Durée moyenne du cycle de vente",
+    "Taux de perte par étape",
+    "ROI par source de lead",
+    "Performance commerciale par vendeur",
+    "Évolution mensuelle/trimestrielle des ventes",
+    "Corrélation leads digitaux → ventes réelles"
+  ],
+  "correlation_with_digital": {
+    "google_ads_leads": "Majorité des deals 'API' probablement issus de Google Ads",
+    "meta_ads_leads": "Corrélation à analyser avec campagnes lead generation",
+    "seo_impact": "Trafic organique → leads → deals à quantifier",
+    "seasonal_alignment": "Pics digitaux vs pics de signature"
+  },
+  "business_insights": {
+    "growth_trajectory": "Croissance soutenue sur 7 ans",
+    "product_mix_evolution": "Diversification vers pergolas et pool houses",
+    "team_expansion": "Nouveaux concessionnaires en 2025",
+    "digital_transformation": "Forte dépendance aux leads API/digitaux"
+  },
+  "analysis_questions": [
+    "Quel est le ROI réel de chaque canal marketing (Google Ads → deals Pipedrive) ?",
+    "Quelle corrélation entre pics de trafic web et signatures de contrats ?",
+    "Quels concessionnaires ont le meilleur taux de conversion ?",
+    "Comment optimiser le pipeline pour réduire les pertes ?",
+    "Quel impact de la saisonnalité sur le cycle de vente ?",
+    "Quelle stratégie pour les nouveaux concessionnaires ?",
+    "Comment améliorer le suivi des prospects 'ne répond plus' ?",
+    "Quel potentiel de croissance par région/produit ?"
+  ]
+}

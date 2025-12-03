@@ -1,0 +1,62 @@
+{
+  "project": "Déco Charpente - Analyse Data Marketing",
+  "client": "Déco Charpente",
+  "period": "2024-01-01 à 2024-12-31",
+  "last_updated": "2024-10-08",
+  "data_sources": {
+    "google_analytics": {
+      "description": "Données de trafic et comportement utilisateur du site web",
+      "files": [
+        "ga4_pages_performance.csv",
+        "ga4_audience_overview.csv", 
+        "ga4_acquisition_channels.csv",
+        "ga4_conversions.csv"
+      ],
+      "key_metrics": ["Vues", "Utilisateurs actifs", "Durée d'engagement", "Taux de rebond"],
+      "export_frequency": "Mensuel"
+    },
+    "search_console": {
+      "description": "Données de référencement naturel et performance SEO",
+      "files": [
+        "search_performance_queries.csv",
+        "search_performance_pages.csv",
+        "search_coverage_index.csv"
+      ],
+      "key_metrics": ["Impressions", "Clics", "CTR", "Position moyenne"],
+      "export_frequency": "Mensuel"
+    },
+    "pipedrive": {
+      "description": "Données CRM - leads, opportunités et cycle de vente",
+      "files": [
+        "leads_pipedrive_export.csv",
+        "leads_qualification_data.csv"
+      ],
+      "key_metrics": ["Nombre de leads", "Taux de conversion", "Valeur moyenne", "Durée cycle"],
+      "export_frequency": "Hebdomadaire"
+    },
+    "sales": {
+      "description": "Chiffre d'affaires et performance commerciale par concessionnaire",
+      "files": [
+        "ca_par_concessionnaire.csv",
+        "performance_commerciale.csv"
+      ],
+      "key_metrics": ["CA mensuel", "Nombre de contrats", "Panier moyen", "Évolution"],
+      "export_frequency": "Mensuel"
+    }
+  },
+  "analysis_objectives": [
+    "Identifier les canaux d'acquisition les plus performants",
+    "Optimiser le parcours utilisateur sur le site web",
+    "Améliorer le taux de conversion leads → clients",
+    "Analyser la performance par région/concessionnaire",
+    "Établir des corrélations entre trafic web et ventes"
+  ],
+  "kpis_to_calculate": [
+    "ROI par canal d'acquisition",
+    "Coût d'acquisition client (CAC)",
+    "Lifetime Value (LTV)",
+    "Taux de conversion global",
+    "Performance SEO (visibilité, trafic organique)"
+  ]
+}
+

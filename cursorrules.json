@@ -1,0 +1,68 @@
+{
+  "rules": [
+    {
+      "pattern": ".*StudentSpace.*",
+      "suggestion": "🎓 ESPACE ÉTUDIANT DÉTECTÉ ! Tu es dans la zone de travail des étudiants. C'est parfait ! Continue tes développements ici. Cette section leur appartient entièrement pour pratiquer l'analyse de données marketing."
+    },
+    {
+      "pattern": ".*student-space.*",
+      "suggestion": "✅ Excellente zone de travail ! L'espace étudiant est conçu pour l'expérimentation. Aide les étudiants à créer des analyses, graphiques et insights à partir du fichier marketing_performance_data.csv."
+    },
+    {
+      "pattern": ".*(Learn|Quiz|Tools|Glossary|Dashboard|Footer|Navbar)\\.tsx",
+      "suggestion": "⚠️ ATTENTION : Tu modifications des composants principaux du cours ! Ces sections sont utilisées pour l'enseignement. Assure-toi que c'est nécessaire, sinon privilégie l'espace étudiant (/student-space) pour les développements personnalisés."
+    },
+    {
+      "pattern": ".*marketing_performance_data\\.csv.*",
+      "suggestion": "📊 PARFAIT ! Tu travailles avec les données CSV de l'exercice. Ce fichier contient 7 jours de données Google Ads vs Meta Ads. Focus sur : ROAS, CPA, CTR, performance par appareil et recommandations d'optimisation."
+    },
+    {
+      "pattern": ".*Chart\\.js.*",
+      "suggestion": "📈 Excellente direction ! Utilise Chart.js pour créer des visualisations claires. Types recommandés : bar (comparaisons), line (évolutions), doughnut (répartitions). N'oublie pas le responsive et les tooltips."
+    },
+    {
+      "pattern": ".*Google Ads.*Meta Ads.*",
+      "suggestion": "🎯 Tu analyses la comparaison Google vs Meta ! Points clés à explorer : 1) ROAS par canal, 2) CPA par type de campagne, 3) Performance par appareil, 4) CTR par audience cible. Meta Ads performe généralement moins bien dans ces données."
+    },
+    {
+      "pattern": ".*(ROAS|CPA|CTR|CPC).*",
+      "suggestion": "📊 Tu calcules des KPIs essentiels ! Formules : ROAS = CA ÷ Coût, CPA = Coût ÷ Conversions, CTR = Clics ÷ Impressions × 100, CPC = Coût ÷ Clics. Assure-toi de gérer les divisions par zéro."
+    },
+    {
+      "pattern": ".*src/pages/(?!StudentSpace).*",
+      "suggestion": "🤔 Tu modifies une page principale du cours. Es-tu sûr ? Si c'est pour un exercice étudiant, utilise plutôt /student-space. Si c'est une amélioration du cours, continue mais fais attention à la stabilité."
+    },
+    {
+      "pattern": ".*src/components/(?!(StudentSpace|.*Student.*)).*",
+      "suggestion": "⚠️ Composant principal détecté ! Si c'est pour un travail étudiant, crée plutôt un nouveau composant dans l'espace étudiant. Si c'est une amélioration du cours, veille à ne pas casser l'existant."
+    },
+    {
+      "pattern": ".*cursor.*student.*",
+      "suggestion": "🎓 Tu mentionnes cursor et étudiant ! Rappel : les étudiants doivent travailler principalement dans /student-space pour leurs analyses. Encourage-les à y créer leurs propres composants et graphiques."
+    },
+    {
+      "pattern": "import.*\\.\\/types\\/.*",
+      "suggestion": "✅ Bon typage ! Utilise systématiquement les types stricts importés depuis 'src/types/' pour renforcer la robustesse du code."
+    },
+    {
+      "pattern": "useState\\(\\)",
+      "suggestion": "💡 Améliore ton typage : useState<Type>(initialValue) pour éviter les erreurs TypeScript."
+    },
+    {
+      "pattern": "fetch\\(.*\\.csv.*\\)",
+      "suggestion": "📄 Chargement CSV détecté ! N'oublie pas : 1) Gérer les erreurs réseau, 2) Parser correctement (virgules, guillemets), 3) Nettoyer les données (null, format), 4) Valider avant utilisation."
+    },
+    {
+      "pattern": "console\\.log",
+      "suggestion": "🔍 Debug en cours ! C'est bien pour le développement. En production, considère un système de logging plus robuste ou supprime ces logs."
+    },
+    {
+      "pattern": "className=.*",
+      "suggestion": "🎨 Utilise les classes Tailwind CSS pour maintenir la cohérence visuelle. Palette du projet : slate (textes), indigo (actions), colors spécifiques par section."
+    },
+    {
+      "pattern": "try\\s?\\{.*catch.*\\}",
+      "suggestion": "🛡️ Bonne gestion d'erreur ! Affiche toujours un message utilisateur compréhensible en cas d'erreur, pas seulement les logs console."
+    }
+  ]
+}

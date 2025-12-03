@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --primary-dark: #3730a3;
+  --secondary: #f97316;
+  --secondary-light: #fb923c;
+  --secondary-dark: #c2410c;
+  --neutral: #1f2937;
+  --neutral-light: #4b5563;
+  --neutral-dark: #111827;
+  --background: #f9fafb;
+  --white: #ffffff;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #0ea5e9;
+  
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--neutral);
+  background-color: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-700 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-orange-500 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-orange-600 transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors;
+  }
+  
+  .input {
+    @apply px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-blue {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .badge-green {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-orange {
+    @apply bg-orange-100 text-orange-800;
+  }
+  
+  .badge-purple {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .prose-content {
+    @apply prose max-w-none prose-headings:font-bold prose-headings:text-indigo-700 prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-orange-500;
+  }
+  
+  .section-title {
+    @apply text-2xl font-bold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:h-1 after:w-16 after:bg-indigo-600 after:rounded-full;
+  }
+
+  .section-title.text-center::after {
+    @apply left-1/2 -translate-x-1/2;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Style particulier pour les cartes éducatives */
+.edu-card {
+  @apply card p-6 border-l-4 border-l-indigo-500;
+}
+
+.quiz-card {
+  @apply card p-6 border-l-4 border-l-orange-500;
+}
+
+/* Animation de fondu pour les transitions */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Lorsqu'un élément devient visible dans le viewport */
+.appear {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.appear.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Support pour le mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --neutral: #e2e8f0;
+    --neutral-light: #94a3b8;
+    --white: #1e293b;
+  }
+  
+  .card {
+    @apply border-gray-800 bg-gray-800/30 backdrop-blur;
+  }
+  
+  .edu-card {
+    @apply border-l-indigo-400;
+  }
+  
+  .quiz-card {
+    @apply border-l-orange-400;
+  }
+}
+
+/* Barre de défilement personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.7);
+}
