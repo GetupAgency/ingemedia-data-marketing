@@ -38,19 +38,22 @@ const TutorialDetail: React.FC = () => {
   const renderContent = (item: any, index: number) => {
     switch (item.type) {
       case 'heading':
-        const HeadingTag = `h${item.level || 2}` as keyof JSX.IntrinsicElements;
-        return (
-          <HeadingTag 
-            key={index} 
-            className={`font-bold text-gray-900 mb-4 ${
-              item.level === 1 ? 'text-3xl mt-8' : 
-              item.level === 2 ? 'text-2xl mt-6' : 
-              'text-xl mt-4'
-            }`}
-          >
-            {item.content}
-          </HeadingTag>
-        );
+        const level = item.level || 2;
+        const className = `font-bold text-gray-900 mb-4 ${
+          level === 1 ? 'text-3xl mt-8' : 
+          level === 2 ? 'text-2xl mt-6' : 
+          'text-xl mt-4'
+        }`;
+        
+        if (level === 1) {
+          return <h1 key={index} className={className}>{item.content}</h1>;
+        } else if (level === 2) {
+          return <h2 key={index} className={className}>{item.content}</h2>;
+        } else if (level === 3) {
+          return <h3 key={index} className={className}>{item.content}</h3>;
+        } else {
+          return <h4 key={index} className={className}>{item.content}</h4>;
+        }
       
       case 'paragraph':
         return (
