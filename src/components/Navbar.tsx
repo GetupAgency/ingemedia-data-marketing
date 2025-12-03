@@ -90,47 +90,57 @@ const Navbar: React.FC = () => {
   ];
   
   return (
-    <nav className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 shadow-md backdrop-blur-md' : 'bg-white/70 shadow-md backdrop-blur-md read-the-docs'}`}>
+    <nav className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-xl backdrop-blur-xl border-b border-gray-200/50' : 'bg-white/80 shadow-lg backdrop-blur-lg'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-18">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center py-2" onClick={closeMenu}>
-              <img src={logo} alt="Logo Data Marketing" className="h-8 w-auto mr-2" />
-              <span className={`font-display font-bold text-xl ${scrolled ? 'text-indigo-800' : 'text-indigo-800'}`}>
-                <span className="text-orange-500">CMD</span> Ingemedia
-              </span>
+            <Link to="/" className="flex items-center py-2 group" onClick={closeMenu}>
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 group-hover:scale-105 transition-transform duration-200 shadow-lg">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-lg leading-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  CMD Ingemedia
+                </span>
+                <span className="text-xs text-gray-500 leading-tight">Data Marketing</span>
+              </div>
             </Link>
           </div>
           
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center space-x-1 flex-wrap justify-end">
+          <div className="hidden md:flex items-center space-x-2">
             {navLinks.map(link => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`flex items-center px-2 py-2 rounded-md text-sm font-medium group transition-colors duration-200 relative ${
+                className={`flex items-center px-4 py-2.5 rounded-xl text-sm font-medium group transition-all duration-200 relative ${
                   location.pathname === link.to
-                    ? 'text-indigo-600 bg-indigo-50'
-                    : scrolled ? 'text-gray-600 hover:text-indigo-600 hover:bg-gray-50' : 'text-indigo-800 hover:text-indigo-800 hover:bg-indigo-700/50'
+                    ? 'text-indigo-600 bg-gradient-to-r from-indigo-50 to-purple-50 shadow-sm border border-indigo-100'
+                    : 'text-gray-600 hover:text-indigo-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 hover:shadow-sm'
                 }`}
               >
                 <span className="flex items-center">
-                  {link.icon && <span className="mr-1">{link.icon}</span>}
+                  {link.icon && <span className="mr-2 opacity-70 group-hover:opacity-100 transition-opacity">{link.icon}</span>}
                   {link.label}
                 </span>
+                {location.pathname === link.to && (
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-500 rounded-full"></div>
+                )}
               </Link>
             ))}
           </div>
           
           {/* Bouton espace étudiant */}
-          <div className="hidden md:flex items-center ml-2">
+          <div className="hidden md:flex items-center ml-4">
             <Link 
               to="/student-space"
-              className="flex items-center px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium shadow-sm whitespace-nowrap"
+              className="flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
             >
-              <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 19.128C15.853 19.3757 16.7368 19.5009 17.625 19.5C19.0534 19.5021 20.4633 19.1764 21.746 18.548C21.7421 15.1125 19.7922 12.1256 16.8555 11.0208C17.5923 10.0417 17.9999 8.83244 18 7.5C18 4.6005 15.7649 2.18493 12.9438 2.01266C11.1812 1.90682 9.55035 2.67163 8.47299 4.00244C7.39563 5.33325 7.00006 7.08769 7.35512 8.80092C7.71017 10.5141 8.76072 11.9716 10.2364 12.7983C7.29289 13.8937 5.33541 16.8971 5.33541 20.3469C5.33541 20.4716 5.34663 20.595 5.36776 20.7167C6.6467 21.3402 8.0495 21.6663 9.47059 21.6669C10.3991 21.6666 11.3221 21.5274 12.2083 21.253" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M14.7142 14.5C15.8357 14.5 16.8274 15.0795 17.4077 16.0028C18.0507 17.0471 18.123 18.3466 17.6743 19.4826" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               Espace Étudiant
             </Link>
@@ -166,8 +176,8 @@ const Navbar: React.FC = () => {
       </div>
       
       {/* Mobile nav dropdown */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-white shadow-lg rounded-b-lg`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-white/95 backdrop-blur-xl shadow-2xl border-t border-gray-200/50`}>
+        <div className="px-4 pt-4 pb-6 space-y-2">
           {navLinks.map(link => (
             <Link
               key={link.to}
