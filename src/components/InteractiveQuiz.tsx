@@ -495,10 +495,10 @@ const InteractiveQuiz: React.FC = () => {
         <p className="text-slate-600">Question {currentQuestionIndex + 1} / {questions.length}</p>
       </div>
 
-      <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-6">
-        <h3 className="text-xl font-semibold text-indigo-900 mb-4">{currentQuestion.question}</h3>
-        <div className="text-sm text-indigo-700">
-          <span className="bg-indigo-200 px-2 py-1 rounded">
+      <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8 mb-6">
+        <h3 className="text-2xl md:text-3xl font-semibold text-indigo-900 mb-4 leading-relaxed">{currentQuestion.question}</h3>
+        <div className="text-base text-indigo-700">
+          <span className="bg-indigo-200 px-3 py-2 rounded font-medium">
             {currentQuestion.points} point{currentQuestion.points > 1 ? 's' : ''}
           </span>
         </div>

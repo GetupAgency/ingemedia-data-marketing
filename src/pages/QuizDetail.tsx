@@ -152,17 +152,17 @@ const QuizDetail: React.FC = () => {
 
             {/* Question */}
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-8 leading-relaxed">
                 {currentQuestionData.question}
               </h2>
 
               {/* Options */}
-              <div className="space-y-3 mb-8">
+              <div className="space-y-4 mb-8">
                 {currentQuestionData.options.map((option, index) => (
                   <div 
                     key={index}
                     onClick={() => handleSelectAnswer(index)}
-                    className={`p-4 border rounded-lg cursor-pointer transition-colors ${
+                    className={`p-5 border-2 rounded-lg cursor-pointer transition-colors ${
                       selectedAnswer === index 
                         ? isAnswerValidated
                           ? index === currentQuestionData.correctAnswer
@@ -175,14 +175,14 @@ const QuizDetail: React.FC = () => {
                     }`}
                   >
                     <div className="flex items-start">
-                      <div className={`flex-shrink-0 h-5 w-5 border rounded-full flex items-center justify-center mr-2 mt-0.5 ${
-                        selectedAnswer === index ? 'border-indigo-600' : 'border-gray-300'
+                      <div className={`flex-shrink-0 h-6 w-6 border-2 rounded-full flex items-center justify-center mr-4 mt-1 ${
+                        selectedAnswer === index ? 'border-indigo-600' : 'border-gray-400'
                       }`}>
                         {selectedAnswer === index && (
-                          <div className="h-3 w-3 bg-indigo-600 rounded-full"></div>
+                          <div className="h-4 w-4 bg-indigo-600 rounded-full"></div>
                         )}
                       </div>
-                      <span className="text-gray-700">{option}</span>
+                      <span className="text-base md:text-lg text-gray-900 leading-relaxed">{option}</span>
                     </div>
                   </div>
                 ))}

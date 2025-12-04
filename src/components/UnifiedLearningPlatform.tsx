@@ -155,8 +155,8 @@ interface QuizComponentProps {
           const isCorrect = selectedAnswer === question.correctAnswer;
           
           return (
-            <div key={question.id} className="border-b border-gray-200 pb-6 last:border-b-0">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <div key={question.id} className="border-b border-gray-200 pb-8 last:border-b-0">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 leading-relaxed">
                 Question {questionIndex + 1} : {question.question}
               </h3>
 
@@ -165,7 +165,7 @@ interface QuizComponentProps {
                   const isSelected = selectedAnswer === optionIndex;
                   const isCorrectOption = optionIndex === question.correctAnswer;
                   
-                  let className = 'w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ';
+                  let className = 'w-full text-left p-5 rounded-lg border-2 transition-all duration-200 ';
                   
                   if (isSelected && !showCorrection) {
                     className += 'border-indigo-500 bg-indigo-50';
@@ -189,11 +189,11 @@ interface QuizComponentProps {
                       disabled={showCorrection && !isTeacherMode}
                     >
                       <div className="flex items-center justify-between w-full gap-4">
-                        <div className="flex items-center gap-3 flex-1">
-                          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-700 text-sm">
+                        <div className="flex items-center gap-4 flex-1">
+                          <span className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-800 text-base">
                             {String.fromCharCode(65 + optionIndex)}
                           </span>
-                          <span className="text-left flex-1">{option}</span>
+                          <span className="text-left flex-1 text-base md:text-lg text-gray-900 leading-relaxed">{option}</span>
                         </div>
                         {showCorrection && (
                           <>
