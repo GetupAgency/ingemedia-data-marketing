@@ -244,3 +244,4 @@ export const createContextualQuiz = (terms: string[], difficulty: 'débutant' | 
     .sort(() => Math.random() - 0.5) // Mélange aléatoire
     .slice(0, 5); // Limite à 5 questions
 };
+

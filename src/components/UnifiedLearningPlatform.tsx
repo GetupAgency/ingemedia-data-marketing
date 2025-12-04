@@ -34,7 +34,7 @@ const TeacherModeToggle: React.FC<TeacherModeProps> = ({ isTeacherMode, onToggle
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-20 right-4 z-40">
       {isTeacherMode ? (
         <button
           onClick={() => onToggleTeacherMode()}

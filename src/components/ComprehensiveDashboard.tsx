@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
 
-const ComprehensiveDashboard: React.FC = () => {
+interface ComprehensiveDashboardProps {
+  isTeacherMode?: boolean;
+}
+
+const ComprehensiveDashboard: React.FC<ComprehensiveDashboardProps> = ({ isTeacherMode = false }) => {
   const chartRefs = useRef<(HTMLCanvasElement | null)[]>(Array(16).fill(null));
   const chartInstances = useRef<Chart[]>([]);
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
@@ -603,37 +607,58 @@ const ComprehensiveDashboard: React.FC = () => {
               </div>
             </div>
             
-            {/* Bouton pour afficher/masquer les détails */}
-            <div className="flex justify-center mb-3">
-              <button
-                onClick={() => toggleCardExpansion(index)}
-                className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-700 transition-colors"
-              >
-                <svg 
-                  className={`w-3 h-3 mr-1.5 transition-transform ${expandedCards.has(index) ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-                {expandedCards.has(index) ? 'Masquer les détails' : 'Voir les détails'}
-              </button>
-            </div>
-            
-            {/* Explications masquées par défaut */}
-            {expandedCards.has(index) && (
-              <div className="space-y-3 text-xs border-t border-slate-100 pt-3">
-                <p className="text-slate-700 leading-relaxed">{item.description}</p>
-                
-                <div className="bg-slate-50 p-3 rounded">
-                  <p className="font-medium text-slate-800 mb-1">Cas d'usage principal</p>
-                  <p className="text-slate-600">{item.useCase}</p>
+            {/* Bouton pour afficher/masquer les détails - Visible uniquement en mode enseignant */}
+            {isTeacherMode && (
+              <>
+                <div className="flex justify-center mb-3">
+                  <button
+                    onClick={() => toggleCardExpansion(index)}
+                    className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  >
+                    <svg 
+                      className={`w-3 h-3 mr-1.5 transition-transform ${expandedCards.has(index) ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                    {expandedCards.has(index) ? 'Masquer les détails' : 'Voir les détails'}
+                  </button>
                 </div>
                 
-                <div className="bg-blue-50 p-3 rounded border border-blue-200">
-                  <p className="font-medium text-blue-900 mb-1">Insight clé</p>
-                  <p className="text-blue-800">{item.insight}</p>
+                {/* Explications masquées par défaut */}
+                {expandedCards.has(index) && (
+                  <div className="space-y-3 text-xs border-t border-slate-100 pt-3">
+                    <p className="text-slate-700 leading-relaxed">{item.description}</p>
+                    
+                    <div className="bg-slate-50 p-3 rounded">
+                      <p className="font-medium text-slate-800 mb-1">Cas d'usage principal</p>
+                      <p className="text-slate-600">{item.useCase}</p>
+                    </div>
+                    
+                    <div className="bg-blue-50 p-3 rounded border border-blue-200">
+                      <p className="font-medium text-blue-900 mb-1">Insight clé</p>
+                      <p className="text-blue-800">{item.insight}</p>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+            
+            {/* Message pour les étudiants */}
+            {!isTeacherMode && (
+              <div className="flex justify-center mb-3">
+                <div className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-slate-500 bg-slate-50 border border-slate-200 rounded-lg">
+                  <svg 
+                    className="w-3 h-3 mr-1.5"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  Détails réservés aux enseignants
                 </div>
               </div>
             )}
