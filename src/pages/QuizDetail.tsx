@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { availableQuizzes } from '../data/quizData';
+import { getRandomizedQuiz } from '../data/quizData';
 import { Quiz, QuizQuestion } from '../types/quiz';
 
 /**
@@ -13,8 +13,8 @@ const QuizDetail: React.FC = () => {
   const { quizId } = useParams<{ quizId: string }>();
   const navigate = useNavigate();
   
-  // Trouver le quiz correspondant à l'ID
-  const quizData = availableQuizzes.find(quiz => quiz.id === quizId);
+  // Obtenir un quiz avec questions aléatoires (20 questions par défaut)
+  const [quizData] = useState(() => getRandomizedQuiz(quizId || '', 20));
   
   // États pour gérer le quiz
   const [currentQuestion, setCurrentQuestion] = useState(0);

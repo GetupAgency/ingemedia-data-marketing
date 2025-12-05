@@ -1,4 +1,49 @@
 import { Quiz, QuizQuestion } from '../types/quiz';
+import { unifiedLearningPath } from './unifiedLearningPath';
+
+/**
+ * Extraction de toutes les questions des modules d'apprentissage
+ */
+const extractQuestionsFromModules = (): QuizQuestion[] => {
+  const questions: QuizQuestion[] = [];
+  
+  unifiedLearningPath.forEach(module => {
+    module.exercises.forEach(exercise => {
+      if (exercise.quiz) {
+        exercise.quiz.forEach(q => {
+          questions.push({
+            question: q.question,
+            options: q.options,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation
+          });
+        });
+      }
+    });
+  });
+  
+  return questions;
+};
+
+/**
+ * Fonction pour sélectionner des questions aléatoires sans doublons
+ * @param allQuestions - Toutes les questions disponibles
+ * @param count - Nombre de questions à sélectionner
+ * @returns Array de questions sélectionnées aléatoirement
+ */
+export const selectRandomQuestions = (allQuestions: QuizQuestion[], count: number): QuizQuestion[] => {
+  // Créer une copie pour ne pas modifier l'original
+  const shuffled = [...allQuestions];
+  
+  // Algorithme de Fisher-Yates pour mélanger
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  
+  // Retourner le nombre demandé de questions
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+};
 
 /**
  * Quiz 1: Fondements et Lexique du Data Marketing
@@ -711,15 +756,23 @@ export const practicalQuizQuestions: QuizQuestion[] = [
   }
 ];
 
+// Extraire les questions des modules
+const moduleQuestions = extractQuestionsFromModules();
+
+// Créer une banque de questions complète pour chaque catégorie
+const allFoundationsQuestions = [...dataMarketingQuizQuestions, ...moduleQuestions.filter((_, index) => index % 3 === 0)];
+const allAnalyticsQuestions = [...analyticsToolsQuizQuestions, ...moduleQuestions.filter((_, index) => index % 3 === 1)];
+const allPracticalQuestions = [...practicalQuizQuestions, ...moduleQuestions.filter((_, index) => index % 3 === 2)];
+
 /**
- * Définition des quiz disponibles - version finale
+ * Définition des quiz disponibles - version finale avec sélection aléatoire
  */
 export const availableQuizzes: Quiz[] = [
   {
     id: 'data-marketing-foundations',
     title: 'Fondements du Data Marketing',
-    description: 'Testez votre maîtrise des concepts fondamentaux : KPIs, métriques, parcours client et sources de données. Questions progressives du débutant à l\'intermédiaire.',
-    questions: dataMarketingQuizQuestions,
+    description: 'Testez votre maîtrise des concepts fondamentaux : KPIs, métriques, parcours client et sources de données. Questions aléatoires pour chaque session !',
+    questions: allFoundationsQuestions, // Banque complète
     difficulty: 'Progressif',
     duration: '12-15 minutes',
     category: 'Fondamentaux',
@@ -728,8 +781,8 @@ export const availableQuizzes: Quiz[] = [
   {
     id: 'analytics-tools',
     title: 'Outils d\'Analyse et Plateformes',
-    description: 'Évaluez vos connaissances sur Google Analytics, Search Console, et les outils du data marketer. Focus sur l\'application pratique et l\'interprétation.',
-    questions: analyticsToolsQuizQuestions,
+    description: 'Évaluez vos connaissances sur Google Analytics, Search Console, et les outils du data marketer. Nouvelles questions à chaque fois !',
+    questions: allAnalyticsQuestions, // Banque complète
     difficulty: 'Intermédiaire',
     duration: '15-20 minutes',
     category: 'Outils',
@@ -738,11 +791,37 @@ export const availableQuizzes: Quiz[] = [
   {
     id: 'practical-strategy',
     title: 'Application et Stratégie',
-    description: 'Quiz pratique sur les calculs, l\'optimisation et la prise de décision en data marketing. Situations business réelles et résolution de problèmes.',
-    questions: practicalQuizQuestions,
+    description: 'Quiz pratique sur les calculs, l\'optimisation et la prise de décision en data marketing. Questions variées à chaque passage !',
+    questions: allPracticalQuestions, // Banque complète
     difficulty: 'Débutant à Intermédiaire',
     duration: '10-12 minutes', 
     category: 'Application',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'random-mix',
+    title: 'Quiz Surprise - Mix Complet',
+    description: 'Un mélange aléatoire de toutes les questions de la plateforme ! Parfait pour réviser l\'ensemble du programme.',
+    questions: [...allFoundationsQuestions, ...allAnalyticsQuestions, ...allPracticalQuestions], // Toutes les questions
+    difficulty: 'Tous niveaux',
+    duration: '20-25 minutes',
+    category: 'Révision',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
+
+/**
+ * Fonction pour obtenir un quiz avec questions aléatoires
+ * @param quizId - ID du quiz
+ * @param questionCount - Nombre de questions à sélectionner (par défaut 20)
+ * @returns Quiz avec questions aléatoires
+ */
+export const getRandomizedQuiz = (quizId: string, questionCount: number = 20): Quiz | null => {
+  const quiz = availableQuizzes.find(q => q.id === quizId);
+  if (!quiz) return null;
+  
+  return {
+    ...quiz,
+    questions: selectRandomQuestions(quiz.questions, questionCount)
+  };
+};
