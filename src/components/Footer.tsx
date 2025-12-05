@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="flex items-center space-x-4">
               <span>V1.21</span>
               <span>•</span>
-              <span>Dernier update : 05/12/2025 15h53 examen final</span>
+              <span>Dernier update : 05/12/2025 16h41 final</span>
             </div>
           </div>
         </div>
