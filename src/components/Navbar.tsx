@@ -6,6 +6,7 @@ import logo from '../assets/react.svg';
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
   const location = useLocation();
 
   // Surveiller le défilement pour ajouter un effet de fond à la navbar
@@ -30,6 +31,23 @@ const Navbar: React.FC = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  // Easter egg : Triple clic sur le logo/titre pour accéder à l'examen
+  const handleLogoClick = () => {
+    setClickCount(prev => prev + 1);
+    
+    // Reset après 2 secondes
+    setTimeout(() => {
+      setClickCount(0);
+    }, 2000);
+  };
+
+  // Rediriger vers l'examen après 3 clics
+  useEffect(() => {
+    if (clickCount === 3) {
+      window.location.href = '/exam-2025-ingemedia';
+    }
+  }, [clickCount]);
 
   // Liens de navigation améliorés avec des icônes
   const navLinks = [
@@ -94,7 +112,14 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-18">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center py-2 group" onClick={closeMenu}>
+            <Link 
+              to="/" 
+              className="flex items-center py-2 group" 
+              onClick={(e) => {
+                closeMenu();
+                handleLogoClick();
+              }}
+            >
               <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 group-hover:scale-105 transition-transform duration-200 shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
