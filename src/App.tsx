@@ -20,6 +20,7 @@ import StudentSpace from './pages/StudentSpace';
 import RankTrackerAnalysis from './pages/RankTrackerAnalysis';
 import ExamQuiz from './pages/ExamQuiz';
 import ExamResults from './pages/ExamResults';
+import Olympiades from './pages/Olympiades';
 import './App.css';
 
 /**
@@ -74,6 +75,7 @@ function App() {
             <Route path="/learn" element={<Learn />} />
             <Route path="/tools" element={<Tools />} />
             <Route path="/student-space" element={<StudentSpace />} />
+            <Route path="/olympiades" element={<Olympiades />} />
           </Routes>
         </main>
         
