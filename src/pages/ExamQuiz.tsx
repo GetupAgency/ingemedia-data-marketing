@@ -85,8 +85,8 @@ const ExamQuiz: React.FC = () => {
     return Math.round((score / questions.length) * 100);
   };
 
-  // Fonction pour sauvegarder les résultats en JSON
-  const saveResultsToJSON = () => {
+  // Fonction pour sauvegarder les résultats via l'API
+  const saveResultsToJSON = async () => {
     const results = {
       etudiant: {
         nom: studentName,
@@ -130,17 +130,49 @@ const ExamQuiz: React.FC = () => {
       }
     };
 
-    // Créer le fichier JSON et le télécharger
-    const dataStr = JSON.stringify(results, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${studentName}-${studentFirstName}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    try {
+      // Envoyer les résultats à l'API Vercel
+      const response = await fetch('/api/save-exam-result', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(results)
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la sauvegarde');
+      }
+
+      const data = await response.json();
+      console.log('Résultats sauvegardés:', data);
+      
+      // Également télécharger en local comme backup
+      const dataStr = JSON.stringify(results, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${studentName}-${studentFirstName}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+    } catch (error) {
+      console.error('Erreur sauvegarde:', error);
+      // En cas d'erreur, télécharger quand même en local
+      const dataStr = JSON.stringify(results, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${studentName}-${studentFirstName}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
   };
 
   // Obtenir le message de résultat

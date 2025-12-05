@@ -19,6 +19,7 @@ import Tools from './pages/Tools';
 import StudentSpace from './pages/StudentSpace';
 import RankTrackerAnalysis from './pages/RankTrackerAnalysis';
 import ExamQuiz from './pages/ExamQuiz';
+import ExamResults from './pages/ExamResults';
 import './App.css';
 
 /**
@@ -62,6 +63,9 @@ function App() {
             
             {/* Route secrète : Examen final (URL non listée publiquement) */}
             <Route path="/exam-2025-ingemedia" element={<ExamQuiz />} />
+            
+            {/* Route secrète : Résultats examen pour enseignant */}
+            <Route path="/exam-results-teacher-2025" element={<ExamResults />} />
             
             {/* Route du lexique */}
             <Route path="/glossary" element={<Glossary />} />

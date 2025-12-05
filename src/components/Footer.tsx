@@ -31,7 +31,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-sm text-gray-500">
-            © 2024 Adrien Cerdan
+            © 2025 Adrien Cerdan
           </div>
         </div>
 
@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="flex items-center space-x-4">
               <span>V1.21</span>
               <span>•</span>
-              <span>Dernier update : 05/12/2025 10h06</span>
+              <span>Dernier update : 05/12/2025 15h36</span>
             </div>
           </div>
         </div>
