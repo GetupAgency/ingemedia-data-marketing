@@ -81,23 +81,29 @@ const QuizDetail: React.FC = () => {
 
   // Fonction pour passer à la question suivante
   const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
-      setIsAnswerValidated(false);
-    } else {
-      setIsQuizFinished(true);
-    }
+    // Utiliser setTimeout pour éviter les conflits de manipulation du DOM par React
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedAnswer(null);
+        setIsAnswerValidated(false);
+      } else {
+        setIsQuizFinished(true);
+      }
+    }, 0);
   };
 
   // Fonction pour recommencer le quiz
   const handleRestartQuiz = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setIsQuizFinished(false);
-    setUserAnswers(Array(questions.length).fill(-1));
-    setSelectedAnswer(null);
-    setIsAnswerValidated(false);
+    // Utiliser setTimeout pour éviter les conflits de manipulation du DOM
+    setTimeout(() => {
+      setCurrentQuestion(0);
+      setScore(0);
+      setIsQuizFinished(false);
+      setUserAnswers(Array(questions.length).fill(-1));
+      setSelectedAnswer(null);
+      setIsAnswerValidated(false);
+    }, 0);
   };
 
   // Calculer le niveau de difficulté actuel
@@ -160,7 +166,7 @@ const QuizDetail: React.FC = () => {
               <div className="space-y-4 mb-8">
                 {currentQuestionData.options.map((option, index) => (
                   <div 
-                    key={index}
+                    key={`q${currentQuestion}-opt${index}`}
                     onClick={() => handleSelectAnswer(index)}
                     className={`p-5 border-2 rounded-lg cursor-pointer transition-colors ${
                       selectedAnswer === index 

@@ -286,23 +286,29 @@ const Quiz: React.FC = () => {
 
   // Fonction pour passer à la question suivante
   const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
-      setIsAnswerValidated(false);
-    } else {
-      setIsQuizFinished(true);
-    }
+    // Utiliser setTimeout pour éviter les conflits de manipulation du DOM par React
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedAnswer(null);
+        setIsAnswerValidated(false);
+      } else {
+        setIsQuizFinished(true);
+      }
+    }, 0);
   };
 
   // Fonction pour recommencer le quiz
   const handleRestartQuiz = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setIsQuizFinished(false);
-    setUserAnswers(Array(20).fill(-1));
-    setSelectedAnswer(null);
-    setIsAnswerValidated(false);
+    // Utiliser setTimeout pour éviter les conflits de manipulation du DOM
+    setTimeout(() => {
+      setCurrentQuestion(0);
+      setScore(0);
+      setIsQuizFinished(false);
+      setUserAnswers(Array(20).fill(-1));
+      setSelectedAnswer(null);
+      setIsAnswerValidated(false);
+    }, 0);
   };
 
   // Calculer le niveau de difficulté actuel
