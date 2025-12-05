@@ -19,6 +19,31 @@ const ExamQuiz: React.FC = () => {
   const [studentFirstName, setStudentFirstName] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [endTime, setEndTime] = useState<number | null>(null);
+  const [apiStatus, setApiStatus] = useState<'checking' | 'connected' | 'error'>('checking');
+  const [apiMessage, setApiMessage] = useState('Vérification de la connexion...');
+
+  // Tester la connexion à l'API au chargement
+  useEffect(() => {
+    const testAPIConnection = async () => {
+      try {
+        const response = await fetch('/api/list-exam-results?password=Grosac4Ever!');
+        const data = await response.json();
+        
+        if (response.ok && data.success !== undefined) {
+          setApiStatus('connected');
+          setApiMessage(`✅ Connexion serveur OK - ${data.count || 0} examen(s) enregistré(s)`);
+        } else {
+          setApiStatus('error');
+          setApiMessage('⚠️ Erreur de connexion au serveur - Backup local uniquement');
+        }
+      } catch (error) {
+        setApiStatus('error');
+        setApiMessage('⚠️ API non disponible - Backup local uniquement');
+      }
+    };
+
+    testAPIConnection();
+  }, []);
 
   const questions = examQuestions;
   const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -242,6 +267,43 @@ const ExamQuiz: React.FC = () => {
 
             {/* Formulaire */}
             <div className="p-10">
+              {/* Indicateur de connexion API */}
+              <div className={`mb-6 p-4 rounded-xl border-2 text-center ${
+                apiStatus === 'checking' 
+                  ? 'bg-blue-50 border-blue-200' 
+                  : apiStatus === 'connected'
+                    ? 'bg-green-50 border-green-200'
+                    : 'bg-orange-50 border-orange-200'
+              }`}>
+                <div className="flex items-center justify-center gap-2">
+                  {apiStatus === 'checking' && (
+                    <svg className="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  )}
+                  <span className={`font-semibold ${
+                    apiStatus === 'checking' 
+                      ? 'text-blue-800' 
+                      : apiStatus === 'connected'
+                        ? 'text-green-800'
+                        : 'text-orange-800'
+                  }`}>
+                    {apiMessage}
+                  </span>
+                </div>
+                {apiStatus === 'connected' && (
+                  <p className="text-xs text-green-700 mt-2">
+                    Les résultats seront sauvegardés sur le serveur Vercel Blob Storage
+                  </p>
+                )}
+                {apiStatus === 'error' && (
+                  <p className="text-xs text-orange-700 mt-2">
+                    Les résultats seront téléchargés localement uniquement. Vérifiez Blob Storage sur Vercel.
+                  </p>
+                )}
+              </div>
+
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">Identification</h2>
               <p className="text-gray-600 text-center mb-8">Veuillez renseigner vos informations avant de commencer</p>
               
