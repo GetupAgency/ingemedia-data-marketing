@@ -21,6 +21,7 @@ import RankTrackerAnalysis from './pages/RankTrackerAnalysis';
 import ExamQuiz from './pages/ExamQuiz';
 import ExamResults from './pages/ExamResults';
 import Olympiades from './pages/Olympiades';
+import ConversionFunnel from './pages/ConversionFunnel';
 import './App.css';
 
 /**
@@ -76,6 +77,9 @@ function App() {
             <Route path="/tools" element={<Tools />} />
             <Route path="/student-space" element={<StudentSpace />} />
             <Route path="/olympiades" element={<Olympiades />} />
+
+            {/* Module interactif tunnel de conversion */}
+            <Route path="/learn/conversion-funnel" element={<ConversionFunnel />} />
           </Routes>
         </main>
         

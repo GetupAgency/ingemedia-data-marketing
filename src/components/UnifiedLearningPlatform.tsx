@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, ChevronRight, Eye, EyeOff, XCircle, Lock, Unlock, GraduationCap, Target, Clock, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, BookOpen, CheckCircle, ChevronRight, Eye, EyeOff, XCircle, Lock, Unlock, GraduationCap, Target, Clock, Award, Terminal, Zap, Sparkles, Filter, Play, Layers } from 'lucide-react';
 import { unifiedLearningPath, LearningModule, Exercise, teacherPassword } from '../data/unifiedLearningPath';
 
 // Fonction utilitaire pour scroll vers le haut
@@ -34,11 +35,11 @@ const TeacherModeToggle: React.FC<TeacherModeProps> = ({ isTeacherMode, onToggle
   };
 
   return (
-    <div className="fixed top-20 right-4 z-40">
+    <div className="fixed top-24 right-4 z-40">
       {isTeacherMode ? (
         <button
           onClick={() => onToggleTeacherMode()}
-          className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-colors"
+          className="flex items-center gap-2 bg-gradient-to-r from-neon-green to-cyber-400 text-dark-900 px-4 py-2 rounded-xl shadow-neon-green font-mono text-sm font-semibold hover:shadow-neon transition-all"
         >
           <Unlock className="w-4 h-4" />
           Mode Enseignant
@@ -47,33 +48,35 @@ const TeacherModeToggle: React.FC<TeacherModeProps> = ({ isTeacherMode, onToggle
         <div className="relative">
           <button
             onClick={() => setShowPasswordInput(!showPasswordInput)}
-            className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors"
+            className="flex items-center gap-2 bg-dark-800/80 backdrop-blur border border-dark-600 text-dark-300 px-4 py-2 rounded-xl shadow-lg hover:border-cyber-400/50 hover:text-cyber-400 transition-all font-mono text-sm"
           >
             <Lock className="w-4 h-4" />
             Mode Étudiant
           </button>
-          
+
           {showPasswordInput && (
-            <div className="absolute top-12 right-0 bg-white border border-gray-200 rounded-lg shadow-xl p-4 min-w-64">
+            <div className="absolute top-14 right-0 bg-dark-800/95 backdrop-blur border border-dark-600 rounded-xl shadow-2xl p-5 min-w-72">
               <form onSubmit={handlePasswordSubmit}>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mot de passe enseignant
+                <label className="block text-sm font-mono text-dark-400 mb-2">
+                  <span className="text-cyber-400">$</span> password --teacher
                 </label>
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  placeholder="Entrez le mot de passe"
+                  className="w-full px-4 py-3 bg-dark-900/50 border border-dark-600 rounded-lg text-dark-100 font-mono placeholder-dark-500 focus:outline-none focus:border-cyber-400 focus:ring-2 focus:ring-cyber-400/20 transition-all"
+                  placeholder="••••••••"
                   autoFocus
                 />
                 {error && (
-                  <p className="text-red-600 text-sm mt-1">{error}</p>
+                  <p className="text-neon-pink text-sm mt-2 font-mono">
+                    <span className="text-neon-pink">error:</span> {error}
+                  </p>
                 )}
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 mt-4">
                   <button
                     type="submit"
-                    className="flex-1 bg-indigo-600 text-white px-3 py-2 rounded-md text-sm hover:bg-indigo-700 transition-colors"
+                    className="flex-1 bg-gradient-to-r from-cyber-500 to-neon-purple text-dark-900 px-4 py-2 rounded-lg text-sm font-semibold hover:shadow-neon transition-all"
                   >
                     Valider
                   </button>
@@ -84,7 +87,7 @@ const TeacherModeToggle: React.FC<TeacherModeProps> = ({ isTeacherMode, onToggle
                       setPassword('');
                       setError('');
                     }}
-                    className="flex-1 bg-gray-300 text-gray-700 px-3 py-2 rounded-md text-sm hover:bg-gray-400 transition-colors"
+                    className="flex-1 bg-dark-700 text-dark-300 px-4 py-2 rounded-lg text-sm hover:bg-dark-600 transition-all"
                   >
                     Annuler
                   </button>
@@ -105,7 +108,7 @@ interface QuizComponentProps {
   isTeacherMode: boolean;
 }
 
-  const QuizComponent: React.FC<QuizComponentProps> = ({ questions, sectionTitle, onComplete, isTeacherMode }) => {
+const QuizComponent: React.FC<QuizComponentProps> = ({ questions, sectionTitle, onComplete, isTeacherMode }) => {
   const [answers, setAnswers] = useState<{ [key: number]: number | null }>({});
   const [showCorrection, setShowCorrection] = useState(isTeacherMode);
 
@@ -116,7 +119,7 @@ interface QuizComponentProps {
 
   const handleAnswer = (questionIndex: number, optionIndex: number) => {
     if (showCorrection && !isTeacherMode) return;
-    
+
     setAnswers({
       ...answers,
       [questionIndex]: optionIndex
@@ -136,13 +139,20 @@ interface QuizComponentProps {
   const allAnswered = questions.every((_, index) => answers[index] !== undefined && answers[index] !== null);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Quiz : {sectionTitle}</h2>
-        <p className="text-gray-600">{questions.length} questions</p>
+    <div className="bg-dark-800/50 backdrop-blur border border-dark-700/50 rounded-2xl p-8">
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 bg-gradient-to-br from-neon-purple to-neon-pink rounded-xl flex items-center justify-center">
+            <Terminal className="w-5 h-5 text-dark-900" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-dark-100 font-display">Quiz : {sectionTitle}</h2>
+            <p className="text-dark-400 font-mono text-sm">{questions.length} questions</p>
+          </div>
+        </div>
         {isTeacherMode && (
-          <div className="mt-2 bg-green-50 border border-green-200 rounded-lg p-3">
-            <p className="text-green-800 text-sm font-medium">
+          <div className="mt-4 bg-neon-green/10 border border-neon-green/30 rounded-xl p-4">
+            <p className="text-neon-green text-sm font-mono">
               🎓 Mode enseignant : Les corrections sont visibles par défaut
             </p>
           </div>
@@ -153,32 +163,32 @@ interface QuizComponentProps {
         {questions.map((question, questionIndex) => {
           const selectedAnswer = answers[questionIndex];
           const isCorrect = selectedAnswer === question.correctAnswer;
-          
+
           return (
-            <div key={question.id} className="border-b border-gray-200 pb-8 last:border-b-0">
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 leading-relaxed">
-                Question {questionIndex + 1} : {question.question}
+            <div key={question.id} className="border-b border-dark-700/50 pb-8 last:border-b-0">
+              <h3 className="text-xl font-semibold text-dark-100 mb-6 leading-relaxed">
+                <span className="text-cyber-400 font-mono">Q{questionIndex + 1}.</span> {question.question}
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {question.options.map((option: string, optionIndex: number) => {
                   const isSelected = selectedAnswer === optionIndex;
                   const isCorrectOption = optionIndex === question.correctAnswer;
-                  
-                  let className = 'w-full text-left p-5 rounded-lg border-2 transition-all duration-200 ';
-                  
+
+                  let className = 'w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ';
+
                   if (isSelected && !showCorrection) {
-                    className += 'border-indigo-500 bg-indigo-50';
+                    className += 'border-cyber-400 bg-cyber-400/10';
                   } else if (showCorrection) {
                     if (isCorrectOption) {
-                      className += 'border-green-500 bg-green-50';
+                      className += 'border-neon-green bg-neon-green/10';
                     } else if (isSelected && !isCorrect) {
-                      className += 'border-red-500 bg-red-50';
+                      className += 'border-neon-pink bg-neon-pink/10';
                     } else {
-                      className += 'border-gray-200 bg-gray-50';
+                      className += 'border-dark-700 bg-dark-800/30';
                     }
                   } else {
-                    className += 'border-gray-200 hover:border-gray-300 hover:bg-gray-50';
+                    className += 'border-dark-700 bg-dark-800/30 hover:border-dark-500 hover:bg-dark-800/50';
                   }
 
                   return (
@@ -190,18 +200,26 @@ interface QuizComponentProps {
                     >
                       <div className="flex items-center justify-between w-full gap-4">
                         <div className="flex items-center gap-4 flex-1">
-                          <span className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-800 text-base">
+                          <span className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center font-bold font-mono text-sm ${
+                            isSelected && !showCorrection
+                              ? 'bg-cyber-400 text-dark-900'
+                              : showCorrection && isCorrectOption
+                                ? 'bg-neon-green text-dark-900'
+                                : showCorrection && isSelected && !isCorrect
+                                  ? 'bg-neon-pink text-dark-900'
+                                  : 'bg-dark-700 text-dark-300'
+                          }`}>
                             {String.fromCharCode(65 + optionIndex)}
                           </span>
-                          <span className="text-left flex-1 text-base md:text-lg text-gray-900 leading-relaxed">{option}</span>
+                          <span className="text-left flex-1 text-dark-200 leading-relaxed">{option}</span>
                         </div>
                         {showCorrection && (
                           <>
                             {isCorrectOption && (
-                              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                              <CheckCircle className="w-6 h-6 text-neon-green flex-shrink-0" />
                             )}
                             {isSelected && !isCorrect && (
-                              <XCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+                              <XCircle className="w-6 h-6 text-neon-pink flex-shrink-0" />
                             )}
                           </>
                         )}
@@ -212,9 +230,9 @@ interface QuizComponentProps {
               </div>
 
               {showCorrection && (
-                <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                  <p className="text-blue-900">
-                    <strong className="font-semibold">Explication :</strong> {question.explanation}
+                <div className="mt-4 p-4 bg-cyber-400/10 rounded-xl border-l-4 border-cyber-400">
+                  <p className="text-dark-200">
+                    <strong className="font-semibold text-cyber-400">Explication :</strong> {question.explanation}
                   </p>
                 </div>
               )}
@@ -223,19 +241,19 @@ interface QuizComponentProps {
         })}
       </div>
 
-      <div className="mt-8 flex items-center justify-between">
+      <div className="mt-8 flex items-center justify-between flex-wrap gap-4">
         <div>
           {showCorrection && (
-            <div className="text-lg">
-              <span className="font-semibold text-gray-900">Score : </span>
+            <div className="text-lg font-mono">
+              <span className="text-dark-400">Score : </span>
               <span className={`font-bold text-xl ${
-                calculateScore() / questions.length >= 0.8 ? 'text-green-600' :
-                calculateScore() / questions.length >= 0.6 ? 'text-orange-600' :
-                'text-red-600'
+                calculateScore() / questions.length >= 0.8 ? 'text-neon-green' :
+                calculateScore() / questions.length >= 0.6 ? 'text-neon-yellow' :
+                'text-neon-pink'
               }`}>
                 {calculateScore()}/{questions.length}
               </span>
-              <span className="text-gray-600 ml-2">
+              <span className="text-dark-500 ml-2">
                 ({Math.round((calculateScore() / questions.length) * 100)}%)
               </span>
             </div>
@@ -253,7 +271,7 @@ interface QuizComponentProps {
               }
             }}
             disabled={!showCorrection && !allAnswered}
-            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-500 to-neon-purple text-dark-900 rounded-xl font-semibold hover:shadow-neon disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             {showCorrection ? (
               <>
@@ -277,7 +295,7 @@ interface QuizComponentProps {
               scrollToTop();
               onComplete();
             }}
-            className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold transition-colors"
+            className="px-8 py-3 bg-gradient-to-r from-neon-green to-cyber-400 text-dark-900 rounded-xl font-semibold hover:shadow-neon-green transition-all"
           >
             Continuer vers l'exercice suivant
           </button>
@@ -285,7 +303,7 @@ interface QuizComponentProps {
       )}
 
       {!isTeacherMode && !showCorrection && !allAnswered && (
-        <p className="mt-4 text-sm text-gray-600 text-center">
+        <p className="mt-4 text-sm text-dark-500 text-center font-mono">
           Veuillez répondre à toutes les questions pour voir la correction
         </p>
       )}
@@ -324,10 +342,10 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'débutant': return 'bg-green-100 text-green-800';
-      case 'intermédiaire': return 'bg-yellow-100 text-yellow-800';
-      case 'avancé': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'débutant': return 'text-neon-green bg-neon-green/10 border-neon-green/30';
+      case 'intermédiaire': return 'text-neon-yellow bg-neon-yellow/10 border-neon-yellow/30';
+      case 'avancé': return 'text-neon-pink bg-neon-pink/10 border-neon-pink/30';
+      default: return 'text-dark-400 bg-dark-700/50 border-dark-600';
     }
   };
 
@@ -345,44 +363,51 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
   const TypeIcon = getTypeIcon(exercise.type);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
+    <div className="min-h-screen bg-dark-950 pt-20">
+      {/* Background effects */}
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-radial from-cyber-400/5 via-transparent to-transparent pointer-events-none" />
+
       {/* Header */}
-      <header className="bg-gradient-to-r from-indigo-600 to-blue-700 shadow-lg">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <button 
+      <header className="relative bg-dark-800/50 backdrop-blur border-b border-dark-700/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <button
             onClick={onBack}
-            className="inline-flex items-center text-white hover:text-indigo-200 mb-4 transition-colors"
+            className="inline-flex items-center text-dark-400 hover:text-cyber-400 mb-4 transition-colors font-mono text-sm"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Retour aux modules
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            cd ../modules
           </button>
-          
+
           <div className="flex items-center gap-4 mb-4">
-            <TypeIcon className="w-8 h-8 text-white" />
+            <div className="w-12 h-12 bg-gradient-to-br from-cyber-400 to-neon-purple rounded-xl flex items-center justify-center shadow-neon">
+              <TypeIcon className="w-6 h-6 text-dark-900" />
+            </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">{exercise.title}</h1>
-              <p className="text-indigo-200">{exercise.description}</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-dark-100 font-display">{exercise.title}</h1>
+              <p className="text-dark-400">{exercise.description}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-sm text-indigo-200">
-            <span className={`px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(exercise.difficulty)}`}>
+          <div className="flex items-center gap-4 text-sm">
+            <span className={`px-3 py-1 rounded-full text-xs font-mono border ${getDifficultyColor(exercise.difficulty)}`}>
+              <Zap className="w-3 h-3 inline mr-1" />
               {exercise.difficulty}
             </span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
+            <span className="flex items-center gap-1 text-dark-400 font-mono">
+              <Clock className="w-4 h-4 text-cyber-400" />
               {exercise.duration}
             </span>
-            <span>
-              Exercice {exerciseIndex + 1} sur {totalExercises}
+            <span className="text-dark-500 font-mono">
+              [{exerciseIndex + 1}/{totalExercises}]
             </span>
           </div>
-          
+
           {/* Progress bar */}
           <div className="mt-4">
-            <div className="w-full bg-white/20 rounded-full h-2">
-              <div 
-                className="h-2 rounded-full transition-all duration-500 bg-gradient-to-r from-indigo-200 to-white"
+            <div className="w-full bg-dark-700 rounded-full h-1.5">
+              <div
+                className="h-1.5 rounded-full transition-all duration-500 bg-gradient-to-r from-cyber-400 to-neon-purple shadow-neon"
                 style={{ width: `${((exerciseIndex + 1) / totalExercises) * 100}%` }}
               />
             </div>
@@ -391,50 +416,51 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {!showQuiz ? (
           <div className="space-y-8">
             {/* Theory Content */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-dark-800/50 backdrop-blur border border-dark-700/50 rounded-2xl p-8 prose-cyber">
               <div dangerouslySetInnerHTML={{ __html: exercise.content }} />
             </div>
 
             {/* Practical Exercise */}
             {exercise.practicalExercise && (
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-8">
+              <div className="bg-gradient-to-br from-neon-purple/10 to-cyber-400/10 border border-neon-purple/30 rounded-2xl p-8">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                    <Target className="w-6 h-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-neon-purple to-neon-pink rounded-xl flex items-center justify-center mr-4 shadow-neon-pink">
+                    <Target className="w-6 h-6 text-dark-900" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-purple-900">{exercise.practicalExercise.title}</h3>
-                    <p className="text-purple-700 mt-1">{exercise.practicalExercise.description}</p>
+                    <h3 className="text-xl font-bold text-dark-100 font-display">{exercise.practicalExercise.title}</h3>
+                    <p className="text-dark-400 mt-1">{exercise.practicalExercise.description}</p>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-6 mb-6">
+                <div className="bg-dark-900/50 rounded-xl p-6 mb-6 border border-dark-700/50 prose-cyber">
                   <div dangerouslySetInnerHTML={{ __html: exercise.practicalExercise.instructions }} />
                 </div>
 
                 {exercise.practicalExercise.hints && (
-                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-                    <h4 className="font-semibold text-amber-900 mb-3 text-sm flex items-center">
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                      Conseils méthodologiques
+                  <div className="bg-neon-yellow/10 border border-neon-yellow/30 rounded-xl p-4 mb-6">
+                    <h4 className="font-semibold text-neon-yellow mb-3 text-sm flex items-center font-mono">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      hints.show()
                     </h4>
-                    <ul className="list-disc list-inside space-y-1">
+                    <ul className="space-y-2">
                       {exercise.practicalExercise.hints.map((hint, index) => (
-                        <li key={index} className="text-amber-800 text-xs leading-relaxed">{hint}</li>
+                        <li key={index} className="text-dark-300 text-sm leading-relaxed flex items-start">
+                          <ChevronRight className="w-4 h-4 text-neon-yellow mr-2 mt-0.5 flex-shrink-0" />
+                          {hint}
+                        </li>
                       ))}
                     </ul>
                   </div>
                 )}
 
-                <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-indigo-900 mb-2 text-sm">Livrable attendu</h4>
-                  <p className="text-indigo-800 text-sm leading-relaxed">{exercise.practicalExercise.expectedOutput}</p>
+                <div className="bg-cyber-400/10 border border-cyber-400/30 rounded-xl p-4 mb-6">
+                  <h4 className="font-semibold text-cyber-400 mb-2 text-sm font-mono">expected_output:</h4>
+                  <p className="text-dark-300 text-sm leading-relaxed">{exercise.practicalExercise.expectedOutput}</p>
                 </div>
 
                 {/* Teacher Correction */}
@@ -443,7 +469,7 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
                     <div className="flex justify-center mb-4">
                       <button
                         onClick={() => setShowCorrection(!showCorrection)}
-                        className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-neon-green to-cyber-400 text-dark-900 rounded-xl font-semibold hover:shadow-neon-green transition-all"
                       >
                         {showCorrection ? (
                           <>
@@ -460,9 +486,9 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
                     </div>
 
                     {showCorrection && (
-                      <div className="bg-white rounded-lg p-6 border-l-4 border-green-500">
-                        <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
-                          <p className="text-green-800 text-sm font-medium">
+                      <div className="bg-dark-900/50 rounded-xl p-6 border-l-4 border-neon-green prose-cyber">
+                        <div className="mb-4 bg-neon-green/10 border border-neon-green/30 rounded-lg p-3">
+                          <p className="text-neon-green text-sm font-mono">
                             🎓 Correction enseignant - Visible car vous êtes en mode enseignant
                           </p>
                         </div>
@@ -471,12 +497,13 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
                     )}
                   </div>
                 )}
-                
+
                 {/* Message pour les étudiants */}
                 {exercise.teacherCorrection && !isTeacherMode && (
-                  <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-                    <p className="text-blue-800 text-sm">
-                      🔒 La correction de cet exercice est disponible uniquement pour les enseignants
+                  <div className="mb-6 bg-dark-800/50 border border-dark-700/50 rounded-xl p-4 text-center">
+                    <p className="text-dark-400 text-sm font-mono">
+                      <Lock className="w-4 h-4 inline mr-2" />
+                      La correction de cet exercice est disponible uniquement pour les enseignants
                     </p>
                   </div>
                 )}
@@ -484,16 +511,16 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
             )}
 
             {/* Navigation */}
-            <div className="flex justify-between items-center bg-white rounded-lg shadow-lg p-6">
+            <div className="flex justify-between items-center bg-dark-800/50 backdrop-blur border border-dark-700/50 rounded-2xl p-6">
               <button
                 onClick={onPrevious}
                 disabled={exerciseIndex === 0}
-                className="flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-dark-700 text-dark-300 rounded-xl hover:bg-dark-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-mono"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Précédent
               </button>
-              
+
               <button
                 onClick={() => {
                   if (exercise.quiz) {
@@ -504,9 +531,9 @@ const ExerciseViewer: React.FC<ExerciseViewerProps> = ({
                     onNext();
                   }
                 }}
-                className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-500 to-neon-purple text-dark-900 rounded-xl font-semibold hover:shadow-neon transition-all"
               >
-                {exercise.quiz ? 'Passer au quiz' : 
+                {exercise.quiz ? 'Passer au quiz' :
                  exerciseIndex === totalExercises - 1 ? 'Terminer le module' : 'Suivant'}
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -557,10 +584,10 @@ const UnifiedLearningPlatform: React.FC = () => {
   const calculateModuleProgress = (moduleId: string) => {
     const moduleProgress = progress[moduleId];
     if (!moduleProgress) return 0;
-    
+
     const module = unifiedLearningPath.find(m => m.id === moduleId);
     if (!module) return 0;
-    
+
     const completedExercises = moduleProgress.completedExercises || [];
     return Math.round((completedExercises.length / module.exercises.length) * 100);
   };
@@ -573,17 +600,17 @@ const UnifiedLearningPlatform: React.FC = () => {
 
   const handleExerciseComplete = () => {
     if (!selectedModule) return;
-    
+
     const newProgress = { ...progress };
     if (!newProgress[selectedModule.id]) {
       newProgress[selectedModule.id] = { status: 'in-progress', completedExercises: [] };
     }
-    
+
     const exerciseId = selectedModule.exercises[currentExercise].id;
     if (!newProgress[selectedModule.id].completedExercises.includes(exerciseId)) {
       newProgress[selectedModule.id].completedExercises.push(exerciseId);
     }
-    
+
     if (currentExercise < selectedModule.exercises.length - 1) {
       setCurrentExercise(currentExercise + 1);
     } else {
@@ -591,26 +618,26 @@ const UnifiedLearningPlatform: React.FC = () => {
       setSelectedModule(null);
       setCurrentExercise(0);
     }
-    
+
     localStorage.setItem('unifiedLearningProgress', JSON.stringify(newProgress));
     setProgress(newProgress);
   };
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'débutant': return 'bg-green-100 text-green-800 border-green-200';
-      case 'intermédiaire': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'avancé': return 'bg-red-100 text-red-800 border-red-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'débutant': return 'text-neon-green bg-neon-green/10 border-neon-green/30';
+      case 'intermédiaire': return 'text-neon-yellow bg-neon-yellow/10 border-neon-yellow/30';
+      case 'avancé': return 'text-neon-pink bg-neon-pink/10 border-neon-pink/30';
+      default: return 'text-dark-400 bg-dark-700/50 border-dark-600';
     }
   };
 
   if (selectedModule) {
     return (
       <>
-        <TeacherModeToggle 
-          isTeacherMode={isTeacherMode} 
-          onToggleTeacherMode={handleToggleTeacherMode} 
+        <TeacherModeToggle
+          isTeacherMode={isTeacherMode}
+          onToggleTeacherMode={handleToggleTeacherMode}
         />
         <ExerciseViewer
           exercise={selectedModule.exercises[currentExercise]}
@@ -636,123 +663,229 @@ const UnifiedLearningPlatform: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
-      <TeacherModeToggle 
-        isTeacherMode={isTeacherMode} 
-        onToggleTeacherMode={handleToggleTeacherMode} 
+    <div className="min-h-screen bg-dark-950 pt-20 pb-12">
+      {/* Background effects */}
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-radial from-cyber-400/5 via-transparent to-transparent pointer-events-none" />
+
+      <TeacherModeToggle
+        isTeacherMode={isTeacherMode}
+        onToggleTeacherMode={handleToggleTeacherMode}
       />
-      
+
       {/* Header */}
-      <header className="bg-white shadow-lg border-b-4 border-indigo-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Formation Data Marketing Complète
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Parcours d'apprentissage progressif et structuré pour maîtriser le marketing basé sur les données
-            </p>
-            {isTeacherMode && (
-              <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-4 max-w-2xl mx-auto">
-                <p className="text-green-800 font-medium">
-                  🎓 Mode Enseignant Activé - Toutes les corrections sont visibles
-                </p>
-              </div>
-            )}
+      <header className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-dark-800/50 border border-dark-700 rounded-full mb-6">
+            <GraduationCap className="w-4 h-4 text-cyber-400" />
+            <span className="text-xs font-mono text-dark-300">
+              <span className="text-cyber-400">{unifiedLearningPath.length}</span> modules disponibles
+            </span>
           </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+            <span className="text-dark-100">Formation </span>
+            <span className="text-gradient">Data Marketing</span>
+          </h1>
+          <p className="text-lg text-dark-400 max-w-2xl mx-auto">
+            Parcours d'apprentissage progressif et structuré pour maîtriser le marketing basé sur les données.
+            <span className="text-cyber-400 font-mono"> ./start --learning-path</span>
+          </p>
+          {isTeacherMode && (
+            <div className="mt-6 bg-neon-green/10 border border-neon-green/30 rounded-xl p-4 max-w-md mx-auto">
+              <p className="text-neon-green font-mono text-sm">
+                🎓 Mode Enseignant Activé - Toutes les corrections sont visibles
+              </p>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Progress Overview */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="bg-dark-800/50 backdrop-blur border border-dark-700/50 rounded-2xl p-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold text-gray-900">Progression globale</h2>
-            <span className="text-2xl font-bold text-indigo-600">{calculateOverallProgress()}%</span>
+            <h2 className="text-lg font-semibold text-dark-100 font-display flex items-center gap-2">
+              <Terminal className="w-5 h-5 text-cyber-400" />
+              Progression globale
+            </h2>
+            <span className="text-2xl font-bold text-gradient font-mono">{calculateOverallProgress()}%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
-            <div 
-              className="bg-gradient-to-r from-indigo-500 to-blue-600 h-3 rounded-full transition-all duration-500"
+          <div className="w-full bg-dark-700 rounded-full h-2 mb-3">
+            <div
+              className="bg-gradient-to-r from-cyber-400 to-neon-purple h-2 rounded-full transition-all duration-500 shadow-neon"
               style={{ width: `${calculateOverallProgress()}%` }}
             />
           </div>
-          <div className="text-sm text-gray-600">
-            {Object.values(progress).filter((p: any) => p.status === 'completed').length} sur {unifiedLearningPath.length} modules terminés
+          <div className="text-sm text-dark-400 font-mono">
+            <span className="text-neon-green">{Object.values(progress).filter((p: any) => p.status === 'completed').length}</span>
+            /{unifiedLearningPath.length} modules terminés
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Modules Section */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <h2 className="text-2xl font-bold text-dark-100 mb-6 font-display flex items-center gap-3">
+          <Layers className="w-6 h-6 text-neon-pink" />
+          Modules interactifs
+          <span className="px-2 py-1 bg-neon-pink/20 text-neon-pink text-xs font-mono rounded-full">NEW</span>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Tunnel de Conversion */}
+          <Link
+            to="/learn/conversion-funnel"
+            className="group relative bg-gradient-to-br from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300 hover:shadow-lg hover:shadow-neon-purple/20"
+          >
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 to-neon-pink/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative">
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-neon-purple to-neon-pink rounded-xl flex items-center justify-center shadow-neon-pink">
+                  <Filter className="w-7 h-7 text-dark-900" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 bg-neon-yellow/20 text-neon-yellow text-xs font-mono rounded-full border border-neon-yellow/30">
+                    Interactif
+                  </span>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-dark-100 mb-2 font-display group-hover:text-gradient-pink transition-all">
+                Tunnel de Conversion
+              </h3>
+
+              <p className="text-dark-400 text-sm mb-4">
+                De l'impression publicitaire à l'achat final : visualisez et analysez chaque étape du parcours client avec des animations interactives.
+              </p>
+
+              <div className="flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1.5 text-dark-500 font-mono">
+                  <Clock className="w-4 h-4 text-neon-purple" />
+                  <span>45 min</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-dark-500 font-mono">
+                  <Target className="w-4 h-4 text-neon-pink" />
+                  <span>7 sections</span>
+                </div>
+              </div>
+
+              <div className="mt-4 flex items-center gap-2 text-neon-purple font-mono text-sm group-hover:gap-3 transition-all">
+                <Play className="w-4 h-4" />
+                <span>Démarrer le module</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
+            </div>
+          </Link>
+
+          {/* Coming Soon Placeholder */}
+          <div className="relative bg-dark-800/30 border border-dark-700/50 border-dashed rounded-2xl p-6 opacity-60">
+            <div className="flex items-start justify-between mb-4">
+              <div className="w-14 h-14 bg-dark-700/50 rounded-xl flex items-center justify-center">
+                <Sparkles className="w-7 h-7 text-dark-500" />
+              </div>
+              <span className="px-3 py-1 bg-dark-700/50 text-dark-500 text-xs font-mono rounded-full">
+                Bientôt
+              </span>
+            </div>
+
+            <h3 className="text-xl font-bold text-dark-500 mb-2 font-display">
+              Attribution Marketing
+            </h3>
+
+            <p className="text-dark-600 text-sm mb-4">
+              Comprendre les modèles d'attribution et mesurer l'impact de chaque canal dans la conversion.
+            </p>
+
+            <div className="flex items-center gap-2 text-dark-600 font-mono text-sm">
+              <Lock className="w-4 h-4" />
+              <span>Module en préparation</span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Learning Path */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Parcours d'apprentissage</h2>
-        
+      <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-dark-100 mb-8 font-display flex items-center gap-3">
+          <BookOpen className="w-6 h-6 text-neon-purple" />
+          Parcours d'apprentissage
+        </h2>
+
         <div className="space-y-6">
           {unifiedLearningPath.map((module, index) => {
             const moduleProgress = progress[module.id];
             const progressPercent = calculateModuleProgress(module.id);
             const isCompleted = moduleProgress?.status === 'completed';
             const isInProgress = moduleProgress?.status === 'in-progress';
-            const isLocked = module.prerequisites && 
+            const isLocked = module.prerequisites &&
               !module.prerequisites.every(prereq => progress[prereq]?.status === 'completed');
-            
+
             return (
               <div
                 key={module.id}
-                className={`bg-white rounded-xl shadow-lg border-2 transition-all duration-200 ${
-                  isCompleted 
-                    ? 'border-green-500 bg-green-50' 
-                    : isInProgress 
-                      ? 'border-indigo-500 bg-indigo-50' 
+                className={`group bg-dark-800/30 backdrop-blur border-2 rounded-2xl transition-all duration-300 overflow-hidden ${
+                  isCompleted
+                    ? 'border-neon-green/50 bg-neon-green/5'
+                    : isInProgress
+                      ? 'border-cyber-400/50 bg-cyber-400/5'
                       : isLocked
-                        ? 'border-gray-300 bg-gray-50 opacity-60'
-                        : 'border-gray-200 hover:border-indigo-300 hover:shadow-xl'
+                        ? 'border-dark-700/50 opacity-60'
+                        : 'border-dark-700/50 hover:border-cyber-400/30 hover:shadow-lg hover:shadow-cyber-400/10'
                 }`}
               >
                 <div className="p-8">
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-4 mb-4">
-                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                          isCompleted 
-                            ? 'bg-green-100' 
-                            : isInProgress 
-                              ? 'bg-indigo-100' 
-                              : 'bg-gray-100'
+                        <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
+                          isCompleted
+                            ? 'bg-gradient-to-br from-neon-green to-cyber-400 shadow-neon-green'
+                            : isInProgress
+                              ? 'bg-gradient-to-br from-cyber-400 to-neon-purple shadow-neon'
+                              : 'bg-dark-700'
                         }`}>
-                          <BookOpen className={`w-6 h-6 ${
-                            isCompleted 
-                              ? 'text-green-600' 
-                              : isInProgress 
-                                ? 'text-indigo-600' 
-                                : 'text-gray-600'
+                          <BookOpen className={`w-7 h-7 ${
+                            isCompleted || isInProgress ? 'text-dark-900' : 'text-dark-400'
                           }`} />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900">{module.title}</h3>
-                          <p className="text-gray-600 mt-1">{module.description}</p>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-dark-500 font-mono text-xs">module_{String(index + 1).padStart(2, '0')}</span>
+                          </div>
+                          <h3 className="text-2xl font-bold text-dark-100 font-display group-hover:text-gradient transition-all">{module.title}</h3>
+                          <p className="text-dark-400 mt-1">{module.description}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getLevelColor(module.level)}`}>
+                      <div className="flex items-center gap-4 mb-4 flex-wrap">
+                        <span className={`px-3 py-1 rounded-full text-xs font-mono border ${getLevelColor(module.level)}`}>
+                          <Zap className="w-3 h-3 inline mr-1" />
                           {module.level}
                         </span>
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-dark-500 font-mono">
                           {module.exercises.length} exercices
                         </span>
                         {module.prerequisites && (
-                          <span className="text-sm text-gray-500">
+                          <span className="text-sm text-dark-500 font-mono">
+                            <Lock className="w-3 h-3 inline mr-1" />
                             Prérequis : {module.prerequisites.length} module(s)
                           </span>
                         )}
                       </div>
 
                       <div className="mb-4">
-                        <h4 className="font-semibold text-gray-900 mb-2 text-sm">Objectifs d'apprentissage :</h4>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-1 text-sm text-gray-700">
+                        <h4 className="font-mono text-dark-500 mb-3 text-xs">
+                          <span className="text-cyber-400">$</span> objectives.list()
+                        </h4>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-dark-300">
                           {module.learningObjectives.map((objective, idx) => (
                             <li key={idx} className="flex items-start">
-                              <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 mr-2 shrink-0" />
+                              <CheckCircle className={`w-4 h-4 mt-0.5 mr-2 shrink-0 ${
+                                isCompleted ? 'text-neon-green' : 'text-cyber-400'
+                              }`} />
                               {objective}
                             </li>
                           ))}
@@ -761,14 +894,14 @@ const UnifiedLearningPlatform: React.FC = () => {
 
                       {progressPercent > 0 && (
                         <div className="mb-4">
-                          <div className="flex justify-between text-sm text-gray-600 mb-1">
-                            <span>Progression du module</span>
-                            <span>{progressPercent}%</span>
+                          <div className="flex justify-between text-sm font-mono mb-2">
+                            <span className="text-dark-500">progress</span>
+                            <span className={isCompleted ? 'text-neon-green' : 'text-cyber-400'}>{progressPercent}%</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div 
-                              className={`h-2 rounded-full transition-all duration-500 ${
-                                isCompleted ? 'bg-green-500' : 'bg-indigo-500'
+                          <div className="w-full bg-dark-700 rounded-full h-1.5">
+                            <div
+                              className={`h-1.5 rounded-full transition-all duration-500 ${
+                                isCompleted ? 'bg-neon-green shadow-neon-green' : 'bg-cyber-400 shadow-neon'
                               }`}
                               style={{ width: `${progressPercent}%` }}
                             />
@@ -779,26 +912,30 @@ const UnifiedLearningPlatform: React.FC = () => {
 
                     <div className="flex items-center gap-2 ml-6">
                       {isCompleted && (
-                        <CheckCircle className="w-8 h-8 text-green-600" />
+                        <div className="w-10 h-10 bg-neon-green/20 rounded-full flex items-center justify-center">
+                          <CheckCircle className="w-6 h-6 text-neon-green" />
+                        </div>
                       )}
                       {isLocked && (
-                        <Lock className="w-8 h-8 text-gray-400" />
+                        <div className="w-10 h-10 bg-dark-700/50 rounded-full flex items-center justify-center">
+                          <Lock className="w-5 h-5 text-dark-500" />
+                        </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm text-gray-500">
-                      {isLocked 
-                        ? 'Terminez les modules précédents pour débloquer'
+                  <div className="flex justify-between items-center pt-4 border-t border-dark-700/50">
+                    <div className="text-sm text-dark-500 font-mono">
+                      {isLocked
+                        ? '// Terminez les modules précédents pour débloquer'
                         : isCompleted
-                          ? 'Module terminé avec succès'
+                          ? '// Module terminé avec succès ✓'
                           : isInProgress
-                            ? 'Module en cours'
-                            : 'Prêt à commencer'
+                            ? '// Module en cours...'
+                            : '// Prêt à commencer'
                       }
                     </div>
-                    
+
                     <button
                       onClick={() => {
                         if (!isLocked) {
@@ -808,15 +945,15 @@ const UnifiedLearningPlatform: React.FC = () => {
                         }
                       }}
                       disabled={isLocked}
-                      className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+                      className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                         isLocked
-                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          ? 'bg-dark-700 text-dark-500 cursor-not-allowed'
                           : isCompleted
-                            ? 'bg-green-600 text-white hover:bg-green-700'
-                            : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                            ? 'bg-gradient-to-r from-neon-green to-cyber-400 text-dark-900 hover:shadow-neon-green'
+                            : 'bg-gradient-to-r from-cyber-500 to-neon-purple text-dark-900 hover:shadow-neon'
                       }`}
                     >
-                      {isLocked 
+                      {isLocked
                         ? 'Verrouillé'
                         : isCompleted
                           ? 'Réviser'
@@ -837,4 +974,3 @@ const UnifiedLearningPlatform: React.FC = () => {
 };
 
 export default UnifiedLearningPlatform;
-

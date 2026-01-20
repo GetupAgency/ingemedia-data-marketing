@@ -26,7 +26,7 @@ const ExamQuiz: React.FC = () => {
   useEffect(() => {
     const testAPIConnection = async () => {
       try {
-        const response = await fetch('/api/list-exam-results?password=Grosac4Ever!');
+        const response = await fetch('/api/list-exam-results?password=racaille2026');
         const data = await response.json();
         
         if (response.ok && data.success !== undefined) {

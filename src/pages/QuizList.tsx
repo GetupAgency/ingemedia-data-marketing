@@ -1,137 +1,235 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Clock,
+  ListChecks,
+  Play,
+  Sparkles,
+  Shuffle,
+  Target,
+  Zap,
+  HelpCircle,
+  ChevronRight,
+  Trophy
+} from 'lucide-react';
 import { availableQuizzes } from '../data/quizData';
 
-/**
- * Page affichant la liste des quiz disponibles
- * 
- * @component
- * @returns {JSX.Element} - La page de liste des quiz
- */
 const QuizList: React.FC = () => {
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty.toLowerCase()) {
+      case 'débutant':
+      case 'facile':
+        return 'text-neon-green bg-neon-green/10 border-neon-green/30';
+      case 'intermédiaire':
+      case 'moyen':
+        return 'text-neon-yellow bg-neon-yellow/10 border-neon-yellow/30';
+      case 'avancé':
+      case 'difficile':
+        return 'text-neon-pink bg-neon-pink/10 border-neon-pink/30';
+      default:
+        return 'text-cyber-400 bg-cyber-400/10 border-cyber-400/30';
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête de la page */}
-        <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Quiz Data Marketing</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Testez vos connaissances en data marketing avec nos quiz interactifs, 
-            conçus pour tous les niveaux, du débutant à l'expert.
+    <div className="min-h-screen bg-dark-950 pt-20 pb-12">
+      {/* Background effects */}
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-radial from-neon-green/5 via-transparent to-transparent pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-12 pt-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-dark-800/50 border border-dark-700 rounded-full mb-6">
+            <HelpCircle className="w-4 h-4 text-neon-green" />
+            <span className="text-xs font-mono text-dark-300">
+              <span className="text-neon-green">{availableQuizzes.length}</span> quiz disponibles
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+            <span className="text-dark-100">Quiz </span>
+            <span className="text-gradient-green">Data Marketing</span>
+          </h1>
+
+          <p className="text-lg text-dark-400 max-w-2xl mx-auto">
+            Testez vos connaissances avec nos quiz interactifs.
+            <span className="text-neon-green font-mono"> test --knowledge</span>
           </p>
         </div>
 
-        {/* Liste des quiz */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {availableQuizzes.map((quiz) => (
-            <div key={quiz.id} className="bg-white rounded-xl shadow-sm overflow-hidden transition-transform hover:shadow-md hover:-translate-y-1 duration-300">
-              {/* Image du quiz */}
+        {/* Quiz Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {availableQuizzes.map((quiz, index) => (
+            <div
+              key={quiz.id}
+              className="group relative bg-dark-800/30 backdrop-blur border border-dark-700/50 rounded-2xl overflow-hidden hover:border-cyber-400/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyber-400/10"
+            >
+              {/* Image with overlay */}
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={quiz.image} 
-                  alt={quiz.title} 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={quiz.image}
+                  alt={quiz.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <div className="p-4 text-white">
-                    <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-indigo-600 mb-2">
-                      {quiz.difficulty}
-                    </span>
-                    <h3 className="text-xl font-bold">
-                      {quiz.title}
-                    </h3>
-                  </div>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent" />
+
+                {/* Badge difficulty */}
+                <div className="absolute top-4 left-4">
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-mono border ${getDifficultyColor(quiz.difficulty)}`}>
+                    <Zap className="w-3 h-3 mr-1" />
+                    {quiz.difficulty}
+                  </span>
+                </div>
+
+                {/* Index number */}
+                <div className="absolute top-4 right-4 text-dark-600 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                  #{String(index + 1).padStart(2, '0')}
+                </div>
+
+                {/* Title overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-xl font-bold text-dark-100 group-hover:text-gradient transition-all font-display">
+                    {quiz.title}
+                  </h3>
                 </div>
               </div>
-              
-              {/* Contenu du quiz */}
+
+              {/* Content */}
               <div className="p-5">
-                <p className="text-gray-600 mb-4">{quiz.description}</p>
-                
-                {/* Métadonnées du quiz */}
-                <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {quiz.duration}
+                <p className="text-dark-400 text-sm mb-4 line-clamp-2">
+                  {quiz.description}
+                </p>
+
+                {/* Meta info */}
+                <div className="flex items-center gap-4 text-sm text-dark-500 mb-5">
+                  <div className="flex items-center gap-1.5 font-mono">
+                    <Clock className="w-4 h-4 text-cyber-400" />
+                    <span>{quiz.duration}</span>
                   </div>
-                  
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 6H20M9 12H20M9 18H20M5 6V6.01M5 12V12.01M5 18V18.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {quiz.questions.length} questions
+                  <div className="flex items-center gap-1.5 font-mono">
+                    <ListChecks className="w-4 h-4 text-neon-pink" />
+                    <span>{quiz.questions.length} questions</span>
                   </div>
                 </div>
-                
-                {/* Bouton pour démarrer le quiz */}
-                <Link 
-                  to={`/quiz/${quiz.id}`} 
-                  className="block w-full text-center py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+
+                {/* Start button */}
+                <Link
+                  to={`/quiz/${quiz.id}`}
+                  className="group/btn relative flex items-center justify-center w-full py-3 overflow-hidden rounded-xl font-semibold text-sm transition-all duration-300"
                 >
-                  Démarrer le quiz
+                  {/* Background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-500 to-neon-purple opacity-90 group-hover/btn:opacity-100 transition-opacity" />
+
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+
+                  {/* Content */}
+                  <div className="relative flex items-center gap-2 text-dark-900">
+                    <Play className="w-4 h-4" />
+                    <span className="font-mono">start_quiz()</span>
+                  </div>
                 </Link>
               </div>
+
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyber-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>
 
-        {/* Section d'aide et support */}
-        <div className="mt-16 space-y-6">
-          {/* Nouvelle section : Questions aléatoires */}
-          <div className="bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-xl p-6 md:p-8">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+        {/* Info Sections */}
+        <div className="space-y-6">
+
+          {/* Random Questions Banner */}
+          <div className="relative overflow-hidden bg-gradient-to-r from-neon-orange/10 to-neon-yellow/10 border border-neon-orange/30 rounded-2xl p-6 md:p-8">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-neon-orange/10 rounded-full blur-3xl" />
+
+            <div className="relative flex flex-col md:flex-row items-start gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-14 h-14 bg-gradient-to-br from-neon-orange to-neon-yellow rounded-xl flex items-center justify-center shadow-lg">
+                  <Shuffle className="w-7 h-7 text-dark-900" />
+                </div>
               </div>
+
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-orange-900 mb-2">
-                  🎲 Questions Aléatoires !
+                <h2 className="text-2xl font-bold text-dark-100 mb-3 font-display flex items-center gap-2">
+                  Questions Aléatoires
+                  <Sparkles className="w-5 h-5 text-neon-yellow" />
                 </h2>
-                <p className="text-orange-800 text-lg">
-                  Chaque quiz sélectionne <strong>20 questions aléatoires</strong> parmi une large banque enrichie avec les contenus des modules. 
-                  <strong className="block mt-2">✨ Aucun étudiant n'aura les mêmes questions au même moment !</strong>
+
+                <p className="text-dark-300 text-lg mb-4">
+                  Chaque quiz sélectionne <span className="text-neon-orange font-semibold">20 questions aléatoires</span> parmi une banque enrichie.
+                  <span className="block mt-1 text-neon-yellow font-mono text-sm">// Aucun étudiant n'aura les mêmes questions !</span>
                 </p>
-                <div className="mt-4 bg-white/70 rounded-lg p-4">
-                  <p className="text-orange-900 font-medium mb-2">💡 Avantages :</p>
-                  <ul className="list-disc list-inside space-y-1 text-orange-800">
-                    <li>Révisions variées à chaque passage</li>
-                    <li>Évaluation équitable pour tous</li>
-                    <li>Plus de 100 questions disponibles au total</li>
-                    <li>Parfait pour tester vos connaissances régulièrement</li>
+
+                <div className="bg-dark-900/50 rounded-xl p-4 border border-dark-700/50">
+                  <p className="text-sm font-mono text-dark-400 mb-3">
+                    <span className="text-neon-green">$</span> advantages.list()
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {[
+                      'Révisions variées à chaque passage',
+                      'Évaluation équitable pour tous',
+                      'Plus de 100 questions disponibles',
+                      'Parfait pour réviser régulièrement'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-dark-300">
+                        <ChevronRight className="w-4 h-4 text-neon-green" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Section existante */}
-          <div className="bg-indigo-50 rounded-xl p-6 md:p-8">
-            <div className="flex flex-col md:flex-row items-center">
+          {/* How to use section */}
+          <div className="relative overflow-hidden bg-dark-800/30 backdrop-blur border border-dark-700/50 rounded-2xl p-6 md:p-8">
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyber-400/5 rounded-full blur-3xl" />
+
+            <div className="relative flex flex-col md:flex-row items-center gap-6">
               <div className="md:w-2/3">
-                <h2 className="text-2xl font-bold text-indigo-800 mb-4">
+                <h2 className="text-2xl font-bold text-dark-100 mb-4 font-display flex items-center gap-2">
+                  <Target className="w-6 h-6 text-cyber-400" />
                   Comment utiliser nos quiz ?
                 </h2>
-                <p className="text-indigo-600 mb-6 md:mb-0">
-                  Nos quiz sont conçus pour vous aider à tester et à améliorer vos connaissances en data marketing. 
-                  Chaque quiz commence par des questions de base et progresse vers des concepts plus avancés. 
-                  À la fin du quiz, vous recevrez un score et des recommandations personnalisées.
+
+                <p className="text-dark-400 leading-relaxed">
+                  Nos quiz sont conçus pour tester et améliorer vos connaissances en data marketing.
+                  Chaque quiz commence par des questions de base et progresse vers des concepts plus avancés.
+                  À la fin, vous recevrez un <span className="text-cyber-400">score détaillé</span> et des recommandations personnalisées.
                 </p>
+
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <span className="px-3 py-1 bg-dark-700/50 rounded-lg text-xs font-mono text-dark-300 border border-dark-600">
+                    <span className="text-neon-green">+</span> Progression adaptative
+                  </span>
+                  <span className="px-3 py-1 bg-dark-700/50 rounded-lg text-xs font-mono text-dark-300 border border-dark-600">
+                    <span className="text-neon-green">+</span> Explications détaillées
+                  </span>
+                  <span className="px-3 py-1 bg-dark-700/50 rounded-lg text-xs font-mono text-dark-300 border border-dark-600">
+                    <span className="text-neon-green">+</span> Score personnalisé
+                  </span>
+                </div>
               </div>
+
               <div className="md:w-1/3 flex justify-center">
-                <svg className="w-24 h-24 text-indigo-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <div className="w-24 h-24 bg-gradient-to-br from-cyber-400/20 to-neon-purple/20 rounded-2xl flex items-center justify-center border border-cyber-400/20">
+                  <Trophy className="w-12 h-12 text-cyber-400" />
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   );
 };
 
-export default QuizList; 
+export default QuizList;

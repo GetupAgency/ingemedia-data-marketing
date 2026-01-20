@@ -1,4 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  BarChart3,
+  LineChart,
+  Settings,
+  Search,
+  Zap,
+  Target,
+  ExternalLink,
+  CheckCircle,
+  Sparkles,
+  Filter,
+  ChevronRight
+} from 'lucide-react';
 
 /**
  * Interface pour les outils data marketing
@@ -15,8 +29,11 @@ interface Tool {
 
 /**
  * Page Outils - Présentation complète des outils data marketing
+ * Thème Cyber/Neon
  */
 const Tools: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
   const tools: Tool[] = [
     // Analytics & Mesure
     {
@@ -30,7 +47,7 @@ const Tools: React.FC = () => {
     },
     {
       name: "Adobe Analytics",
-      category: "analytics", 
+      category: "analytics",
       description: "Solution analytics enterprise avec segmentation avancée, attribution complexe et données temps réel.",
       pricing: "Enterprise",
       strengths: ["Segmentation puissante", "Attribution avancée", "APIs robustes"],
@@ -170,207 +187,222 @@ const Tools: React.FC = () => {
   ];
 
   const categories = [
-    { id: 'analytics', name: 'Analytics & Mesure', color: 'bg-blue-50 border-blue-200 text-blue-800', icon: '📊' },
-    { id: 'visualization', name: 'Visualisation', color: 'bg-green-50 border-green-200 text-green-800', icon: '📈' },
-    { id: 'automation', name: 'Automation & CDP', color: 'bg-purple-50 border-purple-200 text-purple-800', icon: '⚙️' },
-    { id: 'research', name: 'Research & Intelligence', color: 'bg-orange-50 border-orange-200 text-orange-800', icon: '🔍' },
-    { id: 'optimization', name: 'Optimisation & Testing', color: 'bg-yellow-50 border-yellow-200 text-yellow-800', icon: '🧪' },
-    { id: 'attribution', name: 'Attribution Marketing', color: 'bg-red-50 border-red-200 text-red-800', icon: '🎯' }
+    { id: 'analytics', name: 'Analytics', icon: BarChart3, color: 'from-neon-cyan to-cyber-400' },
+    { id: 'visualization', name: 'Visualisation', icon: LineChart, color: 'from-neon-green to-emerald-400' },
+    { id: 'automation', name: 'Automation', icon: Settings, color: 'from-neon-purple to-violet-400' },
+    { id: 'research', name: 'Research', icon: Search, color: 'from-neon-orange to-amber-400' },
+    { id: 'optimization', name: 'Optimisation', icon: Zap, color: 'from-neon-yellow to-yellow-400' },
+    { id: 'attribution', name: 'Attribution', icon: Target, color: 'from-neon-pink to-rose-400' }
   ];
 
-  const getPricingColor = (pricing: string) => {
+  const getPricingStyle = (pricing: string) => {
     switch (pricing) {
-      case 'Gratuit': return 'bg-green-100 text-green-800';
-      case 'Freemium': return 'bg-blue-100 text-blue-800';
-      case 'Payant': return 'bg-orange-100 text-orange-800';
-      case 'Enterprise': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Gratuit': return 'bg-neon-green/20 text-neon-green border-neon-green/30';
+      case 'Freemium': return 'bg-neon-cyan/20 text-neon-cyan border-neon-cyan/30';
+      case 'Payant': return 'bg-neon-orange/20 text-neon-orange border-neon-orange/30';
+      case 'Enterprise': return 'bg-neon-pink/20 text-neon-pink border-neon-pink/30';
+      default: return 'bg-dark-700 text-dark-300 border-dark-600';
     }
   };
 
+  const getCategoryColor = (categoryId: string) => {
+    const cat = categories.find(c => c.id === categoryId);
+    return cat?.color || 'from-neon-purple to-neon-pink';
+  };
+
+  const filteredTools = activeCategory
+    ? tools.filter(t => t.category === activeCategory)
+    : tools;
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-dark-900 pt-24 pb-12">
+      {/* Background effects */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-neon-pink/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* En-tête */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">Écosystème des outils data marketing</h1>
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-            Panorama complet des outils professionnels utilisés par les data marketers modernes. 
-            De l'analyse à l'attribution, découvrez les solutions qui transforment les données en résultats.
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-dark-800/50 border border-dark-700 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-neon-cyan" />
+            <span className="text-sm text-dark-300 font-mono">18 outils professionnels</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent">
+              Écosystème Data Marketing
+            </span>
+          </h1>
+          <p className="text-xl text-dark-300 max-w-3xl mx-auto">
+            Panorama complet des outils professionnels utilisés par les data marketers.
+            De l'analyse à l'attribution, découvre les solutions qui transforment les données en résultats.
           </p>
         </div>
 
-        {/* Navigation par catégories */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-          {categories.map((category) => (
-            <div key={category.id} className={`${category.color} border rounded-lg p-4 text-center`}>
-              <div className="text-2xl mb-2">{category.icon}</div>
-              <div className="font-semibold text-sm">{category.name}</div>
-              <div className="text-xs mt-1">
-                {tools.filter(tool => tool.category === category.id).length} outils
+        {/* Filtres par catégorie */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <button
+            onClick={() => setActiveCategory(null)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
+              activeCategory === null
+                ? 'bg-gradient-to-r from-neon-purple to-neon-pink text-white shadow-neon'
+                : 'bg-dark-800 text-dark-300 border border-dark-700 hover:border-neon-purple/50'
+            }`}
+          >
+            <Filter className="w-4 h-4" />
+            Tous
+          </button>
+          {categories.map(cat => {
+            const Icon = cat.icon;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(activeCategory === cat.id ? null : cat.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
+                  activeCategory === cat.id
+                    ? `bg-gradient-to-r ${cat.color} text-white shadow-lg`
+                    : 'bg-dark-800 text-dark-300 border border-dark-700 hover:border-neon-purple/50'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Grille des outils */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {filteredTools.map((tool, index) => (
+            <div
+              key={index}
+              className="group bg-dark-800/50 border border-dark-700 rounded-2xl p-6 backdrop-blur-sm hover:border-neon-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-neon-purple/10"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${getCategoryColor(tool.category)} flex items-center justify-center`}>
+                    {categories.find(c => c.id === tool.category)?.icon &&
+                      React.createElement(categories.find(c => c.id === tool.category)!.icon, { className: 'w-5 h-5 text-white' })
+                    }
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-neon-cyan transition-colors">
+                    {tool.name}
+                  </h3>
+                </div>
+                <span className={`px-2 py-1 rounded-lg text-xs font-medium border ${getPricingStyle(tool.pricing)}`}>
+                  {tool.pricing}
+                </span>
               </div>
+
+              {/* Description */}
+              <p className="text-dark-300 text-sm leading-relaxed mb-4">
+                {tool.description}
+              </p>
+
+              {/* Points forts */}
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">Points forts</h4>
+                <ul className="space-y-1">
+                  {tool.strengths.map((strength, i) => (
+                    <li key={i} className="flex items-center text-sm text-dark-200">
+                      <CheckCircle className="w-3 h-3 text-neon-green mr-2 flex-shrink-0" />
+                      {strength}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Idéal pour */}
+              <div className="bg-dark-700/50 rounded-xl p-3 mb-4">
+                <span className="text-xs text-dark-400">Idéal pour</span>
+                <p className="text-sm text-dark-200">{tool.bestFor}</p>
+              </div>
+
+              {/* Lien */}
+              {tool.url && (
+                <a
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm text-neon-cyan hover:text-neon-purple transition-colors"
+                >
+                  Découvrir l'outil
+                  <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
+              )}
             </div>
           ))}
         </div>
 
-        {/* Grille des outils par catégorie */}
-        {categories.map((category) => {
-          const categoryTools = tools.filter(tool => tool.category === category.id);
-          
-          return (
-            <div key={category.id} className="mb-16">
-              <div className="flex items-center mb-6">
-                <span className="text-3xl mr-3">{category.icon}</span>
-                <h2 className="text-2xl font-bold text-slate-900">{category.name}</h2>
-                <span className="ml-3 text-sm text-slate-500">({categoryTools.length} outils)</span>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {categoryTools.map((tool, index) => (
-                  <div key={index} className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-lg font-bold text-slate-900">{tool.name}</h3>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPricingColor(tool.pricing)}`}>
-                        {tool.pricing}
-                      </span>
-                    </div>
-                    
-                    <p className="text-sm text-slate-700 leading-relaxed mb-4">{tool.description}</p>
-                    
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="font-medium text-slate-900 text-sm mb-2">Points forts</h4>
-                        <ul className="text-xs text-slate-600 space-y-1">
-                          {tool.strengths.map((strength, i) => (
-                            <li key={i} className="flex items-center">
-                              <svg className="w-3 h-3 text-green-500 mr-2 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                              </svg>
-                              {strength}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="bg-slate-50 p-3 rounded-lg">
-                        <h4 className="font-medium text-slate-900 text-xs mb-1">Idéal pour</h4>
-                        <p className="text-xs text-slate-700">{tool.bestFor}</p>
-                      </div>
-                      
-                      {tool.url && (
-                        <a 
-                          href={tool.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-indigo-600 hover:text-indigo-700 font-medium"
-                        >
-                          Découvrir l'outil
-                          <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
+        {/* Section conseils */}
+        <div className="bg-dark-800/50 border border-dark-700 rounded-2xl p-8 mb-12">
+          <h2 className="text-2xl font-bold text-white text-center mb-8">
+            Comment choisir tes outils ?
+          </h2>
 
-        {/* Section conseils de sélection */}
-        <div className="bg-white border border-slate-200 rounded-xl p-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">Comment choisir vos outils ?</h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
-                </svg>
+            {[
+              { step: '01', title: 'Définir tes besoins', desc: 'Identifie précisément quelles analyses tu dois faire et leur fréquence.', color: 'neon-cyan' },
+              { step: '02', title: 'Évaluer le budget', desc: 'Commence par les solutions gratuites puis évolue selon tes besoins et ROI.', color: 'neon-green' },
+              { step: '03', title: 'Tester l\'intégration', desc: 'Vérifie la compatibilité avec ton stack technique et tes sources de données.', color: 'neon-purple' },
+              { step: '04', title: 'Mesurer l\'adoption', desc: 'Un outil n\'est efficace que s\'il est utilisé régulièrement par l\'équipe.', color: 'neon-pink' }
+            ].map((item, i) => (
+              <div key={i} className="text-center">
+                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-${item.color}/20 border border-${item.color}/30 flex items-center justify-center`}>
+                  <span className={`font-mono font-bold text-${item.color}`}>{item.step}</span>
+                </div>
+                <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-dark-400">{item.desc}</p>
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">1. Définir vos besoins</h3>
-              <p className="text-sm text-slate-600">Identifiez précisément quelles analyses vous devez faire et quelle fréquence.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-slate-900 mb-2">2. Évaluer le budget</h3>
-              <p className="text-sm text-slate-600">Commencez par les solutions gratuites puis évoluez selon vos besoins et ROI.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-slate-900 mb-2">3. Tester l'intégration</h3>
-              <p className="text-sm text-slate-600">Vérifiez la compatibilité avec votre stack technique et vos sources de données.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-slate-900 mb-2">4. Mesurer l'adoption</h3>
-              <p className="text-sm text-slate-600">Un outil n'est efficace que s'il est utilisé régulièrement par l'équipe.</p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Stack recommandée pour débuter */}
-        <div className="mt-12 bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200 rounded-xl p-8">
-          <h2 className="text-2xl font-bold text-indigo-900 mb-6 text-center">Stack recommandée pour débuter</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white border border-indigo-200 rounded-lg p-4 text-center">
-              <div className="text-2xl mb-2">📊</div>
-              <h3 className="font-bold text-indigo-900">Google Analytics 4</h3>
-              <p className="text-xs text-indigo-700 mt-1">Analytics de base gratuit</p>
-            </div>
-            
-            <div className="bg-white border border-indigo-200 rounded-lg p-4 text-center">
-              <div className="text-2xl mb-2">📈</div>
-              <h3 className="font-bold text-indigo-900">Looker Studio</h3>
-              <p className="text-xs text-indigo-700 mt-1">Dashboards automatisés</p>
-            </div>
-            
-            <div className="bg-white border border-indigo-200 rounded-lg p-4 text-center">
-              <div className="text-2xl mb-2">🧪</div>
-              <h3 className="font-bold text-indigo-900">Hotjar</h3>
-              <p className="text-xs text-indigo-700 mt-1">Optimisation UX</p>
-            </div>
-            
-            <div className="bg-white border border-indigo-200 rounded-lg p-4 text-center">
-              <div className="text-2xl mb-2">🔍</div>
-              <h3 className="font-bold text-indigo-900">SEMrush</h3>
-              <p className="text-xs text-indigo-700 mt-1">Recherche & concurrence</p>
-            </div>
-          </div>
-          
-          <div className="text-center mt-6">
-            <p className="text-sm text-indigo-800">
-              <strong>Budget total :</strong> ~100€/mois • <strong>ROI attendu :</strong> 5x-10x • <strong>Temps setup :</strong> 1-2 semaines
-            </p>
+        {/* Stack recommandée */}
+        <div className="bg-gradient-to-r from-neon-purple/10 via-neon-cyan/10 to-neon-pink/10 border border-neon-purple/20 rounded-2xl p-8 mb-12">
+          <h2 className="text-2xl font-bold text-white text-center mb-2">
+            Stack recommandée pour débuter
+          </h2>
+          <p className="text-dark-400 text-center mb-8">
+            Budget total : ~100€/mois • ROI attendu : 5x-10x • Setup : 1-2 semaines
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Google Analytics 4', use: 'Analytics de base', icon: BarChart3, color: 'neon-cyan' },
+              { name: 'Looker Studio', use: 'Dashboards', icon: LineChart, color: 'neon-green' },
+              { name: 'Hotjar', use: 'Optimisation UX', icon: Zap, color: 'neon-yellow' },
+              { name: 'SEMrush', use: 'Research & SEO', icon: Search, color: 'neon-pink' }
+            ].map((tool, i) => (
+              <div key={i} className="bg-dark-800/50 border border-dark-700 rounded-xl p-4 text-center hover:border-neon-purple/30 transition-all">
+                <tool.icon className={`w-8 h-8 mx-auto mb-2 text-${tool.color}`} />
+                <h3 className="font-bold text-white text-sm">{tool.name}</h3>
+                <p className="text-xs text-dark-400">{tool.use}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Call to action */}
-        <div className="mt-12 text-center">
+        {/* CTA */}
+        <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <a href="/learn" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
-              📚 Apprendre à les utiliser
-            </a>
-            <a href="/quizzes" className="bg-white text-indigo-600 border border-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
-              🧠 Tester mes connaissances
-            </a>
+            <Link
+              to="/learn"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-neon-purple to-neon-pink text-white rounded-xl font-semibold hover:shadow-neon transition-all"
+            >
+              Apprendre à les utiliser
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+            <Link
+              to="/quizzes"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-dark-800 border border-dark-700 text-white rounded-xl font-semibold hover:border-neon-cyan transition-all"
+            >
+              Tester mes connaissances
+              <ChevronRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </div>

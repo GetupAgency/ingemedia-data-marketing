@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// Import du logo React SVG par défaut car nous n'avons pas le logo personnalisé
-import logo from '../assets/react.svg';
+import {
+  Home,
+  BookOpen,
+  PlayCircle,
+  HelpCircle,
+  Wrench,
+  BookMarked,
+  Trophy,
+  GraduationCap,
+  Menu,
+  X,
+  Terminal,
+  Cpu
+} from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +21,6 @@ const Navbar: React.FC = () => {
   const [clickCount, setClickCount] = useState(0);
   const location = useLocation();
 
-  // Surveiller le défilement pour ajouter un effet de fond à la navbar
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
@@ -35,217 +46,182 @@ const Navbar: React.FC = () => {
   // Easter egg : Triple clic sur le logo/titre pour accéder à l'examen
   const handleLogoClick = () => {
     setClickCount(prev => prev + 1);
-    
-    // Reset après 2 secondes
+
     setTimeout(() => {
       setClickCount(0);
     }, 2000);
   };
 
-  // Rediriger vers l'examen après 3 clics
   useEffect(() => {
     if (clickCount === 3) {
       window.location.href = '/exam-2025-ingemedia';
     }
   }, [clickCount]);
 
-  // Liens de navigation améliorés avec des icônes
   const navLinks = [
-    { 
-      to: '/', 
-      label: 'Accueil',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    { 
-      to: '/learn', 
-      label: 'Apprendre',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      to: '/tutorials',
-      label: 'Tutoriels',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 14L20.5 14M12 14L15 17M12 14L15 11M12 4L3.5 4M12 4L9 7M12 4L9 1M3.5 10H5.25C5.66421 10 6 10.3358 6 10.75V19.25C6 19.6642 5.66421 20 5.25 20H3.5C3.08579 20 2.75 19.6642 2.75 19.25V10.75C2.75 10.3358 3.08579 10 3.5 10ZM11 10H12.75C13.1642 10 13.5 10.3358 13.5 10.75V19.25C13.5 19.6642 13.1642 20 12.75 20H11C10.5858 20 10.25 19.6642 10.25 19.25V10.75C10.25 10.3358 10.5858 10 11 10ZM18.5 10H20.25C20.6642 10 21 10.3358 21 10.75V19.25C21 19.6642 20.6642 20 20.25 20H18.5C18.0858 20 17.75 19.6642 17.75 19.25V10.75C17.75 10.3358 18.0858 10 18.5 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      to: '/quizzes', 
-      label: 'Quiz',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 9H9.01M12 9H12.01M15 9H15.01M9 13H9.01M12 13H12.01M15 13H15.01M9 17H9.01M12 17H12.01M15 17H15.01M7 5H17C18.1046 5 19 5.89543 19 7V17C19 18.1046 18.1046 19 17 19H7C5.89543 19 5 18.1046 5 17V7C5 5.89543 5.89543 5 7 5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    { 
-      to: '/tools', 
-      label: 'Outils',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10.5 6H13.5M10.5 18H13.5M6 10.5V13.5M18 10.5V13.5M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    { 
-      to: '/glossary', 
-      label: 'Lexique',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    { 
-      to: '/olympiades', 
-      label: 'Olympiades',
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12 15L12 21M12 15L8 18M12 15L16 18M6 9C6 5.13401 9.13401 2 13 2H11C14.866 2 18 5.13401 18 9V12C18 15.866 14.866 19 11 19H13C9.13401 19 6 15.866 6 12V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    }
+    { to: '/', label: 'Accueil', icon: Home },
+    { to: '/learn', label: 'Apprendre', icon: BookOpen },
+    { to: '/tutorials', label: 'Tutoriels', icon: PlayCircle },
+    { to: '/quizzes', label: 'Quiz', icon: HelpCircle },
+    { to: '/tools', label: 'Outils', icon: Wrench },
+    { to: '/glossary', label: 'Lexique', icon: BookMarked },
+    { to: '/olympiades', label: 'Olympiades', icon: Trophy }
   ];
-  
+
   return (
-    <nav className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-xl backdrop-blur-xl border-b border-gray-200/50' : 'bg-white/80 shadow-lg backdrop-blur-lg'}`}>
+    <nav className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'bg-dark-900/95 backdrop-blur-xl border-b border-cyber-400/20 shadow-lg shadow-cyber-400/5'
+        : 'bg-dark-900/80 backdrop-blur-lg border-b border-dark-700/50'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-18">
+        <div className="flex justify-between h-16">
+          {/* Logo */}
           <div className="flex items-center">
-            <Link 
-              to="/" 
-              className="flex items-center py-2 group" 
+            <Link
+              to="/"
+              className="flex items-center py-2 group"
               onClick={(e) => {
                 closeMenu();
                 handleLogoClick();
               }}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 group-hover:scale-105 transition-transform duration-200 shadow-lg">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+              {/* Logo Icon avec effet néon */}
+              <div className="relative">
+                <div className="w-10 h-10 bg-gradient-to-br from-cyber-400 to-neon-purple rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-all duration-300 shadow-neon">
+                  <Terminal className="w-5 h-5 text-dark-900" />
+                </div>
+                {/* Pulse effect */}
+                <div className="absolute inset-0 w-10 h-10 bg-cyber-400/30 rounded-lg animate-ping opacity-0 group-hover:opacity-100" />
               </div>
+
               <div className="flex flex-col">
-                <span className="font-bold text-lg leading-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  CMD Ingemedia
+                <span className="font-mono font-bold text-lg leading-tight text-gradient">
+                  &lt;Genius/&gt;
                 </span>
-                <span className="text-xs text-gray-500 leading-tight">Data Marketing</span>
+                <span className="text-xs text-dark-400 font-mono leading-tight tracking-wider">
+                  DATA_MARKETING
+                </span>
               </div>
             </Link>
           </div>
-          
+
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center space-x-2">
-            {navLinks.map(link => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`flex items-center px-4 py-2.5 rounded-xl text-sm font-medium group transition-all duration-200 relative ${
-                  location.pathname === link.to
-                    ? 'text-indigo-600 bg-gradient-to-r from-indigo-50 to-purple-50 shadow-sm border border-indigo-100'
-                    : 'text-gray-600 hover:text-indigo-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 hover:shadow-sm'
-                }`}
-              >
-                <span className="flex items-center">
-                  {link.icon && <span className="mr-2 opacity-70 group-hover:opacity-100 transition-opacity">{link.icon}</span>}
-                  {link.label}
-                </span>
-                {location.pathname === link.to && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-500 rounded-full"></div>
-                )}
-              </Link>
-            ))}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navLinks.map(link => {
+              const Icon = link.icon;
+              const isActive = location.pathname === link.to;
+
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`relative flex items-center px-4 py-2 rounded-lg text-sm font-medium group transition-all duration-200 ${
+                    isActive
+                      ? 'text-cyber-400 bg-cyber-400/10'
+                      : 'text-dark-300 hover:text-cyber-400 hover:bg-dark-800/50'
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 mr-2 transition-all duration-200 ${
+                    isActive ? 'text-cyber-400' : 'text-dark-500 group-hover:text-cyber-400'
+                  }`} />
+                  <span className="font-mono">{link.label}</span>
+
+                  {/* Active indicator */}
+                  {isActive && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-cyber-400 rounded-full shadow-neon" />
+                  )}
+
+                  {/* Hover underline effect */}
+                  <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-cyber-400 to-neon-purple rounded-full transition-all duration-300 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </Link>
+              );
+            })}
           </div>
-          
-          {/* Bouton espace étudiant */}
-          <div className="hidden md:flex items-center ml-4">
-            <Link 
+
+          {/* Bouton Espace Étudiant */}
+          <div className="hidden lg:flex items-center ml-4">
+            <Link
               to="/student-space"
-              className="flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
+              className="group relative flex items-center px-5 py-2.5 overflow-hidden rounded-lg font-semibold text-sm transition-all duration-300"
             >
-              <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Espace Étudiant
+              {/* Background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyber-500 to-neon-purple opacity-100 group-hover:opacity-90 transition-opacity" />
+
+              {/* Shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+
+              {/* Content */}
+              <div className="relative flex items-center text-dark-900">
+                <GraduationCap className="w-4 h-4 mr-2" />
+                <span className="font-mono">Espace_Étudiant</span>
+              </div>
             </Link>
           </div>
-          
-          {/* Mobile nav button */}
-          <div className="md:hidden flex items-center">
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none"
+              className="p-2 rounded-lg text-dark-300 hover:text-cyber-400 hover:bg-dark-800/50 transition-all duration-200"
+              aria-label="Toggle menu"
             >
-              <svg
-                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg
-                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
-      
-      {/* Mobile nav dropdown */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-white/95 backdrop-blur-xl shadow-2xl border-t border-gray-200/50`}>
-        <div className="px-4 pt-4 pb-6 space-y-2">
-          {navLinks.map(link => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`flex items-center px-3 py-2 rounded-md text-base font-medium relative ${
-                location.pathname === link.to
-                  ? 'text-indigo-600 bg-indigo-50'
-                  : 'text-gray-600 hover:text-indigo-600 hover:bg-gray-50'
-              }`}
-              onClick={closeMenu}
-            >
-              <span className="flex items-center">
-                {link.icon && <span className="mr-2">{link.icon}</span>}
-                {link.label}
-              </span>
-            </Link>
-          ))}
-          
+
+      {/* Mobile menu */}
+      <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+        isMenuOpen
+          ? 'max-h-screen opacity-100'
+          : 'max-h-0 opacity-0 overflow-hidden'
+      }`}>
+        <div className="bg-dark-900/98 backdrop-blur-xl border-t border-dark-700/50 px-4 pt-4 pb-6 space-y-2">
+          {navLinks.map(link => {
+            const Icon = link.icon;
+            const isActive = location.pathname === link.to;
+
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                  isActive
+                    ? 'text-cyber-400 bg-cyber-400/10 border-l-2 border-cyber-400'
+                    : 'text-dark-300 hover:text-cyber-400 hover:bg-dark-800/50'
+                }`}
+                onClick={closeMenu}
+              >
+                <Icon className={`w-5 h-5 mr-3 ${isActive ? 'text-cyber-400' : 'text-dark-500'}`} />
+                <span className="font-mono">{link.label}</span>
+              </Link>
+            );
+          })}
+
+          {/* Mobile CTA */}
           <Link
             to="/student-space"
-            className="flex items-center w-full px-3 py-2 mt-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+            className="flex items-center justify-center w-full mt-4 px-4 py-3 bg-gradient-to-r from-cyber-500 to-neon-purple text-dark-900 rounded-lg font-semibold transition-all duration-200 hover:shadow-neon"
             onClick={closeMenu}
           >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 19.128C15.853 19.3757 16.7368 19.5009 17.625 19.5C19.0534 19.5021 20.4633 19.1764 21.746 18.548C21.7421 15.1125 19.7922 12.1256 16.8555 11.0208C17.5923 10.0417 17.9999 8.83244 18 7.5C18 4.6005 15.7649 2.18493 12.9438 2.01266C11.1812 1.90682 9.55035 2.67163 8.47299 4.00244C7.39563 5.33325 7.00006 7.08769 7.35512 8.80092C7.71017 10.5141 8.76072 11.9716 10.2364 12.7983C7.29289 13.8937 5.33541 16.8971 5.33541 20.3469C5.33541 20.4716 5.34663 20.595 5.36776 20.7167C6.6467 21.3402 8.0495 21.6663 9.47059 21.6669C10.3991 21.6666 11.3221 21.5274 12.2083 21.253" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M14.7142 14.5C15.8357 14.5 16.8274 15.0795 17.4077 16.0028C18.0507 17.0471 18.123 18.3466 17.6743 19.4826" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Espace Étudiant
+            <GraduationCap className="w-5 h-5 mr-2" />
+            <span className="font-mono">Espace_Étudiant</span>
           </Link>
         </div>
       </div>
+
+      {/* Ligne décorative animée en bas de la navbar */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-400/50 to-transparent" />
     </nav>
   );
 };
 
-export default Navbar; 
+export default Navbar;

@@ -20,7 +20,7 @@ const ExamResults: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [selectedResult, setSelectedResult] = useState<any>(null);
 
-  const teacherPassword = 'Grosac4Ever!';
+  const teacherPassword = 'racaille2026';
 
   // Fonction de connexion
   const handleLogin = (e: React.FormEvent) => {

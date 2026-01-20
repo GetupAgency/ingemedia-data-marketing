@@ -17,7 +17,7 @@ export default async function handler(
   try {
     // Vérification du mot de passe enseignant
     const password = req.query.password as string;
-    const teacherPassword = 'Grosac4Ever!'; // Même mot de passe que le mode enseignant
+    const teacherPassword = 'racaille2026'; // Même mot de passe que le mode enseignant
     
     if (password !== teacherPassword) {
       return res.status(401).json({ error: 'Mot de passe incorrect' });
