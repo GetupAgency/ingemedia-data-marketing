@@ -1,7 +1,14 @@
 /**
  * Données pour le mode Olympiades
  * Quiz rapide par équipes avec timer et graphiques
+ * Utilise le pool complet de +110 questions avec mélange aléatoire
  */
+
+import {
+  dataMarketingQuizQuestions,
+  analyticsToolsQuizQuestions,
+  practicalQuizQuestions
+} from './quizData';
 
 export interface OlympiadQuestion {
   id: string;
@@ -20,7 +27,71 @@ export interface OlympiadQuestion {
   timeLimit: number; // en secondes
 }
 
-export const olympiadQuestions: OlympiadQuestion[] = [
+/**
+ * Fonction pour mélanger un tableau (Fisher-Yates shuffle)
+ */
+const shuffleArray = <T>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+/**
+ * Convertit une question du pool principal en format Olympiades
+ */
+const convertToOlympiadQuestion = (
+  q: { question: string; options: string[]; correctAnswer: number; explanation: string },
+  index: number
+): OlympiadQuestion => {
+  // Déterminer la difficulté basée sur certains mots-clés
+  let difficulty: 'facile' | 'moyen' | 'difficile' = 'moyen';
+  const questionLower = q.question.toLowerCase();
+
+  if (questionLower.includes('signifie') || questionLower.includes('que mesure') || questionLower.includes('qu\'est-ce')) {
+    difficulty = 'facile';
+  } else if (questionLower.includes('ratio') || questionLower.includes('stratégie') || questionLower.includes('pourquoi')) {
+    difficulty = 'difficile';
+  }
+
+  const points = difficulty === 'facile' ? 100 : difficulty === 'moyen' ? 150 : 200;
+
+  return {
+    id: `olymp-pool-${index}`,
+    type: questionLower.includes('calcul') || questionLower.includes('combien') || questionLower.includes('%') ? 'quick-calc' : 'scenario',
+    question: q.question,
+    options: q.options,
+    correctAnswer: q.correctAnswer,
+    explanation: q.explanation,
+    difficulty,
+    points,
+    timeLimit: 30
+  };
+};
+
+/**
+ * Génère un set de questions mélangées pour les Olympiades
+ * @param count Nombre de questions à retourner (défaut: 16 pour 4 tours de 4 équipes)
+ */
+export const generateOlympiadQuestions = (count: number = 16): OlympiadQuestion[] => {
+  // Combiner toutes les questions du pool principal
+  const allQuestions = [
+    ...dataMarketingQuizQuestions,
+    ...analyticsToolsQuizQuestions,
+    ...practicalQuizQuestions
+  ];
+
+  // Mélanger et convertir
+  const shuffled = shuffleArray(allQuestions);
+  const selected = shuffled.slice(0, count);
+
+  return selected.map((q, index) => convertToOlympiadQuestion(q, index));
+};
+
+// Questions visuelles spéciales pour les Olympiades (gardées pour variété)
+export const visualOlympiadQuestions: OlympiadQuestion[] = [
   // Q1 - Réponse correcte en C (courte)
   {
     id: 'olymp-1',
@@ -376,6 +447,28 @@ export const olympiadQuestions: OlympiadQuestion[] = [
     timeLimit: 30
   }
 ];
+
+/**
+ * Génère un mix de questions visuelles et questions du pool
+ * @param visualCount Nombre de questions visuelles (avec graphiques)
+ * @param poolCount Nombre de questions du pool principal
+ */
+export const generateMixedOlympiadQuestions = (visualCount: number = 4, poolCount: number = 12): OlympiadQuestion[] => {
+  // Mélanger les questions visuelles et en prendre quelques unes
+  const shuffledVisual = shuffleArray(visualOlympiadQuestions).slice(0, visualCount);
+
+  // Générer des questions du pool
+  const poolQuestions = generateOlympiadQuestions(poolCount);
+
+  // Combiner et mélanger le tout
+  return shuffleArray([...shuffledVisual, ...poolQuestions]);
+};
+
+/**
+ * Export legacy pour compatibilité - génère des questions aléatoires à chaque appel
+ * Note: Cette constante sera recalculée à chaque import du module
+ */
+export const olympiadQuestions = generateMixedOlympiadQuestions(4, 12);
 
 export const teams = [
   {

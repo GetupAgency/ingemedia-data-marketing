@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Zap, Timer, Target } from 'lucide-react';
-import { olympiadQuestions, teams } from '../data/olympiadesData';
+import { Trophy, Zap, Timer, Target, RefreshCw } from 'lucide-react';
+import { generateMixedOlympiadQuestions, teams, OlympiadQuestion } from '../data/olympiadesData';
 
 /**
  * Mode Olympiades - Quiz par équipes avec timer
  * Format ludique et compétitif pour terminer le cours
+ * Utilise le pool de +110 questions avec mélange aléatoire
  */
 const Olympiades: React.FC = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -17,8 +18,8 @@ const Olympiades: React.FC = () => {
   const [showExplanation, setShowExplanation] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
   const [bonusSpeed, setBonusSpeed] = useState(0);
+  const [questions, setQuestions] = useState<OlympiadQuestion[]>(() => generateMixedOlympiadQuestions(4, 12));
 
-  const questions = olympiadQuestions;
   const currentQ = questions[currentQuestion];
 
   // Timer countdown
@@ -100,8 +101,10 @@ const Olympiades: React.FC = () => {
     }
   };
 
-  // Recommencer
+  // Recommencer avec de nouvelles questions
   const restartGame = () => {
+    // Générer un nouveau set de questions aléatoires
+    setQuestions(generateMixedOlympiadQuestions(4, 12));
     setGameStarted(false);
     setCurrentQuestion(0);
     setTeamScores([0, 0, 0, 0]);
@@ -150,7 +153,7 @@ const Olympiades: React.FC = () => {
               <ul className="space-y-2 text-indigo-200">
                 <li className="flex items-center gap-2">
                   <span className="text-yellow-400">•</span>
-                  <span>12 questions ultra-rapides</span>
+                  <span>16 questions aléatoires par partie</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-yellow-400">•</span>
@@ -158,11 +161,15 @@ const Olympiades: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-yellow-400">•</span>
-                  <span>Graphiques et métriques à analyser</span>
+                  <span>Pool de <strong className="text-yellow-400">+110 questions</strong> différentes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-yellow-400">•</span>
                   <span>Rotation automatique des équipes</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span>Parties rejouables à l'infini !</span>
                 </li>
               </ul>
             </div>

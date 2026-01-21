@@ -30,7 +30,7 @@ export interface QuizSession {
 
 class QuizSessionService {
   private currentSession: QuizSession | null = null;
-  private readonly STORAGE_KEY = 'cmd_quiz_sessions';
+  private readonly STORAGE_KEY = 'genius_quiz_sessions';
 
   /**
    * Créer une nouvelle session de quiz
@@ -271,7 +271,7 @@ class QuizSessionService {
     const allSessions = this.getAllSessions();
     const exportData = {
       exportedAt: new Date().toISOString(),
-      platform: 'CMD Ingemedia - Data Marketing',
+      platform: 'Genius Ingemedia - Data Marketing',
       totalSessions: allSessions.length,
       sessions: allSessions,
       globalStats: this.getGlobalStats()

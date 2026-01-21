@@ -27,7 +27,7 @@ interface QuizResult {
 
 // Service de stockage des résultats
 const QuizResultService = {
-  STORAGE_KEY: 'cmd_quiz_results',
+  STORAGE_KEY: 'genius_quiz_results',
 
   saveResult(result: QuizResult): void {
     const results = this.getAllResults();
@@ -46,7 +46,7 @@ const QuizResultService = {
     const data = {
       ...result,
       exportedAt: new Date().toISOString(),
-      platform: 'CMD Ingemedia - Data Marketing Quiz'
+      platform: 'Genius Ingemedia - Data Marketing Quiz'
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);

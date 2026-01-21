@@ -152,9 +152,9 @@ const Dashboard: React.FC = () => {
   ];
 
   const stats = [
-    { icon: Database, value: '5', label: 'Modules', color: 'text-cyber-400' },
-    { icon: Target, value: '40+', label: 'Questions', color: 'text-neon-green' },
-    { icon: Wrench, value: '45+', label: 'Outils', color: 'text-neon-pink' },
+    { icon: Database, value: '8', label: 'Modules', color: 'text-cyber-400' },
+    { icon: Target, value: '100+', label: 'Questions', color: 'text-neon-green' },
+    { icon: Wrench, value: '18', label: 'Outils', color: 'text-neon-pink' },
     { icon: Users, value: '∞', label: 'Étudiants', color: 'text-neon-purple' }
   ];
 
