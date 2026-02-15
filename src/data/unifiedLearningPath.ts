@@ -979,6 +979,196 @@ export const unifiedLearningPath: LearningModule[] = [
             explanation: 'Pour Google Display, 0,5-1% est considéré comme bon. 0,5% est donc dans la fourchette basse mais acceptable.'
           }
         ]
+      },
+      {
+        id: 'atelier-audit-google-ads',
+        title: 'Atelier Pratique : Audit Google Ads sur données réelles',
+        description: 'Analysez les vraies campagnes Google Ads de Déco Charpente (budget 40K€, 63 000 termes de recherche)',
+        type: 'case-study',
+        difficulty: 'intermédiaire',
+        duration: '45 min',
+        content: `<div class="section-content">
+  <h1 class="section-title">Audit Google Ads — Cas réel Déco Charpente</h1>
+
+  <p class="section-text">Déco Charpente est une entreprise spécialisée dans les structures bois extérieures (abris voiture, pergolas, pool houses) en région PACA et sud de la France. Elle investit environ <strong>40 000€/an</strong> en Google Ads répartis sur une trentaine de campagnes gérées par des concessionnaires locaux.</p>
+
+  <h2 class="section-subtitle">Contexte business</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">L'entreprise</h4>
+      <ul class="deliverable-list">
+        <li>Produits : carports bois, pergolas, appentis, pool houses</li>
+        <li>Panier moyen : 8 000 - 15 000€</li>
+        <li>Zone : Sud de la France (réseau de concessionnaires)</li>
+        <li>Saisonnalité forte : pics au printemps, creux en été</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Les données à votre disposition</h4>
+      <ul class="deliverable-list">
+        <li><strong>63 719 termes de recherche</strong> avec coûts, clics, conversions</li>
+        <li><strong>51 mots-clés stratégiques</strong> avec comparatifs N-1</li>
+        <li><strong>34 campagnes</strong> par concessionnaire avec performance</li>
+        <li>Séries temporelles hebdomadaires</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle mt-8">Ce que vous allez apprendre</h2>
+
+  <div class="project-type">
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Lire et interpréter</strong> un export Google Ads réel (pas un cas fictif)</li>
+        <li><strong>Identifier le gaspillage</strong> : termes de recherche chers sans conversion</li>
+        <li><strong>Calculer le ROAS</strong> par campagne et par mot-clé</li>
+        <li><strong>Proposer des mots-clés négatifs</strong> pour réduire le budget inutile</li>
+      </ul>
+    </div>
+  </div>
+</div>`,
+        practicalExercise: {
+          title: 'Audit des campagnes Google Ads Déco Charpente',
+          description: 'Téléchargez les données réelles et analysez les performances dans Excel ou Google Sheets',
+          instructions: `<div class="cas-pratique-content">
+  <h4 class="font-semibold text-purple-900 mb-4">📥 Fichiers à télécharger</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+    <a href="/data/termes-recherche-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Termes de recherche (63K lignes)</a>
+    <a href="/data/mots-cles-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Mots-clés stratégiques (51)</a>
+    <a href="/data/campagnes-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Campagnes (34)</a>
+    <a href="/data/serie-temporelle-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Série temporelle hebdo</a>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 1 — Top & Flop (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Ouvrez <strong>termes-recherche-gads.csv</strong> dans Excel/Sheets</li>
+    <li>Triez par <strong>Coût décroissant</strong> : quels sont les 10 termes les plus chers ?</li>
+    <li>Filtrez les termes avec <strong>Conversions = 0 ET Coût > 50€</strong> : c'est votre gaspillage</li>
+    <li>Calculez le total gaspillé sur ces termes sans conversion</li>
+    <li>Identifiez les <strong>10 termes les plus rentables</strong> (meilleur ratio Conversions / Coût)</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 2 — Performance par campagne (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Ouvrez <strong>campagnes-gads.csv</strong></li>
+    <li>Pour chaque campagne, calculez : <strong>ROAS = Conversions × Panier moyen estimé (10 000€) / Coût</strong></li>
+    <li>Classez les campagnes du meilleur au pire ROAS</li>
+    <li>Les 3 campagnes qui consomment le plus de budget sont-elles les plus performantes ?</li>
+    <li>Comparez les performances 2025 vs 2024 : quelles campagnes se dégradent ?</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 3 — Recommandations (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Listez <strong>10 termes de recherche à exclure</strong> (mots-clés négatifs) avec justification</li>
+    <li>Proposez une <strong>réallocation budgétaire</strong> entre les campagnes (qui mérite + / - de budget ?)</li>
+    <li>Identifiez les <strong>mots-clés sous-exploités</strong> dans mots-cles-gads.csv (bon CTR mais peu de budget)</li>
+  </ol>
+</div>`,
+          expectedOutput: 'Un tableau Excel avec : Top 10 termes rentables, liste de mots-clés négatifs, ROAS par campagne, et 3 recommandations de réallocation budgétaire',
+          hints: [
+            'Utilisez les filtres et tableaux croisés dynamiques dans Excel/Sheets pour analyser les 63K lignes',
+            'Un terme sans conversion n\'est pas forcément mauvais s\'il coûte peu — concentrez-vous sur le gaspillage à fort montant',
+            'Le ROAS cible pour du B2B avec un panier à 10K€ devrait être au minimum de 5:1'
+          ]
+        },
+        teacherCorrection: `<div class="correction-content">
+  <h2 class="correction-title">Correction — Audit Google Ads Déco Charpente</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Étape 1 : Analyse du gaspillage</h3>
+    <div class="project-detail">
+      <strong>Termes les plus chers sans conversion (exemples attendus) :</strong>
+      <ul class="feature-list">
+        <li>Termes trop génériques : "pergola", "abri jardin", "terrasse bois" → intentionnalité faible</li>
+        <li>Termes hors cible : termes liés au métal, PVC, ou DIY → pas le produit vendu</li>
+        <li>Termes géographiquement hors zone : villes hors réseau concessionnaires</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Termes les plus rentables (critères) :</strong>
+      <ul class="feature-list">
+        <li><strong>"carport bois sur mesure"</strong> : intention d'achat forte, mot-clé longue traîne</li>
+        <li><strong>"abri voiture bois prix"</strong> : recherche transactionnelle (incluant "prix")</li>
+        <li><strong>"pergola bois [ville]"</strong> : requête locale avec intention forte</li>
+        <li>Termes brandés "déco charpente" : CTR 40%+, coût quasi nul</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Étape 2 : ROAS par campagne</h3>
+    <div class="project-detail">
+      <strong>Campagnes performantes :</strong>
+      <ul class="feature-list">
+        <li><strong>Globale-réseau</strong> : ~12K€ dépensés, ~90 conversions → ROAS estimé ~75:1 (excellent)</li>
+        <li>Campagnes concessionnaires avec zones géographiques ciblées : meilleur ROAS que les campagnes nationales</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Campagnes à auditer :</strong>
+      <ul class="feature-list">
+        <li>Campagnes avec fort budget mais peu de conversions → investiguer les landing pages</li>
+        <li>Campagnes dont le coût/conv. a augmenté vs N-1 → vérifier la qualité des mots-clés</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Étape 3 : Recommandations type</h3>
+    <div class="project-detail">
+      <strong>Mots-clés négatifs à ajouter :</strong>
+      <ul class="feature-list">
+        <li>"gratuit", "pas cher", "occasion", "diy" → hors cible premium</li>
+        <li>"métal", "aluminium", "pvc", "fer forgé" → hors matériau</li>
+        <li>"plan", "tuto", "comment faire" → intention informationnelle, pas transactionnelle</li>
+        <li>Noms de concurrents spécifiques si non pertinents</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Réallocation budgétaire :</strong>
+      <ul class="feature-list">
+        <li>Augmenter le budget des campagnes concessionnaires avec le meilleur coût/conversion</li>
+        <li>Réduire les campagnes génériques nationales au profit de campagnes locales géociblées</li>
+        <li>Investir davantage sur les mots-clés longue traîne ("carport bois sur mesure [ville]")</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Grille de notation suggérée :</strong><br>
+    • Identification correcte du gaspillage avec chiffres : /5<br>
+    • ROAS calculé par campagne avec classement : /5<br>
+    • Mots-clés négatifs pertinents (min. 10) : /5<br>
+    • Recommandations de réallocation argumentées : /5
+  </div>
+</div>`,
+        quiz: [
+          {
+            id: 'q-audit-gads-1',
+            question: 'Dans un export Google Ads, un terme de recherche a coûté 200€ avec 0 conversion. Quelle est la première action à envisager ?',
+            options: [
+              'Augmenter l\'enchère pour obtenir plus de clics',
+              'Vérifier si le terme est pertinent pour le business et l\'ajouter en mot-clé négatif si hors cible',
+              'Supprimer la campagne entière',
+              'Ignorer car 200€ est négligeable sur un budget de 40K€'
+            ],
+            correctAnswer: 1,
+            explanation: 'Un terme coûteux sans conversion doit être analysé : s\'il est hors cible (ex: "pergola PVC" pour un vendeur de bois), il doit être ajouté en mot-clé négatif. S\'il est pertinent, il faut plutôt auditer la landing page.'
+          },
+          {
+            id: 'q-audit-gads-2',
+            question: 'Une campagne Google Ads dépense 3 000€ pour 5 conversions. Le panier moyen est de 10 000€. Quel est le ROAS et comment l\'évaluez-vous ?',
+            options: [
+              'ROAS de 1,7:1 — insuffisant, la campagne perd de l\'argent',
+              'ROAS de 16,7:1 — excellent, augmenter le budget',
+              'ROAS de 5:1 — correct mais à améliorer',
+              'Impossible à calculer sans le taux de conversion'
+            ],
+            correctAnswer: 1,
+            explanation: 'ROAS = (5 conversions × 10 000€) / 3 000€ = 50 000 / 3 000 = 16,7:1. C\'est excellent (au-dessus du seuil de 5:1 pour du B2B). Cette campagne mérite plus de budget.'
+          }
+        ]
       }
     ]
   },
@@ -1460,6 +1650,189 @@ export const unifiedLearningPath: LearningModule[] = [
             ],
             correctAnswer: 1,
             explanation: 'La connexion permet d\'importer les conversions GA4 vers Google Ads, ce qui active les stratégies d\'enchères automatiques (Smart Bidding) et améliore les performances.'
+          }
+        ]
+      },
+      {
+        id: 'atelier-seo-vs-sea',
+        title: 'Atelier Pratique : SEO vs SEA — Où investir ?',
+        description: 'Croisez les données Search Console et Google Ads de Déco Charpente pour identifier les doublons et opportunités',
+        type: 'case-study',
+        difficulty: 'intermédiaire',
+        duration: '40 min',
+        content: `<div class="section-content">
+  <h1 class="section-title">SEO vs SEA — Optimiser l'investissement</h1>
+
+  <p class="section-text">Une question fondamentale en data marketing : <strong>faut-il payer pour un clic quand on pourrait l'obtenir gratuitement en organique ?</strong> Inversement, quand un mot-clé est hors de portée en SEO, le SEA est-il rentable ?</p>
+
+  <h2 class="section-subtitle">Le problème classique</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Cannibalisation SEO/SEA</h3>
+    <div class="project-detail">
+      <p>Beaucoup d'entreprises achètent des mots-clés Google Ads sur lesquels elles sont <strong>déjà en position 1 en organique</strong>. C'est potentiellement de l'argent gaspillé.</p>
+      <ul class="feature-list">
+        <li><strong>Cas 1 :</strong> Mot-clé brandé "déco charpente" — Position organique 1, CTR 45%. Faut-il aussi payer le clic ?</li>
+        <li><strong>Cas 2 :</strong> "carport bois" — Position organique 20. Le SEA est indispensable tant que le SEO ne performe pas.</li>
+        <li><strong>Cas 3 :</strong> "pergola bois sur mesure" — Position organique 7-8. Le SEA peut accélérer en attendant de monter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle mt-8">La matrice de décision</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">✅ Couper le SEA</h4>
+      <ul class="deliverable-list">
+        <li>Position SEO 1-3</li>
+        <li>CTR organique > 20%</li>
+        <li>Mot-clé brandé</li>
+        <li>Faible concurrence Ads</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">⚡ Maintenir SEA + pousser SEO</h4>
+      <ul class="deliverable-list">
+        <li>Position SEO 4-10</li>
+        <li>Mot-clé à fort volume</li>
+        <li>Concurrence moyenne</li>
+        <li>Réduire le budget progressivement</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">💰 SEA indispensable</h4>
+      <ul class="deliverable-list">
+        <li>Position SEO > 10 (page 2+)</li>
+        <li>Mot-clé transactionnel</li>
+        <li>Forte concurrence</li>
+        <li>ROI positif confirmé</li>
+      </ul>
+    </div>
+  </div>
+</div>`,
+        practicalExercise: {
+          title: 'Croisement SEO / Google Ads — Déco Charpente',
+          description: 'Téléchargez les données Search Console et Google Ads, puis identifiez les économies possibles',
+          instructions: `<div class="cas-pratique-content">
+  <h4 class="font-semibold text-purple-900 mb-4">📥 Fichiers à télécharger</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+    <a href="/data/Requêtes.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #059669, #10b981); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Search Console — Requêtes (1 000 lignes)</a>
+    <a href="/data/rank-tracker.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #059669, #10b981); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Rank Tracker SEO (484 mots-clés)</a>
+    <a href="/data/mots-cles-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Mots-clés Google Ads (51)</a>
+    <a href="/data/termes-recherche-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Termes de recherche Ads (63K)</a>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 1 — Identifier les doublons SEO/SEA (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Ouvrez <strong>Requêtes.csv</strong> (Search Console) et <strong>mots-cles-gads.csv</strong> côte à côte</li>
+    <li>Trouvez les mots-clés présents dans <strong>les deux fichiers</strong> (achetés en Ads ET positionnés en organique)</li>
+    <li>Pour chaque doublon, notez la <strong>position organique</strong> et le <strong>coût Google Ads</strong></li>
+    <li>Classez-les en 3 catégories : "Couper le SEA", "Réduire le SEA", "Maintenir le SEA"</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 2 — Opportunités SEO (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Dans <strong>Requêtes.csv</strong>, filtrez les mots-clés en <strong>position 4 à 10</strong> (page 1 mais pas top 3)</li>
+    <li>Ce sont vos <strong>"quick wins SEO"</strong> : un petit effort de contenu peut les faire monter</li>
+    <li>Identifiez les <strong>5 mots-clés à plus fort potentiel</strong> (critère : impressions élevées + position améliorable)</li>
+    <li>Cherchez ces mêmes mots-clés dans les <strong>termes de recherche Ads</strong> : combien coûtent-ils en payant ?</li>
+    <li>Calculez l'<strong>économie annuelle</strong> si vous atteignez le top 3 en organique</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 3 — Plan d'action (10 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Rédigez un tableau avec 3 colonnes : <strong>Mot-clé | Action SEO | Impact budget Ads</strong></li>
+    <li>Estimez l'<strong>économie totale sur 12 mois</strong> si vos recommandations sont appliquées</li>
+    <li>Priorisez : quels mots-clés traiter en premier ?</li>
+  </ol>
+</div>`,
+          expectedOutput: 'Un tableau croisant positions SEO et coûts SEA, une liste de 5 quick wins SEO, et une estimation de l\'économie Ads réalisable sur 12 mois',
+          hints: [
+            'Le mot-clé "déco charpente" est en position 1 en organique avec 45% de CTR — est-il vraiment utile de le payer en Ads ?',
+            'Cherchez les mots-clés avec beaucoup d\'impressions mais un CTR faible (<2%) en organique : c\'est un signal de position insuffisante',
+            'Un mot-clé en position 7 avec 10 000 impressions et 0.5% CTR qui coûte 2€/clic en Ads = 1 200€/an d\'économie potentielle si vous le montez en top 3'
+          ]
+        },
+        teacherCorrection: `<div class="correction-content">
+  <h2 class="correction-title">Correction — SEO vs SEA</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Doublons identifiables</h3>
+    <div class="project-detail">
+      <strong>À couper en SEA (position organique 1-3, CTR élevé) :</strong>
+      <ul class="feature-list">
+        <li><strong>"deco charpente" / "déco charpente"</strong> : Position 1, CTR 40-45% → mot-clé brandé, le SEA est inutile</li>
+        <li><strong>"abri voitures"</strong> : Position 1 en organique → économie du CPC</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>À réduire en SEA (position organique 4-10) :</strong>
+      <ul class="feature-list">
+        <li><strong>"pergola bois sur mesure"</strong> : Position ~7, CTR 1.78% → Push SEO + réduire l'enchère Ads progressivement</li>
+        <li><strong>"carport bois sur mesure"</strong> : Position ~12 → Maintenir le SEA mais investir en contenu SEO</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Maintenir le SEA (position organique > 10) :</strong>
+      <ul class="feature-list">
+        <li><strong>"abri voiture"</strong> : Position 20 avec 28 911 impressions → Le volume est énorme, le SEO est trop loin, le SEA est indispensable</li>
+        <li>Mots-clés très concurrentiels avec intention transactionnelle</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Quick Wins SEO attendus</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>"auvent bois"</strong> : Position 9.3, 14 855 impressions → Gros potentiel si top 3</li>
+        <li><strong>"pergola bois sur mesure"</strong> : Position 7.6, 5 497 impressions</li>
+        <li><strong>"carport bois"</strong> : Position variable → Volume élevé, chaque position gagnée = gros trafic</li>
+        <li>Mots-clés locaux type "[produit] + [ville PACA]" en position 5-10</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Estimation d'économie type :</strong><br>
+    Si 5 mots-clés passent de position 8-10 au top 3 et qu'on peut couper le SEA dessus :<br>
+    • Économie estimée : 200 à 500€/mois soit <strong>2 400 à 6 000€/an</strong><br>
+    • C'est 6 à 15% du budget Ads total — significatif !
+  </div>
+
+  <div class="example-box">
+    <strong>Grille de notation :</strong><br>
+    • Doublons correctement identifiés et classés : /5<br>
+    • Quick wins SEO pertinents avec justification : /5<br>
+    • Calcul d'économie réaliste : /5<br>
+    • Plan d'action priorisé et clair : /5
+  </div>
+</div>`,
+        quiz: [
+          {
+            id: 'q-seo-sea-1',
+            question: 'Un mot-clé est en position 1 en organique avec un CTR de 40%. L\'entreprise paie aussi ce mot-clé en Google Ads à 1,50€/clic. Que recommandez-vous ?',
+            options: [
+              'Maintenir les deux car ça double la visibilité',
+              'Couper le SEA sur ce mot-clé : le trafic organique est déjà excellent, c\'est du gaspillage',
+              'Augmenter l\'enchère Ads pour dominer encore plus',
+              'C\'est impossible d\'être à la fois en organique et en Ads'
+            ],
+            correctAnswer: 1,
+            explanation: 'Avec une position 1 et un CTR de 40% en organique, payer le clic en Ads est du gaspillage. L\'exception serait un mot-clé avec un concurrent très agressif qui pourrait capter des clics.'
+          },
+          {
+            id: 'q-seo-sea-2',
+            question: 'Un mot-clé a 15 000 impressions mensuelles en Search Console mais seulement 0,7% de CTR et une position moyenne de 9. Que cela signifie-t-il ?',
+            options: [
+              'Le mot-clé n\'intéresse personne',
+              'Le site est pénalisé par Google',
+              'C\'est un "quick win SEO" : fort volume mais position insuffisante, un effort de contenu peut fortement augmenter le trafic',
+              'Il faut supprimer la page qui se positionne sur ce mot-clé'
+            ],
+            correctAnswer: 2,
+            explanation: '15 000 impressions = forte demande. Position 9 = bas de page 1. Un CTR de 0,7% est typique de cette position. En montant en top 3 (CTR attendu 8-15%), le trafic passerait de ~100 à 1 500+ clics/mois.'
           }
         ]
       }
@@ -2053,6 +2426,201 @@ export const unifiedLearningPath: LearningModule[] = [
             ],
             correctAnswer: 2,
             explanation: 'Les Quick Wins (impact élevé, effort faible) sont prioritaires car ils apportent un maximum de résultats avec un minimum de ressources.'
+          }
+        ]
+      },
+      {
+        id: 'atelier-pipeline-commercial',
+        title: 'Atelier Pratique : Analyse du pipeline commercial',
+        description: 'Analysez 7 500 deals CRM réels pour identifier les goulots d\'étranglement du tunnel de vente',
+        type: 'case-study',
+        difficulty: 'avancé',
+        duration: '50 min',
+        content: `<div class="section-content">
+  <h1 class="section-title">Analyse du pipeline commercial — Du lead à la vente</h1>
+
+  <p class="section-text">Le data marketing ne s'arrête pas au clic. L'objectif final, c'est le <strong>chiffre d'affaires</strong>. Pour ça, il faut comprendre ce qui se passe entre le lead et la signature : c'est l'analyse du pipeline commercial.</p>
+
+  <h2 class="section-subtitle">Le pipeline Déco Charpente</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">6 étapes du prospect au client</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>1. Prospect</strong> → Le lead arrive (formulaire web, téléphone, salon)</li>
+        <li><strong>2. RDV</strong> → Premier rendez-vous commercial</li>
+        <li><strong>3. Devis effectué</strong> → Le commercial envoie une proposition chiffrée</li>
+        <li><strong>4. Commande signée</strong> → Le client accepte et signe</li>
+        <li><strong>5. PC/DPT</strong> → Permis de construire ou déclaration préalable</li>
+        <li><strong>6. Facturé</strong> → Le projet est livré et facturé</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle mt-8">Pourquoi analyser le pipeline ?</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Questions business</h4>
+      <ul class="deliverable-list">
+        <li>À quelle étape perd-on le plus de deals ?</li>
+        <li>Quel commercial a le meilleur taux de conversion ?</li>
+        <li>Combien de temps entre le 1er contact et la signature ?</li>
+        <li>Pourquoi les clients abandonnent-ils ?</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Impact data marketing</h4>
+      <ul class="deliverable-list">
+        <li>Le marketing génère-t-il des leads qualifiés ?</li>
+        <li>Quel est le vrai coût d'acquisition client (CAC) ?</li>
+        <li>Le ROI marketing est-il positif quand on inclut le cycle de vente ?</li>
+        <li>Faut-il plus de leads ou de meilleurs leads ?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Données disponibles :</strong> 7 478 deals sur 7 ans, avec statut (gagnée/perdue/en cours), valeur, propriétaire commercial, dates de création et de changement d'étape, et raison de perte.
+  </div>
+</div>`,
+        practicalExercise: {
+          title: 'Diagnostic du pipeline CRM Déco Charpente',
+          description: 'Téléchargez l\'export Pipedrive et analysez les performances commerciales',
+          instructions: `<div class="cas-pratique-content">
+  <h4 class="font-semibold text-purple-900 mb-4">📥 Fichier à télécharger</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+    <a href="/data/deals-pipedrive.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Export CRM Pipedrive (7 478 deals)</a>
+  </div>
+
+  <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">⚠️ Fichier volumineux — utilisez les filtres et tableaux croisés dynamiques dans Excel/Sheets</p>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 1 — Vue d'ensemble du pipeline (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Ouvrez le fichier et repérez les colonnes clés : <strong>Statut, Étape, Valeur, Propriétaire, Affaire créée</strong></li>
+    <li>Comptez le nombre total de deals par statut : <strong>Gagnée / Perdue / En cours</strong></li>
+    <li>Calculez le <strong>taux de conversion global</strong> : Deals gagnés / Total des deals</li>
+    <li>Calculez le <strong>CA total</strong> des deals gagnés</li>
+    <li>Calculez le <strong>panier moyen</strong> des deals gagnés</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 2 — Analyse des pertes (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Filtrez les deals avec le statut <strong>"Perdue"</strong></li>
+    <li>Analysez la colonne <strong>"Raison perte"</strong> : quelles sont les 5 raisons les plus fréquentes ?</li>
+    <li>Calculez le <strong>CA perdu</strong> par raison (somme des valeurs des deals perdus par motif)</li>
+    <li>À quelle <strong>étape du pipeline</strong> perd-on le plus de deals ? (entre Prospect et Devis ? ou entre Devis et Signature ?)</li>
+    <li>Y a-t-il des raisons de perte sur lesquelles le marketing peut agir ?</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 3 — Performance commerciale (10 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Faites un <strong>tableau croisé dynamique</strong> : Propriétaire × Statut (Gagnée/Perdue)</li>
+    <li>Calculez le <strong>taux de conversion par commercial</strong></li>
+    <li>Qui a le meilleur taux ? Le plus gros CA ? Le plus de deals traités ?</li>
+    <li>Y a-t-il un commercial qui traite beaucoup de leads mais convertit peu ? Pourquoi selon vous ?</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 4 — Recommandations (10 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Proposez <strong>3 actions concrètes</strong> pour améliorer le taux de conversion du pipeline</li>
+    <li>Estimez l'impact en CA si le taux de conversion augmente de 5 points</li>
+    <li>Quels indicateurs le marketing devrait-il suivre pour améliorer la qualité des leads ?</li>
+  </ol>
+</div>`,
+          expectedOutput: 'Un diagnostic complet : taux de conversion par étape, top 5 des raisons de perte avec CA associé, performance par commercial, et 3 recommandations chiffrées',
+          hints: [
+            'Utilisez un tableau croisé dynamique (TCD) pour croiser Étape × Statut — c\'est la façon la plus rapide d\'analyser 7 500 lignes',
+            'La colonne "Raison perte" est souvent vide ou mal remplie : c\'est en soi un problème à signaler (qualité des données CRM)',
+            'Un commercial avec un gros volume de deals mais un faible taux de conversion peut indiquer un problème de qualification des leads en amont'
+          ]
+        },
+        teacherCorrection: `<div class="correction-content">
+  <h2 class="correction-title">Correction — Pipeline commercial</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Métriques clés attendues</h3>
+    <div class="project-detail">
+      <strong>Vue d'ensemble :</strong>
+      <ul class="feature-list">
+        <li>Taux de conversion global : typiquement <strong>15-25%</strong> en B2B construction</li>
+        <li>Panier moyen deals gagnés : <strong>8 000 - 12 000€</strong></li>
+        <li>Cycle de vente moyen : <strong>2-4 mois</strong> (de Prospect à Commande signée)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Goulots d'étranglement typiques</h3>
+    <div class="project-detail">
+      <strong>Pertes par étape (ce que les étudiants devraient trouver) :</strong>
+      <ul class="feature-list">
+        <li><strong>Prospect → RDV</strong> : Forte déperdition si beaucoup de leads non qualifiés (problème marketing)</li>
+        <li><strong>Devis → Commande</strong> : Déperdition "normale" mais coûteuse (temps commercial investi)</li>
+        <li><strong>Commande → PC/DPT</strong> : Pertes administratives (refus permis de construire = facteur externe)</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Raisons de perte fréquentes :</strong>
+      <ul class="feature-list">
+        <li>"Sans réponse" / "Ne répond plus" → Problème de relance commerciale ou lead pas assez chaud</li>
+        <li>"Pas de projet cette année" → Lead trop tôt dans le parcours d'achat (nurturing à mettre en place)</li>
+        <li>"A construit en dur/pierre" → Lead hors cible produit (ciblage marketing à affiner)</li>
+        <li>"Pas sérieux" → Qualification en amont insuffisante</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Recommandations attendues</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Qualifier les leads en amont :</strong> Ajouter des questions au formulaire (budget, délai, type de projet) pour filtrer les leads froids</li>
+        <li><strong>Automatiser le nurturing :</strong> Email séquence pour les leads "pas de projet cette année" → relance à 6 mois</li>
+        <li><strong>Améliorer le suivi CRM :</strong> Rendre la "raison de perte" obligatoire pour mieux analyser à l'avenir</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Calcul d'impact :</strong><br>
+    Si le pipeline a 1 000 deals/an et un taux de conversion de 20% → 200 ventes × 10 000€ = 2M€<br>
+    +5 points de conversion (25%) → 250 ventes × 10 000€ = 2,5M€<br>
+    <strong>Impact : +500 000€ de CA annuel</strong>
+  </div>
+
+  <div class="example-box">
+    <strong>Grille de notation :</strong><br>
+    • Métriques pipeline correctement calculées : /5<br>
+    • Analyse des raisons de perte avec CA associé : /5<br>
+    • Performance par commercial pertinente : /5<br>
+    • Recommandations actionnables et chiffrées : /5
+  </div>
+</div>`,
+        quiz: [
+          {
+            id: 'q-pipeline-1',
+            question: 'Dans un CRM, 60% des deals sont perdus avec la raison "sans réponse". Quelle est la cause la plus probable côté marketing ?',
+            options: [
+              'Le site web est trop lent',
+              'Les leads générés ne sont pas assez qualifiés ou arrivent trop tôt dans leur parcours d\'achat',
+              'Le prix est trop élevé',
+              'Le CRM est mal configuré'
+            ],
+            correctAnswer: 1,
+            explanation: '"Sans réponse" signifie souvent que le prospect n\'était pas prêt à acheter. Le marketing génère du volume mais pas de la qualité. Solution : meilleure qualification en amont (formulaires plus détaillés, scoring des leads).'
+          },
+          {
+            id: 'q-pipeline-2',
+            question: 'Un pipeline montre 500 prospects, 200 RDV, 150 devis, 50 commandes. Où se situe le principal goulot d\'étranglement ?',
+            options: [
+              'Entre Prospect et RDV (60% de perte)',
+              'Entre RDV et Devis (25% de perte)',
+              'Entre Devis et Commande (67% de perte)',
+              'Les taux sont tous normaux'
+            ],
+            correctAnswer: 2,
+            explanation: 'Prospect→RDV : 60% de perte (normal, beaucoup de leads froids). RDV→Devis : 25% (acceptable). Devis→Commande : 67% de perte — c\'est le goulot ! Sur 150 devis envoyés, seuls 50 signent. Il faut investiguer : prix, concurrence, qualité des devis.'
           }
         ]
       }
@@ -3419,6 +3987,405 @@ export const unifiedLearningPath: LearningModule[] = [
             ],
             correctAnswer: 1,
             explanation: 'Les clients avec la LTV la plus élevée représentent la meilleure source car ils ont la plus forte valeur business, permettant à l\'algorithme de trouver des profils similaires rentables.'
+          }
+        ]
+      },
+      {
+        id: 'atelier-budget-multicanal',
+        title: 'Atelier Pratique : Optimisation budgétaire multi-canal',
+        description: 'Analysez Google Ads, Meta Ads et Analytics pour proposer une réallocation budgétaire optimale',
+        type: 'case-study',
+        difficulty: 'avancé',
+        duration: '45 min',
+        content: `<div class="section-content">
+  <h1 class="section-title">Optimisation budgétaire multi-canal</h1>
+
+  <p class="section-text">Déco Charpente investit <strong>40 000€/an en Google Ads</strong> et seulement <strong>2 500€/an en Meta Ads</strong>. Le trafic organique varie énormément selon la saison. Comment optimiser la répartition budgétaire ?</p>
+
+  <h2 class="section-subtitle">Les canaux en présence</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Google Ads (94% du budget)</h4>
+      <ul class="deliverable-list">
+        <li>Budget : ~40 000€/an</li>
+        <li>30+ campagnes par concessionnaire</li>
+        <li>Mots-clés : carport, pergola, abri</li>
+        <li>Intention forte (recherche active)</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Meta Ads (6% du budget)</h4>
+      <ul class="deliverable-list">
+        <li>Budget : ~2 500€/an</li>
+        <li>12 campagnes (leads + trafic)</li>
+        <li>CPL : 10,42€ | CPC : 0,10€</li>
+        <li>Audience large, notoriété + leads</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">SEO / Organique (gratuit)</h4>
+      <ul class="deliverable-list">
+        <li>~8 000 clics/mois</li>
+        <li>484 mots-clés suivis</li>
+        <li>Forte saisonnalité</li>
+        <li>Dominant sur le brandé</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle mt-8">La saisonnalité — facteur clé</h2>
+
+  <div class="project-type">
+    <div class="project-detail">
+      <p>Déco Charpente vend des structures bois extérieures. La demande est <strong>ultra-saisonnière</strong> :</p>
+      <ul class="feature-list">
+        <li><strong>Pic : Mars → Mai</strong> (printemps) : les gens préparent l'été, pics de trafic à 1 900 visiteurs/semaine</li>
+        <li><strong>Creux : Juillet → Août</strong> : les gens sont en vacances, pas en phase de projet</li>
+        <li><strong>Bas : Octobre → Décembre</strong> : hors saison, trafic à 340 visiteurs/semaine</li>
+      </ul>
+      <p class="mt-4"><strong>Question stratégique :</strong> Faut-il dépenser autant en Ads toute l'année ou concentrer le budget sur les périodes chaudes ?</p>
+    </div>
+  </div>
+</div>`,
+        practicalExercise: {
+          title: 'Réallocation budgétaire — Google Ads + Meta Ads + Organique',
+          description: 'Croisez les 3 sources de données pour proposer un plan budgétaire mensuel optimisé',
+          instructions: `<div class="cas-pratique-content">
+  <h4 class="font-semibold text-purple-900 mb-4">📥 Fichiers à télécharger</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+    <a href="/data/serie-temporelle-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Série temporelle Google Ads</a>
+    <a href="/data/campagnes-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Campagnes Google Ads</a>
+    <a href="/data/meta-ads-2025.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Meta Ads 2025 (12 campagnes)</a>
+    <a href="/data/analytics-aquisition.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Analytics — Acquisition (53 semaines)</a>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 1 — Analyse de la saisonnalité (10 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Ouvrez <strong>analytics-aquisition.csv</strong> et tracez la courbe du trafic sur 53 semaines</li>
+    <li>Identifiez les <strong>3 pics</strong> et les <strong>3 creux</strong> de l'année</li>
+    <li>Ouvrez <strong>serie-temporelle-gads.csv</strong> : le budget Google Ads suit-il la même saisonnalité ?</li>
+    <li>Le budget est-il réparti uniformément ou concentré sur les pics ?</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 2 — Comparaison des canaux (15 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Dans <strong>campagnes-gads.csv</strong>, calculez le <strong>coût moyen par conversion</strong> Google Ads</li>
+    <li>Dans <strong>meta-ads-2025.csv</strong>, calculez le <strong>coût par lead</strong> Meta Ads</li>
+    <li>Comparez : quel canal a le meilleur <strong>coût par lead</strong> ?</li>
+    <li>Meta Ads ne représente que 6% du budget — est-ce justifié au vu des performances ?</li>
+    <li>Si on transférait 5 000€ de Google Ads vers Meta Ads, combien de leads supplémentaires peut-on espérer ?</li>
+  </ol>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Étape 3 — Plan budgétaire mensuel (20 min)</h4>
+  <ol class="list-decimal list-inside space-y-2 text-gray-800">
+    <li>Créez un <strong>tableau à 12 colonnes</strong> (Jan → Déc) avec les lignes : Budget Google Ads, Budget Meta Ads, Budget Total</li>
+    <li>Répartissez un <strong>budget annuel total de 42 500€</strong> (identique à l'actuel) de manière optimisée</li>
+    <li>Principes : <strong>+budget sur mars-mai</strong> (haute saison), <strong>-budget sur juil-août</strong> (creux), maintien minimal en hiver</li>
+    <li>Proposez une <strong>part Meta Ads augmentée</strong> avec justification (ex: 15% au lieu de 6%)</li>
+    <li>Estimez le <strong>gain en leads</strong> vs la répartition actuelle (uniforme)</li>
+  </ol>
+</div>`,
+          expectedOutput: 'Un tableau budgétaire mensuel réparti sur 12 mois entre Google Ads et Meta Ads, avec justification de la saisonnalité et estimation du gain en leads',
+          hints: [
+            'La saisonnalité du trafic organique est un bon proxy pour la demande : quand le trafic organique explose, la demande est forte → c\'est le moment d\'investir plus en Ads',
+            'Meta Ads à 10€/lead est très compétitif vs Google Ads. Si le CPL Google Ads est à 40-80€, il y a un déséquilibre à corriger',
+            'En basse saison, privilégiez la notoriété (Meta Ads, display) plutôt que le search (Google Ads) car le volume de recherche est faible'
+          ]
+        },
+        teacherCorrection: `<div class="correction-content">
+  <h2 class="correction-title">Correction — Budget multi-canal</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Saisonnalité attendue</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Pic absolu :</strong> Semaines 12-20 (mars-mai) — jusqu'à 1 936 visiteurs/semaine</li>
+        <li><strong>Creux estival :</strong> Semaines 26-35 (juil-août) — chute de 26%</li>
+        <li><strong>Creux hivernal :</strong> Semaines 40-52 (oct-déc) — minimum à 341/semaine</li>
+        <li><strong>Constat :</strong> La demande varie d'un facteur 5,7x entre le pic et le creux</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Comparaison des canaux</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Google Ads :</strong> ~90 conversions pour 40K€ → CPL ~444€ (mais conversion = vente potentielle à 10K€)</li>
+        <li><strong>Meta Ads :</strong> 243 leads pour 2,5K€ → CPL ~10€ (mais lead = formulaire, pas vente)</li>
+        <li><strong>Attention :</strong> Les "conversions" ne mesurent pas la même chose ! Google Ads suit des actions plus engageantes</li>
+        <li><strong>Recommandation :</strong> Meta Ads est sous-exploité pour la génération de leads froids à nurturer</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Plan budgétaire type (42 500€/an)</h3>
+    <div class="project-detail">
+      <strong>Répartition mensuelle optimisée :</strong>
+      <ul class="feature-list">
+        <li><strong>Janv-Fév :</strong> 2 500€/mois (préparation, Meta Ads notoriété)</li>
+        <li><strong>Mars-Mai :</strong> 5 500€/mois (HAUTE SAISON — concentration maximale)</li>
+        <li><strong>Juin :</strong> 4 000€/mois (transition)</li>
+        <li><strong>Juil-Août :</strong> 1 500€/mois (minimum — budgets réduits)</li>
+        <li><strong>Sept :</strong> 3 000€/mois (reprise)</li>
+        <li><strong>Oct-Déc :</strong> 2 000€/mois (basse saison, notoriété Meta)</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Répartition Google Ads / Meta Ads :</strong>
+      <ul class="feature-list">
+        <li>Haute saison : 80% Google Ads (intention forte) / 20% Meta (retargeting)</li>
+        <li>Basse saison : 50% Google Ads / 50% Meta Ads (notoriété, audiences)</li>
+        <li>Part Meta annuelle cible : <strong>15-20%</strong> au lieu de 6% actuellement</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Grille de notation :</strong><br>
+    • Saisonnalité correctement identifiée : /4<br>
+    • Comparaison pertinente des canaux (pas de raccourci) : /4<br>
+    • Tableau budgétaire mensuel cohérent et réaliste : /6<br>
+    • Justification argumentée avec estimations de gains : /6
+  </div>
+</div>`,
+        quiz: [
+          {
+            id: 'q-budget-1',
+            question: 'Une entreprise saisonnière dépense le même budget Ads chaque mois. Quel est le problème principal ?',
+            options: [
+              'Aucun, la régularité est une bonne stratégie',
+              'Elle gaspille du budget en basse saison (peu de demande) et sous-investit en haute saison (forte demande)',
+              'Elle devrait couper tout le budget en basse saison',
+              'La saisonnalité n\'affecte pas les campagnes digitales'
+            ],
+            correctAnswer: 1,
+            explanation: 'Un budget uniforme ignore la demande réelle. En basse saison, le CPC augmente car le volume de recherche diminue. En haute saison, on manque de budget quand la demande explose. Il faut concentrer 50-60% du budget sur les 3-4 mois de pic.'
+          },
+          {
+            id: 'q-budget-2',
+            question: 'Meta Ads génère des leads à 10€ vs Google Ads à 50€. Faut-il transférer tout le budget vers Meta ?',
+            options: [
+              'Oui, Meta est 5x moins cher donc 5x meilleur',
+              'Non : les leads Meta (formulaire) et Google (recherche active) n\'ont pas la même qualité ni la même intention d\'achat. Il faut comparer le coût par vente finale, pas le coût par lead',
+              'Oui si le budget total est inférieur à 50 000€',
+              'Non car Meta Ads ne fonctionne pas en B2B'
+            ],
+            correctAnswer: 1,
+            explanation: 'Le CPL seul ne suffit pas. Un lead Meta à 10€ remplit un formulaire (intention tiède). Un lead Google Ads à 50€ recherche activement "carport bois prix" (intention chaude). Le taux de conversion en vente finale est très différent. Il faut calculer le coût par vente, pas le coût par lead.'
+          }
+        ]
+      },
+      {
+        id: 'atelier-recommandation-strategique',
+        title: 'Atelier de synthèse : Recommandation stratégique au dirigeant',
+        description: 'Mobilisez toutes les données pour livrer un bilan et un plan d\'action à la direction de Déco Charpente',
+        type: 'case-study',
+        difficulty: 'avancé',
+        duration: '60 min',
+        content: `<div class="section-content">
+  <h1 class="section-title">Mission finale : Conseil stratégique</h1>
+
+  <p class="section-text">Le directeur de Déco Charpente vous reçoit pour un point annuel. Il veut comprendre en 15 minutes : <strong>est-ce que nos investissements marketing fonctionnent ? Que faut-il changer ?</strong></p>
+
+  <h2 class="section-subtitle">Le brief du directeur</h2>
+
+  <div class="project-type">
+    <div class="project-detail">
+      <p><em>"On dépense 42 000€ par an en publicité digitale. Mon commercial me dit que les leads du web sont de mauvaise qualité. Mon agence me dit que les campagnes sont performantes. Je ne sais plus qui croire. J'ai besoin de quelqu'un qui regarde les données et me dise la vérité."</em></p>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle mt-8">Ce qui est attendu de vous</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Format livrable</h4>
+      <ul class="deliverable-list">
+        <li>5 slides maximum (ou 2 pages)</li>
+        <li>Langage business (pas de jargon technique)</li>
+        <li>Des chiffres, pas des opinions</li>
+        <li>3 recommandations actionnables</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Questions à couvrir</h4>
+      <ul class="deliverable-list">
+        <li>Le marketing digital est-il rentable ?</li>
+        <li>Quels canaux fonctionnent vs gaspillent ?</li>
+        <li>La qualité des leads est-elle un vrai problème ?</li>
+        <li>Que feriez-vous avec le même budget ?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Vous disposez de toutes les données des ateliers précédents.</strong> C'est un exercice de synthèse : vous devez sélectionner les insights les plus percutants et les présenter de manière convaincante à un non-expert.
+  </div>
+</div>`,
+        practicalExercise: {
+          title: 'Préparez votre recommandation stratégique',
+          description: 'Utilisez toutes les données des ateliers précédents pour construire un mini-deck de 5 slides',
+          instructions: `<div class="cas-pratique-content">
+  <h4 class="font-semibold text-purple-900 mb-4">📥 Tous les fichiers à disposition</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+    <a href="/data/campagnes-gads.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Google Ads</a>
+    <a href="/data/meta-ads-2025.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Meta Ads</a>
+    <a href="/data/Requêtes.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #059669, #10b981); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 SEO</a>
+    <a href="/data/analytics-aquisition.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Analytics</a>
+    <a href="/data/deals-pipedrive.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 CRM</a>
+    <a href="/data/rank-tracker.csv" download style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(135deg, #059669, #10b981); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">📄 Rank Tracker</a>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Structure suggérée (5 slides)</h4>
+
+  <div style="background: #f3f4f6; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <p style="font-weight: 700; color: #1f2937; margin-bottom: 12px;">Slide 1 — Bilan chiffré</p>
+    <ul class="list-disc list-inside space-y-1 text-gray-800">
+      <li>Budget total investi (Google Ads + Meta Ads)</li>
+      <li>Nombre de leads générés</li>
+      <li>Nombre de ventes signées (CRM)</li>
+      <li>CA généré / ROI global estimé</li>
+    </ul>
+  </div>
+
+  <div style="background: #f3f4f6; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <p style="font-weight: 700; color: #1f2937; margin-bottom: 12px;">Slide 2 — Performance par canal</p>
+    <ul class="list-disc list-inside space-y-1 text-gray-800">
+      <li>Google Ads : budget, leads, coût/lead, tendance vs N-1</li>
+      <li>Meta Ads : budget, leads, coût/lead</li>
+      <li>SEO : trafic organique, évolution, mots-clés stratégiques</li>
+      <li>Verdict : quel canal surperforme / sous-performe ?</li>
+    </ul>
+  </div>
+
+  <div style="background: #f3f4f6; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <p style="font-weight: 700; color: #1f2937; margin-bottom: 12px;">Slide 3 — Le problème de qualité des leads</p>
+    <ul class="list-disc list-inside space-y-1 text-gray-800">
+      <li>Taux de conversion du pipeline (CRM) : Leads → RDV → Devis → Vente</li>
+      <li>Raisons de perte les plus fréquentes</li>
+      <li>Le commercial a-t-il raison ? (données à l'appui)</li>
+    </ul>
+  </div>
+
+  <div style="background: #f3f4f6; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <p style="font-weight: 700; color: #1f2937; margin-bottom: 12px;">Slide 4 — 3 Recommandations</p>
+    <ul class="list-disc list-inside space-y-1 text-gray-800">
+      <li>Recommandation 1 (Quick Win) : action rapide, gain immédiat</li>
+      <li>Recommandation 2 (Moyen terme) : optimisation structurelle</li>
+      <li>Recommandation 3 (Long terme) : stratégie de fond</li>
+      <li>Pour chaque : action, coût, gain estimé, délai</li>
+    </ul>
+  </div>
+
+  <div style="background: #f3f4f6; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <p style="font-weight: 700; color: #1f2937; margin-bottom: 12px;">Slide 5 — KPIs de suivi</p>
+    <ul class="list-disc list-inside space-y-1 text-gray-800">
+      <li>Les 5 indicateurs que le directeur devrait suivre chaque mois</li>
+      <li>Format simple : métrique, valeur actuelle, objectif à 6 mois</li>
+    </ul>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Restitution orale (5 min par groupe)</h4>
+  <p class="text-gray-800">Présentez votre recommandation comme si le directeur était devant vous. Il ne connaît pas le jargon marketing : soyez clairs, visuels, et allez droit au but. Il veut des réponses, pas des analyses.</p>
+</div>`,
+          expectedOutput: 'Un mini-deck de 5 slides avec bilan chiffré, analyse par canal, diagnostic qualité des leads, 3 recommandations et KPIs de suivi',
+          hints: [
+            'Le directeur veut savoir SI son argent est bien dépensé, pas COMMENT fonctionne Google Ads. Parlez en euros et en ventes, pas en CTR et CPC.',
+            'Appuyez-vous sur les données CRM pour répondre à la question "les leads sont-ils de mauvaise qualité" — c\'est la preuve concrète',
+            'Une bonne recommandation = Action + Coût + Gain estimé + Délai. Pas juste "il faut optimiser les campagnes"',
+            'Préparez une réponse pour "pourquoi Meta Ads ne reçoit que 6% du budget alors que le CPL est 5x moins cher ?"'
+          ]
+        },
+        teacherCorrection: `<div class="correction-content">
+  <h2 class="correction-title">Correction — Recommandation stratégique</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Slide 1 — Bilan attendu</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li>Budget total : ~42 500€/an (40K Google + 2,5K Meta)</li>
+        <li>Le ROI dépend du nombre de ventes attribuables au digital : à estimer via CRM</li>
+        <li>Si 20% des deals CRM viennent du digital (~150 deals) × 10K€ panier moyen = <strong>1,5M€ de CA pour 42K€ investis</strong></li>
+        <li>ROI théorique : 35:1 — <strong>le marketing digital est très rentable</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Slide 3 — Qualité des leads (réponse au directeur)</h3>
+    <div class="project-detail">
+      <strong>Le commercial a partiellement raison, MAIS :</strong>
+      <ul class="feature-list">
+        <li>Les leads "sans réponse" (pas joignables) sont un problème de <strong>suivi CRM</strong>, pas de qualité marketing</li>
+        <li>Les leads "pas de projet cette année" arrivent trop tôt → il manque un <strong>système de nurturing</strong></li>
+        <li>Les leads "a construit en dur" sont effectivement hors cible → <strong>améliorer le ciblage Ads</strong></li>
+        <li>Conclusion : 50% des pertes sont un problème commercial/process, 30% un problème marketing, 20% incompressible</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">3 Recommandations types</h3>
+    <div class="project-detail">
+      <strong>Quick Win :</strong> Ajouter des mots-clés négatifs dans Google Ads (éco : 3-5K€/an, 0€ de coût, 1 semaine)
+    </div>
+    <div class="project-detail">
+      <strong>Moyen terme :</strong> Tripler le budget Meta Ads (de 2,5K à 7,5K) en transférant depuis les campagnes Google Ads sous-performantes. Gain estimé : +200 leads/an
+    </div>
+    <div class="project-detail">
+      <strong>Long terme :</strong> Mettre en place un nurturing email (coût : 500€/an de plateforme). Objectif : convertir les 30% de leads "pas de projet maintenant" en clients à 6-12 mois
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">5 KPIs de suivi</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Coût par lead qualifié</strong> (pas juste le CPL brut) → Objectif : < 30€</li>
+        <li><strong>Taux de conversion Pipeline</strong> (Prospect → Vente) → Objectif : > 20%</li>
+        <li><strong>ROAS Google Ads</strong> → Objectif : > 10:1</li>
+        <li><strong>Part du trafic organique</strong> vs payant → Objectif : 60% organique</li>
+        <li><strong>CA attribué au digital</strong> / mois → Suivi tendance</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <strong>Grille de notation :</strong><br>
+    • Bilan chiffré avec ROI estimé : /4<br>
+    • Analyse par canal pertinente et honnête : /4<br>
+    • Réponse argumentée sur la qualité des leads : /4<br>
+    • Recommandations actionnables et chiffrées : /4<br>
+    • Clarté de la présentation orale : /4
+  </div>
+</div>`,
+        quiz: [
+          {
+            id: 'q-strat-1',
+            question: 'Un directeur vous demande "est-ce que nos 42 000€ de pub sont rentables ?". Quelle est la meilleure façon de répondre ?',
+            options: [
+              '"Oui, votre CTR est de 3,5% ce qui est au-dessus du benchmark"',
+              '"Il faudrait faire un audit complet de 3 mois avant de répondre"',
+              '"Vos campagnes ont généré environ X leads qui ont donné Y ventes pour Z€ de CA, soit un retour de W€ pour chaque euro investi"',
+              '"Non, le CPC a augmenté de 15% cette année"'
+            ],
+            correctAnswer: 2,
+            explanation: 'Un dirigeant veut une réponse en euros et en résultats business, pas en métriques techniques. La chaîne complète euros investis → leads → ventes → CA est la seule réponse pertinente.'
+          },
+          {
+            id: 'q-strat-2',
+            question: 'Quelle recommandation est la mieux formulée pour un directeur non-expert ?',
+            options: [
+              '"Il faut optimiser le quality score de vos mots-clés et améliorer le CTR des annonces responsive"',
+              '"Arrêtez tout Google Ads, c\'est trop cher"',
+              '"En ajoutant 50 mots-clés négatifs dans Google Ads, vous économiserez environ 4 000€/an sans perdre de leads. C\'est faisable en 1 semaine, coût : 0€"',
+              '"Le ROAS de vos campagnes search devrait être supérieur au benchmark B2B de votre secteur"'
+            ],
+            correctAnswer: 2,
+            explanation: 'Une bonne recommandation pour un dirigeant contient 4 éléments : l\'action concrète, le gain chiffré, le coût, et le délai. Pas de jargon technique.'
           }
         ]
       }
