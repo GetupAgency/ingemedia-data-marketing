@@ -557,8 +557,8 @@ export const examQuestions: QuizQuestion[] = [
  * Configuration du quiz d'examen
  */
 export const examQuizConfig = {
-  id: 'exam-final-marketing-2025',
-  title: 'Examen Final - Data Marketing 2025',
+  id: 'exam-final-marketing-2026',
+  title: 'Examen Final - Data Marketing 2026',
   description: 'Évaluation finale de vos compétences en data marketing. 40 questions couvrant l\'ensemble du programme.',
   totalQuestions: 40,
   duration: '45 minutes',

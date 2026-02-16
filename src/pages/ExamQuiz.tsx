@@ -262,7 +262,7 @@ const ExamQuiz: React.FC = () => {
                   </svg>
                 </div>
                 <h1 className="text-4xl font-bold mb-2">Examen Final</h1>
-                <p className="text-xl text-indigo-100">Data Marketing 2025 - Ingemedia</p>
+                <p className="text-xl text-indigo-100">Data Marketing 2026 - Ingemedia</p>
               </div>
             </div>
 
@@ -318,7 +318,7 @@ const ExamQuiz: React.FC = () => {
                     type="text"
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg text-gray-900 bg-white"
                     placeholder="Dupont"
                     required
                     autoFocus
@@ -334,7 +334,7 @@ const ExamQuiz: React.FC = () => {
                     type="text"
                     value={studentFirstName}
                     onChange={(e) => setStudentFirstName(e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg text-gray-900 bg-white"
                     placeholder="Marie"
                     required
                   />

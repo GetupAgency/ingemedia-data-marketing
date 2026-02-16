@@ -174,7 +174,7 @@ const ExamResults: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Résultats d'Examen 2025</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Résultats d'Examen 2026</h1>
               <p className="text-gray-600">Consultez et exportez les résultats de vos étudiants</p>
             </div>
             <div className="flex gap-4">
