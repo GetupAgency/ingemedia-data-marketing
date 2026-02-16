@@ -1,10 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { examQuestions, examQuizConfig } from '../data/examQuizData';
 
+/** Fisher-Yates shuffle */
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 /**
  * Composant Examen Final
- * Quiz d'évaluation professionnelle avec 40 questions fixes
+ * Quiz d'évaluation professionnelle avec 40 questions
+ * Questions ET options mélangées aléatoirement pour chaque étudiant
  */
 const ExamQuiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -45,7 +56,23 @@ const ExamQuiz: React.FC = () => {
     testAPIConnection();
   }, []);
 
-  const questions = examQuestions;
+  // Mélange unique des questions et options au montage du composant
+  const questions = useMemo(() => {
+    const shuffledOrder = shuffleArray(
+      examQuestions.map((q, i) => ({ ...q, originalIndex: i }))
+    );
+    return shuffledOrder.map(q => {
+      const optionIndices = shuffleArray([0, 1, 2, 3]);
+      return {
+        originalIndex: q.originalIndex,
+        question: q.question,
+        options: optionIndices.map(i => q.options[i]),
+        correctAnswer: optionIndices.indexOf(q.correctAnswer),
+        explanation: q.explanation,
+      };
+    });
+  }, []);
+
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   // Fonction pour gérer la sélection d'une réponse
@@ -134,23 +161,23 @@ const ExamQuiz: React.FC = () => {
       })),
       analyse_thematiques: {
         fondamentaux: {
-          score: userAnswers.slice(0, 8).filter((ans, idx) => ans === questions[idx].correctAnswer).length,
+          score: questions.filter((q, i) => q.originalIndex < 8 && userAnswers[i] === q.correctAnswer).length,
           total: 8
         },
         calculs_kpis: {
-          score: userAnswers.slice(8, 16).filter((ans, idx) => ans === questions[idx + 8].correctAnswer).length,
+          score: questions.filter((q, i) => q.originalIndex >= 8 && q.originalIndex < 16 && userAnswers[i] === q.correctAnswer).length,
           total: 8
         },
         ga4_outils: {
-          score: userAnswers.slice(16, 24).filter((ans, idx) => ans === questions[idx + 16].correctAnswer).length,
+          score: questions.filter((q, i) => q.originalIndex >= 16 && q.originalIndex < 24 && userAnswers[i] === q.correctAnswer).length,
           total: 8
         },
         diagnostic: {
-          score: userAnswers.slice(24, 32).filter((ans, idx) => ans === questions[idx + 24].correctAnswer).length,
+          score: questions.filter((q, i) => q.originalIndex >= 24 && q.originalIndex < 32 && userAnswers[i] === q.correctAnswer).length,
           total: 8
         },
         strategie: {
-          score: userAnswers.slice(32, 40).filter((ans, idx) => ans === questions[idx + 32].correctAnswer).length,
+          score: questions.filter((q, i) => q.originalIndex >= 32 && userAnswers[i] === q.correctAnswer).length,
           total: 8
         }
       }

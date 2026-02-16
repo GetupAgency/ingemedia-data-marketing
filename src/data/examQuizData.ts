@@ -136,41 +136,41 @@ export const examQuestions: QuizQuestion[] = [
 
   // Q10 — correctAnswer: A
   {
-    question: "100 000 impressions, 3 000 clics, 90 conversions, budget de 6 000€. Quels sont le CTR, le CPC et le taux de conversion ?",
+    question: "Qu'est-ce que le NPS (Net Promoter Score) et comment est-il calculé ?",
     options: [
-      "CTR 3%, CPC 2€, taux de conversion 3%",
-      "CTR 30%, CPC 0,20€, taux de conversion 3%",
-      "CTR 3%, CPC 2€, taux de conversion 30%",
-      "CTR 0,3%, CPC 20€, taux de conversion 3%"
+      "% de promoteurs (notes 9-10) moins % de détracteurs (notes 0-6), mesure la recommandation",
+      "La moyenne de toutes les notes de satisfaction client données sur une échelle de 10",
+      "Le ratio entre le nombre de clients fidèles et le nombre de clients perdus",
+      "Le nombre total d'avis positifs divisé par le nombre total d'avis négatifs"
     ],
     correctAnswer: 0,
-    explanation: "CTR = 3 000/100 000 = 3%. CPC = 6 000€/3 000 = 2€. Conversion = 90/3 000 = 3%."
+    explanation: "Le NPS = % promoteurs (9-10) - % détracteurs (0-6). Les passifs (7-8) ne comptent pas. Un NPS > 50 est excellent."
   },
 
   // Q11 — correctAnswer: B
   {
-    question: "Objectif : 100 000€ de CA mensuel. Taux de conversion : 2%, panier moyen : 100€. Combien de visiteurs mensuels faut-il générer ?",
+    question: "Qu'est-ce qu'une heatmap et quel est son principal apport en optimisation UX ?",
     options: [
-      "100 000 visiteurs, soit un visiteur par euro de CA visé",
-      "50 000 visiteurs (1 000 ventes nécessaires ÷ 2% de conversion)",
-      "20 000 visiteurs avec un taux de conversion de 2% et panier de 100€",
-      "10 000 visiteurs suffisent avec ce niveau de panier moyen"
+      "Un graphique de performance serveur mesurant les temps de réponse du site",
+      "Une carte visuelle des zones de clics et scroll montrant le comportement réel des visiteurs",
+      "Un tableau de bord affichant les KPIs marketing triés par importance",
+      "Un outil de test A/B qui compare automatiquement deux versions d'une page"
     ],
     correctAnswer: 1,
-    explanation: "Ventes nécessaires = 100 000€ / 100€ = 1 000. Visiteurs = 1 000 / 0,02 = 50 000."
+    explanation: "La heatmap visualise où les utilisateurs cliquent, scrollent et s'arrêtent, révélant les zones chaudes et les frictions UX."
   },
 
   // Q12 — correctAnswer: C
   {
-    question: "Campagne email : taux d'ouverture 25%, taux de clic (sur ouverts) 10%, taux de conversion (sur clics) 20%. Sur 40 000 emails envoyés, combien de conversions ?",
+    question: "Comment le CAC (Coût d'Acquisition Client) se calcule-t-il et pourquoi est-il essentiel ?",
     options: [
-      "1 000 conversions car 40 000 × 25% × 10% = 1 000 acheteurs",
-      "400 conversions car 40 000 × 1% de taux de conversion global",
-      "200 conversions : 10 000 ouverts → 1 000 clics → 200 achats",
-      "2 000 conversions car 40 000 × 5% de taux de réponse"
+      "C'est le prix moyen du premier achat client, il indique la marge brute",
+      "C'est le coût par clic moyen multiplié par le nombre de campagnes actives",
+      "Total des dépenses marketing et ventes ÷ nombre de nouveaux clients acquis",
+      "C'est le budget publicitaire annuel divisé par le chiffre d'affaires total"
     ],
     correctAnswer: 2,
-    explanation: "Ouverts = 40 000 × 25% = 10 000. Clics = 10 000 × 10% = 1 000. Conversions = 1 000 × 20% = 200."
+    explanation: "CAC = (dépenses marketing + ventes) / nouveaux clients. Il doit toujours être inférieur à la LTV pour être rentable."
   },
 
   // Q13 — correctAnswer: A
