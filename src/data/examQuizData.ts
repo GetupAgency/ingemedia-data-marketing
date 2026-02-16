@@ -2,458 +2,554 @@ import { QuizQuestion } from '../types/quiz';
 
 /**
  * Quiz d'examen final - 40 questions
- * Questions professionnelles couvrant l'ensemble du programme
- * Distracteurs crédibles, positions variées, longueurs variées
+ * Distribution équilibrée : 10 A, 10 B, 10 C, 10 D
+ * Longueurs des options équilibrées pour éviter les biais détectables
+ * Thématiques : Fondamentaux, Calculs/KPIs/LTV, GA4/Graphiques, Diagnostic, Stratégie/Ciblage
  */
 export const examQuestions: QuizQuestion[] = [
+  // ═══════════════════════════════════════════════════════════════
   // SECTION 1 : Fondamentaux du Data Marketing (Questions 1-8)
+  // Répartition : A=Q2,Q5 | B=Q4,Q8 | C=Q1,Q7 | D=Q3,Q6
+  // ═══════════════════════════════════════════════════════════════
+
+  // Q1 — correctAnswer: C
   {
     question: "Une entreprise e-commerce enregistre 50 000 visiteurs mensuels et réalise 1 000 ventes. Son panier moyen est de 100€. Quel est son chiffre d'affaires mensuel et son taux de conversion ?",
     options: [
-      "100 000€ de CA avec un taux de conversion de 2%",
-      "100 000€ de CA avec un taux de conversion de 5%",
       "50 000€ de CA avec un taux de conversion de 2%",
+      "100 000€ de CA avec un taux de conversion de 5%",
+      "100 000€ de CA avec un taux de conversion de 2%",
       "200 000€ de CA avec un taux de conversion de 1%"
     ],
-    correctAnswer: 0,
-    explanation: "CA = 1 000 ventes × 100€ = 100 000€. Taux de conversion = (1 000 / 50 000) × 100 = 2%"
-  },
-  {
-    question: "Quelle affirmation décrit le mieux la différence entre données first-party et third-party dans le contexte post-RGPD ?",
-    options: [
-      "Les données first-party sont plus fiables mais limitées en volume, tandis que les third-party offrent plus de portée",
-      "Les données third-party sont collectées directement par l'entreprise via son site web et ses applications",
-      "Les données first-party sont collectées directement auprès des utilisateurs avec leur consentement explicite, offrant conformité RGPD et meilleure qualité",
-      "Les deux types de données ont la même valeur légale et marketing"
-    ],
     correctAnswer: 2,
-    explanation: "Les données first-party sont collectées directement par l'entreprise avec consentement, garantissant conformité RGPD et qualité supérieure."
-  },
-  {
-    question: "Un data marketer observe que le taux de rebond mobile est de 68% contre 42% sur desktop. Quelle devrait être sa première hypothèse d'analyse ?",
-    options: [
-      "Le trafic mobile est de moins bonne qualité et il faut réduire les investissements publicitaires mobiles",
-      "L'expérience utilisateur mobile présente probablement des frictions (vitesse, UX, compatibilité) à investiguer en priorité",
-      "C'est normal, le taux de rebond mobile est toujours plus élevé, il n'y a pas d'action nécessaire",
-      "Il faut augmenter le budget Google Ads pour compenser"
-    ],
-    correctAnswer: 1,
-    explanation: "Un écart de 26 points entre mobile et desktop indique clairement un problème d'expérience utilisateur mobile à résoudre en priorité."
-  },
-  {
-    question: "Dans la chaîne de valeur des données, quel niveau représente 'Notre ROAS Facebook de 4:1 est inférieur à l'objectif de 5:1, nous devrions tester des audiences lookalike basées sur nos meilleurs clients' ?",
-    options: [
-      "Niveau 2 : Métriques calculées",
-      "Niveau 3 : Comparaisons et contexte",
-      "Niveau 5 : Recommandations actionnables",
-      "Niveau 4 : Insights business"
-    ],
-    correctAnswer: 2,
-    explanation: "C'est une recommandation actionnable concrète basée sur un insight, représentant le niveau le plus élevé de la chaîne de valeur."
-  },
-  {
-    question: "Pourquoi l'attribution 'dernier clic' peut-elle sous-estimer significativement la contribution des campagnes display et vidéo ?",
-    options: [
-      "Parce que les campagnes display ne génèrent jamais de conversions directes",
-      "Le display et la vidéo jouent souvent un rôle d'awareness en début de parcours, mais ne reçoivent aucun crédit dans un modèle dernier clic",
-      "Les clics display coûtent moins cher donc sont moins valorisés",
-      "L'attribution dernier clic ne fonctionne que pour le search"
-    ],
-    correctAnswer: 1,
-    explanation: "Le display/vidéo initie souvent le parcours client mais le search finalise la conversion, recevant tout le crédit en dernier clic."
-  },
-  {
-    question: "Une entreprise SaaS B2B a un CPA de 180€, une LTV de 2 400€ sur 24 mois, et un taux de churn mensuel de 3%. Comment évaluer la santé de ce modèle ?",
-    options: [
-      "Ratio LTV/CAC de 13,3 excellent, mais churn de 3%/mois critique (36% annuel) nécessitant action urgente sur rétention",
-      "Le CPA est trop élevé pour du B2B, il faut le réduire avant tout",
-      "La LTV est suffisante, le churn de 3% est acceptable pour du SaaS",
-      "Il faut augmenter les prix pour améliorer la LTV"
-    ],
-    correctAnswer: 0,
-    explanation: "LTV/CAC = 2400/180 = 13,3 (excellent >3), mais 3% churn mensuel = 31% annuel (critique >20%), priorité à la rétention."
-  },
-  {
-    question: "Quelle métrique est la plus pertinente pour évaluer la performance d'une campagne de notoriété brand sur YouTube ?",
-    options: [
-      "Le taux de conversion direct",
-      "Le coût par clic (CPC)",
-      "Le CPM (coût pour 1000 impressions) et le taux de complétion vidéo à 75%",
-      "Le ROAS immédiat"
-    ],
-    correctAnswer: 2,
-    explanation: "Pour la notoriété, le CPM mesure l'efficacité de la couverture et le taux de complétion élevé indique l'engagement qualité."
-  },
-  {
-    question: "Qu'est-ce qui différencie fondamentalement une approche data-driven d'une approche traditionnelle en marketing ?",
-    options: [
-      "L'utilisation d'outils digitaux",
-      "La prise de décision basée sur des preuves mesurables plutôt que sur l'intuition, avec une optimisation continue guidée par les données",
-      "Le fait de dépenser plus en publicité digitale",
-      "L'utilisation de Google Analytics"
-    ],
-    correctAnswer: 1,
-    explanation: "Le data-driven se caractérise par des décisions objectives basées sur des données probantes et une optimisation itérative."
+    explanation: "CA = 1 000 ventes × 100€ = 100 000€. Taux de conversion = (1 000 / 50 000) × 100 = 2%."
   },
 
-  // SECTION 2 : Calculs et KPIs (Questions 9-16)
+  // Q2 — correctAnswer: A
   {
-    question: "Une campagne Google Ads génère 10 000€ de CA avec un budget de 2 000€. Le taux de marge est de 40%. Quelle est la rentabilité nette après coûts d'acquisition ?",
+    question: "Quelle affirmation décrit le mieux les données first-party dans le contexte post-RGPD ?",
     options: [
-      "Marge brute 4 000€ - Coût pub 2 000€ = 2 000€ de profit net, campagne rentable",
-      "10 000€ - 2 000€ = 8 000€ de profit",
-      "ROAS de 5:1 donc très rentable automatiquement",
-      "Pas assez d'informations pour calculer"
+      "Collectées avec consentement explicite, elles offrent conformité RGPD et qualité supérieure",
+      "Collectées par les régies publicitaires via des cookies tiers inter-sites",
+      "Elles ont la même valeur marketing que les données third-party achetées",
+      "Elles sont uniquement disponibles via les outils CRM internes de l'entreprise"
     ],
     correctAnswer: 0,
-    explanation: "Marge brute = 10 000€ × 40% = 4 000€. Profit net = 4 000€ - 2 000€ (pub) = 2 000€. Rentabilité confirmée."
+    explanation: "Les données first-party sont collectées directement par l'entreprise avec consentement, garantissant conformité et qualité."
   },
+
+  // Q3 — correctAnswer: D
   {
-    question: "Sur 100 000 impressions, une annonce génère 3 000 clics dont 90 conversions. Le budget est de 6 000€. Calculez le CTR, CPC et taux de conversion.",
+    question: "Le taux de rebond mobile est de 68% contre 42% sur desktop. Quelle est la première hypothèse à formuler ?",
     options: [
-      "CTR 3%, CPC 2€, Conversion 3%",
-      "CTR 30%, CPC 0,20€, Conversion 3%",
-      "CTR 3%, CPC 2€, Conversion 30%",
-      "CTR 3%, CPC 20€, Conversion 0,3%"
+      "Le trafic mobile est de moins bonne qualité, il faut réduire les budgets sur ce device",
+      "C'est une tendance normale du marché, le mobile rebondit toujours davantage",
+      "Il faut augmenter les enchères Google Ads pour compenser cette différence sur mobile",
+      "L'expérience mobile présente des frictions (vitesse, ergonomie) à investiguer"
+    ],
+    correctAnswer: 3,
+    explanation: "Un écart de 26 points entre mobile et desktop indique un problème d'expérience utilisateur mobile à résoudre en priorité."
+  },
+
+  // Q4 — correctAnswer: B
+  {
+    question: "'Notre ROAS Facebook est inférieur à l'objectif, testons des audiences lookalike sur nos meilleurs clients.' À quel niveau de la chaîne de valeur des données correspond cette phrase ?",
+    options: [
+      "Niveau 2 : Métriques calculées à partir de données brutes",
+      "Niveau 5 : Recommandations actionnables",
+      "Niveau 3 : Comparaisons et mise en contexte",
+      "Niveau 4 : Insights business identifiés"
+    ],
+    correctAnswer: 1,
+    explanation: "C'est une recommandation actionnable concrète basée sur un insight, le plus haut niveau de la chaîne de valeur."
+  },
+
+  // Q5 — correctAnswer: A
+  {
+    question: "Qu'est-ce que la LTV (Lifetime Value) d'un client et pourquoi est-elle centrale en data marketing ?",
+    options: [
+      "Le revenu total généré sur toute la durée de la relation, pour calibrer le coût d'acquisition",
+      "Le montant du premier achat effectué par un client, servant à estimer le budget",
+      "Le nombre total de visites d'un client sur le site web de la marque",
+      "Le coût total pour acquérir et fidéliser un client sur une année civile"
+    ],
+    correctAnswer: 0,
+    explanation: "La LTV mesure la valeur totale d'un client dans le temps. Elle permet de fixer le budget d'acquisition maximum (CAC < LTV)."
+  },
+
+  // Q6 — correctAnswer: D
+  {
+    question: "Pourquoi l'attribution 'dernier clic' sous-estime-t-elle la contribution du display et de la vidéo ?",
+    options: [
+      "Parce que le display ne génère jamais aucun clic mesurable par les outils analytics",
+      "Les clics display sont moins chers et donc automatiquement sous-valorisés par le modèle",
+      "L'attribution dernier clic ne fonctionne techniquement qu'avec les campagnes search",
+      "Ces canaux jouent un rôle d'awareness en amont sans recevoir de crédit au final"
+    ],
+    correctAnswer: 3,
+    explanation: "Le display/vidéo initie souvent le parcours client mais le search finalise la conversion, récupérant tout le crédit."
+  },
+
+  // Q7 — correctAnswer: C
+  {
+    question: "Qu'est-ce qui différencie fondamentalement une approche data-driven du marketing traditionnel ?",
+    options: [
+      "L'utilisation exclusive d'outils Google pour piloter les campagnes marketing",
+      "Un investissement publicitaire digital supérieur au budget offline classique",
+      "Des décisions basées sur des preuves mesurables et une optimisation continue",
+      "L'automatisation intégrale de l'ensemble des actions marketing sans humain"
+    ],
+    correctAnswer: 2,
+    explanation: "Le data-driven se caractérise par des décisions objectives basées sur les données et une optimisation itérative."
+  },
+
+  // Q8 — correctAnswer: B
+  {
+    question: "Quels sont les principaux critères de ciblage publicitaire utilisés par les marques pour segmenter leurs audiences ?",
+    options: [
+      "Uniquement l'âge et le sexe des utilisateurs ciblés par la campagne",
+      "Géolocalisation, données démographiques, centres d'intérêt et habitudes d'achat",
+      "Exclusivement les cookies tiers collectés lors de la navigation sur internet",
+      "Le type d'appareil utilisé et la vitesse de connexion internet du prospect"
+    ],
+    correctAnswer: 1,
+    explanation: "Les plateformes combinent critères géographiques, démographiques, comportementaux et d'intérêts pour un ciblage précis et performant."
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 2 : Calculs, KPIs et LTV (Questions 9-16)
+  // Répartition : A=Q10,Q13 | B=Q11,Q15 | C=Q12,Q16 | D=Q9,Q14
+  // ═══════════════════════════════════════════════════════════════
+
+  // Q9 — correctAnswer: D
+  {
+    question: "Une campagne Google Ads génère 10 000€ de CA avec un budget de 2 000€. Le taux de marge est de 40%. Quelle est la rentabilité nette après coûts pub ?",
+    options: [
+      "10 000€ - 2 000€ = 8 000€ de profit net, la campagne est excellente",
+      "ROAS de 5:1 donc la campagne est automatiquement très rentable",
+      "On ne peut pas calculer sans connaître le nombre exact de conversions",
+      "Marge brute 4 000€ - Coût pub 2 000€ = 2 000€ de profit net"
+    ],
+    correctAnswer: 3,
+    explanation: "Marge brute = 10 000€ × 40% = 4 000€. Profit net = 4 000€ - 2 000€ (pub) = 2 000€."
+  },
+
+  // Q10 — correctAnswer: A
+  {
+    question: "100 000 impressions, 3 000 clics, 90 conversions, budget de 6 000€. Quels sont le CTR, le CPC et le taux de conversion ?",
+    options: [
+      "CTR 3%, CPC 2€, taux de conversion 3%",
+      "CTR 30%, CPC 0,20€, taux de conversion 3%",
+      "CTR 3%, CPC 2€, taux de conversion 30%",
+      "CTR 0,3%, CPC 20€, taux de conversion 3%"
     ],
     correctAnswer: 0,
     explanation: "CTR = 3 000/100 000 = 3%. CPC = 6 000€/3 000 = 2€. Conversion = 90/3 000 = 3%."
   },
+
+  // Q11 — correctAnswer: B
   {
-    question: "Un site e-commerce veut atteindre 100 000€ de CA mensuel. Son taux de conversion actuel est de 2% et son panier moyen de 100€. Combien de visiteurs mensuels doit-il générer ?",
+    question: "Objectif : 100 000€ de CA mensuel. Taux de conversion : 2%, panier moyen : 100€. Combien de visiteurs mensuels faut-il générer ?",
     options: [
-      "50 000 visiteurs mensuels (100 000€ / 100€ = 1 000 ventes ÷ 2% = 50 000)",
-      "100 000 visiteurs mensuels",
-      "20 000 visiteurs mensuels",
-      "10 000 visiteurs mensuels suffisent"
+      "100 000 visiteurs, soit un visiteur par euro de CA visé",
+      "50 000 visiteurs (1 000 ventes nécessaires ÷ 2% de conversion)",
+      "20 000 visiteurs avec un taux de conversion de 2% et panier de 100€",
+      "10 000 visiteurs suffisent avec ce niveau de panier moyen"
     ],
-    correctAnswer: 0,
+    correctAnswer: 1,
     explanation: "Ventes nécessaires = 100 000€ / 100€ = 1 000. Visiteurs = 1 000 / 0,02 = 50 000."
   },
+
+  // Q12 — correctAnswer: C
   {
-    question: "Une campagne email a un taux d'ouverture de 25%, un taux de clic (sur ouverts) de 10%, et un taux de conversion (sur clics) de 20%. Sur 40 000 emails envoyés, combien de conversions ?",
+    question: "Campagne email : taux d'ouverture 25%, taux de clic (sur ouverts) 10%, taux de conversion (sur clics) 20%. Sur 40 000 emails envoyés, combien de conversions ?",
     options: [
-      "200 conversions (40 000 × 25% = 10 000 ouverts × 10% = 1 000 clics × 20% = 200)",
-      "1 000 conversions",
-      "10 000 conversions",
-      "400 conversions"
-    ],
-    correctAnswer: 0,
-    explanation: "Ouverts = 40 000 × 0,25 = 10 000. Clics = 10 000 × 0,10 = 1 000. Conversions = 1 000 × 0,20 = 200."
-  },
-  {
-    question: "Deux canaux : SEO (0€ de coût direct, 18 000€ de CA) vs Google Ads (4 500€ de coût, 22 000€ de CA). Comment prioriser les investissements supplémentaires ?",
-    options: [
-      "Investir uniquement dans le SEO car il est gratuit",
-      "Google Ads génère plus de CA donc prioritaire",
-      "Analyser la marge par canal, le potentiel de scaling et les coûts d'opportunité avant de décider. SEO n'est pas gratuit (temps, contenu) et peut être saturé",
-      "Réduire Google Ads car son ROAS est inférieur"
+      "1 000 conversions car 40 000 × 25% × 10% = 1 000 acheteurs",
+      "400 conversions car 40 000 × 1% de taux de conversion global",
+      "200 conversions : 10 000 ouverts → 1 000 clics → 200 achats",
+      "2 000 conversions car 40 000 × 5% de taux de réponse"
     ],
     correctAnswer: 2,
-    explanation: "Le SEO a des coûts cachés (temps, contenu) et peut être saturé. L'analyse doit inclure marge, scalabilité et coûts réels."
-  },
-  {
-    question: "Le Quality Score Google Ads d'une campagne baisse de 7/10 à 4/10. Quel impact immédiat sur les performances ?",
-    options: [
-      "Aucun impact direct sur les performances",
-      "Augmentation du CPC d'environ 40-60% et baisse des positions d'affichage, nécessitant optimisation urgente des landing pages et annonces",
-      "Juste une baisse de 30% des impressions",
-      "Le budget est automatiquement réduit par Google"
-    ],
-    correctAnswer: 1,
-    explanation: "Un QS de 4/10 vs 7/10 augmente significativement le CPC (+40-60%) et dégrade les positions, impactant lourdement les performances."
-  },
-  {
-    question: "Dans un tunnel de conversion e-commerce : 10 000 visiteurs → 2 500 pages produit → 875 ajouts panier → 392 tunnels commencés → 280 achats. Où est le principal point de friction ?",
-    options: [
-      "Entre ajout panier et tunnel commencé (65% d'abandon), indiquant problème de frais de port/surprise ou complexité du checkout",
-      "Au niveau des pages produit (75% de perte)",
-      "Le taux de conversion final de 2,8% est normal",
-      "L'ensemble du tunnel est optimal"
-    ],
-    correctAnswer: 0,
-    explanation: "875 paniers → 392 tunnels = 55% seulement passent au checkout. C'est le point de friction majeur à optimiser."
-  },
-  {
-    question: "Un client a une LTV de 600€ sur 18 mois, un CPA actuel de 100€, et un taux de rétention à 12 mois de 65%. Quelle stratégie d'optimisation prioriser ?",
-    options: [
-      "Augmenter le CPA jusqu'à 200€ pour acquérir plus de clients car le ratio LTV/CAC est excellent (6:1)",
-      "Réduire le CPA à tout prix",
-      "Se concentrer uniquement sur le taux de rétention",
-      "Maintenir le statu quo"
-    ],
-    correctAnswer: 0,
-    explanation: "LTV/CAC = 600/100 = 6:1 (excellent). On peut augmenter le CPA jusqu'à ~200€ (LTV/CAC = 3) pour scaler l'acquisition."
+    explanation: "Ouverts = 40 000 × 25% = 10 000. Clics = 10 000 × 10% = 1 000. Conversions = 1 000 × 20% = 200."
   },
 
-  // SECTION 3 : Google Analytics et Outils (Questions 17-24)
+  // Q13 — correctAnswer: A
   {
-    question: "GA4 utilise un modèle basé sur les événements plutôt que sur les sessions. Quelle est la principale implication pour l'analyse du comportement utilisateur ?",
+    question: "Un SaaS B2B facture 80€/mois, rétention moyenne de 18 mois, taux d'expansion (upsell) de 15%. Quelle est la LTV estimée ?",
     options: [
-      "Il faut désormais tracker chaque interaction significative comme un événement distinct et construire ses propres métriques d'engagement pertinentes",
-      "Les sessions ne sont plus du tout trackées dans GA4",
-      "C'est juste un changement de terminologie sans impact réel",
-      "Les conversions ne sont plus mesurables"
+      "80€ × 18 mois × 1,15 = 1 656€",
+      "80€ × 18 mois = 1 440€ sans compter l'expansion",
+      "80€ × 12 mois = 960€ car on ne retient qu'un an",
+      "80€ × 18 mois ÷ 1,15 = 1 252€ après déduction"
     ],
     correctAnswer: 0,
-    explanation: "GA4 nécessite une approche événementielle explicite, obligeant à définir et tracker chaque interaction importante pour l'analyse."
+    explanation: "LTV = ARPU × Durée moyenne × (1 + taux d'expansion) = 80€ × 18 × 1,15 = 1 656€."
   },
+
+  // Q14 — correctAnswer: D
   {
-    question: "Dans Google Search Console, votre site apparaît en position moyenne 3,2 pour un mot-clé avec 45 000 impressions mensuelles mais seulement 1 800 clics. Que conclure ?",
+    question: "Le Quality Score Google Ads passe de 7/10 à 4/10 sur vos mots-clés principaux. Quel est l'impact concret ?",
     options: [
-      "CTR de 4% inférieur à l'attendu en position 3 (~12-15%). Problème de title/description ou featured snippets qui captent les clics",
-      "C'est un excellent CTR pour cette position",
-      "Il faut augmenter le budget Google Ads",
-      "La position moyenne est trop basse"
+      "Aucun impact direct, le Quality Score est un indicateur purement cosmétique",
+      "Juste une baisse de 30% du nombre d'impressions affichées",
+      "Le budget de la campagne est réduit automatiquement par la plateforme Google",
+      "Hausse du CPC de 40 à 60% et dégradation des positions d'affichage"
     ],
-    correctAnswer: 0,
-    explanation: "Position 3 devrait générer 12-15% de CTR. 4% indique un problème d'attractivité du snippet ou concurrence des features."
+    correctAnswer: 3,
+    explanation: "Un QS de 4 vs 7 augmente significativement le CPC (+40-60%) et dégrade les positions publicitaires."
   },
+
+  // Q15 — correctAnswer: B
   {
-    question: "Quelle configuration GA4 est absolument critique pour un site e-commerce avant de lancer toute campagne payante ?",
+    question: "Tunnel e-commerce : 10 000 visiteurs → 2 500 fiches produit → 875 paniers → 392 checkouts → 280 achats. Où est le point de friction principal ?",
     options: [
-      "Activer le tracking des scroll",
-      "Configurer correctement les événements e-commerce (view_item, add_to_cart, purchase) avec valeurs de conversion pour alimenter le Smart Bidding",
-      "Connecter Google Search Console",
-      "Créer 50 audiences personnalisées"
+      "Entre l'accueil et les fiches produit avec 75% de visiteurs perdus",
+      "Entre le panier et le checkout : 55% seulement poursuivent le paiement",
+      "Le taux final de 2,8% est dans les normes, pas de friction majeure",
+      "Entre le checkout et l'achat car 71% finalisent, ce qui est acceptable"
     ],
     correctAnswer: 1,
-    explanation: "Les événements e-commerce avec valeurs sont essentiels pour mesurer le ROI et permettre au Smart Bidding d'optimiser efficacement."
+    explanation: "875 paniers → 392 checkouts = 45% d'abandon à cette étape. C'est le point de friction majeur (frais cachés, complexité)."
   },
+
+  // Q16 — correctAnswer: C
   {
-    question: "Un pixel de tracking Facebook enregistre 150 achats alors que GA4 n'en compte que 132 pour la même période. Comment interpréter cet écart ?",
+    question: "Un client a une LTV de 600€ et un CPA actuel de 100€. Le ratio LTV/CAC est de 6:1. Quelle stratégie d'acquisition adopter ?",
     options: [
-      "Erreur de configuration à corriger immédiatement",
-      "Normal : méthodologies d'attribution différentes (1 jour vs 7 jours), bloqueurs de pubs, fenêtres de conversion variables. L'important est la cohérence dans le temps",
-      "GA4 est moins fiable que Facebook",
-      "Il faut désactiver GA4"
+      "Réduire le CPA coûte que coûte car l'acquisition est trop chère actuellement",
+      "Maintenir le statu quo, les indicateurs sont dans la norme du marché",
+      "Scaler en acceptant un CPA jusqu'à ~200€, le ratio resterait sain à 3:1",
+      "Stopper l'acquisition et se concentrer exclusivement sur la fidélisation"
+    ],
+    correctAnswer: 2,
+    explanation: "LTV/CAC = 600/100 = 6:1 (excellent). On peut augmenter le CPA à ~200€ (ratio 3:1) pour scaler l'acquisition."
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 3 : GA4, Outils et Lecture de Graphiques (Questions 17-24)
+  // Répartition : A=Q20,Q22 | B=Q18,Q24 | C=Q19,Q21 | D=Q17,Q23
+  // ═══════════════════════════════════════════════════════════════
+
+  // Q17 — correctAnswer: D
+  {
+    question: "GA4 utilise un modèle basé sur les événements plutôt que sur les sessions. Quelle est l'implication principale pour l'analyste ?",
+    options: [
+      "Les sessions ne sont plus du tout mesurées ni disponibles dans GA4",
+      "C'est juste un changement de terminologie sans impact réel sur l'analyse",
+      "Les conversions ne sont plus mesurables avec ce nouveau modèle événementiel",
+      "Chaque interaction est un événement distinct, offrant une analyse granulaire"
+    ],
+    correctAnswer: 3,
+    explanation: "GA4 nécessite de tracker chaque interaction comme un événement, offrant une flexibilité d'analyse supérieure."
+  },
+
+  // Q18 — correctAnswer: B
+  {
+    question: "Search Console : position moyenne 3,2 pour un mot-clé avec 45 000 impressions mais seulement 1 800 clics. Que conclure ?",
+    options: [
+      "C'est un excellent CTR pour cette position, rien à optimiser",
+      "CTR de 4% au lieu de 12-15% attendus : title/meta description à revoir",
+      "Il faut investir en Google Ads pour compléter le SEO sur ce mot-clé",
+      "La position 3,2 est insuffisante pour générer du trafic significatif"
     ],
     correctAnswer: 1,
-    explanation: "Les écarts entre plateformes sont normaux (attribution, bloqueurs). L'essentiel est la cohérence des tendances, pas la valeur absolue."
+    explanation: "Position 3 devrait générer 12-15% de CTR. À 4%, le snippet (title/description) manque d'attractivité ou des featured snippets captent les clics."
   },
+
+  // Q19 — correctAnswer: C  [Graphique ROAS par jour — page d'accueil]
   {
-    question: "Dans une analyse de cohorte, vous observez que la rétention à 6 mois de la cohorte d'octobre est de 42% vs 28% pour septembre. Quelle action analytique prioriser ?",
+    question: "Sur le graphique 'ROAS par jour' vu en cours (Lun: 4.2, Mar: 4.8, Mer: 5.1, Jeu: 4.9, Ven: 4.6, Sam: 2.8, Dim: 2.3), quelle analyse est la plus juste ?",
     options: [
-      "Identifier les différences entre ces cohortes : canal d'acquisition, profil, première expérience, offre promotionnelle pour reproduire le succès",
-      "Continuer à observer sans action",
-      "Augmenter le budget du mois le plus performant",
-      "C'est juste de la variance aléatoire"
+      "Le ROAS moyen dépasse 4, toutes les journées sont rentables sans exception",
+      "Le mardi est le jour optimal car il suit le début de semaine avec élan",
+      "Le weekend chute de 45-55% vs la semaine : comportement loisir, pas achat",
+      "Le dimanche est faible uniquement à cause d'un volume d'impressions réduit"
+    ],
+    correctAnswer: 2,
+    explanation: "Le ROAS dimanche (2.3) vs mercredi (5.1) = chute de 55%. Le comportement weekend (loisir > achat) explique cette baisse systématique."
+  },
+
+  // Q20 — correctAnswer: A  [Graphique CPC par canal — page d'accueil]
+  {
+    question: "D'après le graphique 'CPC par canal' vu en cours (Google: 0.85€, Meta: 1.24€, LinkedIn: 3.45€, TikTok: 0.62€, Twitter: 2.18€), quelle conclusion stratégique est la plus pertinente ?",
+    options: [
+      "LinkedIn coûte 5,6× plus que TikTok : justifiable uniquement si la LTV B2B compense",
+      "TikTok est automatiquement le meilleur canal car son CPC est le plus bas",
+      "Google Ads est le plus rentable grâce à son CPC intermédiaire de 0.85€",
+      "Les écarts de CPC entre canaux sont négligeables pour la stratégie globale"
     ],
     correctAnswer: 0,
-    explanation: "Un écart de 14 points de rétention est significatif. Il faut analyser les différences pour reproduire ce qui a fonctionné en octobre."
+    explanation: "LinkedIn à 3.45€ vs TikTok à 0.62€ = facteur 5,6. Ce surcoût n'est rentable que si la valeur client B2B justifie ce CPC élevé."
   },
+
+  // Q21 — correctAnswer: C  [Graphique trafic 30 jours — page d'accueil]
   {
-    question: "Comment utiliser efficacement la fonction 'Exploration' de GA4 pour identifier les segments d'utilisateurs à fort potentiel ?",
+    question: "Le graphique 'Évolution du trafic sur 30 jours' montre une chute de ~5 100 à ~3 100 visiteurs entre J15 et J21. Quelle interprétation est la plus rigoureuse ?",
     options: [
-      "Créer une exploration par segment analysant l'engagement, la valeur moyenne des commandes, et le taux de conversion par source/support pour identifier les combinaisons les plus performantes",
-      "Regarder uniquement le trafic global",
-      "Se concentrer sur les données démographiques basiques",
-      "Exporter toutes les données vers Excel"
+      "C'est un problème SEO, le site a perdu des positions organiques sur Google",
+      "Fluctuation normale, le trafic varie toujours dans cette amplitude",
+      "Chute de ~40% en 6 jours : hypothèse d'arrêt de campagnes ou incident technique",
+      "Le trafic est resté globalement stable, c'est juste la saisonnalité"
+    ],
+    correctAnswer: 2,
+    explanation: "Une chute de 40% en 6 jours est anormale. Première hypothèse : pause de campagnes payantes ou problème technique à investiguer."
+  },
+
+  // Q22 — correctAnswer: A  [Graphique conversion par device — page d'accueil]
+  {
+    question: "Le graphique 'Conversion par appareil' montre Desktop 3.8%, Mobile 2.1%, Tablette 4.2%. Pourquoi la tablette convertit-elle le mieux ?",
+    options: [
+      "Elle combine le confort d'écran du desktop et la mobilité, favorisant l'achat",
+      "C'est une anomalie statistique due au faible volume de trafic tablette",
+      "La tablette est le device le plus utilisé par les acheteurs en ligne",
+      "Les utilisateurs tablette sont exclusivement des professionnels à fort pouvoir d'achat"
     ],
     correctAnswer: 0,
-    explanation: "Les explorations par segment permettent d'identifier précisément les combinaisons source/comportement/valeur les plus rentables."
+    explanation: "La tablette combine le confort de navigation desktop et la praticité mobile, créant une expérience d'achat optimale."
   },
+
+  // Q23 — correctAnswer: D
   {
-    question: "Votre taux d'engagement GA4 est de 48%. Est-ce bon ou mauvais, et que révèle cette métrique ?",
+    question: "Le pixel Facebook enregistre 150 achats contre 132 dans GA4 sur la même période. Comment interpréter cet écart ?",
     options: [
-      "48% est moyen. Cela signifie que près de la moitié des sessions durent >10s, ont 2+ pages vues, ou génèrent une conversion. Analyser les 52% restants pour comprendre pourquoi ils rebondent",
-      "C'est excellent, rien à optimiser",
-      "C'est catastrophique, il faut tout refaire",
-      "Cette métrique ne sert à rien"
+      "Erreur de configuration critique nécessitant un audit technique immédiat",
+      "GA4 est structurellement moins fiable que le pixel Facebook pour le tracking",
+      "Il faut désactiver l'un des deux outils pour éviter toute contradiction",
+      "Normal : fenêtres d'attribution et bloqueurs diffèrent, la tendance prime"
     ],
-    correctAnswer: 0,
-    explanation: "48% d'engagement signifie que 52% des sessions sont très courtes ou sans interaction. Il faut analyser ces sessions non-engagées."
+    correctAnswer: 3,
+    explanation: "Les écarts entre plateformes sont normaux (attribution, bloqueurs). L'essentiel est la cohérence dans le temps, pas la valeur absolue."
   },
+
+  // Q24 — correctAnswer: B
   {
     question: "Pour un blog B2B visant la génération de leads, quels événements GA4 personnalisés sont les plus stratégiques à tracker ?",
     options: [
-      "Uniquement les pages vues",
-      "Téléchargement de ressources, lecture >60% des articles, clics sur CTA 'Demander une démo', temps passé >3min, pour scorer les leads qualifiés",
-      "Tous les clics sans distinction",
-      "Scroll à 25%, 50%, 75%"
+      "Uniquement le nombre total de pages vues par session utilisateur",
+      "Téléchargements, lecture >60%, clics CTA démo et temps >3min",
+      "Tous les clics sans aucune distinction ni pondération relative",
+      "Scroll à 25%, 50%, 75% et 100% de la page pour chaque article"
     ],
     correctAnswer: 1,
-    explanation: "Ces événements permettent de scorer l'intention et qualifier les leads selon leur engagement avec le contenu de valeur."
+    explanation: "Ces événements qualifient l'intention et permettent de scorer les leads selon leur engagement avec le contenu à forte valeur."
   },
 
+  // ═══════════════════════════════════════════════════════════════
   // SECTION 4 : Diagnostic et Optimisation (Questions 25-32)
+  // Répartition : A=Q26,Q29 | B=Q27,Q31 | C=Q25,Q30 | D=Q28,Q32
+  // ═══════════════════════════════════════════════════════════════
+
+  // Q25 — correctAnswer: C
   {
-    question: "Le ROAS d'une campagne Facebook passe de 5,2 à 2,8 en 3 semaines sans changement de budget. Quelle méthode diagnostique appliquer en priorité ?",
+    question: "Le ROAS Facebook passe de 5,2 à 2,8 en 3 semaines sans changement de budget. Quelle méthode diagnostique appliquer en priorité ?",
     options: [
-      "Augmenter immédiatement le budget",
-      "Méthode des 5 Pourquoi : analyser étape par étape les variations de CTR, CPC, taux de conversion, panier moyen pour identifier la cause racine avant toute action",
-      "Changer complètement la créative",
-      "Arrêter la campagne"
+      "Augmenter immédiatement le budget pour compenser la baisse de rentabilité",
+      "Changer complètement les visuels publicitaires de toutes les campagnes",
+      "Méthode des 5 Pourquoi : décomposer CTR, CPC, conversion et panier",
+      "Arrêter Facebook et basculer l'intégralité du budget sur Google Ads"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "La méthode des 5 Pourquoi permet de remonter à la cause racine en décomposant le ROAS en ses composantes (CTR, CPC, conversion, AOV)."
   },
+
+  // Q26 — correctAnswer: A
   {
-    question: "Dans un contexte de diagnostic marketing, qu'est-ce qu'un 'insight actionnable' par opposition à une simple observation ?",
+    question: "Qu'est-ce qui distingue un 'insight actionnable' d'une simple observation de données ?",
     options: [
-      "Une statistique présentée dans un graphique coloré",
-      "Une interprétation des données qui révèle un problème ou opportunité ET propose une solution concrète testable avec un impact business mesurable",
-      "N'importe quelle donnée extraite de GA4",
-      "Un KPI qui baisse"
+      "Il combine interprétation, cause identifiée, solution concrète et impact mesurable",
+      "C'est une statistique mise en forme dans un graphique coloré et bien présenté",
+      "C'est n'importe quelle métrique extraite d'un outil d'analytics comme GA4",
+      "C'est un indicateur de performance qui montre une tendance à la baisse"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Un insight actionnable lie observation, explication causale, recommandation concrète et impact business prévisible."
   },
+
+  // Q27 — correctAnswer: B
   {
-    question: "Vous observez que le taux de conversion desktop est stable à 3,2% mais le mobile baisse de 2,8% à 1,9% en un mois. Quelle analyse mener ?",
+    question: "Conversion desktop stable à 3,2% mais mobile en chute de 2,8% à 1,9% en un mois. Quelle analyse mener ?",
     options: [
-      "Vérifier les changements techniques mobiles récents (MAJ site, vitesse, CSS), analyser les heatmaps mobiles, tester le parcours sur différents devices et navigateurs",
-      "C'est une tendance normale du marché",
-      "Augmenter le budget pub mobile pour compenser",
-      "Ignorer le mobile et se concentrer sur desktop"
-    ],
-    correctAnswer: 0,
-    explanation: "Une baisse de 32% du taux de conversion mobile en un mois indique un problème technique ou UX à investiguer en priorité."
-  },
-  {
-    question: "Comment interpréter un CPC qui augmente de 35% sur Google Ads alors que le Quality Score reste stable à 7/10 ?",
-    options: [
-      "C'est forcément une erreur de Google Ads",
-      "Intensification de la concurrence sur les mots-clés ciblés (plus d'annonceurs ou enchères plus agressives). Analyser l'Auction Insights et envisager des mots-clés alternatifs",
-      "Le Quality Score est mal calculé",
-      "Il faut augmenter le budget pour compenser"
+      "C'est une tendance normale, le mobile convertit structurellement moins bien",
+      "Vérifier les changements techniques récents, heatmaps et parcours multi-devices",
+      "Augmenter les budgets pub mobile pour compenser par le volume de trafic",
+      "Ignorer le mobile et se concentrer sur le desktop qui reste performant"
     ],
     correctAnswer: 1,
-    explanation: "QS stable + CPC en hausse = concurrence accrue. L'Auction Insights révélera les nouveaux concurrents et leur agressivité."
-  },
-  {
-    question: "Dans une matrice Impact/Effort, comment prioriser : A) Refonte complète site (Impact très élevé, Effort très élevé) vs B) Optimisation formulaire contact (Impact élevé, Effort faible) ?",
-    options: [
-      "Toujours commencer par A car impact plus élevé",
-      "Commencer par B (Quick Win) pour des résultats rapides et financer/justifier A ensuite. Approche pragmatique et moins risquée",
-      "Faire les deux en même temps",
-      "Ne rien faire et attendre"
-    ],
-    correctAnswer: 1,
-    explanation: "Les Quick Wins (B) génèrent des résultats rapides qui justifient et financent les projets majeurs (A). Approche itérative moins risquée."
-  },
-  {
-    question: "Un e-commerce a 70% d'abandon de panier. Quelle séquence d'analyse adopter pour diagnostiquer et prioriser les corrections ?",
-    options: [
-      "Analyser le tunnel par étape (frais de port affichage, options de paiement, champs formulaire), identifier le taux d'abandon par étape, créer des tests A/B sur les points de friction majeurs",
-      "Envoyer plus d'emails de relance de panier",
-      "Baisser les prix généralement",
-      "C'est un taux normal, ne rien faire"
-    ],
-    correctAnswer: 0,
-    explanation: "70% d'abandon nécessite une analyse granulaire par étape pour identifier les frictions spécifiques et les tester méthodiquement."
-  },
-  {
-    question: "Le taux de rebond sur vos landing pages Google Ads est de 78%. Quelle hypothèse tester en premier selon les principes UX ?",
-    options: [
-      "Augmenter le budget publicitaire",
-      "Vérifier l'adéquation Message Ad / Message Landing Page et la vitesse de chargement (<3s). 78% suggère une promesse non tenue ou friction technique",
-      "Changer complètement la landing page sans test",
-      "Arrêter Google Ads"
-    ],
-    correctAnswer: 1,
-    explanation: "78% de rebond indique soit une inadéquation message ad/page, soit un problème technique. Ce sont les deux premières hypothèses à tester."
-  },
-  {
-    question: "Comment interpréter cette donnée : 'Le panier moyen des clients acquis via Instagram est de 142€ vs 89€ pour Facebook, mais le CPA Instagram est 2,8x plus élevé' ?",
-    options: [
-      "Instagram n'est pas rentable, arrêter",
-      "Calculer le ROAS et la marge nette par canal. Instagram peut être plus rentable malgré un CPA élevé si la LTV et la qualité client compensent",
-      "Se concentrer uniquement sur Facebook",
-      "Les deux canaux sont équivalents"
-    ],
-    correctAnswer: 1,
-    explanation: "Un panier moyen 60% supérieur peut compenser un CPA 2,8x plus élevé. Il faut calculer la rentabilité nette réelle par canal."
+    explanation: "Baisse de 32% en un mois sur mobile seul indique un problème technique ou UX spécifique à investiguer."
   },
 
-  // SECTION 5 : Stratégie et Automatisation (Questions 33-40)
+  // Q28 — correctAnswer: D
   {
-    question: "Quels sont les prérequis techniques et data minimum pour déployer efficacement le Smart Bidding Target CPA sur Google Ads ?",
+    question: "Le CPC Google Ads augmente de 35% alors que le Quality Score reste stable à 7/10. Quelle est l'explication la plus probable ?",
     options: [
-      "5 conversions minimum",
-      "Au moins 30 conversions mensuelles dans la campagne, tracking des conversions fiable, historique de 2-3 semaines minimum, objectifs CPA réalistes basés sur l'historique",
-      "Aucun prérequis, l'IA fonctionne toujours",
-      "100 000€ de budget minimum"
+      "C'est forcément une erreur de facturation dans l'interface Google Ads",
+      "Le Quality Score affiché est probablement mal calculé par le système",
+      "Il faut simplement augmenter le budget total pour absorber la hausse",
+      "Concurrence accrue sur les mots-clés : analyser Auction Insights et diversifier"
     ],
-    correctAnswer: 1,
-    explanation: "Le Smart Bidding nécessite un volume minimum de conversions (30/mois) et un historique pour apprendre efficacement."
+    correctAnswer: 3,
+    explanation: "QS stable + CPC en hausse = concurrence accrue. L'Auction Insights révélera les nouveaux concurrents et leur agressivité."
   },
+
+  // Q29 — correctAnswer: A
   {
-    question: "Une stratégie d'automatisation marketing efficace doit équilibrer quatre aspects. Lesquels ?",
+    question: "Matrice Impact/Effort — A) Refonte du site (impact très élevé, effort très élevé) vs B) Optimisation du formulaire (impact élevé, effort faible). Comment prioriser ?",
     options: [
-      "Budget, temps, équipe, outils",
-      "Règles automatiques pour la réactivité, machine learning pour la prédiction, contrôle humain pour la stratégie, et monitoring continu pour la validation",
-      "Facebook, Google, LinkedIn, Twitter",
-      "SEO, SEA, Display, Email"
+      "B d'abord (Quick Win), puis les résultats rapides justifient et financent A",
+      "Toujours A car son impact maximum potentiel est supérieur à celui de B",
+      "Faire A et B simultanément avec deux équipes pour gagner du temps",
+      "Attendre davantage de données avant de se décider entre les deux options"
     ],
-    correctAnswer: 1,
-    explanation: "L'automatisation efficace combine règles simples, ML avancé, supervision stratégique humaine et validation continue des performances."
+    correctAnswer: 0,
+    explanation: "Les Quick Wins (B) génèrent des résultats rapides qui justifient et financent les projets majeurs (A). Approche itérative et moins risquée."
   },
+
+  // Q30 — correctAnswer: C
   {
-    question: "Comment créer une audience lookalike performante sur Facebook pour un e-commerce avec 50 000 clients ?",
+    question: "Un e-commerce a 70% d'abandon de panier. Quelle approche diagnostique adopter en priorité ?",
     options: [
-      "Utiliser tous les 50 000 clients comme source",
-      "Sélectionner le top 5-10% des clients par LTV (2 500-5 000 profils) et tester des lookalikes 1%, 2%, 3% pour trouver le sweet spot volume/qualité",
-      "Utiliser les visiteurs du site web",
-      "Créer une audience de 10% d'emblée"
+      "Envoyer massivement des emails de relance de panier automatisés",
+      "Baisser les prix de l'ensemble du catalogue pour réduire les hésitations",
+      "Analyser le tunnel étape par étape, identifier les abandons et tester en A/B",
+      "C'est un taux d'abandon normal en e-commerce, aucune action requise"
     ],
-    correctAnswer: 1,
-    explanation: "Une audience source de haute qualité (top LTV) permet aux algorithmes de trouver des profils similaires vraiment rentables."
+    correctAnswer: 2,
+    explanation: "70% d'abandon nécessite une analyse granulaire par étape pour identifier les frictions spécifiques et les tester méthodiquement."
   },
+
+  // Q31 — correctAnswer: B
   {
-    question: "Dans une stratégie d'attribution data-driven, pourquoi le modèle 'dernier clic' est-il particulièrement problématique pour les parcours B2B complexes ?",
+    question: "Le taux de rebond de vos landing pages Google Ads est de 78%. Quelle hypothèse tester en premier ?",
     options: [
-      "Parce qu'il est ancien",
-      "Il ignore complètement les 8-12 touchpoints moyens du parcours B2B (content, webinar, comparateurs, démo) en attribuant 100% au dernier, sous-investissant dans l'awareness et la considération",
-      "Il ne fonctionne que pour le B2C",
-      "Il coûte trop cher à implémenter"
+      "Augmenter les enchères pour obtenir de meilleures positions publicitaires",
+      "Vérifier l'adéquation message annonce / landing page et le temps de chargement",
+      "Changer complètement la landing page sans passer par une phase de test",
+      "Arrêter Google Ads et basculer l'intégralité du budget vers le SEO naturel"
     ],
     correctAnswer: 1,
-    explanation: "Le B2B a des parcours longs (8-12 points de contact sur plusieurs semaines). Le dernier clic ignore tout ce qui a construit la décision."
+    explanation: "78% de rebond indique soit une inadéquation message ad/page, soit un problème de vitesse. Ce sont les hypothèses prioritaires."
   },
+
+  // Q32 — correctAnswer: D
   {
-    question: "Quelle approche permet de mesurer l'impact incrémental réel d'une campagne publicitaire ?",
+    question: "Panier moyen Instagram 142€ vs Facebook 89€, mais le CPA Instagram est 2,8× plus élevé. Quelle décision prendre ?",
     options: [
-      "Regarder uniquement le ROAS",
-      "Mettre en place un test A/B géolocalisé ou une analyse de séries temporelles avant/après avec groupe de contrôle, pour isoler l'effet réel de la campagne vs la demande organique",
-      "Comparer au mois précédent",
-      "Demander aux clients comment ils nous ont connus"
+      "Instagram n'est pas rentable à ce CPA, couper le budget immédiatement",
+      "Se concentrer exclusivement sur Facebook qui a le meilleur CPA du mix",
+      "Les deux canaux ont au final la même rentabilité globale nette",
+      "Calculer le ROAS net par canal car le panier élevé peut compenser le CPA"
     ],
-    correctAnswer: 1,
-    explanation: "Seul un test contrôlé (géo, temporel) permet d'isoler l'effet incrémental réel de la pub vs la demande naturelle du marché."
+    correctAnswer: 3,
+    explanation: "Un panier 60% supérieur peut compenser un CPA 2,8× plus élevé. Seule l'analyse du ROAS net par canal permet de trancher."
   },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 5 : Stratégie, Ciblage et Automatisation (Questions 33-40)
+  // Répartition : A=Q34,Q37 | B=Q36,Q40 | C=Q33,Q38 | D=Q35,Q39
+  // ═══════════════════════════════════════════════════════════════
+
+  // Q33 — correctAnswer: C
   {
-    question: "Un site SaaS B2B observe que les leads générés via son contenu éducatif (blog, guides) ont un taux de conversion 3x supérieur aux leads cold ads, mais un cycle de vente 40% plus long. Quelle stratégie budgétaire adopter ?",
+    question: "Quels prérequis techniques sont nécessaires pour déployer le Smart Bidding Target CPA sur Google Ads ?",
     options: [
-      "Investir massivement dans les cold ads car ils convertissent plus vite",
-      "Maintenir un mix équilibré : 60-70% sur contenu éducatif (meilleure qualité/LTV malgré cycle plus long) et 30-40% sur cold ads (volume et vitesse) pour optimiser CAC et LTV globaux",
-      "Se concentrer uniquement sur le contenu éducatif",
-      "Arrêter le contenu éducatif qui est trop lent"
+      "5 conversions par mois suffisent pour activer l'algorithme de machine learning",
+      "Aucun prérequis spécifique, l'IA Google fonctionne dès l'activation de la campagne",
+      "Minimum 30 conversions/mois, tracking fiable et historique de 2-3 semaines",
+      "Un budget minimum de 100 000€ est exigé par Google pour cette stratégie"
     ],
-    correctAnswer: 1,
-    explanation: "Une stratégie équilibrée capture la haute qualité du contenu éducatif tout en maintenant un flux de leads plus rapides via cold ads."
+    correctAnswer: 2,
+    explanation: "Le Smart Bidding nécessite un volume minimum (30 conv/mois) et un historique fiable pour apprendre efficacement."
   },
+
+  // Q34 — correctAnswer: A
   {
-    question: "Comment structurer un dashboard marketing pour une PME e-commerce afin qu'il soit réellement actionnable au quotidien ?",
+    question: "Une marque de mobilier haut de gamme veut cibler sur Meta Ads. Quelle combinaison de critères est la plus efficace ?",
     options: [
-      "Inclure toutes les métriques disponibles dans GA4",
-      "Organiser en 3 niveaux : KPIs business critiques (ROAS, CA, marge) en haut, métriques d'efficacité par canal au milieu, alertes automatiques sur écarts >15% en bas",
-      "Créer 50 graphiques différents",
-      "Se concentrer uniquement sur le nombre de visiteurs"
+      "Géo-ciblage zones urbaines CSP+, âge 30-55 ans, intérêts déco et immobilier récent",
+      "Ciblage large France entière sans restriction d'âge ni de centres d'intérêt",
+      "Uniquement retargeting des visiteurs du site web des 30 derniers jours",
+      "Ciblage par type d'appareil : seulement les utilisateurs d'iPhone récents"
     ],
-    correctAnswer: 1,
-    explanation: "Un dashboard efficace priorise les KPIs business critiques, permet de diagnostiquer rapidement, et alerte automatiquement sur les anomalies."
+    correctAnswer: 0,
+    explanation: "Combiner géo (zones CSP+), démographie (30-55, pouvoir d'achat), et intérêts (déco, immo) maximise la pertinence du ciblage."
   },
+
+  // Q35 — correctAnswer: D
   {
-    question: "Dans un contexte de prédiction du churn client, quels signaux comportementaux sont les plus prédictifs à tracker pour un SaaS ?",
+    question: "Comment créer une audience lookalike performante sur Meta pour un e-commerce avec 50 000 clients ?",
     options: [
-      "L'âge du compte uniquement",
-      "Fréquence de connexion en baisse >50%, diminution des features utilisées, non-utilisation de la nouvelle fonctionnalité clé, absence de réponse aux emails d'onboarding",
-      "Le chiffre d'affaires généré",
-      "Le nombre d'emails envoyés"
+      "Utiliser l'intégralité des 50 000 clients comme audience source sans tri",
+      "Utiliser les visiteurs du site web des 7 derniers jours uniquement",
+      "Créer directement une audience lookalike à 10% pour maximiser le volume",
+      "Sélectionner le top 5-10% par LTV et tester des lookalikes 1%, 2%, 3%"
+    ],
+    correctAnswer: 3,
+    explanation: "Une audience source de haute qualité (top LTV) permet de trouver des profils similaires réellement rentables. Tester 1-3% optimise volume/qualité."
+  },
+
+  // Q36 — correctAnswer: B
+  {
+    question: "Pourquoi le modèle 'dernier clic' est-il particulièrement inadapté aux parcours d'achat B2B ?",
+    options: [
+      "Parce que c'est un modèle d'attribution trop ancien et considéré obsolète",
+      "Il ignore les 8-12 touchpoints du parcours B2B en attribuant tout au dernier",
+      "Il ne fonctionne techniquement que pour les sites e-commerce B2C classiques",
+      "Il coûte trop cher à implémenter dans les outils d'analytics B2B"
     ],
     correctAnswer: 1,
-    explanation: "Les signaux comportementaux de désengagement (connexions↓, features↓, non-adoption) prédisent le churn avant qu'il ne se produise."
+    explanation: "Le B2B a des parcours longs (8-12 touchpoints). Le dernier clic ignore le travail d'awareness et de considération en amont."
+  },
+
+  // Q37 — correctAnswer: A
+  {
+    question: "Une enseigne de restauration rapide lance une campagne locale sur Meta Ads. Quels critères de ciblage comportemental exploiter ?",
+    options: [
+      "Habitudes alimentaires, géo-ciblage 5km, tranches horaires repas, connexion locale",
+      "Ciblage national avec un large budget pour maximiser la couverture de marque",
+      "Uniquement les personnes ayant déjà visité un concurrent identifié récemment",
+      "Ciblage par revenus déclarés et niveau d'éducation supérieure uniquement"
+    ],
+    correctAnswer: 0,
+    explanation: "Le local combine proximité (5km), comportements alimentaires et moments de consommation (tranches horaires) pour un ciblage pertinent."
+  },
+
+  // Q38 — correctAnswer: C
+  {
+    question: "Comment mesurer l'impact incrémental réel d'une campagne publicitaire au-delà du ROAS reporté ?",
+    options: [
+      "Se fier uniquement au ROAS affiché par la plateforme publicitaire utilisée",
+      "Comparer les ventes au mois précédent sans mettre en place de groupe de contrôle",
+      "Test géolocalisé ou série temporelle avec groupe de contrôle pour isoler l'effet",
+      "Demander aux clients via un sondage comment ils ont découvert la marque"
+    ],
+    correctAnswer: 2,
+    explanation: "Seul un test contrôlé (géo ou temporel) permet d'isoler l'effet incrémental réel de la pub vs la demande organique."
+  },
+
+  // Q39 — correctAnswer: D
+  {
+    question: "Quels signaux comportementaux prédisent le mieux le churn client pour un produit SaaS ?",
+    options: [
+      "L'ancienneté du compte client est le seul facteur déterminant du churn",
+      "Le chiffre d'affaires total généré par le client depuis son inscription",
+      "Le nombre d'emails marketing envoyés au client chaque mois par l'équipe",
+      "Baisse de connexions, features inutilisées et non-adoption des nouveautés"
+    ],
+    correctAnswer: 3,
+    explanation: "Les signaux de désengagement (connexions↓, features↓, non-adoption) prédisent le churn avant qu'il ne se produise."
+  },
+
+  // Q40 — correctAnswer: B
+  {
+    question: "Comment structurer un dashboard marketing actionnable au quotidien pour une PME e-commerce ?",
+    options: [
+      "Afficher toutes les métriques GA4 disponibles sur un seul et même écran",
+      "3 niveaux : KPIs business en haut, efficacité par canal au milieu, alertes >15% en bas",
+      "Créer 50 graphiques couvrant chaque micro-métrique existante dans les outils",
+      "Se concentrer exclusivement sur le nombre de visiteurs quotidiens du site"
+    ],
+    correctAnswer: 1,
+    explanation: "Un dashboard efficace priorise les KPIs critiques, permet le diagnostic par canal, et alerte automatiquement sur les anomalies."
   }
 ];
 
@@ -471,4 +567,3 @@ export const examQuizConfig = {
   difficulty: 'Tous niveaux',
   secretUrl: '/exam-2025-ingemedia'
 };
-
