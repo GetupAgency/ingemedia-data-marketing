@@ -77,6 +77,7 @@ const ExamQuiz: React.FC = () => {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
         setIsAnswerValidated(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setIsExamFinished(true);
         setEndTime(Date.now());

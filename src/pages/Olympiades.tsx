@@ -96,6 +96,7 @@ const Olympiades: React.FC = () => {
       setSelectedAnswer(null);
       setShowExplanation(false);
       setBonusSpeed(0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setGameFinished(true);
     }

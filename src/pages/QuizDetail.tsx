@@ -167,6 +167,7 @@ const QuizDetail: React.FC = () => {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
         setIsAnswerValidated(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setIsQuizFinished(true);
       }
@@ -361,7 +362,7 @@ const QuizDetail: React.FC = () => {
 
         {/* Quiz content */}
         {!isQuizFinished ? (
-          <div className="bg-dark-800/50 border border-dark-700 rounded-2xl overflow-hidden backdrop-blur-sm">
+          <div key={`quiz-q-${currentQuestion}`} className="bg-dark-800/50 border border-dark-700 rounded-2xl overflow-hidden backdrop-blur-sm">
             {/* Progress header */}
             <div className="bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 p-4 border-b border-dark-700">
               <div className="flex justify-between items-center mb-3">

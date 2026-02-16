@@ -262,6 +262,7 @@ const InteractiveQuiz: React.FC = () => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setShowAnswer(false);
       setSelectedTeam(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // Passer au round suivant
       if (currentRound === 'round1') setCurrentRound('round2');
