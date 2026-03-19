@@ -780,30 +780,52 @@ const UnifiedLearningPlatform: React.FC = () => {
             </div>
           </Link>
 
-          {/* Coming Soon Placeholder */}
-          <div className="relative bg-dark-800/30 border border-dark-700/50 border-dashed rounded-2xl p-6 opacity-60">
-            <div className="flex items-start justify-between mb-4">
-              <div className="w-14 h-14 bg-dark-700/50 rounded-xl flex items-center justify-center">
-                <Sparkles className="w-7 h-7 text-dark-500" />
+          {/* Critères de Ciblage */}
+          <Link
+            to="/learn/targeting-criteria"
+            className="group relative bg-gradient-to-br from-cyber-400/10 to-neon-green/10 border border-cyber-400/30 rounded-2xl p-6 hover:border-cyber-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-400/20"
+          >
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyber-400/5 to-neon-green/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative">
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-cyber-400 to-neon-green rounded-xl flex items-center justify-center shadow-neon">
+                  <Target className="w-7 h-7 text-dark-900" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 bg-neon-yellow/20 text-neon-yellow text-xs font-mono rounded-full border border-neon-yellow/30">
+                    Interactif
+                  </span>
+                </div>
               </div>
-              <span className="px-3 py-1 bg-dark-700/50 text-dark-500 text-xs font-mono rounded-full">
-                Bientôt
-              </span>
+
+              <h3 className="text-xl font-bold text-dark-100 mb-2 font-display group-hover:text-gradient transition-all">
+                Critères de Ciblage
+              </h3>
+
+              <p className="text-dark-400 text-sm mb-4">
+                Explorez les 6 dimensions du ciblage publicitaire : démographique, géographique, psychographique, comportemental, technographique et contextuel.
+              </p>
+
+              <div className="flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1.5 text-dark-500 font-mono">
+                  <Clock className="w-4 h-4 text-cyber-400" />
+                  <span>30 min</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-dark-500 font-mono">
+                  <Target className="w-4 h-4 text-neon-green" />
+                  <span>6 catégories • 31 critères</span>
+                </div>
+              </div>
+
+              <div className="mt-4 flex items-center gap-2 text-cyber-400 font-mono text-sm group-hover:gap-3 transition-all">
+                <Play className="w-4 h-4" />
+                <span>Explorer la roue du ciblage</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
             </div>
-
-            <h3 className="text-xl font-bold text-dark-500 mb-2 font-display">
-              Attribution Marketing
-            </h3>
-
-            <p className="text-dark-600 text-sm mb-4">
-              Comprendre les modèles d'attribution et mesurer l'impact de chaque canal dans la conversion.
-            </p>
-
-            <div className="flex items-center gap-2 text-dark-600 font-mono text-sm">
-              <Lock className="w-4 h-4" />
-              <span>Module en préparation</span>
-            </div>
-          </div>
+          </Link>
         </div>
       </div>
 

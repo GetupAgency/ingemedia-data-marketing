@@ -22,6 +22,7 @@ import ExamQuiz from './pages/ExamQuiz';
 import ExamResults from './pages/ExamResults';
 import Olympiades from './pages/Olympiades';
 import ConversionFunnel from './pages/ConversionFunnel';
+import TargetingCriteria from './pages/TargetingCriteria';
 import './App.css';
 
 /**
@@ -80,6 +81,9 @@ function App() {
 
             {/* Module interactif tunnel de conversion */}
             <Route path="/learn/conversion-funnel" element={<ConversionFunnel />} />
+
+            {/* Module interactif critères de ciblage */}
+            <Route path="/learn/targeting-criteria" element={<TargetingCriteria />} />
           </Routes>
         </main>
         
