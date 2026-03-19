@@ -170,34 +170,43 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Audit de maturité data d\'une entreprise',
-          description: 'Évaluer le niveau de maturité data marketing d\'une startup',
+          title: 'Battle des marques : qui maîtrise le mieux ses données ?',
+          description: 'Comparez deux marques concurrentes et jugez leur maturité data marketing',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous consultez pour "GreenTech", une startup de 2 ans spécialisée dans les objets connectés écologiques (50k€ CA/mois).</p>
+  <p><strong>Le principe :</strong> Vous allez jouer au <strong>juge du data marketing</strong>. Deux marques s'affrontent. Vous analysez leur stratégie data et vous désignez le gagnant.</p>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Situation actuelle découverte :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li>Google Analytics installé mais jamais consulté</li>
-    <li>Campagnes Facebook Ads gérées "au feeling" par le fondateur</li>
-    <li>Aucun tracking des conversions configuré</li>
-    <li>Budget pub : 5k€/mois (70% Facebook, 30% Google)</li>
-    <li>CRM basique avec 2000 contacts non segmentés</li>
-    <li>Aucune mesure de satisfaction client</li>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Choisissez votre duel :</h4>
+  <ul class="list-disc list-inside space-y-2 ml-4 text-gray-800">
+    <li><strong>Duel 1 :</strong> Netflix vs Disney+ — Qui personnalise le mieux l'expérience ?</li>
+    <li><strong>Duel 2 :</strong> Uber Eats vs Deliveroo — Qui exploite le mieux les données de commande ?</li>
+    <li><strong>Duel 3 :</strong> Nike vs Adidas — Qui crée la meilleure relation client digitale ?</li>
+    <li><strong>Duel 4 :</strong> Vinted vs Leboncoin — Qui domine le marketing basé sur la donnée ?</li>
   </ul>
 
-  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Évaluez la <strong>maturité data</strong> sur chacun des 3 piliers (note /10)</li>
-    <li>Identifiez les <strong>3 problèmes prioritaires</strong> à résoudre</li>
-    <li>Proposez un <strong>plan d'action 90 jours</strong> structuré</li>
-    <li>Estimez le <strong>gain potentiel</strong> d'une approche data-driven</li>
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission (en binôme si possible) :</h4>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Enquêtez</strong> (10 min) : Installez les deux apps / visitez les deux sites. Inscrivez-vous si vous n'avez pas de compte. Observez :
+      <ul class="list-disc list-inside ml-6 mt-1 space-y-1 text-gray-600">
+        <li>Quelles données vous demande-t-on à l'inscription ?</li>
+        <li>Recevez-vous un email de bienvenue personnalisé ?</li>
+        <li>Les recommandations sont-elles pertinentes ?</li>
+        <li>Combien de notifications push en 24h ?</li>
+      </ul>
+    </li>
+    <li><strong>Notez chaque marque</strong> sur les 3 piliers (collecte /10, analyse /10, optimisation /10). Justifiez chaque note avec un exemple concret observé.</li>
+    <li><strong>Identifiez la faille</strong> : pour chaque marque, trouvez UNE chose qu'ils pourraient faire mieux avec leurs données.</li>
+    <li><strong>Désignez le gagnant</strong> du duel et préparez un argument de 30 secondes pour convaincre la classe.</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <strong>Bonus :</strong> Allez dans les paramètres de confidentialité des deux apps. Comptez le nombre de trackers/permissions demandées. Qui collecte le plus ? Est-ce que plus de données = meilleure expérience ?
+  </div>
 </div>`,
-          expectedOutput: 'Audit structuré avec notation, problèmes identifiés, plan d\'action priorisé et estimation des gains',
+          expectedOutput: 'Fiche comparative des 2 marques avec notes /10 sur les 3 piliers, exemples concrets, faille identifiée, et verdict argumenté',
           hints: [
-            'Utilisez une échelle de 1 à 10 pour chaque pilier',
-            'Priorisez les actions à impact rapide et élevé',
-            'Chiffrez vos recommandations quand c\'est possible'
+            'Testez vraiment les apps/sites : inscrivez-vous, naviguez, ajoutez au panier, observez ce qui se passe ensuite',
+            'Les emails et notifications que vous recevez APRÈS votre visite sont la preuve que vos données sont utilisées',
+            'Regardez les paramètres de confidentialité : c\'est là que les marques révèlent leurs pratiques data'
           ]
         },
         teacherCorrection: `<div class="correction-content">
@@ -476,6 +485,43 @@ export const unifiedLearningPath: LearningModule[] = [
     <strong>Règle d'or :</strong> Votre valeur en tant que data marketer augmente exponentiellement quand vous passez du niveau 3 (comparaisons) aux niveaux 4-5 (insights et actions).
   </div>
 </div>`,
+        practicalExercise: {
+          title: 'Enquête data : du chiffre brut à la recommandation',
+          description: 'Remontez les 5 niveaux de la chaîne de valeur à partir de données brutes',
+          instructions: `<div class="cas-pratique-content">
+  <p><strong>Le principe :</strong> Vous recevez un dump de données brutes. Votre mission : les transformer étape par étape en remontant les 5 niveaux, jusqu'à formuler UNE recommandation qui vaut de l'or.</p>
+
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Les données brutes (Niveau 1) :</h4>
+  <p class="text-gray-700 mb-2">Voici les chiffres du mois dernier pour un site e-commerce de sneakers :</p>
+  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
+    <li>Sessions totales : 45 000</li>
+    <li>Sessions mobile : 31 500 | Sessions desktop : 13 500</li>
+    <li>Commandes mobile : 189 | Commandes desktop : 270</li>
+    <li>Panier moyen mobile : 85€ | Panier moyen desktop : 127€</li>
+    <li>Budget Google Ads : 8 000€ | Clics Google Ads : 12 000</li>
+    <li>Budget Instagram Ads : 4 000€ | Clics Instagram Ads : 9 500</li>
+    <li>Trafic organique : 23 500 sessions | Commandes organique : 198</li>
+  </ul>
+
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission — gravissez les 5 niveaux :</h4>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Niveau 2 — Calculez</strong> : Taux de conversion mobile vs desktop, CPC Google vs Instagram, CA total par canal. Organisez dans un tableau.</li>
+    <li><strong>Niveau 3 — Comparez</strong> : Quel canal convertit le mieux ? Le mobile fait quel % du trafic vs quel % des ventes ? Un canal est-il sur-représenté en trafic mais sous-représenté en ventes ?</li>
+    <li><strong>Niveau 4 — Trouvez l'insight</strong> : Pourquoi le mobile a-t-il un taux de conversion si différent du desktop ? Quel canal a le meilleur ROI caché ? Qu'est-ce que les chiffres disent VRAIMENT ?</li>
+    <li><strong>Niveau 5 — Recommandez</strong> : Formulez UNE recommandation chiffrée. "Si on fait [action], on peut gagner [montant]€ parce que [raison data]."</li>
+  </ol>
+
+  <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <strong>Le piège :</strong> Le canal qui génère le plus de clics n'est pas forcément le plus rentable. Cherchez le ROI, pas le volume.
+  </div>
+</div>`,
+          expectedOutput: 'Tableau de métriques calculées, analyse comparative des canaux, insight sur le gap mobile/desktop, et une recommandation chiffrée avec estimation de gain',
+          hints: [
+            'Taux de conversion = Commandes / Sessions × 100',
+            'Le mobile fait 70% du trafic mais combien de % des ventes ? C\'est là que se cache l\'insight.',
+            'Le trafic organique n\'a pas de coût pub : calculez son "CPA virtuel" pour comparer équitablement'
+          ]
+        },
         quiz: [
           {
             id: 'q-chaine-1',
@@ -668,67 +714,87 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Calcul et analyse de KPIs d\'acquisition',
-          description: 'Analyser les performances de 3 campagnes publicitaires',
+          title: 'Votre boss vous donne 10 000€ : où investissez-vous ?',
+          description: 'Analysez 4 campagnes, trouvez le piège, et défendez votre choix budgétaire',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous analysez les performances de 3 campagnes publicitaires pour un e-commerce de mode sur le mois dernier.</p>
+  <p><strong>La situation :</strong> Vous êtes Traffic Manager junior chez "StreetWear Lab", une marque de streetwear en ligne. Votre boss arrive lundi matin :</p>
+  <div class="p-3 bg-blue-50 border-l-4 border-blue-400 rounded mb-4 italic text-gray-700">
+    "On a 10 000€ de budget pour le mois prochain. Le mois dernier on a testé 4 canaux. Dis-moi où on met l'argent et pourquoi. Je veux des chiffres, pas des opinions."
+  </div>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Données des campagnes :</h4>
-  
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Données du mois dernier (test sur 4 canaux) :</h4>
+
   <div class="overflow-x-auto mb-4">
     <table class="min-w-full bg-white border border-gray-300 text-sm">
       <thead class="bg-gray-100">
         <tr>
-          <th class="border border-gray-300 px-3 py-2 text-left">Campagne</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Budget</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Canal</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Budget test</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Impressions</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Clics</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Sessions</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Rebonds</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Ventes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="border border-gray-300 px-3 py-2">Google Ads Search</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">5 000€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">200 000</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">6 000</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">5 800</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1 740</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">100 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3 200</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3 100</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">930</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">62</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Facebook Ads</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3 000€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">500 000</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">4 000</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3 600</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2 160</td>
+          <td class="border border-gray-300 px-3 py-2">TikTok Ads</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">1 200 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">18 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">5 400</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">4 590</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">11</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Google Display</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2 000€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">800 000</td>
+          <td class="border border-gray-300 px-3 py-2">Instagram Ads</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">350 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">5 600</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">4 800</td>
           <td class="border border-gray-300 px-3 py-2 text-center">2 400</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2 200</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1 540</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">38</td>
+        </tr>
+        <tr class="bg-yellow-50">
+          <td class="border border-gray-300 px-3 py-2">Google Display</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 000 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">14 000</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 800</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 520</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <p class="text-sm text-gray-500 mb-4">Panier moyen : 89€</p>
 
-  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Calculez pour chaque campagne : <strong>CTR, CPC, CPM, Taux de rebond</strong></li>
-    <li>Comparez les performances aux <strong>benchmarks sectoriels</strong></li>
-    <li>Identifiez la <strong>campagne la plus performante</strong> et justifiez</li>
-    <li>Proposez <strong>2 optimisations concrètes</strong> pour la campagne la moins performante</li>
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission en 3 étapes :</h4>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Calculez tout</strong> : CTR, CPC, CPM, taux de rebond et <strong>ROAS</strong> (CA / Budget) pour chaque canal. Présentez dans un tableau propre.</li>
+    <li><strong>Trouvez le piège</strong> : Un canal affiche des chiffres spectaculaires en apparence (beaucoup de clics, CPM ultra-bas) mais cache un problème grave. Lequel, et pourquoi ?</li>
+    <li><strong>Répartissez les 10 000€</strong> : Proposez une répartition budgétaire entre les 4 canaux. Justifiez chaque montant. Combien de ventes estimez-vous avec votre répartition ?</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-400 rounded">
+    <strong>Attention :</strong> Votre boss déteste le gaspillage. Si vous mettez de l'argent sur un canal qui ne vend pas, il faudra expliquer pourquoi.
+  </div>
 </div>`,
-          expectedOutput: 'Tableau de calculs complet, analyse comparative avec benchmarks, recommandations d\'optimisation',
+          expectedOutput: 'Tableau complet des KPIs par canal, identification du piège (Display = trafic bot probable), répartition budgétaire argumentée avec estimation de ventes',
           hints: [
-            'Attention aux formules : CTR = (Clics/Impressions)×100',
-            'Le taux de rebond = (Rebonds/Sessions)×100',
-            'Comparez chaque métrique aux benchmarks donnés dans le cours'
+            'Un canal avec un énorme écart entre clics et sessions a un problème : où sont passés les visiteurs ?',
+            'Le ROAS (CA / Budget) est le juge de paix final : peu importe le CTR si ça ne vend pas',
+            'TikTok a un taux de rebond de 85% : les gens regardent la vidéo mais ne restent pas sur le site'
           ]
         },
         teacherCorrection: `<div class="correction-content">
@@ -1307,34 +1373,71 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Audit et configuration GA4 d\'un site e-commerce',
-          description: 'Configurer GA4 pour un site de vente en ligne de A à Z',
+          title: 'L\'audit qui fait mal : trouvez les 8 erreurs GA4',
+          description: 'Un compte GA4 truffé d\'erreurs classiques. Saurez-vous toutes les trouver ?',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous devez configurer GA4 pour "TechStore", un e-commerce de produits électroniques qui vient de lancer son site.</p>
+  <p><strong>La situation :</strong> L'agence précédente de "FoodBox" (box repas livrés à domicile, 800 commandes/mois, panier moyen 45€) vient d'être virée. On vous envoie les captures d'écran de leur configuration GA4. C'est un désastre. Votre mission : trouver toutes les erreurs.</p>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Informations sur l'entreprise :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li>Site e-commerce avec 500 produits</li>
-    <li>Panier moyen : 120€</li>
-    <li>Objectifs : Ventes, Newsletter, Demandes de support</li>
-    <li>Budget Google Ads : 8k€/mois</li>
-    <li>Cibles : B2C, 25-55 ans, France entière</li>
-  </ul>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Ce que vous découvrez dans le compte GA4 :</h4>
+
+  <div class="space-y-4 mb-6">
+    <div class="p-3 bg-gray-50 border border-gray-200 rounded">
+      <strong class="text-gray-800">Conversions configurées :</strong>
+      <ul class="list-disc list-inside mt-1 ml-4 text-gray-700 text-sm">
+        <li>"page_view" marqué comme conversion</li>
+        <li>"scroll" marqué comme conversion</li>
+        <li>"purchase" est présent mais la valeur est toujours 0€</li>
+        <li>"first_visit" marqué comme conversion</li>
+        <li>Aucun événement "add_to_cart" configuré</li>
+      </ul>
+    </div>
+
+    <div class="p-3 bg-gray-50 border border-gray-200 rounded">
+      <strong class="text-gray-800">Audiences créées :</strong>
+      <ul class="list-disc list-inside mt-1 ml-4 text-gray-700 text-sm">
+        <li>"All Users" (durée : 540 jours)</li>
+        <li>"Purchasers" (durée : 30 jours)</li>
+        <li>Aucune autre audience</li>
+      </ul>
+    </div>
+
+    <div class="p-3 bg-gray-50 border border-gray-200 rounded">
+      <strong class="text-gray-800">Connexions :</strong>
+      <ul class="list-disc list-inside mt-1 ml-4 text-gray-700 text-sm">
+        <li>Google Ads : NON connecté</li>
+        <li>Search Console : NON connecté</li>
+        <li>BigQuery : connecté (coût estimé : 200€/mois)</li>
+      </ul>
+    </div>
+
+    <div class="p-3 bg-gray-50 border border-gray-200 rounded">
+      <strong class="text-gray-800">Paramètres :</strong>
+      <ul class="list-disc list-inside mt-1 ml-4 text-gray-700 text-sm">
+        <li>Conservation des données : 2 mois</li>
+        <li>Filtres IP internes : aucun</li>
+        <li>Cross-domain tracking : non configuré (le paiement se fait sur pay.foodbox.fr)</li>
+        <li>Enhanced Measurement : désactivé</li>
+      </ul>
+    </div>
+  </div>
 
   <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Définissez la <strong>stratégie de tracking</strong> (événements prioritaires)</li>
-    <li>Listez les <strong>conversions à configurer</strong> avec leur valeur</li>
-    <li>Proposez <strong>5 audiences remarketing</strong> pertinentes</li>
-    <li>Planifiez les <strong>connexions externes</strong> nécessaires</li>
-    <li>Créez un <strong>plan de test</strong> pour valider la configuration</li>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Trouvez les 8 erreurs</strong> (au minimum) dans cette configuration. Pour chaque erreur, expliquez : ce qui est mal, pourquoi c'est grave, et comment corriger.</li>
+    <li><strong>Priorisez</strong> : classez vos corrections de "à faire aujourd'hui" à "peut attendre une semaine".</li>
+    <li><strong>Proposez 5 audiences</strong> que FoodBox devrait créer pour son remarketing, en expliquant l'usage de chacune.</li>
+    <li><strong>Estimez le coût de l'incompétence</strong> : combien d'argent l'ancienne agence a fait perdre à FoodBox avec cette configuration ? (Indice : sans import de conversions dans Google Ads, le Smart Bidding ne fonctionne pas.)</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-400 rounded">
+    <strong>Le vrai enjeu :</strong> FoodBox dépense 6 000€/mois en Google Ads sans que les conversions remontent. Leur Smart Bidding optimise donc... dans le vide. Calculez le gaspillage.
+  </div>
 </div>`,
-          expectedOutput: 'Plan de configuration complet avec stratégie de tracking, conversions, audiences et plan de test',
+          expectedOutput: 'Liste des 8+ erreurs avec gravité et correction, plan de priorité, 5 audiences remarketing, et estimation du coût du gaspillage',
           hints: [
-            'Priorisez les événements qui impactent directement le business',
-            'Pensez au parcours client complet : découverte → achat → fidélisation',
-            'Les audiences doivent être exploitables en remarketing'
+            'Marquer "page_view" comme conversion fausse TOUS les rapports : chaque visite compte comme une conversion',
+            'Sans cross-domain, le parcours est coupé en 2 : GA4 ne voit pas qui achète vraiment',
+            'La conservation à 2 mois empêche toute analyse de saisonnalité ou de tendance long terme'
           ]
         },
         teacherCorrection: `<div class="correction-content">
@@ -2017,13 +2120,18 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Diagnostic complet d\'une chute de performance',
-          description: 'Analyser une baisse de ROAS et proposer un plan d\'action',
+          title: 'Alerte ROAS : le COMEX veut des réponses pour 14h',
+          description: 'La directrice marketing panique. Vous avez 50 minutes pour comprendre la chute et sauver le mois.',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous êtes consultant data marketing pour "FashionTrend", une boutique en ligne de mode féminine. La directrice marketing vous alerte : "Notre ROAS a chuté de 40% ce mois-ci, c'est catastrophique !"</p>
+  <div class="p-3 bg-red-50 border-l-4 border-red-500 rounded mb-4">
+    <strong>EMAIL REÇU — Lundi 9h02</strong><br>
+    <span class="italic text-gray-700">De : Sophie Durand, Directrice Marketing</span><br>
+    <span class="italic text-gray-700">Objet : URGENT — ROAS en chute libre</span><br><br>
+    <span class="text-gray-800">"Le CA du mois est en chute de 40%. Le budget n'a pas bougé. Le CEO veut des explications au COMEX de 14h. J'ai besoin d'un diagnostic clair et d'un plan d'action. Ne me dites pas juste 'c'est le marché' — je veux savoir EXACTEMENT ce qui s'est passé et ce qu'on fait."</span>
+  </div>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Données disponibles (Novembre vs Octobre) :</h4>
-  
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Données du mois (Novembre vs Octobre) :</h4>
+
   <div class="overflow-x-auto mb-4">
     <table class="min-w-full bg-white border border-gray-300 text-sm">
       <thead class="bg-gray-100">
@@ -2031,7 +2139,7 @@ export const unifiedLearningPath: LearningModule[] = [
           <th class="border border-gray-300 px-3 py-2 text-left">Métrique</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Octobre</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Novembre</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Évolution</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Variation</th>
         </tr>
       </thead>
       <tbody>
@@ -2039,16 +2147,16 @@ export const unifiedLearningPath: LearningModule[] = [
           <td class="border border-gray-300 px-3 py-2">Budget total</td>
           <td class="border border-gray-300 px-3 py-2 text-center">15 000€</td>
           <td class="border border-gray-300 px-3 py-2 text-center">15 000€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">0%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">=</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Chiffre d'affaires</td>
+          <td class="border border-gray-300 px-3 py-2">CA publicitaire</td>
           <td class="border border-gray-300 px-3 py-2 text-center">75 000€</td>
           <td class="border border-gray-300 px-3 py-2 text-center">45 000€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">-40%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-red-600 font-bold">-40%</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Sessions</td>
+          <td class="border border-gray-300 px-3 py-2">Sessions totales</td>
           <td class="border border-gray-300 px-3 py-2 text-center">30 000</td>
           <td class="border border-gray-300 px-3 py-2 text-center">28 000</td>
           <td class="border border-gray-300 px-3 py-2 text-center">-7%</td>
@@ -2057,47 +2165,74 @@ export const unifiedLearningPath: LearningModule[] = [
           <td class="border border-gray-300 px-3 py-2">Conversions</td>
           <td class="border border-gray-300 px-3 py-2 text-center">750</td>
           <td class="border border-gray-300 px-3 py-2 text-center">450</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">-40%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-red-600 font-bold">-40%</td>
         </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Trafic mobile (%)</td>
+        <tr class="bg-yellow-50">
+          <td class="border border-gray-300 px-3 py-2">Part trafic mobile</td>
           <td class="border border-gray-300 px-3 py-2 text-center">65%</td>
           <td class="border border-gray-300 px-3 py-2 text-center">78%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">+13pts</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-green-600 font-bold">+13pts</td>
         </tr>
-        <tr>
+        <tr class="bg-yellow-50">
           <td class="border border-gray-300 px-3 py-2">Taux de rebond mobile</td>
           <td class="border border-gray-300 px-3 py-2 text-center">45%</td>
           <td class="border border-gray-300 px-3 py-2 text-center">68%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">+23pts</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-red-600 font-bold">+23pts</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Taux de rebond desktop</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">32%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">34%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">+2pts</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Ajouts panier</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 100</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">980</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-red-600 font-bold">-53%</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Temps chargement mobile</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2,1s</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">5,8s</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-red-600 font-bold">+176%</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Newsletter inscriptions</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">340</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">420</td>
+          <td class="border border-gray-300 px-3 py-2 text-center text-green-600">+24%</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Contexte additionnel :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li>Nouvelle collection automne/hiver lancée début novembre</li>
-    <li>Concurrent principal (Zara) a lancé une campagne massive mi-novembre</li>
-    <li>Mise à jour du site mobile le 8 novembre (nouveau design)</li>
-    <li>Black Friday prévu fin novembre avec -30% sur tout</li>
-    <li>Équipe marketing réduite (2 personnes en congés)</li>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Ce que votre enquête interne révèle :</h4>
+  <ul class="list-disc list-inside space-y-2 ml-4 text-gray-800">
+    <li><strong>8 novembre :</strong> L'équipe dev a poussé une refonte mobile (nouveau checkout, nouvelles fiches produit)</li>
+    <li><strong>12 novembre :</strong> Zara lance une campagne TikTok massive avec -40% sur les manteaux</li>
+    <li><strong>Depuis le 8 nov :</strong> 3 avis 1 étoile sur Trustpilot mentionnent "impossible d'ajouter au panier sur mobile"</li>
+    <li><strong>Les newsletters :</strong> Augmentation de +24% des inscriptions (campagne "Avant-première Black Friday")</li>
+    <li><strong>L'équipe :</strong> Le Traffic Manager senior et le développeur front sont en congés depuis le 5 novembre</li>
   </ul>
 
-  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Calculez les <strong>KPIs manquants</strong> et identifiez les écarts critiques</li>
-    <li>Appliquez la <strong>méthode des 5 pourquoi</strong> pour identifier la cause racine</li>
-    <li>Utilisez le <strong>framework AIDA-M</strong> pour structurer votre diagnostic</li>
-    <li>Proposez un <strong>plan d'action priorisé</strong> avec la matrice Impact/Effort</li>
-    <li>Estimez l'<strong>impact financier</strong> de vos recommandations sur 3 mois</li>
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission — préparez le COMEX :</h4>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Calculez les KPIs dérivés</strong> : ROAS, taux de conversion global, CPA, taux de conversion mobile vs desktop séparément. Le problème vient-il du trafic ou de la conversion ?</li>
+    <li><strong>Résolvez les contradictions</strong> : Le trafic mobile augmente mais les ventes s'effondrent. Les newsletters explosent mais le CA chute. Pourquoi ?</li>
+    <li><strong>5 Pourquoi</strong> : Remontez de "Le ROAS a chuté de 40%" jusqu'à la cause racine en 5 étapes.</li>
+    <li><strong>Plan d'action pour Sophie</strong> : Classez vos recommandations en "ce soir" (quick win), "cette semaine" (priorité), "ce mois" (projet). Pour chaque action, estimez l'impact en € de CA récupéré.</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <strong>L'indice caché :</strong> Toutes les métriques desktop sont stables. Le problème est 100% mobile. Et il y a une date clé...
+  </div>
 </div>`,
-          expectedOutput: 'Diagnostic complet avec analyse des causes, plan d\'action priorisé et estimation des gains',
+          expectedOutput: 'Diagnostic structuré avec KPIs calculés, contradictions expliquées, 5 Pourquoi avec cause racine, plan d\'action chiffré en 3 horizons temporels',
           hints: [
-            'Regardez l\'évolution du trafic mobile et du taux de rebond',
-            'La mise à jour du site mobile coïncide avec la dégradation',
-            'Calculez le taux de conversion par device pour confirmer'
+            'Le temps de chargement mobile est passé de 2,1s à 5,8s — au-delà de 3s, 53% des visiteurs abandonnent',
+            'Les ajouts panier ont chuté de 53% — c\'est pire que la chute des conversions. Le problème est en AMONT du checkout.',
+            'Le desktop est stable → la cause est spécifique au mobile → corrèle avec la refonte du 8 novembre'
           ]
         },
         teacherCorrection: `<div class="correction-content">
@@ -2818,44 +2953,63 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Conception d\'un dashboard marketing complet',
-          description: 'Créer un dashboard de pilotage pour une équipe marketing',
+          title: 'Le bon, la brute et le truand : jugez 3 dashboards',
+          description: 'Analysez 3 dashboards marketing, classez-les, et transformez le pire en chef-d\'oeuvre',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous êtes responsable data marketing chez "EcoHome", une entreprise de produits écologiques pour la maison. L'équipe marketing (5 personnes) a besoin d'un dashboard unifié pour piloter leurs campagnes.</p>
+  <p><strong>Le principe :</strong> On vous montre 3 dashboards utilisés par de vraies équipes marketing. Un est excellent, un est moyen, un est catastrophique. À vous de jouer au critique.</p>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Informations sur l'entreprise :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li><strong>Activité :</strong> E-commerce B2C produits écologiques</li>
-    <li><strong>CA mensuel :</strong> 200k€ (objectif : +15% YoY)</li>
-    <li><strong>Budget marketing :</strong> 40k€/mois répartis sur 5 canaux</li>
-    <li><strong>Équipe :</strong> 1 Manager, 2 Traffic Managers, 1 Content Manager, 1 Analyst</li>
-    <li><strong>Outils actuels :</strong> GA4, Google Ads, Facebook Ads, Mailchimp, Shopify</li>
-    <li><strong>Problème :</strong> Données dispersées, pas de vision globale, réunions trop longues</li>
-  </ul>
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">DASHBOARD A — "Le Mur de Chiffres"</h4>
+  <div class="p-3 bg-gray-50 border border-gray-200 rounded mb-4">
+    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-700 text-sm">
+      <li>47 KPIs affichés sur une seule page, police taille 8</li>
+      <li>Pas de code couleur, pas d'alerte</li>
+      <li>Données mises à jour manuellement chaque vendredi (copier-coller depuis Excel)</li>
+      <li>Tout est au même niveau : le CA côtoie le taux de scroll et le nombre de pages vues 404</li>
+      <li>Le manager passe 45 min chaque lundi à "décrypter" les chiffres en réunion</li>
+    </ul>
+  </div>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Répartition budget par canal :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li>Google Ads Search : 18k€ (45%)</li>
-    <li>Facebook/Instagram Ads : 12k€ (30%)</li>
-    <li>Google Ads Display : 4k€ (10%)</li>
-    <li>Email marketing : 2k€ (5%)</li>
-    <li>Influenceurs : 4k€ (10%)</li>
-  </ul>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-3">DASHBOARD B — "L'Essentiel"</h4>
+  <div class="p-3 bg-gray-50 border border-gray-200 rounded mb-4">
+    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-700 text-sm">
+      <li>Page 1 : 5 KPIs avec jauges colorées (vert/orange/rouge) + tendance 7j</li>
+      <li>Page 2 : Performance par canal avec comparaison mois précédent</li>
+      <li>Page 3 : Détail opérationnel par campagne (drill-down cliquable)</li>
+      <li>Données actualisées toutes les 4h via connecteurs automatiques</li>
+      <li>Alertes Slack automatiques quand un KPI passe en rouge</li>
+      <li>Le manager ouvre le dashboard 2 min le matin et sait immédiatement si tout va bien</li>
+    </ul>
+  </div>
+
+  <h4 class="font-semibold text-purple-900 mt-4 mb-3">DASHBOARD C — "Le Beau Gosse Inutile"</h4>
+  <div class="p-3 bg-gray-50 border border-gray-200 rounded mb-4">
+    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-700 text-sm">
+      <li>Design magnifique : animations, dégradés, graphiques 3D</li>
+      <li>Temps de chargement : 12 secondes</li>
+      <li>KPIs affichés : impressions totales, "engagement rate", nombre de likes Instagram</li>
+      <li>Aucune donnée de conversion, de CA, ou de ROAS</li>
+      <li>Pas de comparaison temporelle (juste le chiffre du jour)</li>
+      <li>L'équipe l'a abandonné après 2 semaines car "ça ne sert à rien pour prendre des décisions"</li>
+    </ul>
+  </div>
 
   <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Définissez l'<strong>architecture du dashboard</strong> (3 niveaux de détail)</li>
-    <li>Sélectionnez les <strong>15 KPIs essentiels</strong> avec leurs seuils d'alerte</li>
-    <li>Concevez la <strong>mise en page visuelle</strong> (wireframe ou description détaillée)</li>
-    <li>Configurez le <strong>système d'alertes</strong> par priorité</li>
-    <li>Planifiez le <strong>déploiement</strong> et la formation équipe</li>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Classez les 3 dashboards</strong> du meilleur au pire. Justifiez chaque classement en 2-3 phrases.</li>
+    <li><strong>Pour chacun, identifiez :</strong> les 2 plus gros problèmes ET les 2 choses qui marchent bien (même le pire a quelque chose de bon).</li>
+    <li><strong>Redesignez le pire</strong> : Prenez le dashboard le plus mauvais et proposez une refonte. Quels KPIs garder/supprimer ? Quelle structure (combien de pages, quoi sur chaque page) ? Quelles alertes mettre en place ?</li>
+    <li><strong>Le test des 5 secondes</strong> : Pour votre dashboard redesigné, décrivez ce qu'un manager doit comprendre en 5 secondes d'ouverture. Qu'est-ce qui doit sauter aux yeux IMMÉDIATEMENT ?</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <strong>Règle d'or :</strong> Un dashboard n'est pas un rapport. C'est un outil de décision. S'il faut plus de 5 secondes pour comprendre si "ça va ou pas", il a échoué.
+  </div>
 </div>`,
-          expectedOutput: 'Spécifications complètes du dashboard avec architecture, KPIs, design et plan de déploiement',
+          expectedOutput: 'Classement argumenté des 3 dashboards, forces/faiblesses de chacun, refonte complète du pire avec structure, KPIs et alertes, description du test 5 secondes',
           hints: [
-            'Pensez aux besoins spécifiques de chaque rôle dans l\'équipe',
-            'Priorisez les KPIs qui permettent des actions concrètes',
-            'L\'architecture doit permettre le drill-down du général au détail'
+            'Le Dashboard A a un problème de hiérarchie : 47 KPIs = 0 KPI. L\'information noyée ne vaut rien.',
+            'Le Dashboard C est le piège classique : il mesure la vanité (likes) au lieu de la valeur (CA, ROAS)',
+            'Un bon dashboard répond à UNE question : est-ce que ça marche ou pas ? Tout le reste est du drill-down.'
           ]
         },
         teacherCorrection: `<div class="correction-content">
@@ -3518,43 +3672,105 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 </div>`,
         practicalExercise: {
-          title: 'Stratégie d\'automatisation complète',
-          description: 'Concevoir un plan d\'automatisation pour optimiser les performances',
+          title: 'Le backlog de l\'urgence : triez, automatisez, survivez',
+          description: 'Votre Traffic Manager démissionne dans 2 semaines. Automatisez ce qui peut l\'être pour ne pas couler.',
           instructions: `<div class="cas-pratique-content">
-  <p><strong>Contexte :</strong> Vous êtes consultant en automatisation marketing pour "FitnessPro", une chaîne de salles de sport qui veut automatiser ses campagnes digitales pour réduire les coûts et améliorer les performances.</p>
+  <div class="p-3 bg-red-50 border-l-4 border-red-500 rounded mb-4">
+    <strong>SLACK — #marketing-general — Lundi 9h15</strong><br>
+    <span class="italic text-gray-700">@Thomas (Traffic Manager) : "Salut l'équipe. J'ai accepté une offre ailleurs, mon dernier jour est le 28. Désolé pour le timing."</span><br><br>
+    <span class="italic text-gray-700">@Julie (Directrice Marketing) : "@vous Réunion d'urgence à 10h. Thomas gère 25k€/mois de budget Ads tout seul, entièrement en manuel. On a 2 semaines pour trouver comment ne pas perdre le contrôle."</span>
+  </div>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Situation actuelle :</h4>
-  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li><strong>Équipe :</strong> 1 Traffic Manager (temps plein) + 1 Stagiaire (mi-temps)</li>
-    <li><strong>Budget :</strong> 25k€/mois répartis sur Google Ads (60%) et Facebook (40%)</li>
-    <li><strong>Gestion actuelle :</strong> 100% manuelle, optimisations 2x/semaine</li>
-    <li><strong>Problèmes :</strong> Réactivité lente, erreurs humaines, surcharge de travail</li>
-    <li><strong>Objectifs :</strong> +30% conversions, -20% CPA, -50% temps de gestion</li>
-  </ul>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Ce que Thomas gère manuellement aujourd'hui :</h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="min-w-full bg-white border border-gray-300 text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-3 py-2 text-left">Tâche</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Temps/semaine</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Fréquence</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Risque si non fait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Ajustement enchères Google Ads</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">4h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2x/sem</td>
+          <td class="border border-gray-300 px-3 py-2">CPA explose, budget gaspillé</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Reporting Excel pour Julie</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Hebdo</td>
+          <td class="border border-gray-300 px-3 py-2">Pas de visibilité direction</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Ajout mots-clés négatifs</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Hebdo</td>
+          <td class="border border-gray-300 px-3 py-2">Budget gaspillé sur requêtes inutiles</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Gestion budgets Facebook Ads</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Quotidien</td>
+          <td class="border border-gray-300 px-3 py-2">Sur/sous-dépense</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Création audiences remarketing</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">1h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Mensuel</td>
+          <td class="border border-gray-300 px-3 py-2">Perte de prospects chauds</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Pause/reprise campagnes saisonnières</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">1h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Mensuel</td>
+          <td class="border border-gray-300 px-3 py-2">Diffusion hors saison</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">A/B test créas Facebook</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Hebdo</td>
+          <td class="border border-gray-300 px-3 py-2">Fatigue créative, CTR baisse</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Sync CRM → Audiences Custom</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">1h</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">Mensuel</td>
+          <td class="border border-gray-300 px-3 py-2">Ciblage obsolète</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-gray-600 mb-4"><strong>Total :</strong> ~17h/semaine de travail manuel. Le stagiaire ne peut en absorber que 5h.</p>
 
-  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Données disponibles :</h4>
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Ressources disponibles :</h4>
   <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
-    <li>GA4 configuré avec événements e-commerce</li>
-    <li>CRM avec 15 000 clients et données LTV</li>
-    <li>Historique 2 ans de campagnes (500+ conversions/mois)</li>
-    <li>Tracking offline (inscriptions en salle)</li>
-    <li>Base email 25 000 contacts segmentée</li>
+    <li>GA4 avec événements e-commerce + CRM de 15 000 clients</li>
+    <li>Historique de 2 ans de campagnes (500+ conversions/mois)</li>
+    <li>Budget outils : 500€/mois max</li>
+    <li>Le stagiaire peut exécuter mais pas concevoir</li>
   </ul>
 
   <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission :</h4>
-  <ol class="list-decimal list-inside space-y-2 text-gray-800">
-    <li>Auditez les <strong>opportunités d'automatisation</strong> par niveau (1 à 4)</li>
-    <li>Priorisez les <strong>quick wins</strong> avec matrice Impact/Effort</li>
-    <li>Concevez la <strong>stratégie Smart Bidding</strong> (choix et paramétrage)</li>
-    <li>Définissez les <strong>audiences prédictives</strong> à créer</li>
-    <li>Planifiez le <strong>déploiement sur 6 mois</strong> avec budget et ROI</li>
+  <ol class="list-decimal list-inside space-y-3 text-gray-800">
+    <li><strong>Triez le backlog</strong> : Pour chaque tâche, décidez — Automatiser (outil/règle), Déléguer (stagiaire), Supprimer (pas critique), Garder manuel (trop risqué). Justifiez.</li>
+    <li><strong>Plan d'urgence J-14</strong> : Qu'est-ce qui DOIT être automatisé avant le départ de Thomas ? Classez par priorité avec outil recommandé (Google Rules, Smart Bidding, Looker Studio, Zapier...).</li>
+    <li><strong>Smart Bidding</strong> : Thomas gérait les enchères manuellement (4h/sem). Proposez une stratégie Smart Bidding pour prendre le relais. Quel type ? Quel CPA cible ? Quelle période d'apprentissage prévoir ?</li>
+    <li><strong>Chiffrez le risque</strong> : Si rien n'est fait et que le stagiaire gère seul en manuel, estimez la perte en € sur le premier mois (indices : CPA actuel 22€, 500 conversions/mois, un débutant fait en moyenne +40% de CPA).</li>
   </ol>
+
+  <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <strong>Le vrai enseignement :</strong> L'automatisation n'est pas un luxe. C'est une assurance contre la dépendance à une seule personne. Chaque tâche manuelle est un risque.
+  </div>
 </div>`,
-          expectedOutput: 'Plan d\'automatisation complet avec roadmap, outils, budget et ROI estimé',
+          expectedOutput: 'Backlog trié (automatiser/déléguer/supprimer/garder), plan J-14 avec outils, stratégie Smart Bidding détaillée, et estimation du risque financier',
           hints: [
-            'Commencez par les automatisations qui libèrent le plus de temps',
-            'Le Smart Bidding nécessite une période d\'apprentissage de 2-4 semaines',
-            'Priorisez les automatisations avec impact business direct'
+            'Le Smart Bidding Target CPA est le remplacement naturel de l\'ajustement manuel des enchères : il faut 30+ conversions/mois (ici 500 = largement suffisant)',
+            'Le reporting Excel → Looker Studio est le quick win le plus évident : 3h/semaine récupérées en 1 jour de setup',
+            'Attention : passer en Smart Bidding pendant la période de transition est risqué. Prévoyez une phase de learning de 2-3 semaines avec budget conservateur.'
           ]
         },
         teacherCorrection: `<div class="correction-content">
