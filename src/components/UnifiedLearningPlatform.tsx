@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, CheckCircle, ChevronRight, Eye, EyeOff, XCircle, Lock, Unlock, GraduationCap, Target, Clock, Award, Terminal, Zap, Sparkles, Filter, Play, Layers } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, ChevronRight, Eye, EyeOff, XCircle, Lock, Unlock, GraduationCap, Target, Clock, Award, Terminal, Zap, Sparkles, Filter, Play, Layers, FlaskConical, Download, HelpCircle, ExternalLink } from 'lucide-react';
 import { unifiedLearningPath, LearningModule, Exercise, teacherPassword } from '../data/unifiedLearningPath';
+import { practicalExercises, type PracticalExercise } from '../data/practicalExercises';
 
 // Fonction utilitaire pour scroll vers le haut
 const scrollToTop = () => {
@@ -213,16 +214,14 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ questions, sectionTitle, 
                           </span>
                           <span className="text-left flex-1 text-dark-200 leading-relaxed">{option}</span>
                         </div>
-                        {showCorrection && (
-                          <>
-                            {isCorrectOption && (
-                              <CheckCircle className="w-6 h-6 text-neon-green flex-shrink-0" />
-                            )}
-                            {isSelected && !isCorrect && (
-                              <XCircle className="w-6 h-6 text-neon-pink flex-shrink-0" />
-                            )}
-                          </>
-                        )}
+                        <div className="w-6 h-6 flex-shrink-0">
+                          {showCorrection && isCorrectOption && (
+                            <CheckCircle className="w-6 h-6 text-neon-green" />
+                          )}
+                          {showCorrection && isSelected && !isCorrect && (
+                            <XCircle className="w-6 h-6 text-neon-pink" />
+                          )}
+                        </div>
                       </div>
                     </button>
                   );
@@ -829,6 +828,9 @@ const UnifiedLearningPlatform: React.FC = () => {
         </div>
       </div>
 
+      {/* Practical Exercises Section */}
+      <PracticalExercisesSection isTeacherMode={isTeacherMode} />
+
       {/* Learning Path */}
       <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-dark-100 mb-8 font-display flex items-center gap-3">
@@ -991,6 +993,168 @@ const UnifiedLearningPlatform: React.FC = () => {
           })}
         </div>
       </main>
+    </div>
+  );
+};
+
+// ==========================================
+// Practical Exercises Section
+// ==========================================
+// NOTE: dangerouslySetInnerHTML below renders STATIC content from practicalExercises.ts
+// (developer-authored HTML strings), not user input. Same pattern as the rest of this file.
+
+const levelColors = {
+  debutant: { badge: 'bg-neon-green/20 text-neon-green border-neon-green/30', accent: 'text-neon-green' },
+  intermediaire: { badge: 'bg-neon-yellow/20 text-neon-yellow border-neon-yellow/30', accent: 'text-neon-yellow' },
+  avance: { badge: 'bg-neon-pink/20 text-neon-pink border-neon-pink/30', accent: 'text-neon-pink' },
+};
+
+const PracticalExercisesSection: React.FC<{ isTeacherMode: boolean }> = ({ isTeacherMode }) => {
+  const [expandedExercise, setExpandedExercise] = useState<string | null>(null);
+  const [showCorrections, setShowCorrections] = useState<Record<string, boolean>>({});
+
+  return (
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <h2 className="text-2xl font-bold text-dark-100 mb-2 font-display flex items-center gap-3">
+        <FlaskConical className="w-6 h-6 text-neon-orange" />
+        Exercices pratiques
+        <span className="px-2 py-1 bg-neon-orange/20 text-neon-orange text-xs font-mono rounded-full">
+          {practicalExercises.length} exercices
+        </span>
+      </h2>
+      <p className="text-dark-500 text-sm mb-6">
+        Datasets reels ou simules. Telechargez les donnees, analysez-les avec l'IA, proposez des recommandations business.
+      </p>
+
+      <div className="space-y-3">
+        {practicalExercises.map(ex => {
+          const isExpanded = expandedExercise === ex.id;
+          const colors = levelColors[ex.level];
+
+          return (
+            <div
+              key={ex.id}
+              className={`bg-dark-800/50 border rounded-xl transition-all duration-200 ${
+                isExpanded ? 'border-neon-orange/30' : 'border-dark-700/50 hover:border-dark-600'
+              }`}
+            >
+              {/* Header */}
+              <button
+                onClick={() => setExpandedExercise(isExpanded ? null : ex.id)}
+                className="w-full flex items-start gap-4 px-5 py-4 text-left"
+              >
+                <span className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold font-mono text-sm bg-neon-orange/10 text-neon-orange border border-neon-orange/20">
+                  {ex.number}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <span className="text-dark-100 font-semibold font-display">{ex.title}</span>
+                    <span className={`px-2 py-0.5 text-xs font-mono rounded-full border ${colors.badge}`}>
+                      {ex.level}
+                    </span>
+                    <span className="text-dark-600 text-xs font-mono">{ex.duration}</span>
+                  </div>
+                  <p className="text-dark-500 text-xs">{ex.concept}</p>
+                </div>
+                <ChevronRight className={`w-5 h-5 text-dark-500 flex-shrink-0 mt-1 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+              </button>
+
+              {/* Expanded */}
+              {isExpanded && (
+                <div className="px-5 pb-5 space-y-4">
+                  {/* Scenario */}
+                  <div className="bg-dark-900/50 border border-dark-700/30 rounded-xl p-4">
+                    <p className="text-dark-400 text-sm leading-relaxed italic">"{ex.scenario}"</p>
+                    <p className="text-dark-600 text-xs font-mono mt-2">Source : {ex.source}</p>
+                  </div>
+
+                  {/* Dataset */}
+                  <div className="bg-neon-orange/5 border border-neon-orange/20 rounded-xl p-4">
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div>
+                        <p className="text-dark-200 text-sm font-semibold">{ex.dataset.name}</p>
+                        <p className="text-dark-500 text-xs">{ex.dataset.description}</p>
+                      </div>
+                      {ex.dataset.url ? (
+                        <a
+                          href={ex.dataset.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 px-3 py-1.5 bg-dark-700/50 border border-dark-600/50 rounded-lg text-dark-300 text-xs font-mono hover:border-neon-orange/30 hover:text-neon-orange transition-all flex-shrink-0"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          Kaggle
+                        </a>
+                      ) : ex.dataset.file ? (
+                        <a
+                          href={`/data/${ex.dataset.file}`}
+                          download
+                          className="flex items-center gap-1 px-3 py-1.5 bg-dark-700/50 border border-dark-600/50 rounded-lg text-dark-300 text-xs font-mono hover:border-neon-orange/30 hover:text-neon-orange transition-all flex-shrink-0"
+                        >
+                          <Download className="w-3 h-3" />
+                          CSV
+                        </a>
+                      ) : null}
+                    </div>
+                    <div className="flex items-center gap-4 text-dark-600 text-xs font-mono">
+                      <span>{ex.dataset.rows}</span>
+                      <span className="truncate">{ex.dataset.columns}</span>
+                    </div>
+                  </div>
+
+                  {/* Tasks */}
+                  <div>
+                    <p className="text-dark-400 text-xs font-mono mb-2">Etapes a suivre</p>
+                    <ol className="space-y-2">
+                      {ex.tasks.map((task, i) => (
+                        <li key={i} className="flex items-start gap-3 text-dark-300 text-sm">
+                          <span className="flex-shrink-0 w-5 h-5 rounded-md bg-dark-700/50 flex items-center justify-center text-dark-500 text-xs font-mono">
+                            {i + 1}
+                          </span>
+                          <span className="leading-relaxed">{task}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+
+                  {/* Teacher correction */}
+                  {isTeacherMode && ex.teacherCorrection && (
+                    <div>
+                      <button
+                        onClick={() => setShowCorrections(prev => ({ ...prev, [ex.id]: !prev[ex.id] }))}
+                        className="flex items-center gap-2 px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-lg text-neon-green text-sm font-mono hover:bg-neon-green/20 transition-all"
+                      >
+                        {showCorrections[ex.id] ? (
+                          <><EyeOff className="w-4 h-4" /> Masquer correction</>
+                        ) : (
+                          <><Eye className="w-4 h-4" /> Correction enseignant</>
+                        )}
+                      </button>
+
+                      {showCorrections[ex.id] && (
+                        <div className="mt-3 bg-dark-900/60 border-l-4 border-neon-green rounded-xl p-5 prose-cyber">
+                          <div className="mb-3 flex items-center gap-2 text-neon-green text-xs font-mono">
+                            <Layers className="w-3.5 h-3.5" />
+                            Correction enseignant
+                          </div>
+                          <div dangerouslySetInnerHTML={{ __html: ex.teacherCorrection }} />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {!isTeacherMode && (
+                    <span className="flex items-center gap-1.5 text-dark-600 text-xs font-mono">
+                      <Lock className="w-3 h-3" />
+                      Correction reservee a l'enseignant
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

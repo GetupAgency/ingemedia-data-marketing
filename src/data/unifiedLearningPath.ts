@@ -798,213 +798,266 @@ export const unifiedLearningPath: LearningModule[] = [
           ]
         },
         teacherCorrection: `<div class="correction-content">
-  <h2 class="correction-title">1. Calculs des KPIs par campagne</h2>
+  <h2 class="correction-title">1. Tableau complet des KPIs par canal</h2>
 
   <div class="overflow-x-auto mb-6">
     <table class="min-w-full bg-white border border-gray-300 text-sm">
       <thead class="bg-gray-100">
         <tr>
-          <th class="border border-gray-300 px-3 py-2 text-left">Campagne</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Canal</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Budget</th>
           <th class="border border-gray-300 px-3 py-2 text-center">CTR</th>
           <th class="border border-gray-300 px-3 py-2 text-center">CPC</th>
           <th class="border border-gray-300 px-3 py-2 text-center">CPM</th>
           <th class="border border-gray-300 px-3 py-2 text-center">Taux rebond</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Ventes</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">ROAS</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Google Ads Search</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">3%</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,83€</span></td>
+          <td class="border border-gray-300 px-3 py-2">Google Search</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">3,1%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,81€</span></td>
           <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">25€</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">30%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">35%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">62</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-green-600 font-bold">2,21:1</span></td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Facebook Ads</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,8%</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,75€</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">6€</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">60%</span></td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Google Display</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,3%</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,83€</span></td>
+          <td class="border border-gray-300 px-3 py-2">TikTok</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">1,8%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,14€</span></td>
           <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">2,5€</span></td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">70%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">85%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">11</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-orange-600 font-bold">0,39:1</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Instagram</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">1,2%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,42€</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">5€</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">50%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">38</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-green-600 font-bold">1,35:1</span></td>
+        </tr>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">Google Display</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,7%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">0,18€</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">1,25€</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">90%</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="highlight">3</span></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">0,11:1</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">Détail des calculs</h3>
+    <h3 class="project-type-title">Détail des calculs par canal</h3>
     <div class="project-detail">
-      <strong>Google Ads Search :</strong>
+      <strong>Google Search :</strong>
       <ul class="feature-list">
-        <li>CTR = (6 000 / 200 000) × 100 = 3%</li>
-        <li>CPC = 5 000€ / 6 000 = 0,83€</li>
-        <li>CPM = (5 000€ / 200 000) × 1000 = 25€</li>
-        <li>Taux rebond = (1 740 / 5 800) × 100 = 30%</li>
+        <li>CTR = (3 100 / 100 000) × 100 = 3,1%</li>
+        <li>CPC = 2 500€ / 3 100 = 0,81€</li>
+        <li>CPM = (2 500€ / 100 000) × 1000 = 25€</li>
+        <li>Sessions = 3 100 (clics = sessions, pas d'anomalie)</li>
+        <li>Taux conversion = 62 / 3 100 = <strong>2%</strong> (meilleur taux)</li>
+        <li>ROAS = (62 × 89€) / 2 500€ = 5 518€ / 2 500€ = <strong>2,21:1</strong></li>
       </ul>
     </div>
     <div class="project-detail">
-      <strong>Facebook Ads :</strong>
+      <strong>TikTok :</strong>
       <ul class="feature-list">
-        <li>CTR = (4 000 / 500 000) × 100 = 0,8%</li>
-        <li>CPC = 3 000€ / 4 000 = 0,75€</li>
-        <li>CPM = (3 000€ / 500 000) × 1000 = 6€</li>
-        <li>Taux rebond = (2 160 / 3 600) × 100 = 60%</li>
+        <li>CTR = (18 000 / 1 000 000) × 100 = 1,8%</li>
+        <li>CPC = 2 500€ / 18 000 = 0,14€ (CPC le plus bas)</li>
+        <li>CPM = (2 500€ / 1 000 000) × 1000 = 2,5€</li>
+        <li>Taux de rebond = 85% (les gens regardent la vidéo mais quittent le site)</li>
+        <li>Taux conversion = 11 / 18 000 = 0,06%</li>
+        <li>ROAS = (11 × 89€) / 2 500€ = 979€ / 2 500€ = <strong>0,39:1</strong></li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Instagram :</strong>
+      <ul class="feature-list">
+        <li>CTR = (6 000 / 500 000) × 100 = 1,2%</li>
+        <li>CPC = 2 500€ / 6 000 = 0,42€</li>
+        <li>CPM = (2 500€ / 500 000) × 1000 = 5€</li>
+        <li>Taux de rebond = 50% (acceptable)</li>
+        <li>Taux conversion = 38 / 6 000 = 0,63%</li>
+        <li>ROAS = (38 × 89€) / 2 500€ = 3 382€ / 2 500€ = <strong>1,35:1</strong></li>
       </ul>
     </div>
     <div class="project-detail">
       <strong>Google Display :</strong>
       <ul class="feature-list">
-        <li>CTR = (2 400 / 800 000) × 100 = 0,3%</li>
-        <li>CPC = 2 000€ / 2 400 = 0,83€</li>
-        <li>CPM = (2 000€ / 800 000) × 1000 = 2,5€</li>
-        <li>Taux rebond = (1 540 / 2 200) × 100 = 70%</li>
+        <li>CTR = (14 000 / 2 000 000) × 100 = 0,7%</li>
+        <li>CPC = 2 500€ / 14 000 = 0,18€</li>
+        <li>CPM = (2 500€ / 2 000 000) × 1000 = 1,25€</li>
+        <li>Taux de rebond = 90%</li>
+        <li>Taux conversion = 3 / 14 000 = 0,02%</li>
+        <li>ROAS = (3 × 89€) / 2 500€ = 267€ / 2 500€ = <strong>0,11:1</strong></li>
       </ul>
     </div>
   </div>
 
   <hr class="my-8 border-gray-300">
 
-  <h2 class="correction-title">2. Comparaison avec les benchmarks</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Google Ads Search - Performance EXCELLENTE</h3>
-    <div class="project-detail">
-      <strong>Analyse :</strong>
-      <ul class="feature-list">
-        <li><strong>CTR 3% :</strong> ✅ Dans la fourchette "bon" (2-3%), proche de l'excellence</li>
-        <li><strong>CPC 0,83€ :</strong> ✅ Raisonnable pour du Search</li>
-        <li><strong>Taux rebond 30% :</strong> ✅ Excellent pour un e-commerce (< 45%)</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Verdict :</strong> <span class="text-green-600">Campagne très performante, trafic qualifié</span>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Facebook Ads - Performance MOYENNE</h3>
-    <div class="project-detail">
-      <strong>Analyse :</strong>
-      <ul class="feature-list">
-        <li><strong>CTR 0,8% :</strong> ⚠️ Sous le benchmark (1-2% attendu)</li>
-        <li><strong>CPC 0,75€ :</strong> ✅ Bon prix</li>
-        <li><strong>CPM 6€ :</strong> ✅ Dans la fourchette normale (5-15€)</li>
-        <li><strong>Taux rebond 60% :</strong> ❌ Élevé, problème de pertinence</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Verdict :</strong> <span class="text-orange-600">À optimiser - Problème de ciblage/message</span>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Google Display - Performance FAIBLE</h3>
-    <div class="project-detail">
-      <strong>Analyse :</strong>
-      <ul class="feature-list">
-        <li><strong>CTR 0,3% :</strong> ❌ Très faible, même pour du Display (0,5-1% attendu)</li>
-        <li><strong>CPM 2,5€ :</strong> ✅ Très bon prix</li>
-        <li><strong>Taux rebond 70% :</strong> ❌ Très élevé, trafic non qualifié</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Verdict :</strong> <span class="text-red-600">Performance critique - Revoir la stratégie</span>
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">3. Campagne la plus performante</h2>
+  <h2 class="correction-title">2. Le piège : Google Display et le trafic fantôme</h2>
 
   <div class="example-box">
-    <strong>Gagnant : Google Ads Search</strong>
-    <br><br>
-    <strong>Justification :</strong>
+    <strong>L'anomalie qui doit sauter aux yeux :</strong><br>
+    Google Display affiche <strong>14 000 clics</strong> mais seulement <strong>2 800 sessions</strong> dans GA4.<br><br>
+    <strong>Où sont passés les 11 200 clics restants ?</strong> (14 000 - 2 800 = 11 200 clics disparus = 80% du trafic)
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Diagnostic du trafic fantôme</h3>
+    <div class="project-detail">
+      <strong>Les indices :</strong>
+      <ul class="feature-list">
+        <li><strong>Écart clics/sessions :</strong> 14 000 clics mais 2 800 sessions = 73% de trafic fantôme</li>
+        <li><strong>Taux de rebond 90% :</strong> Même les sessions "réelles" ne restent pas</li>
+        <li><strong>ROAS 0,11:1 :</strong> Pour 2 500€ investis, seulement 267€ de CA généré</li>
+        <li><strong>3 ventes seulement :</strong> Sur 14 000 clics "déclarés"</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Explication probable :</strong>
+      <ul class="feature-list">
+        <li><strong>Trafic de bots :</strong> Les clics sont générés par des robots/fermes à clics</li>
+        <li><strong>Placements de mauvaise qualité :</strong> Annonces diffusées sur des sites douteux du réseau Display</li>
+        <li><strong>Fraude au clic :</strong> Le CPC semble bas (0,18€) mais on paie pour du vent</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Coût réel :</strong> Si on ne compte que les vraies sessions : CPC réel = 2 500€ / 2 800 = <strong>0,89€</strong> (5x plus cher que le CPC affiché)
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">3. Classement des canaux par performance</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">1er - Google Search : Le champion du ROAS</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>ROAS 2,21:1 :</strong> Meilleur retour sur investissement</li>
+        <li><strong>Taux conversion 2% :</strong> Le plus élevé de tous les canaux</li>
+        <li><strong>Taux de rebond 35% :</strong> Trafic très qualifié (intention d'achat)</li>
+        <li><strong>Verdict :</strong> <span class="text-green-600">Canal principal à scaler en priorité</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">2e - Instagram : Le bon compromis</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>ROAS 1,35:1 :</strong> Rentable mais perfectible</li>
+        <li><strong>Taux de rebond 50% :</strong> Trafic moyennement qualifié</li>
+        <li><strong>38 ventes :</strong> Volume décent pour un budget de 2 500€</li>
+        <li><strong>Verdict :</strong> <span class="text-green-600">Bon canal secondaire, potentiel d'optimisation</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">3e - TikTok : Le miroir aux alouettes</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>CPC 0,14€ :</strong> Le plus bas, mais ne veut rien dire si personne n'achète</li>
+        <li><strong>Taux de rebond 85% :</strong> Les gens regardent la vidéo mais quittent le site</li>
+        <li><strong>ROAS 0,39:1 :</strong> On perd 61 centimes pour chaque euro investi</li>
+        <li><strong>Verdict :</strong> <span class="text-orange-600">À tester avec de meilleures landing pages, pas à supprimer</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">4e - Google Display : À couper immédiatement</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>ROAS 0,11:1 :</strong> Catastrophique, on perd 89 centimes par euro</li>
+        <li><strong>73% de trafic fantôme :</strong> Probable fraude au clic / trafic bot</li>
+        <li><strong>3 ventes pour 2 500€ :</strong> CPA de 833€ par vente (panier moyen 89€)</li>
+        <li><strong>Verdict :</strong> <span class="text-red-600">COUPER. Chaque jour = argent jeté</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">4. Recommandation de répartition des 10 000€</h2>
+
+  <div class="overflow-x-auto mb-6">
+    <table class="min-w-full bg-white border border-gray-300 text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-3 py-2 text-left">Canal</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Ancien budget</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Nouveau budget</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Ventes estimées</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Justification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Google Search</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><strong>5 000€</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center">~124</td>
+          <td class="border border-gray-300 px-3 py-2">Meilleur ROAS, on double le budget du canal le plus rentable</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Instagram</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><strong>3 500€</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center">~53</td>
+          <td class="border border-gray-300 px-3 py-2">Bon compromis volume/rentabilité, on augmente modérément</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">TikTok</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><strong>1 500€</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center">~13</td>
+          <td class="border border-gray-300 px-3 py-2">Budget test réduit + landing pages dédiées à tester</td>
+        </tr>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">Google Display</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 500€</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><strong>0€</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center">0</td>
+          <td class="border border-gray-300 px-3 py-2">COUPÉ : trafic fantôme, ROAS catastrophique</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <strong>Estimation du résultat avec la nouvelle répartition :</strong><br>
     <br>
-    • <strong>Qualité du trafic :</strong> Taux de rebond de seulement 30% (le plus bas)
-    <br>
-    • <strong>Pertinence :</strong> CTR de 3% indique un message très pertinent
-    <br>
-    • <strong>Intention d'achat :</strong> Les utilisateurs recherchent activement des produits
-    <br>
-    • <strong>ROI potentiel :</strong> Trafic le plus susceptible de convertir
+    • <strong>Ventes estimées :</strong> ~124 + ~53 + ~13 = <strong>~190 ventes</strong> (vs 114 actuellement)<br>
+    • <strong>CA estimé :</strong> 190 × 89€ = <strong>16 910€</strong> (vs 10 146€ actuellement)<br>
+    • <strong>ROAS global estimé :</strong> 16 910€ / 10 000€ = <strong>1,69:1</strong> (vs 1,01:1 actuellement)<br>
+    • <strong>Gain :</strong> +67% de ventes et +67% de CA pour le même budget
   </div>
 
   <div class="value-type">
-    <h3 class="value-title">Pourquoi Google Search surperforme ?</h3>
+    <h3 class="value-title">Actions complémentaires recommandées</h3>
     <ul class="correction-list">
-      <li><strong>Intention forte :</strong> Les utilisateurs cherchent activement à acheter</li>
-      <li><strong>Moment optimal :</strong> Interception au moment de la décision d'achat</li>
-      <li><strong>Pertinence :</strong> Annonces alignées sur les requêtes de recherche</li>
-      <li><strong>Qualité :</strong> Faible taux de rebond = visiteurs engagés</li>
+      <li><strong>Google Display :</strong> Si on veut retester plus tard, exclure les placements douteux, utiliser uniquement du remarketing avec audiences first-party</li>
+      <li><strong>TikTok :</strong> Créer des landing pages spécifiques (le trafic TikTok ne réagit pas aux pages classiques), tester des formats UGC</li>
+      <li><strong>Google Search :</strong> Surveiller que le doublement du budget ne fasse pas exploser le CPC (rendements décroissants possibles)</li>
+      <li><strong>Instagram :</strong> Tester des audiences lookalike basées sur les acheteurs Google Search</li>
     </ul>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">4. Optimisations pour Google Display (campagne la moins performante)</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Optimisation 1 : Revoir le ciblage d'audience</h3>
-    <div class="project-detail">
-      <strong>Problème identifié :</strong> CTR très faible (0,3%) + taux de rebond élevé (70%)
-    </div>
-    <div class="project-detail">
-      <strong>Actions concrètes :</strong>
-      <ul class="feature-list">
-        <li><strong>Audiences personnalisées :</strong> Cibler les visiteurs du site (remarketing)</li>
-        <li><strong>Audiences similaires :</strong> Créer des lookalikes basées sur les clients existants</li>
-        <li><strong>Exclusions :</strong> Exclure les audiences qui ne convertissent pas</li>
-        <li><strong>Géolocalisation :</strong> Se concentrer sur les zones les plus performantes</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Résultat attendu :</strong> CTR de 0,3% → 0,7% (+130%), taux de rebond 70% → 50%
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Optimisation 2 : Améliorer les créatifs et le message</h3>
-    <div class="project-detail">
-      <strong>Problème identifié :</strong> Faible engagement (CTR bas) malgré un CPM attractif
-    </div>
-    <div class="project-detail">
-      <strong>Actions concrètes :</strong>
-      <ul class="feature-list">
-        <li><strong>Visuels accrocheurs :</strong> Images de produits lifestyle vs catalogue</li>
-        <li><strong>Message orienté bénéfice :</strong> "Livraison gratuite" vs "Découvrez notre collection"</li>
-        <li><strong>Call-to-action fort :</strong> "J'en profite" vs "En savoir plus"</li>
-        <li><strong>Formats dynamiques :</strong> Tester les annonces vidéo et carrousel</li>
-        <li><strong>A/B testing :</strong> Tester 3 versions de créatifs différentes</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Résultat attendu :</strong> Amélioration de l'engagement et de la pertinence perçue
-    </div>
-  </div>
-
-  <div class="value-type">
-    <h3 class="value-title">Impact financier estimé des optimisations</h3>
-    <ul class="correction-list">
-      <li><strong>Situation actuelle :</strong> 2 000€ → 2 400 clics → CTR 0,3%</li>
-      <li><strong>Après optimisation :</strong> 2 000€ → 5 600 clics → CTR 0,7%</li>
-      <li><strong>Gain :</strong> +3 200 clics supplémentaires (+133%)</li>
-      <li><strong>Si taux de conversion identique :</strong> +133% de conversions pour le même budget</li>
-    </ul>
-  </div>
-
-  <div class="example-box">
-    <strong>Recommandation stratégique :</strong>
-    <br>
-    Réallouer 500€ du budget Display vers Search (qui performe mieux) en attendant l'optimisation du Display.
-    <br>
-    <strong>Nouveau budget suggéré :</strong> Search 5 500€, Facebook 3 000€, Display 1 500€
   </div>
 </div>`,
         quiz: [
@@ -1441,291 +1494,223 @@ export const unifiedLearningPath: LearningModule[] = [
           ]
         },
         teacherCorrection: `<div class="correction-content">
-  <h2 class="correction-title">1. Stratégie de tracking - Événements prioritaires</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 1 : Événements critiques (Business impact direct)</h3>
-    <div class="project-detail">
-      <strong>Purchase - Achat finalisé</strong>
-      <ul class="feature-list">
-        <li><strong>Priorité :</strong> Maximale - ROI direct</li>
-        <li><strong>Paramètres :</strong> transaction_id, value, currency, items[]</li>
-        <li><strong>Déclencheur :</strong> Page de confirmation de commande</li>
-        <li><strong>Test :</strong> Commande fictive avec montant de 0,01€</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Add_to_cart - Ajout au panier</strong>
-      <ul class="feature-list">
-        <li><strong>Priorité :</strong> Élevée - Indicateur d'intention d'achat</li>
-        <li><strong>Paramètres :</strong> currency, value, items[]</li>
-        <li><strong>Usage :</strong> Remarketing des abandons de panier</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Begin_checkout - Début du processus d'achat</strong>
-      <ul class="feature-list">
-        <li><strong>Priorité :</strong> Élevée - Point de friction critique</li>
-        <li><strong>Analyse :</strong> Taux d'abandon au checkout</li>
-        <li><strong>Optimisation :</strong> Identifier les étapes problématiques</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 2 : Événements de lead generation</h3>
-    <div class="project-detail">
-      <strong>Generate_lead - Inscription newsletter</strong>
-      <ul class="feature-list">
-        <li><strong>Valeur :</strong> 5€ (estimation LTV newsletter)</li>
-        <li><strong>Paramètres :</strong> method: 'newsletter'</li>
-        <li><strong>Usage :</strong> Nurturing et remarketing</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Contact - Demande de support</strong>
-      <ul class="feature-list">
-        <li><strong>Valeur :</strong> 15€ (lead qualifié)</li>
-        <li><strong>Paramètres :</strong> method: 'support_form'</li>
-        <li><strong>Analyse :</strong> Corrélation avec satisfaction client</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 3 : Événements d'engagement</h3>
-    <div class="project-detail">
-      <strong>View_item - Consultation produit</strong>
-      <ul class="feature-list">
-        <li><strong>Usage :</strong> Remarketing produits consultés</li>
-        <li><strong>Segmentation :</strong> Par catégorie de produit</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Search - Recherche interne</strong>
-      <ul class="feature-list">
-        <li><strong>Paramètres :</strong> search_term</li>
-        <li><strong>Analyse :</strong> Intentions non satisfaites</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">2. Conversions à configurer avec valeurs</h2>
+  <h2 class="correction-title">1. Les 8+ erreurs GA4 de FoodBox avec gravité</h2>
 
   <div class="overflow-x-auto mb-6">
     <table class="min-w-full bg-white border border-gray-300 text-sm">
       <thead class="bg-gray-100">
         <tr>
-          <th class="border border-gray-300 px-3 py-2 text-left">Conversion</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Événement</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Valeur</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Justification</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">#</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Erreur</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Gravité</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Pourquoi c'est un problème</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Achat</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">purchase</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">Dynamique</td>
-          <td class="border border-gray-300 px-3 py-2">Valeur réelle de la commande</td>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">1</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>page_view marqué comme conversion</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">CRITIQUE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Chaque visite = 1 conversion. Fausse TOUTES les données. Taux de conversion affiché = 100%.</td>
+        </tr>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">2</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>purchase value toujours 0€</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">CRITIQUE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Impossible de calculer le ROAS, le CA, ou la valeur d'un client. Smart Bidding optimise dans le vide.</td>
+        </tr>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">3</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Google Ads non connecté</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">CRITIQUE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Smart Bidding optimise dans le vide. 6 000€/mois de budget Google Ads gaspillés sans import de conversions.</td>
+        </tr>
+        <tr class="bg-red-50">
+          <td class="border border-gray-300 px-3 py-2">4</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Cross-domain non configuré</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600 font-bold">CRITIQUE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Le parcours est coupé en 2 : GA4 ne voit pas que les visiteurs de foodbox.fr achètent sur pay.foodbox.fr. Les achats sont attribués à "direct".</td>
+        </tr>
+        <tr class="bg-orange-50">
+          <td class="border border-gray-300 px-3 py-2">5</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>scroll marqué comme conversion</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-orange-600 font-bold">GRAVE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Même problème que page_view : gonfle artificiellement les conversions.</td>
+        </tr>
+        <tr class="bg-orange-50">
+          <td class="border border-gray-300 px-3 py-2">6</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>first_visit marqué comme conversion</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-orange-600 font-bold">GRAVE</span></td>
+          <td class="border border-gray-300 px-3 py-2">Chaque nouveau visiteur = 1 conversion. Inutile pour mesurer la performance réelle.</td>
+        </tr>
+        <tr class="bg-orange-50">
+          <td class="border border-gray-300 px-3 py-2">7</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Pas de add_to_cart</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-orange-600 font-bold">ÉLEVÉ</span></td>
+          <td class="border border-gray-300 px-3 py-2">Impossible de faire du remarketing abandon panier. Perte de revenus considérable.</td>
+        </tr>
+        <tr class="bg-orange-50">
+          <td class="border border-gray-300 px-3 py-2">8</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Conservation des données à 2 mois</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-orange-600 font-bold">ÉLEVÉ</span></td>
+          <td class="border border-gray-300 px-3 py-2">Impossible d'analyser la saisonnalité ou de comparer avec l'année précédente. Perte d'historique permanente.</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Newsletter</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">generate_lead</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">5€</td>
-          <td class="border border-gray-300 px-3 py-2">5% convertissent à 120€ PM</td>
+          <td class="border border-gray-300 px-3 py-2">9</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Search Console non connecté</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-yellow-600 font-bold">MOYEN</span></td>
+          <td class="border border-gray-300 px-3 py-2">Pas d'analyse SEO/SEA croisée. On ne sait pas quels mots-clés organiques convertissent.</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Support</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">contact</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">15€</td>
-          <td class="border border-gray-300 px-3 py-2">Lead qualifié, 12% conversion</td>
+          <td class="border border-gray-300 px-3 py-2">10</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Pas de filtre IP interne</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-yellow-600 font-bold">MOYEN</span></td>
+          <td class="border border-gray-300 px-3 py-2">Les visites internes de l'équipe faussent les données (sessions, taux de rebond, pages/session).</td>
         </tr>
         <tr>
-          <td class="border border-gray-300 px-3 py-2">Ajout panier</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">add_to_cart</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3€</td>
-          <td class="border border-gray-300 px-3 py-2">25% finalisent l'achat</td>
+          <td class="border border-gray-300 px-3 py-2">11</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>Enhanced Measurement désactivé</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-yellow-600 font-bold">MOYEN</span></td>
+          <td class="border border-gray-300 px-3 py-2">Perd les scrolls, outbound clicks, site search gratuitement. Fonctionnalité gratuite non activée.</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">12</td>
+          <td class="border border-gray-300 px-3 py-2"><strong>BigQuery connecté inutilement</strong></td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-blue-600 font-bold">FAIBLE</span></td>
+          <td class="border border-gray-300 px-3 py-2">200€/mois pour rien. FoodBox n'a pas l'expertise data pour exploiter BigQuery.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="example-box">
-    <strong>Calcul de la valeur Newsletter :</strong><br>
-    • Taux de conversion newsletter → achat : 5%<br>
-    • Panier moyen : 120€<br>
-    • Marge estimée : 25%<br>
-    • Valeur = 120€ × 5% × 25% = 1,5€ × 3 (LTV sur 3 achats) = 4,5€ ≈ 5€
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Plan de correction prioritaire</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Ce soir (urgence absolue - 30 min)</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Décocher les fausses conversions :</strong> Retirer page_view, scroll et first_visit des conversions. Ne garder QUE purchase comme conversion.</li>
+        <li><strong>Connecter Google Ads :</strong> Admin > Liens produits > Google Ads. Importer la conversion purchase.</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Impact immédiat :</strong> Les rapports de conversions deviennent fiables. Smart Bidding commence à recevoir les bons signaux.
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Cette semaine (priorité haute - 2-3h)</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Cross-domain tracking :</strong> Configurer foodbox.fr + pay.foodbox.fr dans Admin > Data Streams > Configure tag settings > Configure your domains</li>
+        <li><strong>Purchase value :</strong> Corriger le dataLayer pour envoyer la valeur réelle de chaque commande dans le paramètre "value"</li>
+        <li><strong>add_to_cart :</strong> Implémenter l'événement avec currency, value, items[] sur le bouton d'ajout panier</li>
+        <li><strong>Conservation :</strong> Passer de 2 mois à 14 mois (Admin > Data Settings > Data Retention)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Ce mois (optimisation - quelques heures)</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Créer les 5 audiences remarketing</strong> (voir section suivante)</li>
+        <li><strong>Filtre IP interne :</strong> Créer un filtre dans Admin > Data Settings > Data Filters</li>
+        <li><strong>Couper BigQuery :</strong> Économiser 200€/mois. Reconnecter quand l'équipe aura les compétences.</li>
+        <li><strong>Connecter Search Console :</strong> Admin > Liens produits > Search Console</li>
+        <li><strong>Activer Enhanced Measurement :</strong> Admin > Data Streams > Enhanced Measurement (tout cocher)</li>
+      </ul>
+    </div>
   </div>
 
   <hr class="my-8 border-gray-300">
 
-  <h2 class="correction-title">3. Audiences remarketing stratégiques</h2>
+  <h2 class="correction-title">3. Les 5 audiences remarketing à créer</h2>
 
   <div class="project-type">
-    <h3 class="project-type-title">Audience 1 : Abandons de panier (Priorité Max)</h3>
+    <h3 class="project-type-title">Audience 1 : Abandonneurs panier 7j (Priorité Max)</h3>
     <div class="project-detail">
       <strong>Critères :</strong> add_to_cart dans les 7 derniers jours ET PAS purchase
     </div>
     <div class="project-detail">
-      <strong>Taille estimée :</strong> 2 000-3 000 utilisateurs/mois
-    </div>
-    <div class="project-detail">
-      <strong>Usage :</strong> Campagne remarketing avec réduction 10%
-    </div>
-    <div class="project-detail">
-      <strong>ROI attendu :</strong> 25% de récupération = 600 ventes supplémentaires
+      <strong>Usage :</strong> Remarketing avec rappel panier + code promo -10%. ROI attendu très élevé.
     </div>
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">Audience 2 : Visiteurs haute valeur</h3>
+    <h3 class="project-type-title">Audience 2 : Visiteurs haute valeur 30j</h3>
     <div class="project-detail">
-      <strong>Critères :</strong> >3 pages vues ET durée session >2 minutes dans les 30 derniers jours
+      <strong>Critères :</strong> >3 pages vues ET durée session >2 minutes dans les 30 derniers jours ET PAS purchase
     </div>
     <div class="project-detail">
-      <strong>Usage :</strong> Expansion avec audiences similaires
-    </div>
-    <div class="project-detail">
-      <strong>Message :</strong> Produits premium et nouveautés</div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Audience 3 : Clients existants</h3>
-    <div class="project-detail">
-      <strong>Critères :</strong> purchase dans les 365 derniers jours
-    </div>
-    <div class="project-detail">
-      <strong>Usage :</strong> Upsell, cross-sell, fidélisation
-    </div>
-    <div class="project-detail">
-      <strong>Exclusion :</strong> Des campagnes d'acquisition (éviter cannibalisation)
+      <strong>Usage :</strong> Remarketing avec témoignages clients et offre de bienvenue.
     </div>
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">Audience 4 : Intéressés par catégorie</h3>
+    <h3 class="project-type-title">Audience 3 : Clients existants 90j</h3>
     <div class="project-detail">
-      <strong>Critères :</strong> view_item sur catégorie "Smartphones" dans les 14 derniers jours
+      <strong>Critères :</strong> purchase dans les 90 derniers jours
     </div>
     <div class="project-detail">
-      <strong>Usage :</strong> Remarketing produits spécifiques
-    </div>
-    <div class="project-detail">
-      <strong>Personnalisation :</strong> Créer une audience par catégorie principale
+      <strong>Usage :</strong> Upsell/cross-sell. Exclure des campagnes d'acquisition pour éviter la cannibalisation.
     </div>
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">Audience 5 : Prospects newsletter</h3>
+    <h3 class="project-type-title">Audience 4 : Visiteurs fréquents sans achat 14j</h3>
     <div class="project-detail">
-      <strong>Critères :</strong> generate_lead dans les 90 derniers jours ET PAS purchase
+      <strong>Critères :</strong> >3 sessions dans les 14 derniers jours ET PAS purchase
     </div>
     <div class="project-detail">
-      <strong>Usage :</strong> Nurturing avec offres spéciales abonnés
+      <strong>Usage :</strong> Ces visiteurs hésitent. Remarketing avec preuve sociale et urgence.
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Audience 5 : Clients inactifs 60j</h3>
+    <div class="project-detail">
+      <strong>Critères :</strong> purchase il y a 60-180 jours ET PAS purchase dans les 60 derniers jours
     </div>
     <div class="project-detail">
-      <strong>Message :</strong> "Offre exclusive abonnés : -15%"
+      <strong>Usage :</strong> Réactivation avec offre spéciale "Vous nous manquez" + nouveautés.
     </div>
   </div>
 
   <hr class="my-8 border-gray-300">
 
-  <h2 class="correction-title">4. Connexions externes prioritaires</h2>
-
-  <div class="value-type">
-    <h3 class="value-title">Google Ads (Priorité 1)</h3>
-    <ul class="correction-list">
-      <li><strong>Import conversions :</strong> Toutes les 4 conversions configurées</li>
-      <li><strong>Audiences :</strong> Export des 5 audiences remarketing</li>
-      <li><strong>Attribution :</strong> Modèle data-driven (si >3000 conversions/mois)</li>
-      <li><strong>Smart Bidding :</strong> Activation après 2 semaines de données</li>
-    </ul>
-  </div>
-
-  <div class="value-type">
-    <h3 class="value-title">Search Console (Priorité 2)</h3>
-    <ul class="correction-list">
-      <li><strong>Données SEO :</strong> Requêtes, positions, CTR organique</li>
-      <li><strong>Analyse complète :</strong> Performance SEO + comportement site</li>
-      <li><strong>Optimisation :</strong> Identifier les pages à fort potentiel</li>
-    </ul>
-  </div>
-
-  <div class="value-type">
-    <h3 class="value-title">Facebook/Meta Ads (Priorité 3)</h3>
-    <ul class="correction-list">
-      <li><strong>Pixel Facebook :</strong> Installation en parallèle de GA4</li>
-      <li><strong>Conversions API :</strong> Pour contourner les limitations iOS 14.5+</li>
-      <li><strong>Audiences personnalisées :</strong> Upload des segments GA4</li>
-    </ul>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">5. Plan de test complet</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 1 : Tests techniques (Semaine 1)</h4>
-      <ul class="deliverable-list">
-        <li>DebugView GA4 : Vérifier tous les événements</li>
-        <li>Test cross-device : Mobile, tablet, desktop</li>
-        <li>Test cross-browser : Chrome, Safari, Firefox</li>
-        <li>Commande test : Achat fictif de 0,01€</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 2 : Tests fonctionnels (Semaine 2)</h4>
-      <ul class="deliverable-list">
-        <li>Parcours complet : Navigation → Panier → Achat</li>
-        <li>Formulaires : Newsletter et support</li>
-        <li>Recherche interne : Différents termes</li>
-        <li>Abandons : Tester les audiences remarketing</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 3 : Tests d'intégration (Semaine 3)</h4>
-      <ul class="deliverable-list">
-        <li>Google Ads : Import des conversions</li>
-        <li>Audiences : Export et activation</li>
-        <li>Search Console : Données SEO</li>
-        <li>Rapports : Cohérence des données</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 4 : Validation business (Semaine 4)</h4>
-      <ul class="deliverable-list">
-        <li>Cohérence CA : GA4 vs comptabilité</li>
-        <li>Validation équipe : Formation utilisateurs</li>
-        <li>Documentation : Guide d'utilisation</li>
-        <li>Monitoring : Alertes automatiques</li>
-      </ul>
-    </div>
-  </div>
+  <h2 class="correction-title">4. Le coût de l'incompétence : estimation du gaspillage</h2>
 
   <div class="example-box">
-    <strong>Checklist de validation finale :</strong><br>
-    ✅ Tous les événements remontent dans GA4<br>
-    ✅ Les conversions sont visibles dans Google Ads<br>
-    ✅ Les audiences se peuplent correctement<br>
-    ✅ Les données correspondent aux attentes business<br>
-    ✅ L'équipe est formée à l'utilisation
+    <strong>Calcul du gaspillage Google Ads :</strong><br><br>
+    • <strong>Budget Google Ads :</strong> 6 000€/mois<br>
+    • <strong>Problème :</strong> Sans import de conversions GA4, Smart Bidding n'a aucune donnée fiable pour optimiser<br>
+    • <strong>Conséquence :</strong> Le Smart Bidding optimise sur des fausses conversions (page_view) ou dans le vide<br>
+    • <strong>Estimation :</strong> CPA réel probablement 2-3x plus élevé que nécessaire<br>
+    • <strong>Sur 12 mois :</strong> 6 000€ × 12 = 72 000€ de budget. Estimation de 36 000€ à 72 000€ gaspillés (50-100% du budget perdu en optimisation aveugle)
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Détail de l'impact par erreur</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Fausses conversions :</strong> Smart Bidding sur-enchérit pour du trafic qui ne convertit pas réellement</li>
+        <li><strong>Cross-domain cassé :</strong> Les vraies conversions sur pay.foodbox.fr sont invisibles, donc Smart Bidding ne les optimise pas</li>
+        <li><strong>Pas de remarketing panier :</strong> Sans add_to_cart, aucune campagne de récupération d'abandon (taux de récupération moyen : 10-15%)</li>
+        <li><strong>BigQuery inutile :</strong> 200€/mois × 12 = 2 400€/an pour zéro utilisation</li>
+      </ul>
+    </div>
   </div>
 
   <div class="value-type">
-    <h3 class="value-title">Indicateurs de succès (30 jours post-lancement)</h3>
+    <h3 class="value-title">Résumé : coût total estimé de la mauvaise configuration</h3>
     <ul class="correction-list">
-      <li><strong>Technique :</strong> 100% des événements critiques trackés</li>
-      <li><strong>Business :</strong> Écart <5% entre GA4 et données internes</li>
-      <li><strong>Marketing :</strong> Audiences remarketing actives avec >1000 utilisateurs</li>
-      <li><strong>Performance :</strong> Smart Bidding activé avec amélioration CPA >10%</li>
+      <li><strong>Gaspillage Google Ads :</strong> 36 000€ à 72 000€/an</li>
+      <li><strong>Manque à gagner remarketing :</strong> 10-15% des paniers abandonnés non récupérés</li>
+      <li><strong>Coût BigQuery inutile :</strong> 2 400€/an</li>
+      <li><strong>Perte d'historique :</strong> Incalculable (impossible de revenir en arrière)</li>
     </ul>
   </div>
 </div>`,
@@ -2278,6 +2263,48 @@ export const unifiedLearningPath: LearningModule[] = [
           <td class="border border-gray-300 px-3 py-2 text-center">+65%</td>
           <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600">🔴 Critique</span></td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Ajouts panier</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2 100</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">980</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">-53%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600">🔴 Critique</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Taux ajout panier</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">7% (2100/30000)</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">3,5% (980/28000)</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">-50%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600">🔴 Critique</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Temps chargement mobile</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">2,1s</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">5,8s</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">+176%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600">🔴 Critique</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Inscriptions newsletter</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">850</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">1 054</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">+24%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-green-600">✅ Bon</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Taux rebond desktop</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">32%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">33%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">+1pt</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-green-600">✅ Stable</span></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-3 py-2">Taux rebond mobile</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">45%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">68%</td>
+          <td class="border border-gray-300 px-3 py-2 text-center">+23pts</td>
+          <td class="border border-gray-300 px-3 py-2 text-center"><span class="text-red-600">🔴 Critique</span></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -2285,19 +2312,36 @@ export const unifiedLearningPath: LearningModule[] = [
   <div class="project-type">
     <h3 class="project-type-title">Écarts critiques identifiés</h3>
     <div class="project-detail">
-      <strong>1. Taux de conversion mobile effondré :</strong>
+      <strong>1. Ajouts panier effondrés (-53%) :</strong>
       <ul class="feature-list">
-        <li>Calcul estimé : Conversion mobile Nov = 1,0% vs 2,2% en Oct</li>
-        <li>Impact : -55% sur 78% du trafic = catastrophe</li>
-        <li>Corrélation : Mise à jour mobile du 8 novembre</li>
+        <li>Calcul : Taux ajout panier Oct = 2 100 / 30 000 = 7% → Nov = 980 / 28 000 = 3,5% (-50%)</li>
+        <li><strong>Clé :</strong> La chute des ajouts panier (-53%) est PIRE que la chute des conversions (-36%). Le problème est en AMONT du checkout.</li>
+        <li>Les visiteurs n'arrivent même plus à ajouter au panier → problème de navigation/chargement mobile</li>
       </ul>
     </div>
     <div class="project-detail">
-      <strong>2. Taux de rebond mobile critique :</strong>
+      <strong>2. Temps de chargement mobile explosé (+176%) :</strong>
+      <ul class="feature-list">
+        <li>Évolution : 2,1s → 5,8s (+176%)</li>
+        <li>Au-delà de 3 secondes, 53% des visiteurs mobiles abandonnent (Google)</li>
+        <li>À 5,8s : taux d'abandon estimé à 70-80% avant même de voir la page</li>
+        <li>Corrélation directe avec la refonte mobile du 8 novembre</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>3. Taux de rebond mobile critique :</strong>
       <ul class="feature-list">
         <li>Évolution : 45% → 68% (+23 points)</li>
         <li>Seuil d'alerte dépassé : >20% d'augmentation</li>
         <li>Signal UX : Problème d'expérience utilisateur majeur</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>4. Les contradictions révélatrices :</strong>
+      <ul class="feature-list">
+        <li><strong>Newsletter +24% :</strong> La campagne "Avant-première Black Friday" a bien fonctionné. L'acquisition attire du monde, c'est la CONVERSION qui est cassée.</li>
+        <li><strong>Desktop stable :</strong> Taux de rebond desktop 32% → 33% (+1pt) = le problème est 100% mobile. Le site desktop fonctionne normalement.</li>
+        <li><strong>Panier moyen stable (100€) :</strong> Ceux qui arrivent à acheter achètent normalement. Le problème n'est pas l'offre, c'est l'accès.</li>
       </ul>
     </div>
   </div>
@@ -2309,24 +2353,24 @@ export const unifiedLearningPath: LearningModule[] = [
   <div class="project-type">
     <h3 class="project-type-title">Problème : ROAS chuté de 5:1 à 3:1 (-40%)</h3>
     <div class="project-detail">
-      <strong>Pourquoi 1 :</strong> Le taux de conversion global a baissé de 2,5% à 1,6%
+      <strong>Pourquoi 1 :</strong> Le ROAS a chuté de 40% → les conversions ont chuté de 36% pour un budget stable
     </div>
     <div class="project-detail">
-      <strong>Pourquoi 2 :</strong> Le taux de conversion mobile s'est effondré
+      <strong>Pourquoi 2 :</strong> Les conversions ont chuté → le taux de conversion est passé de 2,5% à 1,6%
     </div>
     <div class="project-detail">
-      <strong>Pourquoi 3 :</strong> Le trafic mobile a augmenté à 78% avec un rebond de 68%
+      <strong>Pourquoi 3 :</strong> Les ajouts panier ont chuté de 53% (encore pire que les conversions) → les visiteurs n'arrivent même plus à naviguer jusqu'au bouton "ajouter au panier"
     </div>
     <div class="project-detail">
-      <strong>Pourquoi 4 :</strong> La mise à jour du site mobile du 8 novembre a dégradé l'UX
+      <strong>Pourquoi 4 :</strong> Le temps de chargement mobile est passé de 2,1s à 5,8s (+176%) → les pages ne chargent plus, les visiteurs partent avant de voir les produits
     </div>
     <div class="project-detail">
-      <strong>Pourquoi 5 (Cause racine) :</strong> L'équipe réduite n'a pas pu tester correctement la nouvelle version mobile
+      <strong>Pourquoi 5 (Cause racine) :</strong> La refonte mobile du 8 novembre n'a pas été testée correctement car l'équipe était réduite. Le déploiement a dégradé les performances de chargement.
     </div>
   </div>
 
   <div class="example-box">
-    <strong>Cause racine identifiée :</strong> Déploiement d'une version mobile non testée pendant une période de ressources réduites, causant une dégradation massive de l'expérience utilisateur mobile.
+    <strong>Cause racine identifiée :</strong> Déploiement de la refonte mobile du 8 novembre sans tests de performance (équipe réduite), causant un temps de chargement de 5,8s qui empêche les visiteurs d'atteindre les pages produits et le panier. L'acquisition fonctionne (newsletter +24%), c'est la conversion mobile qui est cassée.
   </div>
 
   <hr class="my-8 border-gray-300">
@@ -2339,8 +2383,9 @@ export const unifiedLearningPath: LearningModule[] = [
       <ul class="deliverable-list">
         <li>✅ <strong>Volume :</strong> -7% sessions (acceptable)</li>
         <li>✅ <strong>Budget :</strong> Stable à 15k€</li>
-        <li>⚠️ <strong>Concurrence :</strong> Campagne Zara impactante</li>
+        <li>✅ <strong>Newsletter :</strong> +24% inscriptions (campagne "Avant-première BF" efficace)</li>
         <li>✅ <strong>Saisonnalité :</strong> Nouvelle collection lancée</li>
+        <li>✅ <strong>Conclusion :</strong> L'acquisition FONCTIONNE. Le problème est en aval.</li>
       </ul>
     </div>
 
@@ -2348,19 +2393,19 @@ export const unifiedLearningPath: LearningModule[] = [
       <h4 class="phase-title">Intérêt (Engagement)</h4>
       <ul class="deliverable-list">
         <li>🔴 <strong>Rebond mobile :</strong> +23pts (68%)</li>
-        <li>🔴 <strong>UX mobile :</strong> Dégradation majeure</li>
+        <li>🔴 <strong>Temps chargement :</strong> 2,1s → 5,8s (+176%)</li>
+        <li>✅ <strong>Desktop stable :</strong> Rebond 32% → 33% = problème 100% mobile</li>
         <li>⚠️ <strong>Shift mobile :</strong> 65% → 78%</li>
-        <li>? <strong>Durée session :</strong> À analyser</li>
       </ul>
     </div>
 
     <div class="deliverable-phase">
       <h4 class="phase-title">Désir (Considération)</h4>
       <ul class="deliverable-list">
-        <li>? <strong>Ajouts panier :</strong> À analyser par device</li>
-        <li>? <strong>Pages produits :</strong> Temps passé mobile</li>
-        <li>✅ <strong>Nouvelle collection :</strong> Produits attractifs</li>
-        <li>⚠️ <strong>Concurrence :</strong> Offres agressives</li>
+        <li>🔴 <strong>Ajouts panier :</strong> -53% (2 100 → 980)</li>
+        <li>🔴 <strong>Taux ajout panier :</strong> 7% → 3,5% (-50%)</li>
+        <li>✅ <strong>Panier moyen :</strong> Stable 100€ (l'offre est bonne)</li>
+        <li>🔴 <strong>Le mur :</strong> Les visiteurs ne voient même pas les produits (chargement trop long)</li>
       </ul>
     </div>
 
@@ -2377,8 +2422,7 @@ export const unifiedLearningPath: LearningModule[] = [
     <div class="deliverable-phase">
       <h4 class="phase-title">Mémorisation (Rétention)</h4>
       <ul class="deliverable-list">
-        <li>⚠️ <strong>Expérience :</strong> Risque de perte clients</li>
-        <li>? <strong>Satisfaction :</strong> À mesurer post-achat</li>
+        <li>⚠️ <strong>Expérience :</strong> Risque de perte clients (frustration mobile)</li>
         <li>⚠️ <strong>Réputation :</strong> Risque avis négatifs</li>
         <li>🔴 <strong>Fidélisation :</strong> Impact long terme</li>
       </ul>
@@ -2387,7 +2431,7 @@ export const unifiedLearningPath: LearningModule[] = [
 
   <div class="value-type">
     <h3 class="value-title">Diagnostic principal</h3>
-    <p class="section-text">Le problème est concentré sur l'<strong>Engagement mobile</strong> qui impacte directement l'<strong>Action</strong>. L'Attention (acquisition) fonctionne encore, mais l'expérience mobile dégradée tue la conversion.</p>
+    <p class="section-text">Le problème est concentré sur l'<strong>Engagement mobile</strong> (temps de chargement 5,8s) qui tue le <strong>Désir</strong> (ajouts panier -53%) puis l'<strong>Action</strong> (conversions -36%). L'<strong>Attention</strong> fonctionne (newsletter +24%, desktop stable). La cause est la refonte mobile du 8 novembre, et le problème est 100% mobile.</p>
   </div>
 
   <hr class="my-8 border-gray-300">
@@ -2396,13 +2440,13 @@ export const unifiedLearningPath: LearningModule[] = [
 
   <div class="project-type">
     <h3 class="project-type-title">🚀 QUICK WINS (Impact Élevé / Effort Faible) - À faire IMMÉDIATEMENT</h3>
-    
+
     <div class="project-detail">
       <strong>Action 1 : Rollback version mobile (24h)</strong>
       <ul class="feature-list">
-        <li><strong>Impact :</strong> Restauration immédiate des performances</li>
+        <li><strong>Impact :</strong> Restauration immédiate du temps de chargement (5,8s → 2,1s)</li>
         <li><strong>Effort :</strong> 1 jour technique</li>
-        <li><strong>Gain estimé :</strong> Retour au taux de conversion 2,2%</li>
+        <li><strong>Gain estimé :</strong> Retour au taux de conversion 2,2% et ajouts panier à 7%</li>
         <li><strong>Priorité :</strong> URGENCE ABSOLUE</li>
       </ul>
     </div>
@@ -2410,31 +2454,31 @@ export const unifiedLearningPath: LearningModule[] = [
     <div class="project-detail">
       <strong>Action 2 : Audit UX mobile express (48h)</strong>
       <ul class="feature-list">
-        <li><strong>Impact :</strong> Identifier les problèmes précis</li>
+        <li><strong>Impact :</strong> Identifier les problèmes précis de la refonte (images non compressées ? JS non minifié ? API lente ?)</li>
         <li><strong>Effort :</strong> 2 jours d'analyse</li>
-        <li><strong>Outils :</strong> Hotjar, Google Analytics, tests utilisateurs</li>
-        <li><strong>Livrable :</strong> Liste des bugs critiques</li>
+        <li><strong>Outils :</strong> Lighthouse, WebPageTest, Hotjar heatmaps</li>
+        <li><strong>Livrable :</strong> Liste des causes techniques du ralentissement</li>
       </ul>
     </div>
   </div>
 
   <div class="project-type">
     <h3 class="project-type-title">📈 PROJETS MAJEURS (Impact Élevé / Effort Élevé) - À planifier</h3>
-    
+
     <div class="project-detail">
-      <strong>Projet 1 : Refonte mobile complète (3 semaines)</strong>
+      <strong>Projet 1 : Refonte mobile corrigée (3 semaines)</strong>
       <ul class="feature-list">
-        <li><strong>Scope :</strong> UX mobile optimisée, tests A/B</li>
-        <li><strong>Ressources :</strong> Dev + UX + QA</li>
+        <li><strong>Scope :</strong> Redéployer la refonte après correction des problèmes de performance</li>
+        <li><strong>Objectif :</strong> Temps de chargement <2,5s, taux de rebond <50%</li>
         <li><strong>Tests :</strong> Déploiement progressif 10% → 50% → 100%</li>
-        <li><strong>KPIs :</strong> Taux de rebond <50%, conversion >2,5%</li>
+        <li><strong>KPIs :</strong> Ajouts panier >7%, conversion >2,5%</li>
       </ul>
     </div>
 
     <div class="project-detail">
       <strong>Projet 2 : Stratégie défensive concurrence (2 semaines)</strong>
       <ul class="feature-list">
-        <li><strong>Remarketing agressif :</strong> Récupérer les visiteurs perdus</li>
+        <li><strong>Remarketing agressif :</strong> Récupérer les visiteurs perdus pendant la période cassée</li>
         <li><strong>Offres spéciales :</strong> Contre-attaquer Zara</li>
         <li><strong>Budget :</strong> +20% temporaire sur remarketing</li>
       </ul>
@@ -2443,12 +2487,12 @@ export const unifiedLearningPath: LearningModule[] = [
 
   <div class="project-type">
     <h3 class="project-type-title">🔧 OPTIMISATIONS MINEURES (Impact Faible / Effort Faible) - Si temps</h3>
-    
+
     <div class="project-detail">
       <strong>Optimisations continues :</strong>
       <ul class="feature-list">
         <li>A/B test des CTA sur mobile</li>
-        <li>Optimisation des images produits</li>
+        <li>Optimisation des images produits (lazy loading, WebP)</li>
         <li>Amélioration du moteur de recherche interne</li>
       </ul>
     </div>
@@ -2461,12 +2505,13 @@ export const unifiedLearningPath: LearningModule[] = [
   <div class="project-type">
     <h3 class="project-type-title">Scénario 1 : Rollback immédiat (Semaine 1)</h3>
     <div class="project-detail">
-      <strong>Hypothèse :</strong> Retour aux performances d'octobre
+      <strong>Hypothèse :</strong> Retour aux performances d'octobre (temps chargement 2,1s, ajouts panier 7%)
     </div>
     <div class="project-detail">
       <strong>Calculs :</strong>
       <ul class="feature-list">
         <li>Taux de conversion : 1,6% → 2,5% (+56%)</li>
+        <li>Ajouts panier : 980 → 2 100 (+114%)</li>
         <li>Conversions mensuelles : 450 → 700 (+250)</li>
         <li>CA mensuel : 45k€ → 70k€ (+25k€)</li>
         <li>ROAS : 3:1 → 4,7:1</li>
@@ -2480,14 +2525,15 @@ export const unifiedLearningPath: LearningModule[] = [
   <div class="project-type">
     <h3 class="project-type-title">Scénario 2 : Refonte mobile optimisée (Mois 2-3)</h3>
     <div class="project-detail">
-      <strong>Hypothèse :</strong> Amélioration vs performances octobre
+      <strong>Hypothèse :</strong> Amélioration vs performances octobre grâce à la refonte corrigée
     </div>
     <div class="project-detail">
       <strong>Calculs :</strong>
       <ul class="feature-list">
+        <li>Temps de chargement : 2,1s → 1,8s (optimisé)</li>
+        <li>Taux ajout panier : 7% → 8,5% (UX améliorée)</li>
         <li>Taux de conversion mobile : 2,2% → 3,0% (+36%)</li>
         <li>Impact sur 78% du trafic</li>
-        <li>Taux de conversion global : 2,5% → 2,9%</li>
         <li>CA mensuel : 70k€ → 81k€ (+11k€)</li>
       </ul>
     </div>
@@ -2514,7 +2560,8 @@ export const unifiedLearningPath: LearningModule[] = [
     • <strong>Investissement :</strong> 25k€ (refonte) + 9k€ (budget additionnel) = 34k€<br>
     • <strong>Gains :</strong> 75k€ (rollback) + 22k€ (refonte) + 36k€ (remarketing) = 133k€<br>
     • <strong>ROI :</strong> 291% sur 3 mois<br>
-    • <strong>Temps de retour :</strong> 3 semaines
+    • <strong>Temps de retour :</strong> 3 semaines<br>
+    • <strong>Coût de l'inaction :</strong> Chaque semaine sans rollback = ~6k€ de CA perdu (25k€/mois ÷ 4)
   </div>
 
   <div class="value-type">
@@ -2522,17 +2569,17 @@ export const unifiedLearningPath: LearningModule[] = [
     <ul class="correction-list">
       <li><strong>Jour 1 :</strong> Rollback version mobile + communication équipe</li>
       <li><strong>Semaine 1 :</strong> Audit UX + lancement remarketing renforcé</li>
-      <li><strong>Semaine 2-4 :</strong> Refonte mobile avec tests progressifs</li>
-      <li><strong>Mois 2-3 :</strong> Optimisation continue + monitoring performances</li>
+      <li><strong>Semaine 2-4 :</strong> Refonte mobile corrigée avec tests de performance (Lighthouse >90)</li>
+      <li><strong>Mois 2-3 :</strong> Déploiement progressif + monitoring performances</li>
     </ul>
   </div>
 
   <div class="value-type">
     <h3 class="value-title">KPIs de suivi hebdomadaire</h3>
     <ul class="correction-list">
-      <li><strong>Immédiat :</strong> Taux de rebond mobile, conversion mobile</li>
+      <li><strong>Immédiat :</strong> Temps de chargement mobile, taux de rebond mobile, ajouts panier</li>
       <li><strong>Business :</strong> ROAS, CPA, CA par device</li>
-      <li><strong>UX :</strong> Durée session mobile, pages/session</li>
+      <li><strong>UX :</strong> Durée session mobile, pages/session, taux ajout panier</li>
       <li><strong>Concurrence :</strong> Share of voice, positions SEO</li>
     </ul>
   </div>
@@ -3013,396 +3060,183 @@ export const unifiedLearningPath: LearningModule[] = [
           ]
         },
         teacherCorrection: `<div class="correction-content">
-  <h2 class="correction-title">1. Architecture du dashboard - 3 niveaux</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 1 : Vue d'ensemble Executive (Manager Marketing)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Vision globale en 30 secondes pour le pilotage stratégique
-    </div>
-    <div class="project-detail">
-      <strong>Contenu :</strong>
-      <ul class="feature-list">
-        <li><strong>Header :</strong> CA du mois vs objectif (gauge circulaire)</li>
-        <li><strong>KPIs principaux :</strong> ROAS global, Conversions totales, CPA moyen</li>
-        <li><strong>Tendances :</strong> Évolution 7j/30j avec sparklines</li>
-        <li><strong>Alertes :</strong> Indicateurs rouge/orange/vert par canal</li>
-        <li><strong>Budget :</strong> Consommation vs allocation mensuelle</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Mise à jour :</strong> Temps réel (refresh automatique 15min)
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 2 : Pilotage par canal (Traffic Managers)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Analyse comparative et optimisation quotidienne
-    </div>
-    <div class="project-detail">
-      <strong>Contenu :</strong>
-      <ul class="feature-list">
-        <li><strong>Tableau comparatif :</strong> Performance par canal (CTR, CPC, ROAS)</li>
-        <li><strong>Graphiques temporels :</strong> Évolution des métriques clés</li>
-        <li><strong>Top/Flop :</strong> Meilleures et pires campagnes</li>
-        <li><strong>Audiences :</strong> Performance par segment démographique</li>
-        <li><strong>Attribution :</strong> Parcours multi-touch simplifié</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Interactivité :</strong> Filtres par date, canal, campagne
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 3 : Détail opérationnel (Analyst)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Analyse granulaire pour optimisations techniques
-    </div>
-    <div class="project-detail">
-      <strong>Contenu :</strong>
-      <ul class="feature-list">
-        <li><strong>Mots-clés :</strong> Performance détaillée avec Quality Score</li>
-        <li><strong>Créatifs :</strong> CTR par visuel/message</li>
-        <li><strong>Landing pages :</strong> Taux de conversion par page</li>
-        <li><strong>Devices :</strong> Performance mobile vs desktop</li>
-        <li><strong>Géolocalisation :</strong> Performance par région</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Export :</strong> Données brutes pour analyses avancées
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">2. Les 15 KPIs essentiels avec seuils d'alerte</h2>
-
-  <div class="overflow-x-auto mb-6">
-    <table class="min-w-full bg-white border border-gray-300 text-sm">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="border border-gray-300 px-3 py-2 text-left">KPI</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Objectif</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Seuil Orange</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Seuil Rouge</th>
-          <th class="border border-gray-300 px-3 py-2 text-center">Niveau</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">CA mensuel</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">200k€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><180k€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><160k€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">ROAS global</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>5:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><4:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><3:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Conversions totales</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2000/mois</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><1800</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><1600</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">CPA moyen</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><20€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>25€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>30€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Taux de conversion</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>2,5%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><2%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><1,5%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">1</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">CTR Google Ads</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>4%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><3%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><2%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">CTR Facebook Ads</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>1,5%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><1%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><0,8%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Quality Score moyen</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>7/10</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><6/10</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><5/10</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Taux de rebond</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><40%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>50%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>60%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Panier moyen</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>100€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><90€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><80€</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Taux ouverture email</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>25%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><20%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><15%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">ROI influenceurs</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>3:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><2:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><1:1</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">2</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Impression Share</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>70%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><60%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><50%</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">Vitesse site mobile</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>90/100</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><80/100</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><70/100</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-300 px-3 py-2">NPS client</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">>50</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><40</td>
-          <td class="border border-gray-300 px-3 py-2 text-center"><30</td>
-          <td class="border border-gray-300 px-3 py-2 text-center">3</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">3. Mise en page visuelle - Wireframe détaillé</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Layout Niveau 1 - Vue Executive (1920x1080)</h3>
-    <div class="project-detail">
-      <strong>Header (200px hauteur) :</strong>
-      <ul class="feature-list">
-        <li><strong>Gauche :</strong> Logo EcoHome + "Dashboard Marketing"</li>
-        <li><strong>Centre :</strong> Gauge CA mensuel (150px diamètre) 180k€/200k€</li>
-        <li><strong>Droite :</strong> Date/heure + bouton refresh + alertes (🔴 3)</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Zone principale (880px hauteur) :</strong>
-      <ul class="feature-list">
-        <li><strong>Ligne 1 (220px) :</strong> 4 cartes KPIs (ROAS, Conversions, CPA, Taux conversion)</li>
-        <li><strong>Ligne 2 (220px) :</strong> Graphique évolution CA 30j + Répartition budget</li>
-        <li><strong>Ligne 3 (220px) :</strong> Performance par canal (tableau + mini-graphiques)</li>
-        <li><strong>Ligne 4 (220px) :</strong> Alertes détaillées + Actions recommandées</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Codes couleur et typographie</h3>
-    <div class="project-detail">
-      <strong>Palette couleurs :</strong>
-      <ul class="feature-list">
-        <li><strong>Vert EcoHome :</strong> #2E7D32 (brand, objectifs atteints)</li>
-        <li><strong>Orange :</strong> #F57C00 (attention, seuils d'alerte)</li>
-        <li><strong>Rouge :</strong> #D32F2F (critique, actions urgentes)</li>
-        <li><strong>Gris :</strong> #424242 (texte), #F5F5F5 (background)</li>
-        <li><strong>Bleu :</strong> #1976D2 (liens, actions secondaires)</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Typographie :</strong>
-      <ul class="feature-list">
-        <li><strong>Titres :</strong> Roboto Bold 24px/18px/16px</li>
-        <li><strong>KPIs :</strong> Roboto Medium 32px (valeurs principales)</li>
-        <li><strong>Labels :</strong> Roboto Regular 14px</li>
-        <li><strong>Détails :</strong> Roboto Light 12px</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">4. Système d'alertes par priorité</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">🔴 Alertes Critiques (Notification immédiate + Email + Slack)</h3>
-    <div class="project-detail">
-      <strong>Déclencheurs :</strong>
-      <ul class="feature-list">
-        <li>ROAS global < 3:1 pendant 4h consécutives</li>
-        <li>CA journalier < 50% de l'objectif après 18h</li>
-        <li>CPA > 30€ sur plus de 20% du budget quotidien</li>
-        <li>Taux de conversion < 1,5% pendant 6h</li>
-        <li>Site web inaccessible (monitoring uptime)</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Actions automatiques :</strong>
-      <ul class="feature-list">
-        <li>Pause des campagnes les plus déficitaires</li>
-        <li>Réallocation automatique vers les campagnes performantes</li>
-        <li>Notification équipe technique (si problème site)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">🟠 Alertes d'Optimisation (Email quotidien 9h)</h3>
-    <div class="project-detail">
-      <strong>Déclencheurs :</strong>
-      <ul class="feature-list">
-        <li>CTR < benchmark sectoriel -20% sur 3 jours</li>
-        <li>Quality Score moyen < 6/10</li>
-        <li>Budget campagne consommé à >80% avant 16h</li>
-        <li>Taux de rebond > 50% sur landing pages principales</li>
-        <li>Audiences avec <1000 utilisateurs actifs</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Recommandations automatiques :</strong>
-      <ul class="feature-list">
-        <li>Suggestions de mots-clés négatifs</li>
-        <li>Créatifs sous-performants à renouveler</li>
-        <li>Audiences à exclure ou étendre</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">🟢 Alertes d'Opportunité (Email hebdomadaire lundi 9h)</h3>
-    <div class="project-detail">
-      <strong>Déclencheurs :</strong>
-      <ul class="feature-list">
-        <li>Campagnes avec ROAS >7:1 (potentiel d'augmentation budget)</li>
-        <li>Mots-clés avec Impression Share <50% (opportunités manquées)</li>
-        <li>Nouvelles tendances de recherche détectées</li>
-        <li>Concurrents absents sur certains mots-clés</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">5. Plan de déploiement et formation</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 1 : Préparation (Semaine 1-2)</h4>
-      <ul class="deliverable-list">
-        <li><strong>Audit technique :</strong> Connecteurs disponibles</li>
-        <li><strong>Choix outil :</strong> Google Data Studio (gratuit, intégration native)</li>
-        <li><strong>Architecture données :</strong> Schéma de connexion</li>
-        <li><strong>Maquettage :</strong> Wireframes détaillés par niveau</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 2 : Développement (Semaine 3-4)</h4>
-      <ul class="deliverable-list">
-        <li><strong>Connexions :</strong> GA4, Google Ads, Facebook, Mailchimp</li>
-        <li><strong>Calculs :</strong> Métriques personnalisées et seuils</li>
-        <li><strong>Design :</strong> Interface utilisateur et responsive</li>
-        <li><strong>Tests :</strong> Validation données vs sources</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 3 : Déploiement (Semaine 5)</h4>
-      <ul class="deliverable-list">
-        <li><strong>Formation Manager :</strong> 2h pilotage stratégique</li>
-        <li><strong>Formation Traffic :</strong> 3h utilisation opérationnelle</li>
-        <li><strong>Formation Analyst :</strong> 4h configuration avancée</li>
-        <li><strong>Documentation :</strong> Guide utilisateur complet</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Phase 4 : Optimisation (Semaine 6-8)</h4>
-      <ul class="deliverable-list">
-        <li><strong>Feedback équipe :</strong> Ajustements interface</li>
-        <li><strong>Alertes :</strong> Calibrage des seuils</li>
-        <li><strong>Performance :</strong> Optimisation vitesse chargement</li>
-        <li><strong>Évolution :</strong> Nouvelles fonctionnalités</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Programme de formation par rôle</h3>
-    <div class="project-detail">
-      <strong>Manager Marketing (2h) :</strong>
-      <ul class="feature-list">
-        <li>Vue d'ensemble : lecture des KPIs principaux</li>
-        <li>Interprétation des alertes et prise de décision</li>
-        <li>Reporting direction : export et présentation</li>
-        <li>Définition des objectifs et seuils</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Traffic Managers (3h) :</strong>
-      <ul class="feature-list">
-        <li>Navigation entre les niveaux de détail</li>
-        <li>Analyse comparative des canaux</li>
-        <li>Identification des optimisations prioritaires</li>
-        <li>Utilisation des filtres et segments</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Analyst (4h) :</strong>
-      <ul class="feature-list">
-        <li>Configuration des connecteurs et métriques</li>
-        <li>Création de nouveaux rapports</li>
-        <li>Maintenance et troubleshooting</li>
-        <li>Formation des nouveaux utilisateurs</li>
-      </ul>
-    </div>
-  </div>
+  <h2 class="correction-title">1. Classement des dashboards</h2>
 
   <div class="example-box">
-    <strong>Budget estimé du projet :</strong><br>
-    • <strong>Développement :</strong> 15 jours × 400€ = 6 000€<br>
-    • <strong>Formation :</strong> 3 jours × 600€ = 1 800€<br>
-    • <strong>Outils :</strong> Google Data Studio gratuit<br>
-    • <strong>Total :</strong> 7 800€<br>
-    • <strong>ROI attendu :</strong> Gain de 2h/jour équipe = 20h/semaine = 4 000€/mois économisés
+    <strong>Classement final :</strong><br><br>
+    🥇 <strong>Dashboard B (L'Essentiel)</strong> > 🥈 <strong>Dashboard A (Le Mur)</strong> > 🥉 <strong>Dashboard C (Le Beau Gosse)</strong><br><br>
+    Le meilleur dashboard n'est pas le plus complet ni le plus beau : c'est celui qui permet de <strong>prendre une décision en 5 secondes</strong>.
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Analyse détaillée de chaque dashboard</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Dashboard A : "Le Mur" - 47 KPIs sur un seul écran</h3>
+    <div class="project-detail">
+      <strong>Forces :</strong>
+      <ul class="feature-list">
+        <li>Exhaustivité : toutes les données sont présentes</li>
+        <li>Un analyste expérimenté peut tout trouver (s'il a le temps)</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Faiblesses :</strong>
+      <ul class="feature-list">
+        <li><strong>47 KPIs = bruit :</strong> Aucune hiérarchie, impossible de savoir ce qui est important</li>
+        <li><strong>Mise à jour manuelle (Excel) :</strong> Données périmées, erreurs de copier-coller</li>
+        <li><strong>45 min de déchiffrage :</strong> Anti-pattern absolu. Un dashboard doit répondre en 5 secondes, pas 45 minutes.</li>
+        <li><strong>Pas de code couleur :</strong> Impossible de repérer ce qui va mal en un coup d'oeil</li>
+        <li><strong>Pas d'alertes :</strong> Les problèmes sont découverts trop tard</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Verdict :</strong> <span class="text-orange-600">Un tableau Excel déguisé en dashboard. L'information noyée ne vaut rien.</span>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Dashboard B : "L'Essentiel" - 3 niveaux, drill-down, alertes</h3>
+    <div class="project-detail">
+      <strong>Forces :</strong>
+      <ul class="feature-list">
+        <li><strong>3 niveaux de lecture :</strong> Vue d'ensemble → canal → détail (hiérarchie claire)</li>
+        <li><strong>Drill-down :</strong> On voit le résumé d'abord, on creuse si besoin</li>
+        <li><strong>Code couleur vert/orange/rouge :</strong> En 2 secondes on voit ce qui va et ce qui ne va pas</li>
+        <li><strong>Alertes automatiques :</strong> Notification si ROAS<3 ou CPA>seuil</li>
+        <li><strong>Temps réel :</strong> Données toujours à jour, pas de mise à jour manuelle</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Faiblesses :</strong>
+      <ul class="feature-list">
+        <li>Potentiellement trop simplifié pour l'analyste qui veut du granulaire (mais le drill-down compense)</li>
+        <li>Dépendant des connecteurs (si l'API casse, plus de données)</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Verdict :</strong> <span class="text-green-600">Le modèle à suivre. Répond à LA question : "est-ce que ça marche ?"</span>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Dashboard C : "Le Beau Gosse" - Design soigné, vanity metrics</h3>
+    <div class="project-detail">
+      <strong>Forces :</strong>
+      <ul class="feature-list">
+        <li><strong>Design soigné :</strong> Bonne première impression, agréable à regarder</li>
+        <li><strong>Engagement rate :</strong> Pertinent pour évaluer la performance social media</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Faiblesses :</strong>
+      <ul class="feature-list">
+        <li><strong>Vanity metrics uniquement :</strong> Likes, followers, impressions... mais PAS de conversion, CA, ROAS</li>
+        <li><strong>Pas de lien avec le business :</strong> 10 000 likes = combien d'euros ? Impossible à dire</li>
+        <li><strong>Pas de comparaison temporelle :</strong> On ne sait pas si ça monte ou ça descend</li>
+        <li><strong>12 secondes de chargement :</strong> Personne ne va attendre. Dashboard abandonné en pratique.</li>
+        <li><strong>Pas d'alertes :</strong> Aucune notification si les performances chutent</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Verdict :</strong> <span class="text-red-600">Le piège classique : mesurer la vanité (likes) au lieu de la valeur (CA). Joli mais inutile.</span>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">3. Refonte du Dashboard C</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Page 1 : Vue Business (ce que le manager voit en premier)</h3>
+    <div class="project-detail">
+      <strong>5 KPIs business avec code couleur vert/orange/rouge :</strong>
+      <ul class="feature-list">
+        <li><strong>CA mensuel</strong> avec tendance vs mois précédent et vs objectif</li>
+        <li><strong>ROAS global</strong> avec seuil d'alerte (<3 = rouge)</li>
+        <li><strong>Conversions totales</strong> avec répartition par canal</li>
+        <li><strong>CPA moyen</strong> avec comparaison historique</li>
+        <li><strong>Taux de conversion</strong> avec breakdown mobile/desktop</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Règle :</strong> Chaque KPI a un indicateur visuel (↑ vert, → orange, ↓ rouge) et une comparaison N-1.
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Page 2 : Performance par canal</h3>
+    <div class="project-detail">
+      <strong>Tableau comparatif incluant TOUS les canaux :</strong>
+      <ul class="feature-list">
+        <li><strong>Social media :</strong> Engagement + conversions attribuées + ROAS</li>
+        <li><strong>Paid Search :</strong> CTR, CPC, conversions, ROAS</li>
+        <li><strong>Organic :</strong> Sessions, conversions, taux de conversion</li>
+        <li><strong>Email :</strong> Taux ouverture, conversions, CA</li>
+      </ul>
+    </div>
+    <div class="project-detail">
+      <strong>Clé :</strong> Comparer les canaux sur les mêmes métriques business (pas likes vs CTR vs taux ouverture).
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Page 3 : Détail Social Media</h3>
+    <div class="project-detail">
+      <strong>Engagement + conversions attribuées :</strong>
+      <ul class="feature-list">
+        <li>Engagement rate par plateforme (Instagram, TikTok, Facebook, LinkedIn)</li>
+        <li>Conversions attribuées au social (last-click et assisted)</li>
+        <li>Top posts par engagement ET par conversions générées</li>
+        <li>ROI par plateforme sociale</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Alertes automatiques</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>ROAS < 3 :</strong> Notification immédiate (email + Slack)</li>
+        <li><strong>CPA > seuil :</strong> Alerte orange si +20%, rouge si +50%</li>
+        <li><strong>Budget > 80% consommé :</strong> Alerte de surconsommation</li>
+        <li><strong>Conversion drop > 20% :</strong> Alerte anomalie</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">4. Le test des 5 secondes</h2>
+
+  <div class="example-box">
+    <strong>En 5 secondes, le manager doit voir :</strong><br><br>
+    1. <strong>UN chiffre de CA</strong> avec tendance (↑ ou ↓) et couleur (vert = on track, rouge = problème)<br><br>
+    2. <strong>UN indicateur vert/rouge</strong> global : "ça va" ou "ça ne va pas"<br><br>
+    3. <strong>Le canal qui pose problème</strong> s'il y en a un (highlight rouge sur le canal défaillant)<br><br>
+    <strong>Si le manager doit réfléchir plus de 5 secondes pour savoir si les choses vont bien, le dashboard a échoué.</strong>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Application du test aux 3 dashboards</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Dashboard A :</strong> ❌ Échec. 45 minutes pour comprendre = anti-pattern</li>
+        <li><strong>Dashboard B :</strong> ✅ Réussi. Code couleur + hiérarchie = réponse en 2-3 secondes</li>
+        <li><strong>Dashboard C :</strong> ❌ Échec. 12s de chargement + vanity metrics = on ne sait même pas si le business va bien</li>
+      </ul>
+    </div>
   </div>
 
   <div class="value-type">
-    <h3 class="value-title">Indicateurs de succès du déploiement (30 jours)</h3>
+    <h3 class="value-title">Règles d'or du dashboard efficace</h3>
     <ul class="correction-list">
-      <li><strong>Adoption :</strong> 100% de l'équipe utilise le dashboard quotidiennement</li>
-      <li><strong>Efficacité :</strong> Réduction de 50% du temps de reporting manuel</li>
-      <li><strong>Réactivité :</strong> Délai moyen de détection des problèmes < 2h</li>
-      <li><strong>Performance :</strong> Amélioration ROAS global de 15% grâce aux optimisations</li>
-      <li><strong>Satisfaction :</strong> Note équipe >8/10 sur l'utilité du dashboard</li>
+      <li><strong>Règle des 5 secondes :</strong> Si tu ne peux pas répondre "ça va / ça ne va pas" en 5 secondes, c'est raté</li>
+      <li><strong>Hiérarchie :</strong> 5-7 KPIs max en vue principale, le reste en drill-down</li>
+      <li><strong>Code couleur :</strong> Vert/orange/rouge sur CHAQUE KPI avec seuils prédéfinis</li>
+      <li><strong>Temps réel :</strong> Un dashboard mis à jour manuellement est un rapport, pas un dashboard</li>
+      <li><strong>Business d'abord :</strong> CA et ROAS en premier. Les likes et impressions sont secondaires.</li>
     </ul>
   </div>
 </div>`,
@@ -3774,122 +3608,50 @@ export const unifiedLearningPath: LearningModule[] = [
           ]
         },
         teacherCorrection: `<div class="correction-content">
-  <h2 class="correction-title">1. Audit des opportunités d'automatisation par niveau</h2>
+  <h2 class="correction-title">1. Tri du backlog : Automatiser / Déléguer / Supprimer</h2>
 
   <div class="project-type">
-    <h3 class="project-type-title">Niveau 1 : Automatisation des tâches répétitives</h3>
-    <div class="project-detail">
-      <strong>Opportunités identifiées :</strong>
-      <ul class="feature-list">
-        <li><strong>Reporting quotidien :</strong> 1h/jour → automatisé (Google Data Studio)</li>
-        <li><strong>Alertes performance :</strong> Monitoring manuel → notifications automatiques</li>
-        <li><strong>Synchronisation CRM :</strong> Export/import manuel → API Zapier</li>
-        <li><strong>Création campagnes saisonnières :</strong> Duplication manuelle → templates</li>
-        <li><strong>Ajout mots-clés négatifs :</strong> Analyse hebdomadaire → règles automatiques</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Gain temps estimé :</strong> 8h/semaine (20% du temps Traffic Manager)
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 2 : Optimisation basée sur des règles</h3>
-    <div class="project-detail">
-      <strong>Opportunités identifiées :</strong>
-      <ul class="feature-list">
-        <li><strong>Pause campagnes déficitaires :</strong> CPA >50€ pendant 3 jours → pause auto</li>
-        <li><strong>Augmentation budgets performants :</strong> ROAS >6:1 → +20% budget</li>
-        <li><strong>Ajustement enchères :</strong> CTR <1% → -15% enchères</li>
-        <li><strong>Gestion planning :</strong> Pause nocturne → programmation horaire</li>
-        <li><strong>Réallocation géographique :</strong> Performance par région → ajustements auto</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Impact performance :</strong> +15% ROAS par réactivité accrue
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 3 : Machine Learning et prédiction</h3>
-    <div class="project-detail">
-      <strong>Opportunités identifiées :</strong>
-      <ul class="feature-list">
-        <li><strong>Smart Bidding :</strong> Enchères manuelles → Target CPA automatique</li>
-        <li><strong>Audiences similaires :</strong> Ciblage démographique → lookalikes clients VIP</li>
-        <li><strong>Attribution modeling :</strong> Last-click → data-driven attribution</li>
-        <li><strong>Prédiction churn :</strong> Identification clients à risque pour remarketing</li>
-        <li><strong>Optimisation créatifs :</strong> Test A/B manuel → rotation automatique</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Impact performance :</strong> +25% conversions par ciblage prédictif
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Niveau 4 : IA générative et créativité</h3>
-    <div class="project-detail">
-      <strong>Opportunités identifiées :</strong>
-      <ul class="feature-list">
-        <li><strong>Génération headlines :</strong> ChatGPT pour variations d'annonces</li>
-        <li><strong>Visuels personnalisés :</strong> Midjourney pour créatifs par audience</li>
-        <li><strong>Landing pages dynamiques :</strong> Contenu adapté au profil visiteur</li>
-        <li><strong>Chatbot qualification :</strong> IA conversationnelle pour leads</li>
-        <li><strong>Analyse sentiment :</strong> Monitoring avis clients automatisé</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Impact performance :</strong> +20% CTR par personnalisation créative
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">2. Priorisation des quick wins - Matrice Impact/Effort</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">🚀 QUICK WINS (Impact Élevé / Effort Faible) - Priorité 1</h3>
-    
+    <h3 class="project-type-title">⚙️ AUTOMATISER (11h/semaine libérées)</h3>
     <div class="overflow-x-auto mb-4">
       <table class="min-w-full bg-white border border-gray-300 text-sm">
         <thead class="bg-gray-100">
           <tr>
-            <th class="border border-gray-300 px-3 py-2 text-left">Action</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">Impact</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">Effort</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">Délai</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">ROI</th>
+            <th class="border border-gray-300 px-3 py-2 text-left">Tâche manuelle</th>
+            <th class="border border-gray-300 px-3 py-2 text-center">Temps actuel</th>
+            <th class="border border-gray-300 px-3 py-2 text-left">Solution d'automatisation</th>
+            <th class="border border-gray-300 px-3 py-2 text-center">Temps après</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-gray-300 px-3 py-2">Règles automatiques Google Ads</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Élevé</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Faible</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">1 semaine</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">500%</td>
+            <td class="border border-gray-300 px-3 py-2">Enchères Google Ads</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">4h/sem</td>
+            <td class="border border-gray-300 px-3 py-2">Smart Bidding Target CPA</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">30min/sem (monitoring)</td>
           </tr>
           <tr>
-            <td class="border border-gray-300 px-3 py-2">Dashboard automatisé Data Studio</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Élevé</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Faible</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">2 semaines</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">300%</td>
+            <td class="border border-gray-300 px-3 py-2">Reporting Excel</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">3h/sem</td>
+            <td class="border border-gray-300 px-3 py-2">Looker Studio automatique (connecté GA4 + Ads + Facebook)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">0 (auto)</td>
           </tr>
           <tr>
-            <td class="border border-gray-300 px-3 py-2">Audiences similaires Facebook</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Élevé</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Faible</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">3 jours</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">400%</td>
+            <td class="border border-gray-300 px-3 py-2">Mots-clés négatifs</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">2h/sem</td>
+            <td class="border border-gray-300 px-3 py-2">Règles automatiques Google Ads (termes de recherche > coût, 0 conversion → exclu auto)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">15min/sem (vérif)</td>
           </tr>
           <tr>
-            <td class="border border-gray-300 px-3 py-2">Alertes Slack/Email</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Moyen</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">Faible</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">1 jour</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">200%</td>
+            <td class="border border-gray-300 px-3 py-2">Budgets Facebook</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">2h/sem</td>
+            <td class="border border-gray-300 px-3 py-2">Campaign Budget Optimization (CBO)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">15min/sem (monitoring)</td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-3 py-2">Sync CRM</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">1h/mois</td>
+            <td class="border border-gray-300 px-3 py-2">Zapier automation (CRM → Google Ads Customer Match)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">0 (auto)</td>
           </tr>
         </tbody>
       </table>
@@ -3897,285 +3659,178 @@ export const unifiedLearningPath: LearningModule[] = [
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">📈 PROJETS MAJEURS (Impact Élevé / Effort Élevé) - Priorité 2</h3>
-    
+    <h3 class="project-type-title">👤 DÉLÉGUER au stagiaire (avec process documenté par Thomas)</h3>
     <div class="project-detail">
-      <strong>Smart Bidding déploiement complet :</strong>
       <ul class="feature-list">
-        <li><strong>Impact :</strong> +30% conversions, -20% CPA</li>
-        <li><strong>Effort :</strong> 4 semaines setup + 4 semaines apprentissage</li>
-        <li><strong>Prérequis :</strong> Historique conversions suffisant ✅</li>
-        <li><strong>Risque :</strong> Période d'instabilité initiale</li>
+        <li><strong>A/B test créas Facebook :</strong> Thomas documente le process (quels visuels tester, comment mesurer, quand arrêter). Le stagiaire exécute avec checklist.</li>
+        <li><strong>Pause/reprise campagnes saisonnières :</strong> Checklist simple (quelles campagnes, quand, à quel budget). Aucune expertise nécessaire.</li>
       </ul>
     </div>
+  </div>
 
+  <div class="project-type">
+    <h3 class="project-type-title">❌ SUPPRIMER</h3>
     <div class="project-detail">
-      <strong>Intégration CRM avancée :</strong>
+      <strong>Rien à supprimer.</strong> Avec 25k€/mois de budget média en jeu, chaque tâche a un impact financier direct. La question n'est pas "faut-il le faire ?" mais "qui/quoi le fait à la place de Thomas ?".
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Plan J-14 : la transition avant le départ de Thomas</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">J1-J3 : Documentation complète</h3>
+    <div class="project-detail">
+      <strong>Thomas documente TOUT :</strong>
       <ul class="feature-list">
-        <li><strong>Impact :</strong> Audiences LTV, remarketing offline</li>
-        <li><strong>Effort :</strong> Développement API custom</li>
-        <li><strong>Budget :</strong> 8k€ développement</li>
-        <li><strong>ROI :</strong> 18 mois</li>
+        <li><strong>Accès :</strong> Tous les comptes (Google Ads, Facebook Business Manager, GA4, CRM) avec identifiants dans un gestionnaire de mots de passe</li>
+        <li><strong>Process :</strong> Checklist pour chaque tâche récurrente (enchères, négatifs, reporting, A/B test)</li>
+        <li><strong>Logique actuelle :</strong> Pourquoi les enchères sont à tel niveau, quelles campagnes sont prioritaires, quel CPA viser par campagne</li>
+        <li><strong>Historique :</strong> Ce qui a marché/échoué les 6 derniers mois</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">J3-J5 : Smart Bidding Target CPA</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Action :</strong> Activer Smart Bidding Target CPA à 22€ (CPA actuel = base conservatrice) sur les campagnes Google Ads principales</li>
+        <li><strong>Budget test :</strong> Les premiers jours, limiter à 80% du budget habituel pour absorber la volatilité</li>
+        <li><strong>Monitoring :</strong> Vérifier quotidiennement que le CPA ne dépasse pas 30€</li>
+        <li><strong>Thomas supervise :</strong> Il est encore là pour corriger si le Smart Bidding déraille</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">J5-J7 : Looker Studio</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Action :</strong> Créer un dashboard Looker Studio connecté à GA4 + Google Ads + Facebook Ads</li>
+        <li><strong>Contenu :</strong> CA, ROAS, CPA, conversions par canal, tendances 7j/30j, alertes visuelles</li>
+        <li><strong>Remplace :</strong> Le reporting Excel hebdomadaire (3h/sem économisées)</li>
+        <li><strong>Partage :</strong> Lien automatique envoyé chaque lundi matin par email</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">J7-J10 : Règles automatiques</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>Pause si CPA > 35€ :</strong> Règle Google Ads - pause automatique des groupes d'annonces déficitaires</li>
+        <li><strong>Alerte si budget > 80% :</strong> Notification email/Slack si le budget journalier est presque épuisé</li>
+        <li><strong>Mots-clés négatifs automatiques :</strong> Termes de recherche avec coût > 50€ et 0 conversion → ajout automatique en négatif</li>
+        <li><strong>Thomas valide :</strong> Il vérifie que les règles sont bien paramétrées avant de partir</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">J10-J14 : Finalisation</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>CBO Facebook :</strong> Activer Campaign Budget Optimization sur les campagnes principales</li>
+        <li><strong>Zapier CRM :</strong> Setup de la synchronisation automatique CRM → Google Ads Customer Match</li>
+        <li><strong>Formation stagiaire :</strong> Thomas forme le stagiaire sur les tâches déléguées (A/B test créas, pause/reprise saisonnières)</li>
+        <li><strong>Test de résilience :</strong> Thomas ne touche plus rien pendant 2 jours, on vérifie que tout tourne</li>
       </ul>
     </div>
   </div>
 
   <hr class="my-8 border-gray-300">
 
-  <h2 class="correction-title">3. Stratégie Smart Bidding - Choix et paramétrage</h2>
+  <h2 class="correction-title">3. Stratégie Smart Bidding détaillée</h2>
 
   <div class="project-type">
-    <h3 class="project-type-title">Analyse de la situation actuelle</h3>
+    <h3 class="project-type-title">Pourquoi Target CPA (et pas Target ROAS ou Maximize Conversions) ?</h3>
     <div class="project-detail">
-      <strong>Données disponibles :</strong>
       <ul class="feature-list">
-        <li>✅ <strong>Volume conversions :</strong> 500+/mois (suffisant)</li>
-        <li>✅ <strong>Historique :</strong> 2 ans de données</li>
-        <li>✅ <strong>Tracking :</strong> GA4 + événements e-commerce</li>
-        <li>✅ <strong>Valeurs :</strong> LTV client disponible</li>
-        <li>⚠️ <strong>Saisonnalité :</strong> Pics janvier/septembre (rentrées)</li>
+        <li><strong>Target CPA à 22€ :</strong> CPA actuel de Thomas = base conservatrice. On dit à Google "fais au moins aussi bien que l'humain".</li>
+        <li><strong>500 conversions/mois :</strong> Largement au-dessus du minimum de 30 conversions/mois requis par Google. L'algorithme a assez de données pour apprendre.</li>
+        <li><strong>Pas Target ROAS :</strong> Plus complexe, nécessite des valeurs de conversion précises. Target CPA est plus simple à piloter pour un non-expert.</li>
+        <li><strong>Pas Maximize Conversions :</strong> Risque de flambée du CPA sans plafond. Trop risqué sans expert pour surveiller.</li>
       </ul>
     </div>
   </div>
 
   <div class="project-type">
-    <h3 class="project-type-title">Stratégie recommandée par campagne</h3>
-    
+    <h3 class="project-type-title">Période d'apprentissage</h3>
     <div class="project-detail">
-      <strong>Campagnes Search (Brand + Génériques) :</strong>
       <ul class="feature-list">
-        <li><strong>Stratégie :</strong> Target CPA</li>
-        <li><strong>CPA cible initial :</strong> 35€ (vs 40€ actuel)</li>
-        <li><strong>Justification :</strong> Volume prioritaire, CPA prévisible</li>
-        <li><strong>Période apprentissage :</strong> 2-3 semaines</li>
-      </ul>
-    </div>
-
-    <div class="project-detail">
-      <strong>Campagnes Display/YouTube :</strong>
-      <ul class="feature-list">
-        <li><strong>Stratégie :</strong> Maximize Conversions</li>
-        <li><strong>Budget :</strong> Limité à 150€/jour</li>
-        <li><strong>Justification :</strong> Découverte d'audiences, volume faible</li>
-        <li><strong>Évolution :</strong> Target CPA après 100 conversions</li>
-      </ul>
-    </div>
-
-    <div class="project-detail">
-      <strong>Campagnes Facebook/Instagram :</strong>
-      <ul class="feature-list">
-        <li><strong>Stratégie :</strong> Advantage+ Shopping (si e-commerce) ou Conversions</li>
-        <li><strong>Optimisation :</strong> Événement "Purchase" ou "Lead"</li>
-        <li><strong>Budget :</strong> Consolidation en moins de campagnes</li>
-        <li><strong>Audience :</strong> Broad + exclusions stratégiques</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Plan de déploiement Smart Bidding</h3>
-    
-    <div class="deliverables-grid">
-      <div class="deliverable-phase">
-        <h4 class="phase-title">Semaine 1-2 : Préparation</h4>
-        <ul class="deliverable-list">
-          <li>Audit tracking conversions</li>
-          <li>Configuration valeurs LTV</li>
-          <li>Backup stratégies manuelles</li>
-          <li>Formation équipe</li>
-        </ul>
-      </div>
-
-      <div class="deliverable-phase">
-        <h4 class="phase-title">Semaine 3-4 : Test pilote</h4>
-        <ul class="deliverable-list">
-          <li>Activation sur 30% du budget</li>
-          <li>Monitoring quotidien</li>
-          <li>Ajustements CPA cibles</li>
-          <li>Comparaison vs contrôle</li>
-        </ul>
-      </div>
-
-      <div class="deliverable-phase">
-        <h4 class="phase-title">Semaine 5-8 : Déploiement</h4>
-        <ul class="deliverable-list">
-          <li>Extension à 100% du budget</li>
-          <li>Optimisation continue</li>
-          <li>Analyse performance</li>
-          <li>Documentation learnings</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <hr class="my-8 border-gray-300">
-
-  <h2 class="correction-title">4. Audiences prédictives à créer</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Audiences basées sur la valeur client (LTV)</h3>
-    
-    <div class="project-detail">
-      <strong>Audience 1 : Clients Premium (Top 20% LTV)</strong>
-      <ul class="feature-list">
-        <li><strong>Critère :</strong> LTV >500€ sur 24 mois</li>
-        <li><strong>Taille estimée :</strong> 3 000 clients</li>
-        <li><strong>Usage :</strong> Source pour lookalike 1% et 2%</li>
-        <li><strong>Campagnes :</strong> Acquisition premium, services VIP</li>
-      </ul>
-    </div>
-
-    <div class="project-detail">
-      <strong>Audience 2 : Clients fidèles (Fréquence élevée)</strong>
-      <ul class="feature-list">
-        <li><strong>Critère :</strong> >12 mois d'abonnement actif</li>
-        <li><strong>Taille estimée :</strong> 5 000 clients</li>
-        <li><strong>Usage :</strong> Exclusion des campagnes acquisition</li>
-        <li><strong>Campagnes :</strong> Upsell, parrainage, rétention</li>
-      </ul>
-    </div>
-
-    <div class="project-detail">
-      <strong>Audience 3 : Prospects chauds (Engagement élevé)</strong>
-      <ul class="feature-list">
-        <li><strong>Critère :</strong> >3 pages vues + formulaire contact dans 7j</li>
-        <li><strong>Taille estimée :</strong> 2 000 utilisateurs/mois</li>
-        <li><strong>Usage :</strong> Remarketing agressif, offres spéciales</li>
-        <li><strong>Message :</strong> "Essai gratuit 7 jours"</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Audiences prédictives avancées</h3>
-    
-    <div class="project-detail">
-      <strong>Audience 4 : Risque de churn</strong>
-      <ul class="feature-list">
-        <li><strong>Critère :</strong> Baisse fréquentation >50% vs moyenne personnelle</li>
-        <li><strong>Algorithme :</strong> ML basé sur historique comportemental</li>
-        <li><strong>Mise à jour :</strong> Hebdomadaire</li>
-        <li><strong>Action :</strong> Campagne rétention automatique</li>
-      </ul>
-    </div>
-
-    <div class="project-detail">
-      <strong>Audience 5 : Potentiel upsell</strong>
-      <ul class="feature-list">
-        <li><strong>Critère :</strong> Abonnement de base + usage intensif</li>
-        <li><strong>Indicateurs :</strong> >15 visites/mois, cours premium consultés</li>
-        <li><strong>Prédiction :</strong> Probabilité upgrade >60%</li>
-        <li><strong>Message :</strong> Offres premium personnalisées</li>
+        <li><strong>Durée :</strong> 2-3 semaines de "learning period"</li>
+        <li><strong>Comportement attendu :</strong> CPA peut monter de +20-30% pendant l'apprentissage</li>
+        <li><strong>Budget de sécurité :</strong> Prévoir +15% de budget pour absorber la volatilité initiale</li>
+        <li><strong>NE PAS toucher :</strong> Surtout ne pas changer le CPA cible pendant les 2 premières semaines (l'algorithme a besoin de stabilité)</li>
+        <li><strong>Après stabilisation :</strong> Baisser progressivement le CPA cible de 1-2€ par semaine si les résultats sont bons</li>
       </ul>
     </div>
   </div>
 
   <hr class="my-8 border-gray-300">
 
-  <h2 class="correction-title">5. Planning de déploiement 6 mois avec budget et ROI</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Mois 1-2 : Fondations</h4>
-      <ul class="deliverable-list">
-        <li><strong>Actions :</strong> Règles auto, dashboard, alertes</li>
-        <li><strong>Budget :</strong> 2k€ (setup + formation)</li>
-        <li><strong>Gains :</strong> 8h/semaine libérées</li>
-        <li><strong>ROI :</strong> 300% (économie salaire)</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Mois 3-4 : Smart Bidding</h4>
-      <ul class="deliverable-list">
-        <li><strong>Actions :</strong> Déploiement enchères auto</li>
-        <li><strong>Budget :</strong> 1k€ (consulting spécialisé)</li>
-        <li><strong>Gains :</strong> +25% conversions</li>
-        <li><strong>ROI :</strong> 800% (amélioration performance)</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Mois 5-6 : IA Avancée</h4>
-      <ul class="deliverable-list">
-        <li><strong>Actions :</strong> Audiences prédictives, créatifs IA</li>
-        <li><strong>Budget :</strong> 3k€ (outils + développement)</li>
-        <li><strong>Gains :</strong> +20% CTR, +15% ROAS</li>
-        <li><strong>ROI :</strong> 400% (optimisation créative)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Budget total et ROI consolidé</h3>
-    
-    <div class="overflow-x-auto mb-4">
-      <table class="min-w-full bg-white border border-gray-300 text-sm">
-        <thead class="bg-gray-100">
-          <tr>
-            <th class="border border-gray-300 px-3 py-2 text-left">Poste</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">Investissement</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">Gains annuels</th>
-            <th class="border border-gray-300 px-3 py-2 text-center">ROI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border border-gray-300 px-3 py-2">Automatisation niveau 1-2</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">3 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">20 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">567%</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-3 py-2">Smart Bidding + ML</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">1 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">45 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">4400%</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-3 py-2">IA créative + prédictive</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">3 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">25 000€</td>
-            <td class="border border-gray-300 px-3 py-2 text-center">733%</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border border-gray-300 px-3 py-2"><strong>TOTAL</strong></td>
-            <td class="border border-gray-300 px-3 py-2 text-center"><strong>7 000€</strong></td>
-            <td class="border border-gray-300 px-3 py-2 text-center"><strong>90 000€</strong></td>
-            <td class="border border-gray-300 px-3 py-2 text-center"><strong>1186%</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <h2 class="correction-title">4. Chiffrage du risque : que se passe-t-il si rien n'est fait ?</h2>
 
   <div class="example-box">
-    <strong>Résultats attendus après 6 mois :</strong><br>
-    • <strong>Conversions :</strong> +35% (vs objectif +30%)<br>
-    • <strong>CPA :</strong> -25% (vs objectif -20%)<br>
-    • <strong>Temps de gestion :</strong> -60% (vs objectif -50%)<br>
-    • <strong>ROAS global :</strong> +40%<br>
-    • <strong>Temps de retour :</strong> 2,8 mois
+    <strong>Situation actuelle (Thomas) :</strong><br>
+    • CPA actuel : 22€<br>
+    • Budget mensuel : 25 000€<br>
+    • Conversions estimées : ~500/mois (réparti 60/40 Google/Facebook)<br>
+    • CA généré : performant et optimisé manuellement depuis 2 ans<br><br>
+
+    <strong>Scénario sans automatisation (débutant ou personne) :</strong><br>
+    • Un non-expert fait typiquement +40% de CPA → nouveau CPA : 30,8€<br>
+    • Pour le même budget de 25k€ : seulement ~812 conversions au lieu de ~1 136<br>
+    • Perte : environ 324 conversions perdues<br>
+    • En CA : estimation de perte de 5 000€ à 8 000€ par mois<br>
+    • <strong>Sur 3 mois sans remplaçant :</strong> 15 000€ à 24 000€ de CA perdu
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Comparaison des scénarios</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="min-w-full bg-white border border-gray-300 text-sm">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border border-gray-300 px-3 py-2 text-left">Scénario</th>
+            <th class="border border-gray-300 px-3 py-2 text-center">CPA</th>
+            <th class="border border-gray-300 px-3 py-2 text-center">Conversions/mois</th>
+            <th class="border border-gray-300 px-3 py-2 text-center">Risque</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 px-3 py-2">Thomas (actuel)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">22€</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">~500</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">Aucun</td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-3 py-2">Avec automatisation (plan J-14)</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">22-26€</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">~420-500</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">Faible (learning period)</td>
+          </tr>
+          <tr class="bg-red-50">
+            <td class="border border-gray-300 px-3 py-2">Sans rien faire</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">30-35€</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">~350</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">Élevé (5-8k€ perte/mois)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="value-type">
-    <h3 class="value-title">Indicateurs de succès à monitorer</h3>
+    <h3 class="value-title">Conclusion : le coût de l'inaction est bien supérieur au risque de l'automatisation</h3>
     <ul class="correction-list">
-      <li><strong>Performance :</strong> ROAS, CPA, taux de conversion par canal</li>
-      <li><strong>Efficacité :</strong> Temps passé en gestion manuelle</li>
-      <li><strong>Qualité :</strong> Stabilité des performances automatisées</li>
-      <li><strong>Adoption :</strong> Pourcentage du budget sous automatisation</li>
-      <li><strong>Innovation :</strong> Nouvelles fonctionnalités IA testées/mois</li>
-    </ul>
-  </div>
-
-  <div class="value-type">
-    <h3 class="value-title">Risques et mitigation</h3>
-    <ul class="correction-list">
-      <li><strong>Période d'apprentissage :</strong> Performances instables → Budget test limité</li>
-      <li><strong>Sur-automatisation :</strong> Perte de contrôle → Monitoring quotidien</li>
-      <li><strong>Dépendance technologique :</strong> Pannes système → Backup manuel</li>
-      <li><strong>Résistance équipe :</strong> Peur du changement → Formation et accompagnement</li>
+      <li><strong>Risque Smart Bidding :</strong> +20-30% CPA pendant 2-3 semaines = ~2 000-3 000€ de surcoût temporaire</li>
+      <li><strong>Risque sans rien faire :</strong> +40% CPA permanent = 5 000-8 000€ de perte CHAQUE mois</li>
+      <li><strong>Conclusion :</strong> Même dans le pire scénario, l'automatisation coûte 3x moins que l'inaction</li>
+      <li><strong>Bonus :</strong> Après la période d'apprentissage, le Smart Bidding fait souvent MIEUX que l'humain (il enchérit 24/7, pas seulement aux heures de bureau)</li>
     </ul>
   </div>
 </div>`,
