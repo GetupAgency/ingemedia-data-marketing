@@ -529,7 +529,7 @@ const Olympiades: React.FC = () => {
               <div className="text-center">
                 <div className="inline-block bg-indigo-100 px-6 py-3 rounded-xl">
                   <p className="text-indigo-900 font-semibold">
-                    Prochain tour : {teams[(currentTeam + 1) % 4].name} 🎯
+                    Prochain tour : {teams[(currentTeam + 1) % teams.length].name} 🎯
                   </p>
                 </div>
               </div>
