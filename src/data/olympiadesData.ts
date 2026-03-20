@@ -727,21 +727,5 @@ export const teams = [
     lightColor: 'bg-blue-100',
     textColor: 'text-blue-600',
     borderColor: 'border-blue-500'
-  },
-  {
-    id: 3,
-    name: 'Team ⚡ Thunder',
-    color: 'bg-yellow-500',
-    lightColor: 'bg-yellow-100',
-    textColor: 'text-yellow-600',
-    borderColor: 'border-yellow-500'
-  },
-  {
-    id: 4,
-    name: 'Team 🌟 Star',
-    color: 'bg-purple-500',
-    lightColor: 'bg-purple-100',
-    textColor: 'text-purple-600',
-    borderColor: 'border-purple-500'
   }
 ];

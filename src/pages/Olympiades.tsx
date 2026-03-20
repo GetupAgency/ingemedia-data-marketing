@@ -10,7 +10,7 @@ import { generateMixedOlympiadQuestions, teams, OlympiadQuestion } from '../data
 const Olympiades: React.FC = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [teamScores, setTeamScores] = useState([0, 0, 0, 0]);
+  const [teamScores, setTeamScores] = useState([0, 0]);
   const [currentTeam, setCurrentTeam] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -90,7 +90,7 @@ const Olympiades: React.FC = () => {
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setCurrentTeam((currentTeam + 1) % 4); // Rotation des équipes
+      setCurrentTeam((currentTeam + 1) % teams.length); // Rotation des équipes
       setTimeLeft(30);
       setIsAnswered(false);
       setSelectedAnswer(null);
@@ -108,7 +108,7 @@ const Olympiades: React.FC = () => {
     setQuestions(generateMixedOlympiadQuestions(4, 12));
     setGameStarted(false);
     setCurrentQuestion(0);
-    setTeamScores([0, 0, 0, 0]);
+    setTeamScores(teams.map(() => 0));
     setCurrentTeam(0);
     setTimeLeft(30);
     setIsAnswered(false);
