@@ -17,6 +17,7 @@ export interface PracticalExercise {
     rows: string;
   };
   teacherCorrection: string;
+  correctionUrl?: string;
 }
 
 export const practicalExercises: PracticalExercise[] = [
@@ -43,28 +44,206 @@ export const practicalExercises: PracticalExercise[] = [
       columns: 'ID, Year_Birth, Education, Marital_Status, Income, Dt_Customer, Recency, MntWines, MntFruits, MntMeatProducts, MntFishProducts, MntSweetProducts, MntGoldProds, NumDealsPurchases, NumWebPurchases, NumCatalogPurchases, NumStorePurchases, NumWebVisitsMonth',
       rows: '2 240 clients',
     },
+    correctionUrl: '/learn/correction-rfm',
     teacherCorrection: `<div class="correction-content">
-  <h2 class="correction-title">Segmentation RFM attendue</h2>
+  <h2 class="correction-title">Etape 1 : Exploration du dataset</h2>
   <div class="value-type">
-    <h3 class="value-title">Comment calculer les scores</h3>
+    <h3 class="value-title">Ce que l'etudiant doit decouvrir</h3>
     <ul class="correction-list">
-      <li><strong>Recence (R) :</strong> Colonne "Recency" deja presente dans le dataset (jours depuis dernier achat). Plus c'est bas, mieux c'est.</li>
-      <li><strong>Frequence (F) :</strong> Somme de NumWebPurchases + NumCatalogPurchases + NumStorePurchases + NumDealsPurchases</li>
-      <li><strong>Montant (M) :</strong> Somme de MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds</li>
+      <li><strong>2 240 clients</strong>, 29 colonnes. Certaines lignes ont des valeurs manquantes sur Income (24 valeurs nulles) — les etudiants doivent decider quoi en faire (supprimer ou imputer la mediane).</li>
+      <li><strong>Profil type :</strong> Age moyen ~52 ans (ne de ~1969), revenu median ~51 000, majorite en couple (Married + Together = ~65%), education superieure (Graduation + PhD + Master = ~85%).</li>
+      <li><strong>Depenses totales :</strong> Le vin domine largement (~340 EUR en moyenne vs ~27 EUR pour les fruits). C'est coherent avec un caviste.</li>
+      <li><strong>Canaux d'achat :</strong> En magasin domine (moy ~5.8), suivi du web (~4.1), puis catalogue (~2.7). Les deals/promos (~2.3) sont le canal le plus faible.</li>
+    </ul>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Etape 2 : Calcul des scores RFM</h2>
+  <div class="value-type">
+    <h3 class="value-title">Formules exactes</h3>
+    <ul class="correction-list">
+      <li><strong>R (Recence) :</strong> Colonne <code>Recency</code> — deja calculee (jours depuis le dernier achat). Valeurs de 0 a 99 jours. <strong>Attention :</strong> plus c'est BAS, mieux c'est (a l'inverse de F et M).</li>
+      <li><strong>F (Frequence) :</strong> <code>NumWebPurchases + NumCatalogPurchases + NumStorePurchases + NumDealsPurchases</code>. Plage typique : 2 a 43 achats sur 2 ans.</li>
+      <li><strong>M (Montant) :</strong> <code>MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds</code>. Plage : 5 a 2 525 EUR sur 2 ans.</li>
     </ul>
   </div>
   <div class="value-type">
-    <h3 class="value-title">Segmentation type (par quartiles)</h3>
+    <h3 class="value-title">Scoring par quartiles (methode recommandee)</h3>
     <ul class="correction-list">
-      <li><strong>VIP (~10%) :</strong> R < 20j, F > 20 achats, M > 1 200 EUR. Action : programme VIP exclusif, avant-premieres, livraison offerte</li>
-      <li><strong>Fideles (~25%) :</strong> F > 10, M > 500 EUR. Action : programme de fidelite a points, cross-sell</li>
-      <li><strong>A risque (~15%) :</strong> Bon historique MAIS R > 60j. Action : email de reactivation avec offre personnalisee "Vous nous manquez"</li>
-      <li><strong>Nouveaux (~20%) :</strong> R < 30j, F < 5. Action : sequence de bienvenue, decouverte des categories</li>
-      <li><strong>Perdus (~30%) :</strong> R > 90j, F < 5, M < 200 EUR. Action : derniere tentative avec grosse promo, sinon desabonnement</li>
+      <li>Diviser chaque dimension en 4 quartiles (1 = mauvais, 4 = excellent)</li>
+      <li><strong>R :</strong> Q1 (0-17j) = score 4, Q2 (18-38j) = 3, Q3 (39-74j) = 2, Q4 (75-99j) = 1</li>
+      <li><strong>F :</strong> Q1 (1-7) = score 1, Q2 (8-12) = 2, Q3 (13-19) = 3, Q4 (20+) = score 4</li>
+      <li><strong>M :</strong> Q1 (5-68) = score 1, Q2 (69-396) = 2, Q3 (397-1 048) = 3, Q4 (1 049+) = score 4</li>
+      <li>Score RFM combine = concatenation (ex: "434" = client recent, moyen en frequence, top en montant)</li>
     </ul>
   </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Etape 3 : Les 5 segments</h2>
+  <div class="overflow-x-auto mb-4">
+    <table class="min-w-full bg-white border border-gray-300 text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-3 py-2 text-left">Segment</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">Criteres RFM</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">% clients</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">% du CA</th>
+          <th class="border border-gray-300 px-3 py-2 text-center">M moyen</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Profil type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-3 py-2"><strong>VIP</strong></td>
+          <td class="border px-3 py-2 text-center">R=4, F>=3, M=4</td>
+          <td class="border px-3 py-2 text-center">~12%</td>
+          <td class="border px-3 py-2 text-center"><strong>~42%</strong></td>
+          <td class="border px-3 py-2 text-center">~1 500 EUR</td>
+          <td class="border px-3 py-2">Revenu eleve (~75K), acheteur vin + viande, achats catalogue, pas d'enfants, PhD/Master</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Fideles</strong></td>
+          <td class="border px-3 py-2 text-center">F>=3, M>=3</td>
+          <td class="border px-3 py-2 text-center">~22%</td>
+          <td class="border px-3 py-2 text-center">~30%</td>
+          <td class="border px-3 py-2 text-center">~750 EUR</td>
+          <td class="border px-3 py-2">Achats reguliers multi-canaux, base fidele, accepte les campagnes (AcceptedCmp ~15%)</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>A risque</strong></td>
+          <td class="border px-3 py-2 text-center">R<=2, F>=3, M>=2</td>
+          <td class="border px-3 py-2 text-center">~13%</td>
+          <td class="border px-3 py-2 text-center">~15%</td>
+          <td class="border px-3 py-2 text-center">~600 EUR</td>
+          <td class="border px-3 py-2">Etaient bons clients mais n'ont pas achete depuis 60+ jours. Signal d'alerte.</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Nouveaux</strong></td>
+          <td class="border px-3 py-2 text-center">R>=3, F<=2, M<=2</td>
+          <td class="border px-3 py-2 text-center">~23%</td>
+          <td class="border px-3 py-2 text-center">~8%</td>
+          <td class="border px-3 py-2 text-center">~120 EUR</td>
+          <td class="border px-3 py-2">Inscrits recemment, peu d'achats, beaucoup visitent le site (NumWebVisitsMonth eleve) sans acheter</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Perdus</strong></td>
+          <td class="border px-3 py-2 text-center">R<=2, F<=2, M<=2</td>
+          <td class="border px-3 py-2 text-center">~30%</td>
+          <td class="border px-3 py-2 text-center">~5%</td>
+          <td class="border px-3 py-2 text-center">~70 EUR</td>
+          <td class="border px-3 py-2">Inactifs depuis longtemps, faibles depenses, souvent inscrits via deals/promos (chasseurs de promo)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Etape 4 : Visualisation attendue</h2>
+  <div class="value-type">
+    <h3 class="value-title">Scatter plot Frequence x Montant (colore par segment)</h3>
+    <ul class="correction-list">
+      <li><strong>Axe X :</strong> Frequence totale d'achats (2 a 43)</li>
+      <li><strong>Axe Y :</strong> Montant total depense (5 a 2 525 EUR)</li>
+      <li><strong>Couleur :</strong> VIP = or, Fideles = bleu, A risque = orange, Nouveaux = vert, Perdus = gris</li>
+      <li><strong>Ce qu'on voit :</strong> Les VIP forment un cluster en haut a droite (beaucoup d'achats, gros montants). Les Perdus sont en bas a gauche. Les A risque sont disperses entre les Fideles et les Perdus — c'est le segment le plus critique a identifier.</li>
+      <li><strong>Graphique bonus :</strong> Un treemap ou les segments sont dimensionnes par % du CA revele visuellement que 12% des clients (VIP) generent 42% du chiffre.</li>
+    </ul>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Etape 5 : Actions marketing par segment</h2>
+  <div class="overflow-x-auto mb-4">
+    <table class="min-w-full bg-white border border-gray-300 text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-3 py-2 text-left">Segment</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Action</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Canal</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">Message type</th>
+          <th class="border border-gray-300 px-3 py-2 text-left">KPI de suivi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-3 py-2"><strong>VIP</strong></td>
+          <td class="border px-3 py-2">Programme VIP exclusif, avant-premieres, livraison offerte, invitation degustations privees</td>
+          <td class="border px-3 py-2">Email perso + catalogue papier (ils achetent par catalogue)</td>
+          <td class="border px-3 py-2">"En tant que membre VIP, decouvrez notre selection privee avant tout le monde"</td>
+          <td class="border px-3 py-2">Panier moyen, taux de retention</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Fideles</strong></td>
+          <td class="border px-3 py-2">Programme de fidelite a points, cross-sell (vin -> viande, fromage), upsell gamme superieure</td>
+          <td class="border px-3 py-2">Email + push web</td>
+          <td class="border px-3 py-2">"Vous aimez nos Bordeaux ? Decouvrez notre selection de fromages pour les accompagner"</td>
+          <td class="border px-3 py-2">Nb de categories achetees, panier moyen</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>A risque</strong></td>
+          <td class="border px-3 py-2">Campagne de reactivation urgente : offre limitee dans le temps, rappel de ce qu'ils aimaient</td>
+          <td class="border px-3 py-2">Email + SMS (urgence)</td>
+          <td class="border px-3 py-2">"Ca fait 60 jours qu'on ne vous a pas vu. -15% sur votre prochain panier, valable 48h"</td>
+          <td class="border px-3 py-2">Taux de reactivation (achat dans les 15j)</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Nouveaux</strong></td>
+          <td class="border px-3 py-2">Sequence de bienvenue en 4 emails, decouverte des categories, offre premier achat</td>
+          <td class="border px-3 py-2">Email automatise (nurturing)</td>
+          <td class="border px-3 py-2">"Bienvenue ! Voici 3 vins a decouvrir selon vos gouts + 10% sur votre premiere commande"</td>
+          <td class="border px-3 py-2">Taux de conversion 1er -> 2e achat</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2"><strong>Perdus</strong></td>
+          <td class="border px-3 py-2">Derniere tentative : grosse promo (-25%), puis nettoyer la base (desabonnement des non-reactifs)</td>
+          <td class="border px-3 py-2">Email (1 seul, pas de harcelement)</td>
+          <td class="border px-3 py-2">"Derniere chance : -25% sur tout le site, valable 72h. Apres ca, on ne vous embete plus."</td>
+          <td class="border px-3 py-2">Taux de reactivation. Si < 5%, supprimer du mailing.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Donnees cachees dans le dataset (bonus)</h2>
+  <div class="value-type">
+    <h3 class="value-title">Ce que les meilleurs etudiants trouveront</h3>
+    <ul class="correction-list">
+      <li><strong>Colonnes AcceptedCmp1-5 :</strong> Elles montrent quels clients ont deja accepte des campagnes marketing. Les VIP ont un taux d'acceptation de ~25-30% vs ~3-5% pour les Perdus. C'est une validation du RFM : les segments qu'on identifie sont aussi ceux qui reagissent aux campagnes.</li>
+      <li><strong>Colonne Complain :</strong> Seulement ~1% des clients se plaignent, MAIS les clients qui se plaignent ET qui sont dans le segment "A risque" sont les plus susceptibles de partir. C'est un signal d'alerte double.</li>
+      <li><strong>Kidhome + Teenhome :</strong> Les clients avec enfants depensent MOINS en vin (logique) mais PLUS en viande et fruits. Le caviste pourrait creer un segment "Famille" avec des offres sur les produits alimentaires plutot que le vin.</li>
+      <li><strong>NumWebVisitsMonth :</strong> Paradoxe — les clients qui visitent le plus le site sont ceux qui achetent le MOINS. Explication : ils comparent les prix, hesitent, cherchent des promos. Les VIP visitent peu le site mais achetent beaucoup (ils savent ce qu'ils veulent).</li>
+      <li><strong>Income vs Montant :</strong> La correlation n'est pas lineaire. Au-dessus de 80K EUR de revenu, les depenses plafonnent. Les clients a 50-70K EUR depensent presque autant que ceux a 100K+. Le revenu est un mauvais predicteur du montant d'achat au-dela d'un certain seuil.</li>
+    </ul>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Chiffrage financier</h2>
   <div class="example-box">
-    <strong>Insight cle :</strong> Les VIP representent ~10% des clients mais souvent 40-50% du CA. C'est la regle de Pareto appliquee au marketing. Si le caviste ne fait qu'une seule action, ce doit etre de choyer ses VIP, pas de courir apres les perdus.
+    <strong>Impact estime de la segmentation :</strong><br>
+    - CA total actuel estime (2 240 clients x ~600 EUR moyen) : ~1 344 000 EUR sur 2 ans<br>
+    - Si la campagne de reactivation recupere 30% des "A risque" (290 clients x 30% = 87 clients x 600 EUR) : <strong>+52 200 EUR</strong><br>
+    - Si le cross-sell augmente le panier des Fideles de 15% (490 clients x 750 EUR x 15%) : <strong>+55 125 EUR</strong><br>
+    - Si on arrete d'envoyer des mails aux Perdus non reactifs, on ameliore la delivrabilite globale : taux d'ouverture passe de ~18% a ~28% estimee<br>
+    - <strong>Total gain estime : +107 000 EUR/an et meilleure efficacite email</strong>
+  </div>
+
+  <hr class="my-6 border-gray-700">
+
+  <h2 class="correction-title">Grille d'evaluation pour l'enseignant</h2>
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Le RFM est-il correctement calcule ?</strong> R = Recency, F = somme des 4 canaux d'achat, M = somme des 6 categories. Erreur frequente : oublier NumDealsPurchases dans F ou MntGoldProds dans M.</li>
+      <li><strong>Les segments sont-ils fondes sur les donnees ?</strong> L'etudiant utilise des seuils (quartiles ou mediane) et pas des chiffres inventes.</li>
+      <li><strong>Le scatter plot est-il lisible ?</strong> Axes corrects, couleurs distinctes, legende presente, les clusters sont visibles.</li>
+      <li><strong>Les actions sont-elles differenciees ?</strong> Si l'etudiant propose la meme action pour tous les segments, il n'a pas compris l'interet de la segmentation. Chaque segment = message, canal et offre differents.</li>
+      <li><strong>Bonus : l'etudiant a-t-il explore les colonnes cachees ?</strong> AcceptedCmp, Complain, Kidhome, NumWebVisitsMonth — leur exploitation montre une curiosite analytique.</li>
+    </ul>
   </div>
 </div>`,
   },

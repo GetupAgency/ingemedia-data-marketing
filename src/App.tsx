@@ -23,6 +23,7 @@ import ExamResults from './pages/ExamResults';
 import Olympiades from './pages/Olympiades';
 import ConversionFunnel from './pages/ConversionFunnel';
 import TargetingCriteria from './pages/TargetingCriteria';
+import RFMCorrection from './pages/RFMCorrection';
 import './App.css';
 
 /**
@@ -84,6 +85,9 @@ function App() {
 
             {/* Module interactif critères de ciblage */}
             <Route path="/learn/targeting-criteria" element={<TargetingCriteria />} />
+
+            {/* Correction exercice RFM (page enseignant) */}
+            <Route path="/learn/correction-rfm" element={<RFMCorrection />} />
           </Routes>
         </main>
         

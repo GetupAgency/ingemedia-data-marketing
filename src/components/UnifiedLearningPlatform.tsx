@@ -1120,25 +1120,38 @@ const PracticalExercisesSection: React.FC<{ isTeacherMode: boolean }> = ({ isTea
                   {/* Teacher correction */}
                   {isTeacherMode && ex.teacherCorrection && (
                     <div>
-                      <button
-                        onClick={() => setShowCorrections(prev => ({ ...prev, [ex.id]: !prev[ex.id] }))}
-                        className="flex items-center gap-2 px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-lg text-neon-green text-sm font-mono hover:bg-neon-green/20 transition-all"
-                      >
-                        {showCorrections[ex.id] ? (
-                          <><EyeOff className="w-4 h-4" /> Masquer correction</>
-                        ) : (
-                          <><Eye className="w-4 h-4" /> Correction enseignant</>
-                        )}
-                      </button>
+                      {ex.correctionUrl ? (
+                        <Link
+                          to={ex.correctionUrl}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-lg text-neon-green text-sm font-mono hover:bg-neon-green/20 transition-all"
+                        >
+                          <Eye className="w-4 h-4" />
+                          Voir la correction detaillee
+                          <ChevronRight className="w-4 h-4" />
+                        </Link>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => setShowCorrections(prev => ({ ...prev, [ex.id]: !prev[ex.id] }))}
+                            className="flex items-center gap-2 px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-lg text-neon-green text-sm font-mono hover:bg-neon-green/20 transition-all"
+                          >
+                            {showCorrections[ex.id] ? (
+                              <><EyeOff className="w-4 h-4" /> Masquer correction</>
+                            ) : (
+                              <><Eye className="w-4 h-4" /> Correction enseignant</>
+                            )}
+                          </button>
 
-                      {showCorrections[ex.id] && (
-                        <div className="mt-3 bg-dark-900/60 border-l-4 border-neon-green rounded-xl p-5 prose-cyber">
-                          <div className="mb-3 flex items-center gap-2 text-neon-green text-xs font-mono">
-                            <Layers className="w-3.5 h-3.5" />
-                            Correction enseignant
-                          </div>
-                          <div dangerouslySetInnerHTML={{ __html: ex.teacherCorrection }} />
-                        </div>
+                          {showCorrections[ex.id] && (
+                            <div className="mt-3 bg-dark-900/60 border-l-4 border-neon-green rounded-xl p-5 prose-cyber">
+                              <div className="mb-3 flex items-center gap-2 text-neon-green text-xs font-mono">
+                                <Layers className="w-3.5 h-3.5" />
+                                Correction enseignant
+                              </div>
+                              <div dangerouslySetInnerHTML={{ __html: ex.teacherCorrection }} />
+                            </div>
+                          )}
+                        </>
                       )}
                     </div>
                   )}
